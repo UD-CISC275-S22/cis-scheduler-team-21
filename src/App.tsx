@@ -8,6 +8,8 @@ function App(): JSX.Element {
                 UD CISC275 with React Hooks and TypeScript
             </header>
             <p>
+                ChristianRullan
+                <br></br>
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload.
             </p>
