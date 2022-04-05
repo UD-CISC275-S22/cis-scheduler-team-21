@@ -1,0 +1,23 @@
+Plan
+  Degree
+    BA
+      Courses
+      Concentrations
+        Courses
+    BS
+      Courses
+      Concentration
+        Courses
+  Year
+    Winter 
+      Courses
+    Summer
+      Courses
+    Semester
+      Courses
+      
+ 
+Data we need to accumulate:
+  Prerequisites
+  Degree Requirements
+  Concentrations Requirements
