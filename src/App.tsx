@@ -3,15 +3,6 @@ import "./App.css";
 import { Button } from "react-bootstrap";
 import React, { useState } from "react";
 
-function addCommonPlanPic(): JSX.Element {
-    return (
-        <img
-            src={
-                "https://i.postimg.cc/CLSS3cqj/Screen-Shot-2022-04-07-at-2-34-26-PM.png"
-            }
-        ></img>
-    );
-}
 interface RevealButtonsProps {
     setVisible: (newVisibility: boolean) => void;
 }
@@ -47,8 +38,6 @@ function App(): JSX.Element {
                     ></img>
                 )}
             </div>
-            <div>{addCommonPlanPic}</div>
-
             <p>
                 ChristianRullan
                 <br></br>
