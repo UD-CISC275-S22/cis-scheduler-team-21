@@ -3,19 +3,21 @@
 > react-scripts test "--coverage"
 
 PASS src/App.test.tsx
-  ✓ renders the course name somewhere (53 ms)
+  ✓ renders the course name somewhere (43 ms)
 
-----------------|---------|----------|---------|---------|-------------------
-File            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
-----------------|---------|----------|---------|---------|-------------------
-All files       |      75 |       50 |   66.66 |      75 |                   
- src            |     100 |      100 |     100 |     100 |                   
-  App.tsx       |     100 |      100 |     100 |     100 |                   
- src/Components |   66.66 |       50 |      50 |   66.66 |                   
-  MakePlan.tsx  |   66.66 |       50 |      50 |   66.66 | 9                 
-----------------|---------|----------|---------|---------|-------------------
+-----------------------|---------|----------|---------|---------|-------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------|---------|----------|---------|---------|-------------------
+All files              |      60 |       50 |      50 |      60 |                   
+ src                   |     100 |      100 |     100 |     100 |                   
+  App.tsx              |     100 |      100 |     100 |     100 |                   
+ src/Components        |   55.55 |       50 |   42.85 |   55.55 |                   
+  CommonPlan.tsx       |      60 |       50 |      50 |      60 | 11-14             
+  MakePlan.tsx         |   66.66 |       50 |      50 |   66.66 | 9                 
+  ShowFallSemester.tsx |       0 |      100 |       0 |       0 | 6                 
+-----------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 Snapshots:   0 total
-Time:        2.752 s
+Time:        1.782 s
 Ran all test suites.
