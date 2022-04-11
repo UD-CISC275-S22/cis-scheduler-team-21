@@ -2,6 +2,11 @@
 //import { Button } from "react-bootstrap";
 import React from "react";
 
+export function ShowSemesterTable(): 
 export function ShowFallSemester(): JSX.Element {
-    return <div></div>;
+    return (
+        <div style={{ border: "1px solid black" }}>
+            <br></br>
+        </div>
+    );
 }
