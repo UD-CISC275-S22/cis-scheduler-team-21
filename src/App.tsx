@@ -6,7 +6,6 @@ import { MakePlan } from "./Components/MakePlan";
 import { CommonPlan } from "./Components/CommonPlan";
 
 function App(): JSX.Element {
-    const [visible, setVisible] = useState<boolean>(false);
     return (
         <div className="App">
             <header className="App-header">
