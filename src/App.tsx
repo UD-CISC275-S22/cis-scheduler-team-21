@@ -3,7 +3,7 @@ import "./App.css";
 import { Button } from "react-bootstrap";
 import React, { useState } from "react";
 import { MakePlan } from "./Components/MakePlan";
-        
+
 interface RevealButtonsProps {
     setVisible: (newVisibility: boolean) => void;
 }
@@ -12,7 +12,7 @@ function RevealButtons({ setVisible }: RevealButtonsProps): JSX.Element {
     return (
         <div>
             <Button onClick={() => setVisible(true)}>
-                Show Common 4 Year Plan 
+                Show Common 4 Year Plan
             </Button>
             <Button onClick={() => setVisible(false)}>
                 Hide Common 4 Year Plan
@@ -20,7 +20,6 @@ function RevealButtons({ setVisible }: RevealButtonsProps): JSX.Element {
         </div>
     );
 }
-
 
 function App(): JSX.Element {
     const [visible, setVisible] = useState<boolean>(false);
