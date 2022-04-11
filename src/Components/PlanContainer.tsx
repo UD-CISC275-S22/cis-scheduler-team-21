@@ -9,7 +9,7 @@ interface PlanProps {
 export function PlanContainer({ plan }: PlanProps): JSX.Element {
     return (
         <div>
-            <Form.Group as={Row} inline>
+            <Form.Group as={Row}>
                 <Col
                     style={{
                         textAlign: "left"
