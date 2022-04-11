@@ -1,4 +1,4 @@
-//import React from "react";
+import React from "react";
 import "./App.css";
 import { MakePlan } from "./Components/MakePlan";
 import { CommonPlan } from "./Components/CommonPlan";
