@@ -1,7 +1,5 @@
 //import React from "react";
 import "./App.css";
-import { Button } from "react-bootstrap";
-import React, { useState } from "react";
 import { MakePlan } from "./Components/MakePlan";
 import { CommonPlan } from "./Components/CommonPlan";
 
