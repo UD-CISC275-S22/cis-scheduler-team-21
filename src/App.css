@@ -37,3 +37,9 @@
         transform: rotate(360deg);
     }
 }
+.AddCourse {
+    width: 50%;
+    margin: auto;
+    align-items: left;
+    justify-content: center;
+}
