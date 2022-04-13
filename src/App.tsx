@@ -12,11 +12,6 @@ function App(): JSX.Element {
             </header>
             <h2>Kiefer Yost</h2>
             <h2>Christian Rullan</h2>
-            <p>
-                <br></br>
-                Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload.
-            </p>
             <CommonPlan></CommonPlan>
             <br></br>
             <MakePlan></MakePlan>
