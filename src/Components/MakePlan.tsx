@@ -13,10 +13,10 @@ const planList: Plan[] = [];
 
 export function MakePlan(): JSX.Element {
     const [Plans, setPlans] = useState<Plan[]>(planList);
-    const [Counter, setCounter] = useState<number>(0);
+    const [Counter, setCounter] = useState<number>(1);
     function newPlan(): void {
         const newPlan: Plan = {
-            Title: "plan" + Counter,
+            Title: "Plan " + Counter,
             id: Counter
         };
         //const planListCopy: Plan[] = [...planList, newPlan];
