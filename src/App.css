@@ -43,3 +43,9 @@
     align-items: left;
     justify-content: center;
 }
+
+.customButton {
+    background-color: coral;
+    border-radius: 10cm;
+    display: inline;
+}
