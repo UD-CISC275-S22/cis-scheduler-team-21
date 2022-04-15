@@ -9,6 +9,7 @@ export function AddSemester(): JSX.Element {
         <Form.Group>
             <br></br>
             <div>
+                <hr></hr>
                 <Button className="customButtonLeft">
                     Add Spring Semester
                 </Button>

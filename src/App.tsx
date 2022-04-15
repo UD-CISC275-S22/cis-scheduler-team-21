@@ -8,10 +8,11 @@ function App(): JSX.Element {
     return (
         <div className="App">
             <header className="App-header">
-                UD CISC275 with React Hooks and TypeScript
+                UD CIS SCHEDULER
+                <br></br>
+                <h4>Christian Rullan</h4>
+                <h4>Kiefer Yost</h4>
             </header>
-            <h2>Kiefer Yost</h2>
-            <h2>Christian Rullan</h2>
             <CommonPlan></CommonPlan>
             <br></br>
             <MakePlan></MakePlan>

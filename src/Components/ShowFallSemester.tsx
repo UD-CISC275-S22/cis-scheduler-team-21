@@ -3,8 +3,8 @@ import { Button, Form, Dropdown, DropdownButton } from "react-bootstrap";
 import { Course } from "../Interfaces/Courses";
 //import { ACCT } from "../Data/catalog.json";
 //import React from "react";
-import Data from "../Data/catalog.json";
-import backupCourseData from "../Data/catalog.json";
+//import Data from "../Data/catalog.json";
+//import backupCourseData from "../Data/catalog.json";
 
 /**const { Data }: Record<string, Course> =
     // Typecast the test data that we imported to be a record matching

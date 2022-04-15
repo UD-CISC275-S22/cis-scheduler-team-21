@@ -22,6 +22,7 @@ export function CommonPlan(): JSX.Element {
     const [visible, setVisible] = useState<boolean>(false);
     return (
         <div>
+            <br></br>
             <RevealButtons setVisible={setVisible}></RevealButtons>
             {visible && (
                 <img
