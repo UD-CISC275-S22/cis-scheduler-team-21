@@ -49,3 +49,10 @@
     border-radius: 10cm;
     display: inline;
 }
+
+.customButtonLeft {
+    margin-left: 28.5%;
+    background-color: coral;
+    border-radius: 10cm;
+    display: inline;
+}

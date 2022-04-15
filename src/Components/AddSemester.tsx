@@ -9,7 +9,9 @@ export function AddSemester(): JSX.Element {
         <Form.Group>
             <br></br>
             <div>
-                <Button className="customButton">Add Spring Semester</Button>
+                <Button className="customButtonLeft">
+                    Add Spring Semester
+                </Button>
                 <Button
                     className="customButton"
                     onClick={() => setVisible1(!visible1)}

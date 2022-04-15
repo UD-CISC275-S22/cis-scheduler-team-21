@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { Plan } from "./MakePlan";
 import { AddSemester } from "../Components/AddSemester";
-//import "../App.css";
+import "../App.css";
 
 interface PlanProps {
     plan: Plan;
@@ -29,10 +29,13 @@ export function PlanContainer({ plan }: PlanProps): JSX.Element {
                     }}
                 >
                     <div>
-                        <h4>{plan.Title}</h4>
-                        <Button onClick={() => setVisible(!visible)}>
-                            Show
-                        </Button>
+                        <span>
+                            <span className="h4">{plan.Title}</span>
+                            &nbsp;&nbsp;&nbsp;
+                            <Button onClick={() => setVisible(!visible)}>
+                                Show
+                            </Button>
+                        </span>
                         {visible && (
                             <div>
                                 <AddSemester></AddSemester>
