@@ -56,3 +56,13 @@
     border-radius: 10cm;
     display: inline;
 }
+
+.App-Body {
+    border-width: 1ch;
+    border-style: ridge;
+    margin-left: 25%;
+    margin-right: 25%;
+    color: white;
+    background-color: #232538;
+    font-size: 110%;
+}
