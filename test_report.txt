@@ -2,8 +2,23 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
+  console.error
+    Warning: validateDOMNesting(...): <body> cannot appear as a child of <div>.
+        at body
+        at div
+        at div
+        at App
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateDOMNesting (node_modules/react-dom/cjs/react-dom.development.js:10081:7)
+      at createInstance (node_modules/react-dom/cjs/react-dom.development.js:10181:5)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:19464:28)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22812:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
+
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (65 ms)
+  ✕ renders the course name somewhere (116 ms)
 
   ● renders the course name somewhere
 
@@ -27,6 +42,16 @@ FAIL src/App.test.tsx
               [0mKiefer Yost[0m
             [36m</h4>[39m
           [36m</header>[39m
+          [36m<div>[39m
+            [36m<body[39m
+              [33mclass[39m=[32m"App-Body"[39m
+            [36m>[39m
+              [36m<h2>[39m
+                [0mWelcome!!![0m
+              [36m</h2>[39m
+              [0m to the UD CIS SCHEDULER. Here you can setup schedules for your computer science degree! First start by creating a plan, then add the semesters and courses from there.[0m
+            [36m</body>[39m
+          [36m</div>[39m
           [36m<div>[39m
             [36m<br />[39m
             [36m<div>[39m
@@ -128,5 +153,5 @@ All files              |   41.93 |       25 |   33.33 |   41.93 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.173 s
+Time:        2.374 s
 Ran all test suites.
