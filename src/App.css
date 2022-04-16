@@ -15,13 +15,13 @@
 
 .App-header {
     width: 100%;
-    background-color: #282c34;
+    background-color: #1b1c41;
     min-height: 40vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
+    font-size: calc(30px + 2vmin);
     color: white;
 }
 
@@ -42,4 +42,17 @@
     margin: auto;
     align-items: left;
     justify-content: center;
+}
+
+.customButton {
+    background-color: coral;
+    border-radius: 10cm;
+    display: inline;
+}
+
+.customButtonLeft {
+    margin-left: 28.5%;
+    background-color: coral;
+    border-radius: 10cm;
+    display: inline;
 }

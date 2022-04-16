@@ -3,8 +3,8 @@ import { Button, Form, Dropdown, DropdownButton } from "react-bootstrap";
 import { Course } from "../Interfaces/Courses";
 //import { ACCT } from "../Data/catalog.json";
 //import React from "react";
-import Data from "../Data/catalog.json";
-import backupCourseData from "../Data/catalog.json";
+//import Data from "../Data/catalog.json";
+//import backupCourseData from "../Data/catalog.json";
 
 /**const { Data }: Record<string, Course> =
     // Typecast the test data that we imported to be a record matching
@@ -26,6 +26,8 @@ export interface AddCourseProps {
 
 const COURSES: Course[] = [];
 
+//COURSES.map((course: Course) => course);
+//COURSES.filter((course: Course): boolean => course.code.includes("CISC"));
 //COURSES.map((course: Course[]) =>
 
 function AddCourse({ setVisible }: AddCourseProps): JSX.Element {
@@ -38,7 +40,6 @@ function AddCourse({ setVisible }: AddCourseProps): JSX.Element {
         </div>
     );
 }
-
 export function ShowFallSemester(): JSX.Element {
     const [visible, setVisible] = useState<boolean>(false);
     const [course, setCourse] = useState<string>("");
