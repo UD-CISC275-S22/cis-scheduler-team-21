@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, Dropdown, DropdownButton } from "react-bootstrap";
 import { Course } from "../Interfaces/Courses";
+import { SemesterCreate } from "./SemesterCreate";
 //import { ACCT } from "../Data/catalog.json";
 //import React from "react";
 //import Data from "../Data/catalog.json";
@@ -30,7 +31,7 @@ const COURSES: Course[] = [];
 //COURSES.filter((course: Course): boolean => course.code.includes("CISC"));
 //COURSES.map((course: Course[]) =>
 
-function AddCourse({ setVisible }: AddCourseProps): JSX.Element {
+export function AddCourse({ setVisible }: AddCourseProps): JSX.Element {
     return (
         <div>
             <div>
@@ -50,6 +51,8 @@ export function ShowFallSemester(): JSX.Element {
 
     return (
         <div>
+            <SemesterCreate></SemesterCreate>
+            <br></br>
             <AddCourse setVisible={setVisible}></AddCourse>
             <div>Fall Courses:</div>
             {visible && (

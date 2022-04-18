@@ -24,7 +24,6 @@ function App(): JSX.Element {
             <CommonPlan></CommonPlan>
             <br></br>
             <MakePlan></MakePlan>
-            <ShowFallSemester></ShowFallSemester>
         </div>
     );
 }

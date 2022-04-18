@@ -66,3 +66,14 @@
     background-color: #232538;
     font-size: 110%;
 }
+
+.add-border {
+    border: solid 1px black;
+}
+
+table tr:nth-child(even) td {
+    background-color: rgb(216, 216, 216);
+}
+table tr:nth-child(odd) td {
+    background-color: white;
+}
