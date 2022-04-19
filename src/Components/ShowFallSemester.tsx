@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { Button, Form, Dropdown, DropdownButton } from "react-bootstrap";
-import { Course } from "../Interfaces/Courses";
-import { SemesterCreate } from "./SemesterCreate";
-//import { ACCT } from "../Data/catalog.json";
-//import React from "react";
+import { Button, Form } from "react-bootstrap";
+//import { Course } from "../Interfaces/Courses";
+//import { SemesterCreate } from "./SemesterCreate";
 import Data from "../Data/catalog.json";
 
 export interface AddCourseProps {
@@ -26,11 +24,11 @@ export function AddCourse({ setVisible }: AddCourseProps): JSX.Element {
 }
 export function ShowFallSemester(): JSX.Element {
     const [visible, setVisible] = useState<boolean>(false);
-    const [course, setCourse] = useState<string>("");
+    //const [course, setCourse] = useState<string>("");
 
-    function updateCourse(event: React.ChangeEvent<HTMLTextAreaElement>) {
+    /**function updateCourse(event: React.ChangeEvent<HTMLTextAreaElement>) {
         setCourse(event.target.value);
-    }
+    }*/
 
     /**<Form.Text>
                         {DataToObject.map((course: Course) => (
