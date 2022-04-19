@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import { MakePlan } from "./Components/MakePlan";
 import { CommonPlan } from "./Components/CommonPlan";
-import { ShowFallSemester } from "./Components/ShowFallSemester";
 
 function App(): JSX.Element {
     return (
