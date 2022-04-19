@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 //import { Course } from "../Interfaces/Courses";
-//import { SemesterCreate } from "./SemesterCreate";
+import { SemesterCreate } from "./SemesterCreate";
 import Data from "../Data/catalog.json";
 
 export interface AddCourseProps {
@@ -58,6 +58,7 @@ export function ShowFallSemester(): JSX.Element {
                 </Form.Group>*/
     return (
         <div>
+            <SemesterCreate></SemesterCreate>
             <AddCourse setVisible={setVisible}></AddCourse>
             {visible && (
                 <div className="input-group">
