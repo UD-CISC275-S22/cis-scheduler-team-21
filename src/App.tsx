@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import { MakePlan } from "./Components/MakePlan";
 import { CommonPlan } from "./Components/CommonPlan";
-import { ShowFallSemester } from "./Components/ShowFallSemester";
 
 function App(): JSX.Element {
     return (
@@ -24,7 +23,6 @@ function App(): JSX.Element {
             <CommonPlan></CommonPlan>
             <br></br>
             <MakePlan></MakePlan>
-            <ShowFallSemester></ShowFallSemester>
         </div>
     );
 }

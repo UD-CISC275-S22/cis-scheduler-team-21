@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Button, Form, Dropdown, DropdownButton } from "react-bootstrap";
 import { Course } from "../Interfaces/Courses";
+import { SemesterCreate } from "./SemesterCreate";
+//import { ACCT } from "../Data/catalog.json";
 //import React from "react";
 import Data from "../Data/catalog.json";
 
@@ -12,7 +14,7 @@ const DataToString = JSON.stringify(Data);
 const DataToObject = JSON.parse(DataToString);
 console.log(DataToObject);
 
-function AddCourse({ setVisible }: AddCourseProps): JSX.Element {
+export function AddCourse({ setVisible }: AddCourseProps): JSX.Element {
     return (
         <div>
             <div>
@@ -40,6 +42,14 @@ export function ShowFallSemester(): JSX.Element {
                     </Form.Text>
                     <Form.Group controlId="SearchCourse">
                     <Form.Label>Search for Course</Form.Label>
+    return (
+        <div>
+            <SemesterCreate></SemesterCreate>
+            <br></br>
+            <AddCourse setVisible={setVisible}></AddCourse>
+            <div>Fall Courses:</div>
+            {visible && (
+                <Form.Group controlId="formCourseName">
                     <Form.Control
                         type="Course"
                         placeholder="Enter Course Code"

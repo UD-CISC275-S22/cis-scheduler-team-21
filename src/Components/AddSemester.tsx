@@ -4,7 +4,10 @@ import { ShowFallSemester } from "../Components/ShowFallSemester";
 import "../App.css";
 
 export function AddSemester(): JSX.Element {
-    const [visible1, setVisible1] = useState<boolean>(false);
+    const [Fallelement, setFallelement] = useState<JSX.Element>();
+    function addFall(): void {
+        setFallelement(<ShowFallSemester></ShowFallSemester>);
+    }
     return (
         <Form.Group>
             <br></br>
@@ -13,18 +16,13 @@ export function AddSemester(): JSX.Element {
                 <Button className="customButtonLeft">
                     Add Spring Semester
                 </Button>
-                <Button
-                    className="customButton"
-                    onClick={() => setVisible1(!visible1)}
-                >
+                <Button className="customButton" onClick={addFall}>
                     Add Fall Semester
                 </Button>
                 <Button className="customButton">Add Winter Semester</Button>
                 <Button className="customButton">Add Summer Semester</Button>
             </div>
-            <div>
-                <div>{visible1 && <ShowFallSemester></ShowFallSemester>}</div>
-            </div>
+            <div>{Fallelement}</div>
         </Form.Group>
     );
 }
