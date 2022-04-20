@@ -1547,7 +1547,7 @@
           code: 'AFRA 306',
           name: 'African America History Since the Civil War',
           descr: 'Provides an overview of the major themes, issues, and debates in AfricaFAIL src/App.test.tsx
-  ✕ renders the course name somewhere (66 ms)
+  ✕ renders the course name somewhere (74 ms)
 
   ● renders the course name somewhere
 
@@ -1632,7 +1632,7 @@
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.462 s
+Time:        3.161 s
 Ran all test suites.
 n American History from the Civil War to the contemporary era. Through readings, lectures, discussions, and films, the course will address: the process of emancipation, Reconstruction, Jim Crow segregation and racial violence, black cultural production, the modern black freedom struggles, and black life in the 21st century.',
           credits: ' 3',
@@ -74715,7 +74715,7 @@ All files              |   35.48 |     12.5 |   23.52 |   35.48 |
   AddSemester.tsx      |       0 |      100 |       0 |       0 | 7-11              
   CommonPlan.tsx       |      60 |       50 |      50 |      60 | 11-14             
   MakePlan.tsx         |      40 |      100 |   33.33 |      40 | 18-26,33          
-  PlanContainer.tsx    |       0 |        0 |       0 |       0 | 13-35             
+  PlanContainer.tsx    |       0 |        0 |       0 |       0 | 13-34             
   SemesterCreate.tsx   |       0 |      100 |       0 |       0 | 5                 
   ShowFallSemester.tsx |    37.5 |        0 |       0 |    37.5 | 16-59             
  src/Interfaces        |       0 |        0 |       0 |       0 |                   
