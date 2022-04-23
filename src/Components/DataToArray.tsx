@@ -1,13 +1,5 @@
 import React, { useState } from "react";
 import Data from "../Data/catalog.json";
-<<<<<<< HEAD
-import { Course } from "../Interfaces/Courses";
-import { Form } from "react-bootstrap";
-
-const DataToString = JSON.stringify(Data);
-const DataToObject = JSON.parse(DataToString);
-const [query, setQuery] = useState<string>("");
-=======
 import { Course, Section } from "../Interfaces/Courses";
 //import { Form } from "react-bootstrap";
 /* const StringData: string = JSON.stringify(Data);
@@ -26,9 +18,8 @@ const courseList: Course[][] = Data2.map((section: Section): Course[] =>
         })
     )
 ); */
->>>>>>> efd67cccbe32955c2edf83709960aa1877044d98
 
-export function FilteredArray(): JSX.Element {
+/**export function FilteredArray(): JSX.Element {
     return (
         <div>
             {DataToObject.filter((course: Course) => {
@@ -47,7 +38,7 @@ export function FilteredArray(): JSX.Element {
             })}
         </div>
     );
-}
+}*/
 export function DataToArray(): JSX.Element {
     const [query, setQuery] = useState<string>("");
     const courseObjects: Course[] = [];
@@ -63,30 +54,18 @@ export function DataToArray(): JSX.Element {
     function updateQuery(event: React.ChangeEvent<HTMLInputElement>) {
         setQuery(event.target.value);
     }
-<<<<<<< HEAD
-    return arr;*/
-
-    return (
-        <div className="input-group">
-            <div className="form-outline">
-                <Form.Control
-                    type="search"
-                    id="form1"
-                    placeholder="Search"
-                    onChange={(event) => setQuery(event.target.value)}
-                />
-
-=======
     return (
         <div>
             <div>
-                <input type="text" onChange={updateQuery}></input>
->>>>>>> efd67cccbe32955c2edf83709960aa1877044d98
+                <input
+                    type="text"
+                    placeholder="Enter Course Code"
+                    onChange={updateQuery}
+                ></input>
                 <button
                     id="search-button"
                     type="button"
                     className="btn btn-primary"
-                    onClick={FilteredArray}
                 >
                     🔎
                 </button>
