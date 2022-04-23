@@ -5,7 +5,28 @@ import { Form } from "react-bootstrap";
 
 const DataToString = JSON.stringify(Data);
 const DataToObject = JSON.parse(DataToString);
+const [query, setQuery] = useState<string>("");
 
+export function FilteredArray(): JSX.Element {
+    return (
+        <div>
+            {DataToObject.filter((course: Course) => {
+                if (query === "") {
+                    return course;
+                } else if (
+                    course.code.toLowerCase().includes(query.toLowerCase())
+                ) {
+                    return course;
+                }
+            }).map((course: Course, index: React.Key | null | undefined) => {
+                <div key={index}>
+                    <p>course.code</p>
+                    <p>course.name</p>
+                </div>;
+            })}
+        </div>
+    );
+}
 export function DataToArray(): JSX.Element {
     //let arr: string[] = [];
     /**DataToObject.forEach(function (item: string) {
@@ -28,7 +49,7 @@ export function DataToArray(): JSX.Element {
         console.log(DataToObject[i]);
     }
     return arr;*/
-    const [query, setQuery] = useState<string>("");
+
     return (
         <div className="input-group">
             <div className="form-outline">
@@ -38,26 +59,12 @@ export function DataToArray(): JSX.Element {
                     placeholder="Search"
                     onChange={(event) => setQuery(event.target.value)}
                 />
-                {DataToObject.filter((course: Course) => {
-                    if (query === "") {
-                        return course;
-                    } else if (
-                        course.code.toLowerCase().includes(query.toLowerCase())
-                    ) {
-                        return course;
-                    }
-                }).map(
-                    (course: Course, index: React.Key | null | undefined) => {
-                        <div key={index}>
-                            <p>course.code</p>
-                            <p>course.name</p>
-                        </div>;
-                    }
-                )}
+
                 <button
                     id="search-button"
                     type="button"
                     className="btn btn-primary"
+                    onClick={FilteredArray}
                 >
                     🔎
                 </button>
