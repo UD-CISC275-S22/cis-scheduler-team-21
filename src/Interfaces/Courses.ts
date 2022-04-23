@@ -8,3 +8,7 @@ export interface Course {
     breadth: string;
     typ: string;
 }
+
+export interface Section {
+    course: Course[];
+}
