@@ -49,7 +49,11 @@ export function ShowFallSemester(): JSX.Element {
         <div>
             <SemesterCreate></SemesterCreate>
             <AddCourse setVisible={setVisible}></AddCourse>
-            {visible && { DataToArray }}
+            {visible && (
+                <div>
+                    <DataToArray></DataToArray>
+                </div>
+            )}
             <div>{visible && <Button>Add to Schedule</Button>}</div>
         </div>
     );
