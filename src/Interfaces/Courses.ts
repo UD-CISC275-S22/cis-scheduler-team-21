@@ -12,3 +12,9 @@ export interface Course {
 export interface Section {
     course: Course[];
 }
+
+export interface Plan {
+    //Defines what a plan is
+    Title: string;
+    id: number;
+}

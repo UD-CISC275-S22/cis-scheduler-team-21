@@ -1,5 +1,6 @@
 import React from "react";
 import "../App.css";
+//import { Course } from "../Interfaces/Courses";
 
 export function SemesterCreate(): JSX.Element {
     return (

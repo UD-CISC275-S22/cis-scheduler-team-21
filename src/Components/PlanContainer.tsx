@@ -1,9 +1,9 @@
 //import { isVisible } from "@testing-library/user-event/dist/utils";
 import React, { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
-import { Plan } from "./MakePlan";
 import { AddSemester } from "../Components/AddSemester";
 import "../App.css";
+import { Plan } from "../Interfaces/Courses";
 
 interface PlanProps {
     plan: Plan;
