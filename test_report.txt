@@ -18,7 +18,7 @@
       at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (84 ms)
+  ✕ renders the course name somewhere (78 ms)
 
   ● renders the course name somewhere
 
@@ -103,22 +103,22 @@ FAIL src/App.test.tsx
 -----------------------|---------|----------|---------|---------|-------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------|---------|----------|---------|---------|-------------------
-All files              |   18.18 |     8.33 |   17.39 |   18.18 |                   
+All files              |   21.05 |     12.5 |   19.04 |   21.05 |                   
  src                   |     100 |      100 |     100 |     100 |                   
   App.tsx              |     100 |      100 |     100 |     100 |                   
- src/Components        |   16.27 |     8.33 |   13.63 |   16.27 |                   
+ src/Components        |   18.91 |     12.5 |      15 |   18.91 |                   
   AddSemester.tsx      |       0 |      100 |       0 |       0 | 7-11              
   CommonPlan.tsx       |      60 |       50 |      50 |      60 | 11-14             
-  DataToArray.tsx      |       0 |        0 |       0 |       0 | 23-61             
-  MakePlan.tsx         |      40 |      100 |   33.33 |      40 | 18-26,33          
+  DataToArray.tsx      |       0 |      100 |       0 |       0 | 23-40             
+  MakePlan.tsx         |      40 |      100 |   33.33 |      40 | 14-22,29          
   PlanContainer.tsx    |       0 |        0 |       0 |       0 | 13-34             
-  SemesterCreate.tsx   |       0 |      100 |       0 |       0 | 5                 
-  ShowFallSemester.tsx |       0 |        0 |       0 |       0 | 14-48             
+  SemesterCreate.tsx   |       0 |      100 |       0 |       0 | 6                 
+  ShowFallSemester.tsx |       0 |        0 |       0 |       0 | 15-48             
  src/Interfaces        |       0 |        0 |       0 |       0 |                   
   Courses.ts           |       0 |        0 |       0 |       0 |                   
 -----------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.681 s
+Time:        2.122 s
 Ran all test suites.
