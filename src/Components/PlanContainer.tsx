@@ -29,19 +29,16 @@ export function PlanContainer({ plan }: PlanProps): JSX.Element {
                     }}
                 >
                     <div>
-                        <span>
-                            <span className="h4">{plan.Title}</span>
-                            &nbsp;&nbsp;&nbsp;
-                            <Button onClick={() => setVisible(!visible)}>
-                                Show
-                            </Button>
-                        </span>
-                        {visible && (
-                            <div>
-                                <AddSemester></AddSemester>
-                            </div>
-                        )}
+                        <span className="h4">{plan.Title}</span>
+                        &nbsp;&nbsp;&nbsp;
+                        <Button onClick={() => setVisible(!visible)}>
+                            Show
+                        </Button>
                         <hr></hr>
+                        <div style={{ display: visible ? "block" : "none" }}>
+                            <AddSemester></AddSemester>
+                            <hr></hr>
+                        </div>
                     </div>
                 </Col>
             </Form.Group>
