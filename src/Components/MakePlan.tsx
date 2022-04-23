@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import { Plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
 //import { ShowFallSemester } from "./ShowFallSemester";
-export interface Plan {
-    //Defines what a plan is
-    Title: string;
-    id: number;
-}
 
 //The total plans a person has made
 const planList: Plan[] = [];
