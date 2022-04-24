@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
+//import { Form } from "react-bootstrap";
 import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
-//import { Form } from "react-bootstrap";
 /* const StringData: string = JSON.stringify(Data);
 const Data2: Section[] = JSON.parse(StringData);
 const courseList: Course[][] = Data2.map((section: Section): Course[] =>
@@ -40,7 +40,6 @@ const courseList: Course[][] = Data2.map((section: Section): Course[] =>
     );
 }*/
 export function DataToArray(): JSX.Element {
-    const [query, setQuery] = useState<string>("");
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
     const DataObjects: Section[] = Object.values(JSON.parse(StringData));
@@ -51,42 +50,27 @@ export function DataToArray(): JSX.Element {
             courseObjects.push(course);
         });
     });
-    function updateQuery(event: React.ChangeEvent<HTMLInputElement>) {
-        setQuery(event.target.value);
-    }
     return (
         <div>
             <div>
-                <input
-                    type="text"
-                    placeholder="Enter Course Code"
-                    onChange={updateQuery}
-                ></input>
+                <input id="searchID" type="text" list="searchList"></input>
+                <datalist id="searchList">
+                    {courseObjects.map(
+                        (course: Course): JSX.Element => (
+                            <option key={course.code} value={course.code}>
+                                {course.code}
+                            </option>
+                        )
+                    )}
+                </datalist>
                 <button
                     id="search-button"
                     type="button"
                     className="btn btn-primary"
                 >
-                    🔎
+                    +
                 </button>
             </div>
-            {courseObjects
-                .filter((course: Course): Course | void => {
-                    if (query === "") {
-                        return course;
-                    } else if (
-                        course.code.toLowerCase().includes(query.toLowerCase())
-                    ) {
-                        return course;
-                    }
-                })
-                .map(
-                    (course: Course): JSX.Element => (
-                        <div key={course.code}>
-                            <p>{course.code}</p>
-                        </div>
-                    )
-                )}
         </div>
     );
 }

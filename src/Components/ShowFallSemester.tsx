@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { SemesterCreate } from "./SemesterCreate";
 import { DataToArray } from "./DataToArray";
+//import { Course } from "../Interfaces/Courses";
 //import Data from "../Data/catalog.json";
 
 export interface AddCourseProps {
@@ -38,7 +39,6 @@ export function AddCourse({ setVisible }: AddCourseProps): JSX.Element {
 
 export function ShowFallSemester(): JSX.Element {
     const [visible, setVisible] = useState<boolean>(false);
-
     //const [course, setCourse] = useState<string>("");
 
     /**function updateCourse(event: React.ChangeEvent<HTMLTextAreaElement>) {
@@ -54,7 +54,6 @@ export function ShowFallSemester(): JSX.Element {
                     <DataToArray></DataToArray>
                 </div>
             )}
-            <div>{visible && <Button>Add to Schedule</Button>}</div>
         </div>
     );
 }
