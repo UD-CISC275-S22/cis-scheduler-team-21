@@ -12,7 +12,7 @@ export function PlanContainer({ plan }: PlanProps): JSX.Element {
     const [visible, setVisible] = useState<boolean>(false);
     return (
         <div>
-            <Form.Group as={Row}>
+            <Form.Group>
                 <Col
                     style={{
                         textAlign: "left"
