@@ -18,7 +18,7 @@
       at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (78 ms)
+  ✕ renders the course name somewhere (108 ms)
 
   ● renders the course name somewhere
 
@@ -119,5 +119,5 @@ All files              |   17.39 |     12.5 |   19.04 |   17.39 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.447 s
+Time:        3.283 s
 Ran all test suites.
