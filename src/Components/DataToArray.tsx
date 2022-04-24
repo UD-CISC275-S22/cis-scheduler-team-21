@@ -1,25 +1,11 @@
-import React from "react";
-//import { Form } from "react-bootstrap";
+import React, { useState } from "react";
 import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
-/* const StringData: string = JSON.stringify(Data);
-const Data2: Section[] = JSON.parse(StringData);
-const courseList: Course[][] = Data2.map((section: Section): Course[] =>
-    section.course.map(
-        (course: Course): Course => ({
-            code: course.code,
-            name: course.name,
-            descr: course.descr,
-            credits: course.credits,
-            preReq: course.preReq,
-            restrict: course.restrict,
-            breadth: course.breadth,
-            typ: course.typ
-        })
-    )
-); */
+import "../App.css";
+import { Button } from "react-bootstrap";
 
 export function DataToArray(): JSX.Element {
+    const [course1, setCourse1] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
     const DataObjects: Section[] = Object.values(JSON.parse(StringData));
@@ -30,27 +16,57 @@ export function DataToArray(): JSX.Element {
             courseObjects.push(course);
         });
     });
+    function addTable(): JSX.Element | void {
+        const courseInp: HTMLInputElement = document.getElementById(
+            "searchID"
+        ) as HTMLInputElement;
+        const courseObj: string = courseInp.value;
+        if (courseObj !== "") {
+            const AddCourse: Course[] = courseObjects.filter(
+                (course: Course): boolean => course.code === courseObj
+            );
+            const singleCourse: Course = AddCourse[0];
+            if (
+                course1.some(
+                    (course: Course): boolean =>
+                        course.code === singleCourse.code
+                )
+            ) {
+                return; //needs error message
+            } else {
+                const AddCourse2: Course[] = [...course1, singleCourse];
+                setCourse1(AddCourse2);
+            }
+        }
+    }
     return (
         <div>
             <div>
-                <input id="searchID" type="text" list="searchList"></input>
-                <datalist id="searchList">
-                    {courseObjects.map(
+                <table className="add-border">
+                    {course1.map(
                         (course: Course): JSX.Element => (
-                            <option key={course.code} value={course.code}>
-                                {course.code}
-                            </option>
+                            <tr key={course.code} className="innerTR">
+                                <td>{course.code}</td>
+                                <td>{course.name}</td>
+                                <td>{course.credits}</td>
+                            </tr>
                         )
                     )}
-                </datalist>
-                <button
-                    id="search-button"
-                    type="button"
-                    className="btn btn-primary"
-                >
-                    +
-                </button>
+                </table>
             </div>
+            <input id="searchID" type="text" list="searchList"></input>
+            <datalist id="searchList">
+                {courseObjects.map(
+                    (course: Course): JSX.Element => (
+                        <option key={course.code} value={course.code}>
+                            {course.code}
+                        </option>
+                    )
+                )}
+            </datalist>
+            <Button id="search-button" onClick={addTable}>
+                +
+            </Button>
         </div>
     );
 }

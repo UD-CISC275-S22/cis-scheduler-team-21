@@ -1,4 +1,3 @@
-//import { isVisible } from "@testing-library/user-event/dist/utils";
 import React, { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { AddSemester } from "../Components/AddSemester";
@@ -11,15 +10,6 @@ interface PlanProps {
 
 export function PlanContainer({ plan }: PlanProps): JSX.Element {
     const [visible, setVisible] = useState<boolean>(false);
-    /* function semesterLayout(): JSX.Element {
-        return (
-            <Form.Group>
-                <div>
-                    <Button>hello</Button>
-                </div>
-            </Form.Group>
-        );
-    } */
     return (
         <div>
             <Form.Group as={Row}>
@@ -35,7 +25,11 @@ export function PlanContainer({ plan }: PlanProps): JSX.Element {
                             Show
                         </Button>
                         <hr></hr>
-                        <div style={{ display: visible ? "block" : "none" }}>
+                        <div
+                            style={{
+                                display: visible ? "block" : "none"
+                            }}
+                        >
                             <AddSemester></AddSemester>
                             <hr></hr>
                         </div>
