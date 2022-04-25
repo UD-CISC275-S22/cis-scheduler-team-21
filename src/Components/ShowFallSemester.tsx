@@ -5,8 +5,8 @@ export function ShowFallSemester(): JSX.Element {
     return (
         <div>
             <table className="add-border" style={{ borderBottom: 0 }}>
-                <tr>
-                    <h4>Fall Semester</h4>
+                <tr style={{ textAlign: "center" }}>
+                    <h3>Fall Semester</h3>
                 </tr>
                 <tr
                     style={{ borderBottom: 0, borderRight: 0, borderLeft: 0 }}

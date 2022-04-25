@@ -48,13 +48,11 @@
     background-color: coral;
     border-radius: 10cm;
     display: inline;
+    width: 10%;
 }
 
-.customButtonLeft {
-    margin-left: 28.5%;
-    background-color: coral;
-    border-radius: 10cm;
-    display: inline;
+.alignChildrenCenter {
+    align-items: center;
 }
 
 .App-Body {
