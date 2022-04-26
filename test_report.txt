@@ -18,7 +18,7 @@
       at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (88 ms)
+  ✕ renders the course name somewhere (105 ms)
 
   ● renders the course name somewhere
 
@@ -100,24 +100,25 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
------------------------|---------|----------|---------|---------|-------------------
-File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
------------------------|---------|----------|---------|---------|-------------------
-All files              |   17.02 |     12.5 |   18.18 |   17.02 |                   
- src                   |     100 |      100 |     100 |     100 |                   
-  App.tsx              |     100 |      100 |     100 |     100 |                   
- src/Components        |   15.21 |     12.5 |   14.28 |   15.21 |                   
-  AddSemester.tsx      |       0 |      100 |       0 |       0 | 7-11              
-  CommonPlan.tsx       |      60 |       50 |      50 |      60 | 11-14             
-  DataToArray.tsx      |       0 |        0 |       0 |       0 | 8-73              
-  MakePlan.tsx         |      40 |      100 |   33.33 |      40 | 14-22,29          
-  PlanContainer.tsx    |       0 |        0 |       0 |       0 | 12-24             
-  ShowFallSemester.tsx |       0 |      100 |       0 |       0 | 5                 
- src/Interfaces        |       0 |        0 |       0 |       0 |                   
-  Courses.ts           |       0 |        0 |       0 |       0 |                   
------------------------|---------|----------|---------|---------|-------------------
+-------------------------|---------|----------|---------|---------|-------------------
+File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------------|---------|----------|---------|---------|-------------------
+All files                |   16.66 |     12.5 |   17.39 |   16.66 |                   
+ src                     |     100 |      100 |     100 |     100 |                   
+  App.tsx                |     100 |      100 |     100 |     100 |                   
+ src/Components          |   14.89 |     12.5 |   13.63 |   14.89 |                   
+  AddSemester.tsx        |       0 |      100 |       0 |       0 | 7-13              
+  CommonPlan.tsx         |      60 |       50 |      50 |      60 | 11-14             
+  DataToArray.tsx        |       0 |        0 |       0 |       0 | 9-78              
+  MakePlan.tsx           |      40 |      100 |   33.33 |      40 | 14-22,29          
+  PlanContainer.tsx      |       0 |        0 |       0 |       0 | 12-24             
+  ShowFallSemester.tsx   |       0 |      100 |       0 |       0 | 6                 
+ src/Interfaces          |       0 |        0 |       0 |       0 |                   
+  Courses.ts             |       0 |        0 |       0 |       0 |                   
+  semesterInterfaces.tsx |       0 |        0 |       0 |       0 |                   
+-------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.673 s
+Time:        3.306 s
 Ran all test suites.
