@@ -51,6 +51,12 @@ export function DataToArray({ setFall, Visible }: SetFallProp): JSX.Element {
     function deleteTable(): void {
         setFall(<></>);
     }
+    function deleteCourse(course: Course) {
+        const courseCopy: Course[] = course1.filter(
+            (x: Course): boolean => x !== course
+        );
+        setCourse1(courseCopy);
+    }
     return (
         <div>
             <div style={{ marginBottom: "1ch" }}>
@@ -61,6 +67,18 @@ export function DataToArray({ setFall, Visible }: SetFallProp): JSX.Element {
                                 <td>{course.code}</td>
                                 <td>{course.name}</td>
                                 <td>{course.credits}</td>
+                                {Visible && (
+                                    <td>
+                                        <Button
+                                            style={{
+                                                backgroundColor: "darkRed"
+                                            }}
+                                            onClick={() => deleteCourse(course)}
+                                        >
+                                            Delete
+                                        </Button>
+                                    </td>
+                                )}
                             </tr>
                         )
                     )}
