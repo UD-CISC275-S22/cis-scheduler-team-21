@@ -69,6 +69,13 @@
 
 .add-border {
     border: solid 1px black;
+    width: 100%;
+    display: table;
+}
+
+.innerTR {
+    width: 100%;
+    display: table;
 }
 
 table tr:nth-child(even) td {
@@ -76,4 +83,9 @@ table tr:nth-child(even) td {
 }
 table tr:nth-child(odd) td {
     background-color: white;
+}
+
+td {
+    width: 20%;
+    text-align: center;
 }

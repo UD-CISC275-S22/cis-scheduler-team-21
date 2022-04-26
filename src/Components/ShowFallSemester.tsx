@@ -1,59 +1,23 @@
-import React, { useState } from "react";
-import { Button } from "react-bootstrap";
-import { SemesterCreate } from "./SemesterCreate";
+import React from "react";
 import { DataToArray } from "./DataToArray";
-//import { Course } from "../Interfaces/Courses";
-//import Data from "../Data/catalog.json";
-
-export interface AddCourseProps {
-    setVisible: (newVisibility: boolean) => void;
-}
-
-//const arr = DataToArray();
-
-export function AddCourse({ setVisible }: AddCourseProps): JSX.Element {
-    return (
-        <div>
-            <div>
-                <Button onClick={() => setVisible(true)}>Add Course</Button>
-                <Button onClick={() => setVisible(false)}>Remove Course</Button>
-            </div>
-        </div>
-    );
-}
-
-/**function FilterArray(event: React.ChangeEvent<HTMLInputElement>) {
-    const filtered = arr.filter(
-        (course: Course): boolean => course.code === event.target.value
-    );
-    return filtered;
-}
-/**export function ShowCourseCode(): JSX.Element {
-    const filteredArr = arr.filter();
-    return (
-    filteredArr.forEach(function (item: Course)) {
-        <div>{item}</div>
-    }
-    );
-}*/
 
 export function ShowFallSemester(): JSX.Element {
-    const [visible, setVisible] = useState<boolean>(false);
-    //const [course, setCourse] = useState<string>("");
-
-    /**function updateCourse(event: React.ChangeEvent<HTMLTextAreaElement>) {
-        setCourse(event.target.value);
-    }*/
-
     return (
         <div>
-            <SemesterCreate></SemesterCreate>
-            <AddCourse setVisible={setVisible}></AddCourse>
-            {visible && (
-                <div>
-                    <DataToArray></DataToArray>
-                </div>
-            )}
+            <table className="add-border" style={{ borderBottom: 0 }}>
+                <tr>
+                    <h4>Fall Semester</h4>
+                </tr>
+                <tr
+                    style={{ borderBottom: 0, borderRight: 0, borderLeft: 0 }}
+                    className="add-border"
+                >
+                    <td>Courses ID</td>
+                    <td>Course Name</td>
+                    <td>Course Credit</td>
+                </tr>
+            </table>
+            <DataToArray></DataToArray>
         </div>
     );
 }
