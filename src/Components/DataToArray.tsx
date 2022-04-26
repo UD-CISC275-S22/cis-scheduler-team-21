@@ -29,6 +29,7 @@ export function DataToArray(): JSX.Element {
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
     const DataObjects: Section[] = Object.values(JSON.parse(StringData));
+
     DataObjects.map((section: Section) => {
         const courseString: string = JSON.stringify(section);
         const courseList: Course[] = Object.values(JSON.parse(courseString));
@@ -36,12 +37,17 @@ export function DataToArray(): JSX.Element {
             courseObjects.push(course);
         });
     });
+
     function addTable(): JSX.Element | void {
         const courseInp: HTMLInputElement = document.getElementById(
             "searchID"
         ) as HTMLInputElement;
         const courseObj: string = courseInp.value;
-        if (courseObj !== "") {
+        if (
+            courseObjects.some(
+                (course: Course): boolean => course.code === courseObj
+            )
+        ) {
             const AddCourse: Course[] = courseObjects.filter(
                 (course: Course): boolean => course.code === courseObj
             );
@@ -61,7 +67,7 @@ export function DataToArray(): JSX.Element {
     }
     return (
         <div>
-            <div>
+            <div style={{ marginBottom: "1ch" }}>
                 <table className="add-border">
                     {course1.map(
                         (course: Course): JSX.Element => (
@@ -74,19 +80,36 @@ export function DataToArray(): JSX.Element {
                     )}
                 </table>
             </div>
-            <input id="searchID" type="text" list="searchList"></input>
-            <datalist id="searchList">
-                {courseObjects.map(
-                    (course: Course): JSX.Element => (
-                        <option key={course.code} value={course.code}>
-                            {course.code}
-                        </option>
-                    )
-                )}
-            </datalist>
-            <Button id="search-button" onClick={addTable}>
-                +
-            </Button>
+            <span style={{ marginLeft: "15ch" }}>
+                <input
+                    id="searchID"
+                    type="text"
+                    list="searchList"
+                    placeholder="Type a course..."
+                ></input>
+                <datalist id="searchList">
+                    {courseObjects.map(
+                        (course: Course): JSX.Element => (
+                            <option key={course.code} value={course.code}>
+                                {course.code}
+                            </option>
+                        )
+                    )}
+                </datalist>
+                <Button id="search-button" onClick={addTable}>
+                    +
+                </Button>
+                <span
+                    style={{
+                        float: "right",
+                        marginRight: "23ch"
+                    }}
+                >
+                    <Button style={{ backgroundColor: "darkRed" }}>
+                        Delete Fall
+                    </Button>
+                </span>
+            </span>
         </div>
     );
 }
