@@ -6,7 +6,9 @@ import "../App.css";
 export function AddSemester(): JSX.Element {
     const [Fallelement, setFallelement] = useState<JSX.Element>();
     function addFall(): void {
-        setFallelement(<ShowFallSemester></ShowFallSemester>);
+        setFallelement(
+            <ShowFallSemester setFall={setFallelement}></ShowFallSemester>
+        );
     }
     return (
         <Form.Group>
