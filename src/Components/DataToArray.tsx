@@ -5,7 +5,7 @@ import { SetFallProp } from "../Interfaces/semesterInterfaces";
 import "../App.css";
 import { Button } from "react-bootstrap";
 
-export function DataToArray({ setFall }: SetFallProp): JSX.Element {
+export function DataToArray({ setFall, Visible }: SetFallProp): JSX.Element {
     const [course1, setCourse1] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
@@ -43,12 +43,13 @@ export function DataToArray({ setFall }: SetFallProp): JSX.Element {
             } else {
                 const AddCourse2: Course[] = [...course1, singleCourse];
                 setCourse1(AddCourse2);
+                courseInp.value = "";
             }
         }
     }
 
     function deleteTable(): void {
-        setFall(<div></div>);
+        setFall(<></>);
     }
     return (
         <div>
@@ -90,12 +91,14 @@ export function DataToArray({ setFall }: SetFallProp): JSX.Element {
                         marginRight: "23ch"
                     }}
                 >
-                    <Button
-                        style={{ backgroundColor: "darkRed" }}
-                        onClick={deleteTable}
-                    >
-                        Delete Fall
-                    </Button>
+                    {Visible && (
+                        <Button
+                            style={{ backgroundColor: "darkRed" }}
+                            onClick={deleteTable}
+                        >
+                            Delete Fall
+                        </Button>
+                    )}
                 </span>
             </span>
         </div>
