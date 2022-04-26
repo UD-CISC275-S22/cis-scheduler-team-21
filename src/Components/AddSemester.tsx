@@ -1,24 +1,45 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { ShowFallSemester } from "../Components/ShowFallSemester";
+import { AddFallSemester } from "./AddFallSemester";
+import { AddSpringSemester } from "./AddSpringSemester";
+import { AddWinterSession } from "./AddWinterSession";
+import { AddSummerSession } from "./AddSummerSession";
 import "../App.css";
 
 export function AddSemester(): JSX.Element {
     const [Fallelement, setFallelement] = useState<JSX.Element>();
-    function addFall(): void {
-        setFallelement(
-            <ShowFallSemester setFall={setFallelement}></ShowFallSemester>
-        );
+
+    function AddFall(): void {
+        setFallelement(<AddFallSemester></AddFallSemester>);
     }
+
+    function AddSpring(): void {
+        setFallelement(<AddSpringSemester></AddSpringSemester>);
+    }
+
+    function AddWinter(): void {
+        setFallelement(<AddWinterSession></AddWinterSession>);
+    }
+
+    function AddSummer(): void {
+        setFallelement(<AddSummerSession></AddSummerSession>);
+    }
+
     return (
         <Form.Group>
             <div style={{ textAlign: "center" }}>
-                <Button className="customButton">Add Spring Semester</Button>
-                <Button className="customButton" onClick={addFall}>
+                <Button className="customButton" onClick={AddSpring}>
+                    Add Spring Semester
+                </Button>
+                <Button className="customButton" onClick={AddFall}>
                     Add Fall Semester
                 </Button>
-                <Button className="customButton">Add Winter Semester</Button>
-                <Button className="customButton">Add Summer Semester</Button>
+                <Button className="customButton" onClick={AddWinter}>
+                    Add Winter Semester
+                </Button>
+                <Button className="customButton" onClick={AddSummer}>
+                    Add Summer Semester
+                </Button>
             </div>
             <div>
                 <br></br>

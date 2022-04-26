@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
-import { SetFallProp } from "../Interfaces/semesterInterfaces";
+//import { SetFallProp } from "../Interfaces/semesterInterfaces";
 import "../App.css";
 import { Button } from "react-bootstrap";
 
-export function DataToArray({ setFall }: SetFallProp): JSX.Element {
+export function DataToArray(): JSX.Element {
     const [course1, setCourse1] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
@@ -96,6 +96,7 @@ export function DataToArray({ setFall }: SetFallProp): JSX.Element {
                     >
                         Delete Fall
                     </Button>
+                    <Button style={{ backgroundColor: "green" }}>Save</Button>
                 </span>
             </span>
         </div>
