@@ -4,26 +4,6 @@ import { Course, Section } from "../Interfaces/Courses";
 import "../App.css";
 import { Button } from "react-bootstrap";
 
-/**export function FilteredArray(): JSX.Element {
-    return (
-        <div>
-            {DataToObject.filter((course: Course) => {
-                if (query === "") {
-                    return course;
-                } else if (
-                    course.code.toLowerCase().includes(query.toLowerCase())
-                ) {
-                    return course;
-                }
-            }).map((course: Course, index: React.Key | null | undefined) => {
-                <div key={index}>
-                    <p>course.code</p>
-                    <p>course.name</p>
-                </div>;
-            })}
-        </div>
-    );
-}*/
 export function DataToArray(): JSX.Element {
     const [course1, setCourse1] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
@@ -108,6 +88,7 @@ export function DataToArray(): JSX.Element {
                     <Button style={{ backgroundColor: "darkRed" }}>
                         Delete Fall
                     </Button>
+                    <Button style={{ backgroundColor: "green" }}>Save</Button>
                 </span>
             </span>
         </div>
