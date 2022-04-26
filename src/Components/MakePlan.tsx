@@ -22,17 +22,19 @@ export function MakePlan(): JSX.Element {
     }
     return (
         <div>
-            {/* {visible && <div></div>} */}
-            <Button onClick={newPlan}>New Plan</Button>
-            {Plans.map((plan: Plan) => (
-                <div key={plan.id}>
-                    <PlanContainer
-                        plan={plan}
-                        plans={Plans}
-                        setPlans={setPlans}
-                    ></PlanContainer>
-                </div>
-            ))}
+            <div>
+                {/* {visible && <div></div>} */}
+                {Plans.map((plan: Plan) => (
+                    <div key={plan.id}>
+                        <PlanContainer
+                            plan={plan}
+                            plans={Plans}
+                            setPlans={setPlans}
+                        ></PlanContainer>
+                    </div>
+                ))}
+                <Button onClick={newPlan}>New Plan</Button>
+            </div>
         </div>
     );
 }
