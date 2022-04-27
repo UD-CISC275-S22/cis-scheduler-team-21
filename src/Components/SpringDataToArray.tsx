@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
-import { SetFallProp } from "../Interfaces/semesterInterfaces";
+import { setSpringProp } from "../Interfaces/semesterInterfaces";
 import "../App.css";
 import { Button } from "react-bootstrap";
 
-export function DataToArray({ setFall, Visible }: SetFallProp): JSX.Element {
+export function SpringDataToArray({
+    setSpring,
+    Visible
+}: setSpringProp): JSX.Element {
     const [course1, setCourse1] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
@@ -21,7 +24,7 @@ export function DataToArray({ setFall, Visible }: SetFallProp): JSX.Element {
 
     function addTable(): JSX.Element | void {
         const courseInp: HTMLInputElement = document.getElementById(
-            "searchID"
+            "searchID2"
         ) as HTMLInputElement;
         const courseObj: string = courseInp.value;
         if (
@@ -43,13 +46,12 @@ export function DataToArray({ setFall, Visible }: SetFallProp): JSX.Element {
             } else {
                 const AddCourse2: Course[] = [...course1, singleCourse];
                 setCourse1(AddCourse2);
-                courseInp.value = "";
             }
         }
     }
 
     function deleteTable(): void {
-        setFall(<></>);
+        setSpring(<></>);
     }
     function deleteCourse(course: Course) {
         const courseCopy: Course[] = course1.filter(
@@ -86,7 +88,7 @@ export function DataToArray({ setFall, Visible }: SetFallProp): JSX.Element {
             </div>
             <span style={{ marginLeft: "15ch" }}>
                 <input
-                    id="searchID"
+                    id="searchID2"
                     type="text"
                     list="searchList"
                     placeholder="Type a course..."
