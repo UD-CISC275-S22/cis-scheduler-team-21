@@ -89,7 +89,7 @@ export function WinterDataToArray({
                     )}
                 </table>
             </div>
-            <span style={{ marginLeft: "15ch" }}>
+            <span style={{ marginRight: "15ch", float: "right" }}>
                 <input
                     id="searchID3"
                     type="text"
@@ -108,10 +108,11 @@ export function WinterDataToArray({
                 <Button id="search-button" onClick={addTable}>
                     +
                 </Button>
+                <br></br>
+                <br></br>
                 <span
                     style={{
-                        float: "right",
-                        marginRight: "23ch"
+                        float: "right"
                     }}
                 >
                     {Visible && (
@@ -134,6 +135,7 @@ export function WinterDataToArray({
                         </span>
                     )}
                 </span>
+                <br></br>
             </span>
         </div>
     );

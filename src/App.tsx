@@ -20,7 +20,7 @@ function App(): JSX.Element {
           we passes the imported component*/}
                     <Route path="homepage" element={<Homepage />} />
                     <Route
-                        path="/"
+                        path="/cis-scheduler-team-21/"
                         element={<Navigate replace to="/homepage" />}
                     />
                     {/* This route is for makeplan component 
@@ -28,7 +28,7 @@ function App(): JSX.Element {
           we passes the imported component*/}
                     <Route path="makeplan" element={<MakePlan />} />
                     <Route
-                        path="/homepage"
+                        path="/cis-scheduler-team-21/homepage"
                         element={<Navigate replace to="/makeplan" />}
                     />
                 </Routes>
