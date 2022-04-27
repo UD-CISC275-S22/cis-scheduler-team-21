@@ -59,8 +59,8 @@ export function WinterDataToArray({
         setSelectedCourses(courseCopy);
     }
     function clearCourses(course: Course[]) {
-        const emptyCourseArray: Course[] = [];
-        setSelectedCourses(emptyCourseArray);
+        course = [];
+        setSelectedCourses(course);
     }
     return (
         <div>
