@@ -10,9 +10,7 @@ export function ShowSpringSemester({
         <div>
             <table className="add-border" style={{ borderBottom: 0 }}>
                 <tr style={{ textAlign: "center" }}>
-                    <div>
-                        <h2>Spring Semester</h2>
-                    </div>
+                    <h2>Spring Semester</h2>
                 </tr>
                 <tr
                     style={{ borderBottom: 0, borderRight: 0, borderLeft: 0 }}
