@@ -2,12 +2,15 @@ import React from "react";
 import { setSpringProp } from "../Interfaces/semesterInterfaces";
 import { SpringDataToArray } from "./SpringDataToArray";
 
-export function ShowSpringSemester({ setSpring }: setSpringProp): JSX.Element {
+export function ShowSpringSemester({
+    setSpring,
+    Visible
+}: setSpringProp): JSX.Element {
     return (
         <div>
             <table className="add-border" style={{ borderBottom: 0 }}>
                 <tr style={{ textAlign: "center" }}>
-                    <h3>Spring Semester</h3>
+                    <h2>Spring Semester</h2>
                 </tr>
                 <tr
                     style={{ borderBottom: 0, borderRight: 0, borderLeft: 0 }}
@@ -18,7 +21,10 @@ export function ShowSpringSemester({ setSpring }: setSpringProp): JSX.Element {
                     <td>Course Credit</td>
                 </tr>
             </table>
-            <SpringDataToArray setSpring={setSpring}></SpringDataToArray>
+            <SpringDataToArray
+                setSpring={setSpring}
+                Visible={Visible}
+            ></SpringDataToArray>
         </div>
     );
 }

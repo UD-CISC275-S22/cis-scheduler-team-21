@@ -5,7 +5,7 @@ import { SetFallProp } from "../Interfaces/semesterInterfaces";
 import "../App.css";
 import { Button } from "react-bootstrap";
 
-export function DataToArray({ setFall }: SetFallProp): JSX.Element {
+export function DataToArray({ setFall, Visible }: SetFallProp): JSX.Element {
     const [course1, setCourse1] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
@@ -43,12 +43,19 @@ export function DataToArray({ setFall }: SetFallProp): JSX.Element {
             } else {
                 const AddCourse2: Course[] = [...course1, singleCourse];
                 setCourse1(AddCourse2);
+                courseInp.value = "";
             }
         }
     }
 
     function deleteTable(): void {
-        setFall(<div></div>);
+        setFall(<></>);
+    }
+    function deleteCourse(course: Course) {
+        const courseCopy: Course[] = course1.filter(
+            (x: Course): boolean => x !== course
+        );
+        setCourse1(courseCopy);
     }
     return (
         <div>
@@ -60,6 +67,18 @@ export function DataToArray({ setFall }: SetFallProp): JSX.Element {
                                 <td>{course.code}</td>
                                 <td>{course.name}</td>
                                 <td>{course.credits}</td>
+                                {Visible && (
+                                    <td>
+                                        <Button
+                                            style={{
+                                                backgroundColor: "darkRed"
+                                            }}
+                                            onClick={() => deleteCourse(course)}
+                                        >
+                                            Delete
+                                        </Button>
+                                    </td>
+                                )}
                             </tr>
                         )
                     )}
@@ -90,13 +109,19 @@ export function DataToArray({ setFall }: SetFallProp): JSX.Element {
                         marginRight: "23ch"
                     }}
                 >
-                    <Button
-                        style={{ backgroundColor: "darkRed" }}
-                        onClick={deleteTable}
-                    >
-                        Delete Fall
-                    </Button>
-                    <Button style={{ backgroundColor: "green" }}>Save</Button>
+                    {Visible && (
+                        <span>
+                            <Button
+                                style={{ backgroundColor: "darkRed" }}
+                                onClick={deleteTable}
+                            >
+                                Delete Fall
+                            </Button>
+                            <Button style={{ backgroundColor: "green" }}>
+                                Save
+                            </Button>
+                        </span>
+                    )}
                 </span>
             </span>
         </div>

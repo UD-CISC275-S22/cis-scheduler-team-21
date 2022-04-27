@@ -1,35 +1,65 @@
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import "../App.css";
 import { ShowSpringSemester } from "./ShowSpringSemester";
 import { ShowFallSemester } from "./ShowFallSemester";
 
 export function AddSemester(): JSX.Element {
-    const [Fallelement, setFallelement] = useState<JSX.Element>();
-    const [Springelement, setSpringelement] = useState<JSX.Element>();
-    function addFall(): void {
+    const [Fallelement, setFallelement] = useState<JSX.Element>(<></>);
+    const [Springelement, setSpringelement] = useState<JSX.Element>(<></>);
+    const [Visible, setVisible] = useState<boolean>(false);
+    function setVis(): void {
+        setVisible(!Visible);
+        if (Fallelement !== <></>) {
+            addFall(!Visible);
+        }
+        if (Springelement !== <></>) {
+            addSpring(!Visible);
+        }
+    }
+    function addFall(visibleState: boolean): void {
         setFallelement(
-            <ShowFallSemester setFall={setFallelement}></ShowFallSemester>
+            <ShowFallSemester
+                setFall={setFallelement}
+                Visible={visibleState}
+            ></ShowFallSemester>
         );
     }
-    function addSpring(): void {
+    function addSpring(visibleState: boolean): void {
         setSpringelement(
             <ShowSpringSemester
                 setSpring={setSpringelement}
+                Visible={visibleState}
             ></ShowSpringSemester>
         );
     }
     return (
-        <Form.Group>
-            <div style={{ textAlign: "center" }}>
-                <Button className="customButton" onClick={addSpring}>
-                    Add Spring Semester
-                </Button>
-                <Button className="customButton" onClick={addFall}>
+        <div>
+            <div style={{ textAlign: "center", marginLeft: "37ch" }}>
+                <Button
+                    className="customButton"
+                    onClick={() => addFall(Visible)}
+                >
                     Add Fall Semester
                 </Button>
                 <Button className="customButton">Add Winter Semester</Button>
+                <Button
+                    className="customButton"
+                    onClick={() => addSpring(Visible)}
+                >
+                    Add Spring Semester
+                </Button>
                 <Button className="customButton">Add Summer Semester</Button>
+                <Button
+                    onClick={setVis}
+                    style={{
+                        display: "inline",
+                        float: "right",
+                        marginRight: "23ch"
+                    }}
+                >
+                    Edit Mode
+                </Button>
             </div>
             <div>
                 <br></br>
@@ -37,6 +67,6 @@ export function AddSemester(): JSX.Element {
                 <br></br>
                 {Springelement}
             </div>
-        </Form.Group>
+        </div>
     );
 }
