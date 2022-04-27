@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Col, Form } from "react-bootstrap";
-import { AddSemester } from "../Components/AddSemester";
+import { AddSemester } from "./AddSemester";
 import "../App.css";
 import { Plan } from "../Interfaces/Courses";
 

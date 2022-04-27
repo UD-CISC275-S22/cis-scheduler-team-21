@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
-//import { ShowFallSemester } from "./ShowFallSemester";
 
 //The total plans a person has made
 

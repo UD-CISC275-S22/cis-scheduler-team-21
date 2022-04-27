@@ -5,21 +5,22 @@ export interface RevealButtonsProps {
     setVisible: (newVisibility: boolean) => void;
 }
 
-export function RevealButtons({ setVisible }: RevealButtonsProps): JSX.Element {
-    return (
-        <div>
-            <Button onClick={() => setVisible(true)}>
-                Show Common 4 Year Plan
-            </Button>
-            <Button onClick={() => setVisible(false)}>
-                Hide Common 4 Year Plan
-            </Button>
-        </div>
-    );
-}
-
 export function CommonPlan(): JSX.Element {
     const [visible, setVisible] = useState<boolean>(false);
+
+    function RevealButtons({ setVisible }: RevealButtonsProps): JSX.Element {
+        return (
+            <div>
+                <Button onClick={() => setVisible(true)} disabled={visible}>
+                    Show Common 4 Year Plan
+                </Button>
+                <Button onClick={() => setVisible(false)} disabled={!visible}>
+                    Hide Common 4 Year Plan
+                </Button>
+            </div>
+        );
+    }
+
     return (
         <div>
             <br></br>

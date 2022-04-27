@@ -1,38 +1,68 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import "../App.css";
-import { ShowSpringSemester } from "./ShowSpringSemester";
 import { ShowFallSemester } from "./ShowFallSemester";
+import { ShowSpringSemester } from "./ShowSpringSemester";
+import { ShowWinterSession } from "./ShowWinterSession";
+import { ShowSummerSession } from "./ShowSummerSession";
+import "../App.css";
 
 export function AddSemester(): JSX.Element {
-    const [Fallelement, setFallelement] = useState<JSX.Element | null>(null);
-    const [Springelement, setSpringelement] = useState<JSX.Element | null>(
+    const [FallElement, setFallElement] = useState<JSX.Element | null>(null);
+    const [SpringElement, setSpringElement] = useState<JSX.Element | null>(
+        null
+    );
+    const [SummerElement, setSummerElement] = useState<JSX.Element | null>(
+        null
+    );
+    const [WinterElement, setWinterElement] = useState<JSX.Element | null>(
         null
     );
     const [Visible, setVisible] = useState<boolean>(false);
     function setVis(): void {
         setVisible(!Visible);
-        if (Fallelement !== null) {
+        if (FallElement !== null) {
             addFall(!Visible);
         }
-        if (Springelement !== null) {
+        if (SpringElement !== null) {
             addSpring(!Visible);
+        }
+        if (WinterElement !== null) {
+            addWinter(!Visible);
+        }
+        if (SummerElement !== null) {
+            addSummer(!Visible);
         }
     }
     function addFall(visibleState: boolean): void {
-        setFallelement(
+        setFallElement(
             <ShowFallSemester
-                setFall={setFallelement}
+                setFall={setFallElement}
                 Visible={visibleState}
             ></ShowFallSemester>
         );
     }
     function addSpring(visibleState: boolean): void {
-        setSpringelement(
+        setSpringElement(
             <ShowSpringSemester
-                setSpring={setSpringelement}
+                setSpring={setSpringElement}
                 Visible={visibleState}
             ></ShowSpringSemester>
+        );
+    }
+    function addSummer(visibleState: boolean): void {
+        setSummerElement(
+            <ShowSummerSession
+                setSummer={setSummerElement}
+                Visible={visibleState}
+            ></ShowSummerSession>
+        );
+    }
+    function addWinter(visibleState: boolean): void {
+        setWinterElement(
+            <ShowWinterSession
+                setWinter={setWinterElement}
+                Visible={visibleState}
+            ></ShowWinterSession>
         );
     }
     return (
@@ -44,14 +74,24 @@ export function AddSemester(): JSX.Element {
                 >
                     Add Fall Semester
                 </Button>
-                <Button className="customButton">Add Winter Semester</Button>
+                <Button
+                    className="customButton"
+                    onClick={() => addWinter(Visible)}
+                >
+                    Add Winter Session
+                </Button>
                 <Button
                     className="customButton"
                     onClick={() => addSpring(Visible)}
                 >
                     Add Spring Semester
                 </Button>
-                <Button className="customButton">Add Summer Semester</Button>
+                <Button
+                    className="customButton"
+                    onClick={() => addSummer(Visible)}
+                >
+                    Add Summer Session
+                </Button>
                 <Button
                     onClick={setVis}
                     style={{
@@ -65,9 +105,13 @@ export function AddSemester(): JSX.Element {
             </div>
             <div>
                 <br></br>
-                {Fallelement}
+                {FallElement}
                 <br></br>
-                {Springelement}
+                {WinterElement}
+                <br></br>
+                {SpringElement}
+                <br></br>
+                {SummerElement}
             </div>
         </div>
     );

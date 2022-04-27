@@ -1,6 +1,6 @@
 import React from "react";
 import { SetFallProp } from "../Interfaces/semesterInterfaces";
-import { DataToArray } from "./DataToArray";
+import { FallDataToArray } from "./FallDataToArray";
 
 export function ShowFallSemester({
     setFall,
@@ -27,7 +27,10 @@ export function ShowFallSemester({
                     </td>
                 </tr>
             </table>
-            <DataToArray setFall={setFall} Visible={Visible}></DataToArray>
+            <FallDataToArray
+                setFall={setFall}
+                Visible={Visible}
+            ></FallDataToArray>
         </div>
     );
 }
