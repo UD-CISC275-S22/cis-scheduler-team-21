@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { ShowFallSemester } from "./ShowFallSemester";
 import { ShowSpringSemester } from "./ShowSpringSemester";
 import { ShowWinterSession } from "./ShowWinterSession";
@@ -78,7 +78,7 @@ export function AddSemester(): JSX.Element {
                     className="customButton"
                     onClick={() => addWinter(Visible)}
                 >
-                    Add Winter Semester
+                    Add Winter Session
                 </Button>
                 <Button
                     className="customButton"
@@ -90,7 +90,7 @@ export function AddSemester(): JSX.Element {
                     className="customButton"
                     onClick={() => addSummer(Visible)}
                 >
-                    Add Summer Semester
+                    Add Summer Session
                 </Button>
                 <Button
                     onClick={setVis}
