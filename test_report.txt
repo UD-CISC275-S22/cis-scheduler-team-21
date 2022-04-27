@@ -49,12 +49,13 @@ File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Li
 -------------------------|---------|----------|---------|---------|-------------------
 All files                |       0 |        0 |       0 |       0 |                   
  src                     |       0 |      100 |       0 |       0 |                   
-  App.tsx                |       0 |      100 |       0 |       0 | 7                 
+  App.tsx                |       0 |      100 |       0 |       0 | 13                
  src/Components          |       0 |        0 |       0 |       0 |                   
   AddSemester.tsx        |       0 |        0 |       0 |       0 | 10-91             
   CommonPlan.tsx         |       0 |        0 |       0 |       0 | 9-24              
   FallDataToArray.tsx    |       0 |        0 |       0 |       0 | 12-128            
-  MakePlan.tsx           |       0 |        0 |       0 |       0 | 11-97             
+  Homepage.tsx           |       0 |      100 |       0 |       0 | 7                 
+  MakePlan.tsx           |       0 |        0 |       0 |       0 | 12-102            
   PlanContainer.tsx      |       0 |        0 |       0 |       0 | 18-33             
   ShowFallSemester.tsx   |       0 |      100 |       0 |       0 | 9                 
   ShowSpringSemester.tsx |       0 |      100 |       0 |       0 | 9                 
@@ -70,5 +71,5 @@ All files                |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.059 s
+Time:        2.85 s
 Ran all test suites.
