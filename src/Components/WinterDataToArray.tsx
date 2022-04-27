@@ -9,7 +9,7 @@ export function WinterDataToArray({
     setWinter,
     Visible
 }: SetWinterProp): JSX.Element {
-    const [course1, setCourse1] = useState<Course[]>([]);
+    const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
     const DataObjects: Section[] = Object.values(JSON.parse(StringData));
@@ -37,15 +37,15 @@ export function WinterDataToArray({
             );
             const singleCourse: Course = AddCourse[0];
             if (
-                course1.some(
+                selectedCourses.some(
                     (course: Course): boolean =>
                         course.code === singleCourse.code
                 )
             ) {
                 return; //needs error message
             } else {
-                const AddCourse2: Course[] = [...course1, singleCourse];
-                setCourse1(AddCourse2);
+                const AddCourse2: Course[] = [...selectedCourses, singleCourse];
+                setSelectedCourses(AddCourse2);
             }
         }
     }
@@ -53,16 +53,20 @@ export function WinterDataToArray({
         setWinter(<></>);
     }
     function deleteCourse(course: Course) {
-        const courseCopy: Course[] = course1.filter(
+        const courseCopy: Course[] = selectedCourses.filter(
             (x: Course): boolean => x !== course
         );
-        setCourse1(courseCopy);
+        setSelectedCourses(courseCopy);
+    }
+    function clearCourses(course: Course[]) {
+        const emptyCourseArray: Course[] = [];
+        setSelectedCourses(emptyCourseArray);
     }
     return (
         <div>
             <div style={{ marginBottom: "1ch" }}>
                 <table className="add-border">
-                    {course1.map(
+                    {selectedCourses.map(
                         (course: Course): JSX.Element => (
                             <tr key={course.code} className="innerTR">
                                 <td>{course.code}</td>
@@ -116,7 +120,13 @@ export function WinterDataToArray({
                                 style={{ backgroundColor: "darkRed" }}
                                 onClick={deleteTable}
                             >
-                                Delete Winter Session
+                                Delete Winter
+                            </Button>
+                            <Button
+                                style={{ backgroundColor: "gold" }}
+                                onClick={() => clearCourses(selectedCourses)}
+                            >
+                                Clear Winter
                             </Button>
                             <Button style={{ backgroundColor: "green" }}>
                                 Save
