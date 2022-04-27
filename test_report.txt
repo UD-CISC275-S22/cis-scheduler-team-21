@@ -18,7 +18,7 @@
       at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (87 ms)
+  ✕ renders the course name somewhere (80 ms)
 
   ● renders the course name somewhere
 
@@ -106,22 +106,22 @@ FAIL src/App.test.tsx
 -------------------------|---------|----------|---------|---------|-------------------
 File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------------|---------|----------|---------|---------|-------------------
-All files                |    4.26 |     2.27 |    5.12 |    4.29 |                   
+All files                |    3.97 |     2.27 |    4.65 |       4 |                   
  src                     |     100 |      100 |     100 |     100 |                   
   App.tsx                |     100 |      100 |     100 |     100 |                   
- src/Components          |    3.68 |     2.27 |    3.89 |     3.7 |                   
+ src/Components          |    3.42 |     2.27 |    3.52 |    3.44 |                   
   AddSemester.tsx        |       0 |        0 |       0 |       0 | 10-91             
   CommonPlan.tsx         |      60 |       50 |      50 |      60 | 14-17             
-  FallDataToArray.tsx    |       0 |        0 |       0 |       0 | 12-99             
+  FallDataToArray.tsx    |       0 |        0 |       0 |       0 | 12-128            
   MakePlan.tsx           |   33.33 |      100 |   33.33 |   33.33 | 12-20,27          
   PlanContainer.tsx      |       0 |        0 |       0 |       0 | 18-33             
   ShowFallSemester.tsx   |       0 |      100 |       0 |       0 | 9                 
   ShowSpringSemester.tsx |       0 |      100 |       0 |       0 | 9                 
   ShowSummerSession.tsx  |       0 |      100 |       0 |       0 | 9                 
   ShowWinterSession.tsx  |       0 |      100 |       0 |       0 | 9                 
-  SpringDataToArray.tsx  |       0 |        0 |       0 |       0 | 12-99             
-  SummerDataToArray.tsx  |       0 |        0 |       0 |       0 | 12-98             
-  WinterDataToArray.tsx  |       0 |        0 |       0 |       0 | 12-98             
+  SpringDataToArray.tsx  |       0 |        0 |       0 |       0 | 12-128            
+  SummerDataToArray.tsx  |       0 |        0 |       0 |       0 | 12-127            
+  WinterDataToArray.tsx  |       0 |        0 |       0 |       0 | 12-127            
  src/Interfaces          |       0 |        0 |       0 |       0 |                   
   Courses.ts             |       0 |        0 |       0 |       0 |                   
   semesterInterfaces.tsx |       0 |        0 |       0 |       0 |                   
@@ -129,5 +129,5 @@ All files                |    4.26 |     2.27 |    5.12 |    4.29 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.844 s
+Time:        2.931 s
 Ran all test suites.
