@@ -67,12 +67,17 @@
 
 .add-border {
     border: solid 1px black;
-    width: 100%;
+    width: 50%;
     display: table;
 }
 
+.inner-broder {
+    border: solid 1px black;
+    width: 100%;
+    display: table;
+}
 .innerTR {
-    width: 50%;
+    width: 100%;
     display: table;
 }
 
@@ -144,4 +149,13 @@ td {
     flex-direction: center;
     justify-content: center;
     align-items: center;
+}
+
+.falltable {
+    width: 50%;
+    left: 0px;
+}
+
+.semester-btns {
+    left: 50px;
 }

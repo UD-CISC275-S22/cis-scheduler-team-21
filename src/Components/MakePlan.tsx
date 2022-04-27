@@ -70,17 +70,13 @@ export function MakePlan(): JSX.Element {
                             </DropdownMenu>
                         </Dropdown>
                     </div>
-                    <li>
-                        <Link to="/makeplan">
-                            <button
-                                className="create-btn"
-                                onClick={newPlan}
-                                disabled={Title == "Select Degree"}
-                            >
-                                Create Plan
-                            </button>
-                        </Link>
-                    </li>
+                    <button
+                        className="create-btn"
+                        onClick={newPlan}
+                        disabled={Title == "Select Degree"}
+                    >
+                        Create Plan
+                    </button>
                 </div>
             </div>
         );
@@ -99,7 +95,13 @@ export function MakePlan(): JSX.Element {
                         ></PlanContainer>
                     </div>
                 ))}
-                <Button onClick={() => setVisible(true)}>New Plan</Button>
+                <li>
+                    <Link to="/makeplan">
+                        <Button onClick={() => setVisible(true)}>
+                            New Plan
+                        </Button>
+                    </Link>
+                </li>
                 <div className="main">{Visible && <Popup></Popup>}</div>
             </div>
         </div>

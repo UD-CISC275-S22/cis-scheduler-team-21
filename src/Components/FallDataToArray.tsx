@@ -109,10 +109,12 @@ export function FallDataToArray({
                 <Button id="search-button" onClick={addTable}>
                     +
                 </Button>
+                <br></br>
+                <br></br>
                 <span
                     style={{
-                        float: "right",
-                        marginRight: "23ch"
+                        float: "left",
+                        marginLeft: "13.5ch"
                     }}
                 >
                     {Visible && (
@@ -135,6 +137,7 @@ export function FallDataToArray({
                         </span>
                     )}
                 </span>
+                <br></br>
             </span>
         </div>
     );
