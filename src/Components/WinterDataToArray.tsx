@@ -24,7 +24,7 @@ export function WinterDataToArray({
 
     function addTable(): JSX.Element | void {
         const courseInp: HTMLInputElement = document.getElementById(
-            "searchID"
+            "searchID3"
         ) as HTMLInputElement;
         const courseObj: string = courseInp.value;
         if (
@@ -87,7 +87,7 @@ export function WinterDataToArray({
             </div>
             <span style={{ marginLeft: "15ch" }}>
                 <input
-                    id="searchID"
+                    id="searchID3"
                     type="text"
                     list="searchList"
                     placeholder="Type a course..."
@@ -110,13 +110,19 @@ export function WinterDataToArray({
                         marginRight: "23ch"
                     }}
                 >
-                    <Button
-                        style={{ backgroundColor: "darkRed" }}
-                        onClick={deleteTable}
-                    >
-                        Delete Winter Session
-                    </Button>
-                    <Button style={{ backgroundColor: "green" }}>Save</Button>
+                    {Visible && (
+                        <span>
+                            <Button
+                                style={{ backgroundColor: "darkRed" }}
+                                onClick={deleteTable}
+                            >
+                                Delete Winter Session
+                            </Button>
+                            <Button style={{ backgroundColor: "green" }}>
+                                Save
+                            </Button>
+                        </span>
+                    )}
                 </span>
             </span>
         </div>

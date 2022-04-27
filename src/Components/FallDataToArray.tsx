@@ -51,7 +51,7 @@ export function FallDataToArray({
         }
     }
     function deleteTable(): void {
-        setFall(<></>);
+        setFall(null);
     }
     function deleteCourse(course: Course) {
         const courseCopy: Course[] = course1.filter(

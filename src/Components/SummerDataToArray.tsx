@@ -24,7 +24,7 @@ export function SummerDataToArray({
 
     function addTable(): JSX.Element | void {
         const courseInp: HTMLInputElement = document.getElementById(
-            "searchID"
+            "searchID4"
         ) as HTMLInputElement;
         const courseObj: string = courseInp.value;
         if (
@@ -87,7 +87,7 @@ export function SummerDataToArray({
             </div>
             <span style={{ marginLeft: "15ch" }}>
                 <input
-                    id="searchID"
+                    id="searchID4"
                     type="text"
                     list="searchList"
                     placeholder="Type a course..."
@@ -110,13 +110,19 @@ export function SummerDataToArray({
                         marginRight: "23ch"
                     }}
                 >
-                    <Button
-                        style={{ backgroundColor: "darkRed" }}
-                        onClick={deleteTable}
-                    >
-                        Delete Summer Session
-                    </Button>
-                    <Button style={{ backgroundColor: "green" }}>Save</Button>
+                    {Visible && (
+                        <span>
+                            <Button
+                                style={{ backgroundColor: "darkRed" }}
+                                onClick={deleteTable}
+                            >
+                                Delete Summer Session
+                            </Button>
+                            <Button style={{ backgroundColor: "green" }}>
+                                Save
+                            </Button>
+                        </span>
+                    )}
                 </span>
             </span>
         </div>

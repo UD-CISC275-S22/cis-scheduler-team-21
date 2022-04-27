@@ -7,18 +7,30 @@ import { ShowSummerSession } from "./ShowSummerSession";
 import "../App.css";
 
 export function AddSemester(): JSX.Element {
-    const [FallElement, setFallElement] = useState<JSX.Element>(<></>);
-    const [SpringElement, setSpringElement] = useState<JSX.Element>(<></>);
-    const [SummerElement, setSummerElement] = useState<JSX.Element>(<></>);
-    const [WinterElement, setWinterElement] = useState<JSX.Element>(<></>);
+    const [FallElement, setFallElement] = useState<JSX.Element | null>(null);
+    const [SpringElement, setSpringElement] = useState<JSX.Element | null>(
+        null
+    );
+    const [SummerElement, setSummerElement] = useState<JSX.Element | null>(
+        null
+    );
+    const [WinterElement, setWinterElement] = useState<JSX.Element | null>(
+        null
+    );
     const [Visible, setVisible] = useState<boolean>(false);
     function setVis(): void {
         setVisible(!Visible);
-        if (FallElement !== <></>) {
+        if (FallElement !== null) {
             addFall(!Visible);
         }
-        if (SpringElement !== <></>) {
+        if (SpringElement !== null) {
             addSpring(!Visible);
+        }
+        if (WinterElement !== null) {
+            addWinter(!Visible);
+        }
+        if (SummerElement !== null) {
+            addSummer(!Visible);
         }
     }
     function addFall(visibleState: boolean): void {
@@ -62,14 +74,24 @@ export function AddSemester(): JSX.Element {
                 >
                     Add Fall Semester
                 </Button>
-                <Button className="customButton">Add Winter Semester</Button>
+                <Button
+                    className="customButton"
+                    onClick={() => addWinter(Visible)}
+                >
+                    Add Winter Semester
+                </Button>
                 <Button
                     className="customButton"
                     onClick={() => addSpring(Visible)}
                 >
                     Add Spring Semester
                 </Button>
-                <Button className="customButton">Add Summer Semester</Button>
+                <Button
+                    className="customButton"
+                    onClick={() => addSummer(Visible)}
+                >
+                    Add Summer Semester
+                </Button>
                 <Button
                     onClick={setVis}
                     style={{
@@ -85,11 +107,11 @@ export function AddSemester(): JSX.Element {
                 <br></br>
                 {FallElement}
                 <br></br>
+                {WinterElement}
+                <br></br>
                 {SpringElement}
                 <br></br>
                 {SummerElement}
-                <br></br>
-                {WinterElement}
             </div>
         </div>
     );
