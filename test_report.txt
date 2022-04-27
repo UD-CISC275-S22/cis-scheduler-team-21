@@ -18,7 +18,7 @@
       at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (105 ms)
+  ✕ renders the course name somewhere (77 ms)
 
   ● renders the course name somewhere
 
@@ -103,16 +103,18 @@ FAIL src/App.test.tsx
 -------------------------|---------|----------|---------|---------|-------------------
 File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------------|---------|----------|---------|---------|-------------------
-All files                |   16.66 |     12.5 |   17.39 |   16.66 |                   
+All files                |   10.52 |     8.33 |   11.42 |   10.52 |                   
  src                     |     100 |      100 |     100 |     100 |                   
   App.tsx                |     100 |      100 |     100 |     100 |                   
- src/Components          |   14.89 |     12.5 |   13.63 |   14.89 |                   
-  AddSemester.tsx        |       0 |      100 |       0 |       0 | 7-13              
+ src/Components          |    9.33 |     8.33 |    8.82 |    9.33 |                   
+  AddSemester.tsx        |       0 |      100 |       0 |       0 | 8-22              
   CommonPlan.tsx         |      60 |       50 |      50 |      60 | 11-14             
   DataToArray.tsx        |       0 |        0 |       0 |       0 | 9-78              
   MakePlan.tsx           |      40 |      100 |   33.33 |      40 | 14-22,29          
   PlanContainer.tsx      |       0 |        0 |       0 |       0 | 12-24             
   ShowFallSemester.tsx   |       0 |      100 |       0 |       0 | 6                 
+  ShowSpringSemester.tsx |       0 |      100 |       0 |       0 | 6                 
+  SpringDataToArray.tsx  |       0 |        0 |       0 |       0 | 9-78              
  src/Interfaces          |       0 |        0 |       0 |       0 |                   
   Courses.ts             |       0 |        0 |       0 |       0 |                   
   semesterInterfaces.tsx |       0 |        0 |       0 |       0 |                   
@@ -120,5 +122,5 @@ All files                |   16.66 |     12.5 |   17.39 |   16.66 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.306 s
+Time:        2.381 s
 Ran all test suites.
