@@ -1,12 +1,13 @@
 import React from "react";
+import { SetFallProp } from "../Interfaces/semesterInterfaces";
 import { DataToArray } from "./DataToArray";
 
-export function AddSpringSemester(): JSX.Element {
+export function ShowFallSemester({ setFall }: SetFallProp): JSX.Element {
     return (
         <div>
             <table className="add-border" style={{ borderBottom: 0 }}>
                 <tr style={{ textAlign: "center" }}>
-                    <h3>Spring Semester</h3>
+                    <h3>Fall Semester</h3>
                 </tr>
                 <tr
                     style={{ borderBottom: 0, borderRight: 0, borderLeft: 0 }}
@@ -17,7 +18,7 @@ export function AddSpringSemester(): JSX.Element {
                     <td>Course Credit</td>
                 </tr>
             </table>
-            <DataToArray></DataToArray>
+            <DataToArray setFall={setFall}></DataToArray>
         </div>
     );
 }
