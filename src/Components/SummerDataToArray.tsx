@@ -50,7 +50,7 @@ export function SummerDataToArray({
         }
     }
     function deleteTable(): void {
-        setSummer(<></>);
+        setSummer(null);
     }
     function deleteCourse(course: Course) {
         const courseCopy: Course[] = selectedCourses.filter(
