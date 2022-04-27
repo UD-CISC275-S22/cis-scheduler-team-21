@@ -51,7 +51,7 @@ export function SpringDataToArray({
     }
 
     function deleteTable(): void {
-        setSpring(<></>);
+        setSpring(null);
     }
     function deleteCourse(course: Course) {
         const courseCopy: Course[] = course1.filter(

@@ -5,15 +5,17 @@ import { ShowSpringSemester } from "./ShowSpringSemester";
 import { ShowFallSemester } from "./ShowFallSemester";
 
 export function AddSemester(): JSX.Element {
-    const [Fallelement, setFallelement] = useState<JSX.Element>(<></>);
-    const [Springelement, setSpringelement] = useState<JSX.Element>(<></>);
+    const [Fallelement, setFallelement] = useState<JSX.Element | null>(null);
+    const [Springelement, setSpringelement] = useState<JSX.Element | null>(
+        null
+    );
     const [Visible, setVisible] = useState<boolean>(false);
     function setVis(): void {
         setVisible(!Visible);
-        if (Fallelement !== <></>) {
+        if (Fallelement !== null) {
             addFall(!Visible);
         }
-        if (Springelement !== <></>) {
+        if (Springelement !== null) {
             addSpring(!Visible);
         }
     }
