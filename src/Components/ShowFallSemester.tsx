@@ -14,7 +14,7 @@ export function ShowFallSemester({
                 </tr>
                 <tr
                     style={{ borderBottom: 0, borderRight: 0, borderLeft: 0 }}
-                    className="add-border"
+                    className="inner-border"
                 >
                     <td>
                         <h5>Courses ID</h5>

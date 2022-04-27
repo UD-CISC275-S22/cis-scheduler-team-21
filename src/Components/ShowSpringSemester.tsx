@@ -10,15 +10,23 @@ export function ShowSpringSemester({
         <div>
             <table className="add-border" style={{ borderBottom: 0 }}>
                 <tr style={{ textAlign: "center" }}>
-                    <h2>Spring Semester</h2>
+                    <div>
+                        <h2>Spring Semester</h2>
+                    </div>
                 </tr>
                 <tr
                     style={{ borderBottom: 0, borderRight: 0, borderLeft: 0 }}
-                    className="add-border"
+                    className="inner-border"
                 >
-                    <td>Courses ID</td>
-                    <td>Course Name</td>
-                    <td>Course Credit</td>
+                    <td>
+                        <h5>Courses ID</h5>
+                    </td>
+                    <td>
+                        <h5>Course Name</h5>
+                    </td>
+                    <td>
+                        <h5>Course Credit</h5>
+                    </td>
                 </tr>
             </table>
             <SpringDataToArray
