@@ -49,7 +49,7 @@ export function DataToArray({ setFall, Visible }: SetFallProp): JSX.Element {
     }
 
     function deleteTable(): void {
-        setFall(<></>);
+        setFall(null);
     }
     function deleteCourse(course: Course) {
         const courseCopy: Course[] = course1.filter(
