@@ -13,11 +13,11 @@ export interface setSpringProp {
 }
 
 export interface SetWinterProp {
-    setWinter: (winterSession: JSX.Element) => void;
+    setWinter: (winterSession: JSX.Element | null) => void;
     Visible: boolean;
 }
 
 export interface SetSummerProp {
-    setSummer: (summerSession: JSX.Element) => void;
+    setSummer: (summerSession: JSX.Element | null) => void;
     Visible: boolean;
 }

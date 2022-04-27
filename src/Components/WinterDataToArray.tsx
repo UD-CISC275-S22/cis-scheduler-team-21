@@ -50,7 +50,7 @@ export function WinterDataToArray({
         }
     }
     function deleteTable(): void {
-        setWinter(<></>);
+        setWinter(null);
     }
     function deleteCourse(course: Course) {
         const courseCopy: Course[] = selectedCourses.filter(
