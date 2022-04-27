@@ -46,8 +46,8 @@ export function FallDataToArray({ setFall }: SetFallProp): JSX.Element {
             }
         }
     }
-    function deleteFallTable(): void {
-        setFall(<></>);
+    function deleteTable(): void {
+        setFall(<div></div>);
     }
     return (
         <div>
@@ -91,7 +91,7 @@ export function FallDataToArray({ setFall }: SetFallProp): JSX.Element {
                 >
                     <Button
                         style={{ backgroundColor: "darkRed" }}
-                        onClick={deleteFallTable}
+                        onClick={deleteTable}
                     >
                         Delete Fall Semester
                     </Button>
