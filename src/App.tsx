@@ -1,29 +1,39 @@
 import React from "react";
 import "./App.css";
 import { MakePlan } from "./Components/MakePlan";
-import { CommonPlan } from "./Components/CommonPlan";
+import { Homepage } from "./Components/Homepage";
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Navigate
+} from "react-router-dom";
 
 function App(): JSX.Element {
     return (
-        <div className="App">
-            <header className="App-header">
-                UD CIS SCHEDULER
-                <br></br>
-                <h4>Christian Rullan</h4>
-                <h4>Kiefer Yost</h4>
-            </header>
-            <div>
-                <body className="App-Body">
-                    <h2>Welcome!!!</h2> to the UD CIS SCHEDULER. Here you can
-                    setup schedules for your computer science degree! First
-                    start by creating a plan, then add the semesters and courses
-                    from there.
-                </body>
-            </div>
-            <CommonPlan></CommonPlan>
-            <br></br>
-            <MakePlan></MakePlan>
-        </div>
+        <>
+            {/* This is the alias of BrowserRouter i.e. Router */}
+            <Router>
+                <Routes>
+                    {/* This route is for homepage component 
+          with exact path "/", in element props 
+          we passes the imported component*/}
+                    <Route path="homepage" element={<Homepage />} />
+                    <Route
+                        path="/"
+                        element={<Navigate replace to="/homepage" />}
+                    />
+                    {/* This route is for makeplan component 
+          with path "/homepage", in element props 
+          we passes the imported component*/}
+                    <Route path="makeplan" element={<MakePlan />} />
+                    <Route
+                        path="/homepage"
+                        element={<Navigate replace to="/makeplan" />}
+                    />
+                </Routes>
+            </Router>
+        </>
     );
 }
 

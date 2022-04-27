@@ -4,6 +4,7 @@ import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 import { Plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
+import { Link } from "react-router-dom";
 
 //The total plans a person has made
 
@@ -69,13 +70,17 @@ export function MakePlan(): JSX.Element {
                             </DropdownMenu>
                         </Dropdown>
                     </div>
-                    <button
-                        className="create-btn"
-                        onClick={newPlan}
-                        disabled={Title == "Select Degree"}
-                    >
-                        Create Plan
-                    </button>
+                    <li>
+                        <Link to="/makeplan">
+                            <button
+                                className="create-btn"
+                                onClick={newPlan}
+                                disabled={Title == "Select Degree"}
+                            >
+                                Create Plan
+                            </button>
+                        </Link>
+                    </li>
                 </div>
             </div>
         );
