@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { Button, Col, Form } from "react-bootstrap";
-import { AddSemester } from "../Components/AddSemester";
+import { AddFallSemester } from "./AddFallSemester";
+import { AddSpringSemester } from "./AddSpringSemester";
+import { AddWinterSession } from "./AddWinterSession";
+import { AddSummerSession } from "./AddSummerSession";
 import "../App.css";
 import { Plan } from "../Interfaces/Courses";
 
 interface PlanProps {
     plan: Plan;
 }
-
 export function PlanContainer({ plan }: PlanProps): JSX.Element {
     const [visible, setVisible] = useState<boolean>(false);
     return (
@@ -30,7 +32,10 @@ export function PlanContainer({ plan }: PlanProps): JSX.Element {
                                 display: visible ? "block" : "none"
                             }}
                         >
-                            <AddSemester></AddSemester>
+                            <AddFallSemester></AddFallSemester>
+                            <AddSpringSemester></AddSpringSemester>
+                            <AddWinterSession></AddWinterSession>
+                            <AddSummerSession></AddSummerSession>
                             <hr></hr>
                         </div>
                     </div>

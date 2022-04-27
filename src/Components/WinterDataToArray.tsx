@@ -1,30 +1,11 @@
 import React, { useState } from "react";
 import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
+import { SetWinterProp } from "../Interfaces/semesterInterfaces";
 import "../App.css";
 import { Button } from "react-bootstrap";
 
-/**export function FilteredArray(): JSX.Element {
-    return (
-        <div>
-            {DataToObject.filter((course: Course) => {
-                if (query === "") {
-                    return course;
-                } else if (
-                    course.code.toLowerCase().includes(query.toLowerCase())
-                ) {
-                    return course;
-                }
-            }).map((course: Course, index: React.Key | null | undefined) => {
-                <div key={index}>
-                    <p>course.code</p>
-                    <p>course.name</p>
-                </div>;
-            })}
-        </div>
-    );
-}*/
-export function DataToArray(): JSX.Element {
+export function WinterDataToArray({ setWinter }: SetWinterProp): JSX.Element {
     const [course1, setCourse1] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
@@ -64,6 +45,9 @@ export function DataToArray(): JSX.Element {
                 setCourse1(AddCourse2);
             }
         }
+    }
+    function deleteTable(): void {
+        setWinter(<></>);
     }
     return (
         <div>
@@ -105,9 +89,13 @@ export function DataToArray(): JSX.Element {
                         marginRight: "23ch"
                     }}
                 >
-                    <Button style={{ backgroundColor: "darkRed" }}>
-                        Delete Fall
+                    <Button
+                        style={{ backgroundColor: "darkRed" }}
+                        onClick={deleteTable}
+                    >
+                        Delete Winter Session
                     </Button>
+                    <Button style={{ backgroundColor: "green" }}>Save</Button>
                 </span>
             </span>
         </div>

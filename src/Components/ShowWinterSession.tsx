@@ -1,13 +1,13 @@
 import React from "react";
-import { FallDataToArray } from "./FallDataToArray";
-import { SetFallProp } from "../Interfaces/semesterInterfaces";
+import { WinterDataToArray } from "./WinterDataToArray";
+import { SetWinterProp } from "../Interfaces/semesterInterfaces";
 
-export function ShowFallSemester({ setFall }: SetFallProp): JSX.Element {
+export function ShowWinterSession({ setWinter }: SetWinterProp): JSX.Element {
     return (
         <div>
             <table className="add-border" style={{ borderBottom: 0 }}>
                 <tr style={{ textAlign: "center" }}>
-                    <h3>Fall Semester</h3>
+                    <h3>Winter Session</h3>
                 </tr>
                 <tr
                     style={{ borderBottom: 0, borderRight: 0, borderLeft: 0 }}
@@ -18,7 +18,7 @@ export function ShowFallSemester({ setFall }: SetFallProp): JSX.Element {
                     <td>Course Credit</td>
                 </tr>
             </table>
-            <FallDataToArray setFall={setFall}></FallDataToArray>
+            <WinterDataToArray setWinter={setWinter}></WinterDataToArray>
         </div>
     );
 }
