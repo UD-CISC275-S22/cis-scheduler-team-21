@@ -1,6 +1,6 @@
 import React from "react";
-import { DataToArray } from "./DataToArray";
 import { SetFallProp } from "../Interfaces/semesterInterfaces";
+import { DataToArray } from "./DataToArray";
 
 export function ShowFallSemester({ setFall }: SetFallProp): JSX.Element {
     return (

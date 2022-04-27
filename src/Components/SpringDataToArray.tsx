@@ -96,6 +96,7 @@ export function SpringDataToArray({ setSpring }: setSpringProp): JSX.Element {
                     >
                         Delete Spring
                     </Button>
+                    <Button style={{ backgroundColor: "green" }}>Save</Button>
                 </span>
             </span>
         </div>

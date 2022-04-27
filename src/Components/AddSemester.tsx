@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { ShowFallSemester } from "../Components/ShowFallSemester";
 import "../App.css";
 import { ShowSpringSemester } from "./ShowSpringSemester";
+import { ShowFallSemester } from "./ShowFallSemester";
 
 export function AddSemester(): JSX.Element {
     const [Fallelement, setFallelement] = useState<JSX.Element>();
