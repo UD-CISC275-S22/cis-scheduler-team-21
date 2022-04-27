@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { Button, Col, Form } from "react-bootstrap";
-import { AddFallSemester } from "./AddFallSemester";
-import { AddSpringSemester } from "./AddSpringSemester";
-import { AddWinterSession } from "./AddWinterSession";
-import { AddSummerSession } from "./AddSummerSession";
+import { AddSemester } from "./AddSemester";
 import "../App.css";
 import { Plan } from "../Interfaces/Courses";
 
@@ -32,10 +29,7 @@ export function PlanContainer({ plan }: PlanProps): JSX.Element {
                                 display: visible ? "block" : "none"
                             }}
                         >
-                            <AddFallSemester></AddFallSemester>
-                            <AddSpringSemester></AddSpringSemester>
-                            <AddWinterSession></AddWinterSession>
-                            <AddSummerSession></AddSummerSession>
+                            <AddSemester></AddSemester>
                             <hr></hr>
                         </div>
                     </div>
