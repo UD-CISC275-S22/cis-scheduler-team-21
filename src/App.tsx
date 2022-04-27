@@ -21,12 +21,12 @@ function App(): JSX.Element {
                     <Route path="homepage" element={<Homepage />} />
                     <Route
                         path="/cis-scheduler-team-21/"
-                        element={
+                        /* element={
                             <Navigate
                                 replace
                                 to="/cis-scheduler-team-21/homepage"
                             />
-                        }
+                        } */
                     />
                     {/* This route is for makeplan component 
           with path "/homepage", in element props 
@@ -37,7 +37,7 @@ function App(): JSX.Element {
                         element={
                             <Navigate
                                 replace
-                                to="/cis-scheduler-team-21/homepage/makeplan"
+                                to="/cis-scheduler-team-21/makeplan"
                             />
                         }
                     />
