@@ -2,7 +2,10 @@ import React from "react";
 import { SummerDataToArray } from "./SummerDataToArray";
 import { SetSummerProp } from "../Interfaces/semesterInterfaces";
 
-export function ShowSummerSession({ setSummer }: SetSummerProp): JSX.Element {
+export function ShowSummerSession({
+    setSummer,
+    Visible
+}: SetSummerProp): JSX.Element {
     return (
         <div>
             <table className="add-border" style={{ borderBottom: 0 }}>
@@ -18,7 +21,10 @@ export function ShowSummerSession({ setSummer }: SetSummerProp): JSX.Element {
                     <td>Course Credit</td>
                 </tr>
             </table>
-            <SummerDataToArray setSummer={setSummer}></SummerDataToArray>
+            <SummerDataToArray
+                setSummer={setSummer}
+                Visible={Visible}
+            ></SummerDataToArray>
         </div>
     );
 }

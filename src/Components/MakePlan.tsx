@@ -4,10 +4,9 @@ import { Plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
 
 //The total plans a person has made
-const planList: Plan[] = [];
 
 export function MakePlan(): JSX.Element {
-    const [Plans, setPlans] = useState<Plan[]>(planList);
+    const [Plans, setPlans] = useState<Plan[]>([]);
     const [Counter, setCounter] = useState<number>(1);
     function newPlan(): void {
         const newPlan: Plan = {
@@ -15,20 +14,26 @@ export function MakePlan(): JSX.Element {
             id: Counter
         };
         //const planListCopy: Plan[] = [...planList, newPlan];
-        planList.push(newPlan);
+        const planList: Plan[] = [...Plans, newPlan];
         const counterCopy: number = Counter + 1;
         setPlans(planList);
         setCounter(counterCopy);
     }
     return (
         <div>
-            {/* {visible && <div></div>} */}
-            <Button onClick={newPlan}>New Plan</Button>
-            {Plans.map((plan: Plan) => (
-                <div key={plan.id}>
-                    <PlanContainer plan={plan}></PlanContainer>
-                </div>
-            ))}
+            <div>
+                {/* {visible && <div></div>} */}
+                {Plans.map((plan: Plan) => (
+                    <div key={plan.id}>
+                        <PlanContainer
+                            plan={plan}
+                            plans={Plans}
+                            setPlans={setPlans}
+                        ></PlanContainer>
+                    </div>
+                ))}
+                <Button onClick={newPlan}>New Plan</Button>
+            </div>
         </div>
     );
 }

@@ -5,7 +5,10 @@ import { SetSummerProp } from "../Interfaces/semesterInterfaces";
 import "../App.css";
 import { Button } from "react-bootstrap";
 
-export function SummerDataToArray({ setSummer }: SetSummerProp): JSX.Element {
+export function SummerDataToArray({
+    setSummer,
+    Visible
+}: SetSummerProp): JSX.Element {
     const [course1, setCourse1] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
@@ -49,6 +52,12 @@ export function SummerDataToArray({ setSummer }: SetSummerProp): JSX.Element {
     function deleteTable(): void {
         setSummer(<></>);
     }
+    function deleteCourse(course: Course) {
+        const courseCopy: Course[] = course1.filter(
+            (x: Course): boolean => x !== course
+        );
+        setCourse1(courseCopy);
+    }
     return (
         <div>
             <div style={{ marginBottom: "1ch" }}>
@@ -59,6 +68,18 @@ export function SummerDataToArray({ setSummer }: SetSummerProp): JSX.Element {
                                 <td>{course.code}</td>
                                 <td>{course.name}</td>
                                 <td>{course.credits}</td>
+                                {Visible && (
+                                    <td>
+                                        <Button
+                                            style={{
+                                                backgroundColor: "darkRed"
+                                            }}
+                                            onClick={() => deleteCourse(course)}
+                                        >
+                                            Delete
+                                        </Button>
+                                    </td>
+                                )}
                             </tr>
                         )
                     )}

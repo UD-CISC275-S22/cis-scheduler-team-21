@@ -6,9 +6,19 @@ import { Plan } from "../Interfaces/Courses";
 
 interface PlanProps {
     plan: Plan;
+    plans: Plan[];
+    setPlans: (plans: Plan[]) => void;
 }
-export function PlanContainer({ plan }: PlanProps): JSX.Element {
+
+export function PlanContainer({
+    plan,
+    plans,
+    setPlans
+}: PlanProps): JSX.Element {
     const [visible, setVisible] = useState<boolean>(false);
+    function deletePlan(): void {
+        setPlans(plans.filter((x: Plan): boolean => x.id !== plan.id));
+    }
     return (
         <div>
             <Form.Group>
@@ -19,11 +29,20 @@ export function PlanContainer({ plan }: PlanProps): JSX.Element {
                 >
                     <div>
                         <span className="h4">{plan.Title}</span>
-                        &nbsp;&nbsp;&nbsp;
-                        <Button onClick={() => setVisible(!visible)}>
-                            Show
-                        </Button>
-                        <hr></hr>
+                        <div>
+                            <Button onClick={() => setVisible(!visible)}>
+                                Show
+                            </Button>
+                            <Button
+                                onClick={deletePlan}
+                                style={{
+                                    backgroundColor: "darkRed"
+                                }}
+                            >
+                                Delete
+                            </Button>
+                            <hr></hr>
+                        </div>
                         <div
                             style={{
                                 display: visible ? "block" : "none"

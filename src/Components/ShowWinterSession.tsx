@@ -2,7 +2,10 @@ import React from "react";
 import { WinterDataToArray } from "./WinterDataToArray";
 import { SetWinterProp } from "../Interfaces/semesterInterfaces";
 
-export function ShowWinterSession({ setWinter }: SetWinterProp): JSX.Element {
+export function ShowWinterSession({
+    setWinter,
+    Visible
+}: SetWinterProp): JSX.Element {
     return (
         <div>
             <table className="add-border" style={{ borderBottom: 0 }}>
@@ -18,7 +21,10 @@ export function ShowWinterSession({ setWinter }: SetWinterProp): JSX.Element {
                     <td>Course Credit</td>
                 </tr>
             </table>
-            <WinterDataToArray setWinter={setWinter}></WinterDataToArray>
+            <WinterDataToArray
+                setWinter={setWinter}
+                Visible={Visible}
+            ></WinterDataToArray>
         </div>
     );
 }

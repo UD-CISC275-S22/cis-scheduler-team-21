@@ -1,24 +1,36 @@
 import React from "react";
-import { FallDataToArray } from "./FallDataToArray";
 import { SetFallProp } from "../Interfaces/semesterInterfaces";
+import { FallDataToArray } from "./FallDataToArray";
 
-export function ShowFallSemester({ setFall }: SetFallProp): JSX.Element {
+export function ShowFallSemester({
+    setFall,
+    Visible
+}: SetFallProp): JSX.Element {
     return (
         <div>
             <table className="add-border" style={{ borderBottom: 0 }}>
                 <tr style={{ textAlign: "center" }}>
-                    <h3>Fall Semester</h3>
+                    <h2>Fall Semester</h2>
                 </tr>
                 <tr
                     style={{ borderBottom: 0, borderRight: 0, borderLeft: 0 }}
                     className="add-border"
                 >
-                    <td>Courses ID</td>
-                    <td>Course Name</td>
-                    <td>Course Credit</td>
+                    <td>
+                        <h5>Courses ID</h5>
+                    </td>
+                    <td>
+                        <h5>Course Name</h5>
+                    </td>
+                    <td>
+                        <h5>Course Credit</h5>
+                    </td>
                 </tr>
             </table>
-            <FallDataToArray setFall={setFall}></FallDataToArray>
+            <FallDataToArray
+                setFall={setFall}
+                Visible={Visible}
+            ></FallDataToArray>
         </div>
     );
 }

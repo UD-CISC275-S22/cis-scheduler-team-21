@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
-import { SetSpringProp } from "../Interfaces/semesterInterfaces";
+import { setSpringProp } from "../Interfaces/semesterInterfaces";
 import "../App.css";
 import { Button } from "react-bootstrap";
 
-export function SpringDataToArray({ setSpring }: SetSpringProp): JSX.Element {
+export function SpringDataToArray({
+    setSpring,
+    Visible
+}: setSpringProp): JSX.Element {
     const [course1, setCourse1] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
@@ -21,7 +24,7 @@ export function SpringDataToArray({ setSpring }: SetSpringProp): JSX.Element {
 
     function addTable(): JSX.Element | void {
         const courseInp: HTMLInputElement = document.getElementById(
-            "searchID"
+            "searchID2"
         ) as HTMLInputElement;
         const courseObj: string = courseInp.value;
         if (
@@ -48,7 +51,13 @@ export function SpringDataToArray({ setSpring }: SetSpringProp): JSX.Element {
     }
 
     function deleteTable(): void {
-        setSpring(<div></div>);
+        setSpring(<></>);
+    }
+    function deleteCourse(course: Course) {
+        const courseCopy: Course[] = course1.filter(
+            (x: Course): boolean => x !== course
+        );
+        setCourse1(courseCopy);
     }
     return (
         <div>
@@ -60,6 +69,18 @@ export function SpringDataToArray({ setSpring }: SetSpringProp): JSX.Element {
                                 <td>{course.code}</td>
                                 <td>{course.name}</td>
                                 <td>{course.credits}</td>
+                                {Visible && (
+                                    <td>
+                                        <Button
+                                            style={{
+                                                backgroundColor: "darkRed"
+                                            }}
+                                            onClick={() => deleteCourse(course)}
+                                        >
+                                            Delete
+                                        </Button>
+                                    </td>
+                                )}
                             </tr>
                         )
                     )}
@@ -67,7 +88,7 @@ export function SpringDataToArray({ setSpring }: SetSpringProp): JSX.Element {
             </div>
             <span style={{ marginLeft: "15ch" }}>
                 <input
-                    id="searchID"
+                    id="searchID2"
                     type="text"
                     list="searchList"
                     placeholder="Type a course..."
@@ -90,13 +111,19 @@ export function SpringDataToArray({ setSpring }: SetSpringProp): JSX.Element {
                         marginRight: "23ch"
                     }}
                 >
-                    <Button
-                        style={{ backgroundColor: "darkRed" }}
-                        onClick={deleteTable}
-                    >
-                        Delete Spring Semester
-                    </Button>
-                    <Button style={{ backgroundColor: "green" }}>Save</Button>
+                    {Visible && (
+                        <span>
+                            <Button
+                                style={{ backgroundColor: "darkRed" }}
+                                onClick={deleteTable}
+                            >
+                                Delete Fall
+                            </Button>
+                            <Button style={{ backgroundColor: "green" }}>
+                                Save
+                            </Button>
+                        </span>
+                    )}
                 </span>
             </span>
         </div>
