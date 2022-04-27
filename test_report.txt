@@ -18,7 +18,7 @@
       at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (158 ms)
+  ✕ renders the course name somewhere (98 ms)
 
   ● renders the course name somewhere
 
@@ -109,7 +109,7 @@ All files                |    7.44 |     4.16 |    8.69 |    7.52 |
  src                     |     100 |      100 |     100 |     100 |                   
   App.tsx                |     100 |      100 |     100 |     100 |                   
  src/Components          |    6.45 |     4.16 |    6.66 |    6.52 |                   
-  AddSemester.tsx        |       0 |        0 |       0 |       0 | 8-48              
+  AddSemester.tsx        |       0 |        0 |       0 |       0 | 8-50              
   CommonPlan.tsx         |      60 |       50 |      50 |      60 | 11-14             
   DataToArray.tsx        |       0 |        0 |       0 |       0 | 9-97              
   MakePlan.tsx           |   33.33 |      100 |   33.33 |   33.33 | 13-21,28          
@@ -124,5 +124,5 @@ All files                |    7.44 |     4.16 |    8.69 |    7.52 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.618 s
+Time:        2.642 s
 Ran all test suites.
