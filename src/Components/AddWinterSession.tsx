@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { ShowWinterSession } from "./ShowWinterSession";
-import { SetWinterProp } from "../Interfaces/semesterInterfaces";
 import "../App.css";
 
 export function AddWinterSession(): JSX.Element {

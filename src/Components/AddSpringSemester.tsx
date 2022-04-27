@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { ShowSpringSemester } from "./ShowSpringSemester";
-import { SetSpringProp } from "../Interfaces/semesterInterfaces";
 import "../App.css";
 
 export function AddSpringSemester(): JSX.Element {

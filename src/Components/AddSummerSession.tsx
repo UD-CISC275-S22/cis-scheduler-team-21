@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { ShowSummerSession } from "./ShowSummerSession";
-import { SetSummerProp } from "../Interfaces/semesterInterfaces";
 import "../App.css";
 
 export function AddSummerSession(): JSX.Element {

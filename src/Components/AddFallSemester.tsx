@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { ShowFallSemester } from "./ShowFallSemester";
-import { ShowSpringSemester } from "./ShowSpringSemester";
-import { ShowWinterSession } from "./ShowWinterSession";
-import { ShowSummerSession } from "./ShowSummerSession";
 import "../App.css";
 
 export function AddFallSemester(): JSX.Element {
