@@ -1,13 +1,13 @@
 import React from "react";
-import { SetFallProp } from "../Interfaces/semesterInterfaces";
-import { DataToArray } from "./DataToArray";
+import { setSpringProp } from "../Interfaces/semesterInterfaces";
+import { SpringDataToArray } from "./SpringDataToArray";
 
-export function ShowFallSemester({ setFall }: SetFallProp): JSX.Element {
+export function ShowSpringSemester({ setSpring }: setSpringProp): JSX.Element {
     return (
         <div>
             <table className="add-border" style={{ borderBottom: 0 }}>
                 <tr style={{ textAlign: "center" }}>
-                    <h3>Fall Semester</h3>
+                    <h3>Spring Semester</h3>
                 </tr>
                 <tr
                     style={{ borderBottom: 0, borderRight: 0, borderLeft: 0 }}
@@ -18,7 +18,7 @@ export function ShowFallSemester({ setFall }: SetFallProp): JSX.Element {
                     <td>Course Credit</td>
                 </tr>
             </table>
-            <DataToArray setFall={setFall}></DataToArray>
+            <SpringDataToArray setSpring={setSpring}></SpringDataToArray>
         </div>
     );
 }

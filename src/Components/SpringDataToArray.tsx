@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
-import { SetFallProp } from "../Interfaces/semesterInterfaces";
+import { setSpringProp } from "../Interfaces/semesterInterfaces";
 import "../App.css";
 import { Button } from "react-bootstrap";
 
-export function DataToArray({ setFall }: SetFallProp): JSX.Element {
+export function SpringDataToArray({ setSpring }: setSpringProp): JSX.Element {
     const [course1, setCourse1] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
@@ -48,7 +48,7 @@ export function DataToArray({ setFall }: SetFallProp): JSX.Element {
     }
 
     function deleteTable(): void {
-        setFall(<div></div>);
+        setSpring(<div></div>);
     }
     return (
         <div>
@@ -94,7 +94,7 @@ export function DataToArray({ setFall }: SetFallProp): JSX.Element {
                         style={{ backgroundColor: "darkRed" }}
                         onClick={deleteTable}
                     >
-                        Delete Fall
+                        Delete Spring
                     </Button>
                     <Button style={{ backgroundColor: "green" }}>Save</Button>
                 </span>
