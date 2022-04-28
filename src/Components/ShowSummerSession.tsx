@@ -4,7 +4,8 @@ import { SetSummerProp } from "../Interfaces/semesterInterfaces";
 
 export function ShowSummerSession({
     setSummer,
-    Visible
+    Visible,
+    SearchVisible
 }: SetSummerProp): JSX.Element {
     return (
         <div>
@@ -13,7 +14,7 @@ export function ShowSummerSession({
                     <h2>Summer Session</h2>
                 </tr>
                 <tr
-                    style={{ borderBottom: 0, borderRight: 0, borderLeft: 0 }}
+                    style={{ borderRight: 0, borderLeft: 0 }}
                     className="inner-border"
                 >
                     <td>
@@ -25,11 +26,13 @@ export function ShowSummerSession({
                     <td>
                         <h5>Course Credit</h5>
                     </td>
+                    {Visible && <td></td>}
                 </tr>
             </table>
             <SummerDataToArray
                 setSummer={setSummer}
                 Visible={Visible}
+                SearchVisible={SearchVisible}
             ></SummerDataToArray>
         </div>
     );
