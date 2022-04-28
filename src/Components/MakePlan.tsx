@@ -86,15 +86,17 @@ export function MakePlan(): JSX.Element {
         <div>
             <div>
                 {/* {visible && <div></div>} */}
-                {Plans.map((plan: Plan) => (
-                    <div key={plan.id}>
-                        <PlanContainer
-                            plan={plan}
-                            plans={Plans}
-                            setPlans={setPlans}
-                        ></PlanContainer>
-                    </div>
-                ))}
+                {Plans.map(
+                    (plan: Plan): JSX.Element => (
+                        <div key={plan.id}>
+                            <PlanContainer
+                                plan={plan}
+                                plans={Plans}
+                                setPlans={setPlans}
+                            ></PlanContainer>
+                        </div>
+                    )
+                )}
                 <li>
                     <Link to="/makeplan">
                         <Button onClick={() => setVisible(true)}>

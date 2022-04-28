@@ -4,7 +4,8 @@ import { SetWinterProp } from "../Interfaces/semesterInterfaces";
 
 export function ShowWinterSession({
     setWinter,
-    Visible
+    Visible,
+    SearchVisible
 }: SetWinterProp): JSX.Element {
     return (
         <div>
@@ -13,10 +14,10 @@ export function ShowWinterSession({
                 style={{ borderBottom: 0, float: "right" }}
             >
                 <tr style={{ textAlign: "center" }}>
-                    <h3>Winter Session</h3>
+                    <h2>Winter Session</h2>
                 </tr>
                 <tr
-                    style={{ borderBottom: 0, borderRight: 0, borderLeft: 0 }}
+                    style={{ borderRight: 0, borderLeft: 0 }}
                     className="inner-border"
                 >
                     <td>
@@ -28,11 +29,13 @@ export function ShowWinterSession({
                     <td>
                         <h5>Course Credit</h5>
                     </td>
+                    {Visible && <td></td>}
                 </tr>
             </table>
             <WinterDataToArray
                 setWinter={setWinter}
                 Visible={Visible}
+                SearchVisible={SearchVisible}
             ></WinterDataToArray>
         </div>
     );
