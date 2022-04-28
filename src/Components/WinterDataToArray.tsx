@@ -89,7 +89,8 @@ export function WinterDataToArray({
                     )}
                 </table>
             </div>
-            <span style={{ marginRight: "15ch", float: "right" }}>
+            <br></br>
+            <span style={{ marginRight: "15ch" }}>
                 <input
                     id="searchID3"
                     type="text"
@@ -112,7 +113,8 @@ export function WinterDataToArray({
                 <br></br>
                 <span
                     style={{
-                        float: "right"
+                        float: "left",
+                        marginLeft: "13.5ch"
                     }}
                 >
                     {Visible && (

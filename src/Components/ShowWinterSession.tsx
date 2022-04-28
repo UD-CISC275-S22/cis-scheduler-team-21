@@ -8,10 +8,7 @@ export function ShowWinterSession({
 }: SetWinterProp): JSX.Element {
     return (
         <div>
-            <table
-                className="add-border"
-                style={{ borderBottom: 0, float: "right" }}
-            >
+            <table className="add-border" style={{ borderBottom: 0 }}>
                 <tr style={{ textAlign: "center" }}>
                     <h3>Winter Session</h3>
                 </tr>
