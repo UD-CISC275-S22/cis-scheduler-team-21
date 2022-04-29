@@ -18,10 +18,11 @@ export function MakePlan(): JSX.Element {
     function newPlan(): void {
         setVisible(false);
         const newPlan: Plan = {
-            Title: "New Plan",
+            Title: "Plan " + Counter,
             id: Counter,
             description: ""
         };
+        //const planListCopy: Plan[] = [...planList, newPlan];
         const planList: Plan[] = [...Plans, newPlan];
         const counterCopy: number = Counter + 1;
         setPlans(planList);
@@ -85,17 +86,16 @@ export function MakePlan(): JSX.Element {
     return (
         <div>
             <div>
-                {Plans.map(
-                    (plan: Plan): JSX.Element => (
-                        <div key={plan.id}>
-                            <PlanContainer
-                                plan={plan}
-                                plans={Plans}
-                                setPlans={setPlans}
-                            ></PlanContainer>
-                        </div>
-                    )
-                )}
+                {/* {visible && <div></div>} */}
+                {Plans.map((plan: Plan) => (
+                    <div key={plan.id}>
+                        <PlanContainer
+                            plan={plan}
+                            plans={Plans}
+                            setPlans={setPlans}
+                        ></PlanContainer>
+                    </div>
+                ))}
                 <li>
                     <Link to="/makeplan">
                         <Button onClick={() => setVisible(true)}>
