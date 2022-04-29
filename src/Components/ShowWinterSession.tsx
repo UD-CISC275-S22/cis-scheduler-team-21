@@ -13,7 +13,7 @@ export function ShowWinterSession({
                 className="add-border"
                 style={{ borderBottom: 0, float: "right" }}
             >
-                <tr style={{ textAlign: "center" }}>
+                <tr style={{ textAlign: "center", backgroundColor: "white" }}>
                     <h2>Winter Session</h2>
                 </tr>
                 <tr
