@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import { AddSemester } from "./AddSemester";
 import "../App.css";
 import { Plan } from "../Interfaces/Courses";
@@ -18,6 +18,7 @@ export function PlanContainer({
     const [visible, setVisible] = useState<boolean>(false);
     const [editVis, setEditVis] = useState<boolean>(false);
     const [Plan, setPlan] = useState<Plan>(plan);
+    const [Plan2, setPlan2] = useState<Plan>(plan);
     function deletePlan(): void {
         setPlans(plans.filter((x: Plan): boolean => x.id !== plan.id));
     }
@@ -31,6 +32,10 @@ export function PlanContainer({
             description: plan.description
         };
         setPlan(updatedPlan);
+        const plansCopy: Plan[] = plans.map((plan: Plan) =>
+            plan.id === Plan.id ? (plan = Plan) : plan
+        );
+        setPlans(plansCopy);
     }
     function updateDescription(event: React.ChangeEvent<HTMLInputElement>) {
         const updatedPlan: Plan = {
@@ -38,7 +43,7 @@ export function PlanContainer({
             id: plan.id,
             description: event.target.value
         };
-        setPlan(updatedPlan);
+        setPlan2(updatedPlan);
         const plansCopy: Plan[] = plans.map((plan: Plan) =>
             plan.id === Plan.id ? (plan = Plan) : plan
         );
@@ -60,33 +65,43 @@ export function PlanContainer({
                         <Form.Control
                             style={{ width: "40%" }}
                             as="textarea"
-                            rows={3}
+                            rows={2}
                             placeholder="Enter new description..."
-                            value={Plan.description}
+                            value={Plan2.description}
                             onChange={updateDescription}
                         />
                     </Form.Group>
                 )}
-                <div style={{ width: "100%", textAlign: "center" }}>
-                    <b
+                <Row>
+                    <Col
                         style={{
-                            color: "black",
-                            fontSize: "5ch",
-                            float: "left"
+                            overflow: "clip"
                         }}
                     >
-                        {Plan.Title}
-                    </b>
-                    <p
+                        <b
+                            style={{
+                                fontSize: "4ch"
+                            }}
+                        >
+                            {Plan.Title}
+                        </b>
+                    </Col>
+                    <Col
                         style={{
-                            fontSize: "2ch",
-                            width: "20%",
-                            marginLeft: "50ch"
+                            wordBreak: "break-all"
                         }}
                     >
-                        {Plan.description}
-                    </p>
-                </div>
+                        <p
+                            style={{
+                                fontSize: "2ch",
+                                marginTop: "2ch"
+                            }}
+                        >
+                            {Plan2.description}
+                        </p>
+                    </Col>
+                    <Col></Col>
+                </Row>
                 <div
                     style={{
                         float: "right",
