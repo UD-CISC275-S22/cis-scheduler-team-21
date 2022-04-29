@@ -17,4 +17,5 @@ export interface Plan {
     //Defines what a plan is
     Title: string;
     id: number;
+    description: string;
 }

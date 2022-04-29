@@ -1,7 +1,3 @@
-export interface SetSpringProp {
-    setSpring: (springSemester: JSX.Element) => void;
-}
-
 export interface SetFallProp {
     setFall: (fallSemester: JSX.Element | null) => void;
     Visible: boolean;

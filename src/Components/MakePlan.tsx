@@ -18,10 +18,10 @@ export function MakePlan(): JSX.Element {
     function newPlan(): void {
         setVisible(false);
         const newPlan: Plan = {
-            Title: "Plan " + Counter,
-            id: Counter
+            Title: "New Plan",
+            id: Counter,
+            description: ""
         };
-        //const planListCopy: Plan[] = [...planList, newPlan];
         const planList: Plan[] = [...Plans, newPlan];
         const counterCopy: number = Counter + 1;
         setPlans(planList);
@@ -85,7 +85,6 @@ export function MakePlan(): JSX.Element {
     return (
         <div>
             <div>
-                {/* {visible && <div></div>} */}
                 {Plans.map(
                     (plan: Plan): JSX.Element => (
                         <div key={plan.id}>

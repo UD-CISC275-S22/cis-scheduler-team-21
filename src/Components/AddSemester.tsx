@@ -98,9 +98,7 @@ export function AddSemester(): JSX.Element {
         <div>
             <div
                 style={{
-                    textAlign: "center",
-                    marginLeft: "33ch",
-                    position: "relative"
+                    textAlign: "center"
                 }}
             >
                 <Button
@@ -127,17 +125,14 @@ export function AddSemester(): JSX.Element {
                 >
                     Add Summer Session
                 </Button>
-                <span>
-                    <Button onClick={setVisEdit} style={{ marginLeft: "9ch" }}>
-                        Edit Mode
-                    </Button>
-                    <Button
-                        onClick={setVisSearch}
-                        style={{ marginLeft: "1ch" }}
-                    >
-                        Search Mode
-                    </Button>
-                </span>
+            </div>
+            <div
+                style={{ float: "right", marginRight: "3ch", marginTop: "2ch" }}
+            >
+                <Button onClick={setVisEdit}>Edit Mode</Button>
+                <Button onClick={setVisSearch} style={{ marginLeft: ".5ch" }}>
+                    Search Mode
+                </Button>
             </div>
             <div>
                 <Row style={{ width: "100%" }}>
