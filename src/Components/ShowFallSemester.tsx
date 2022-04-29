@@ -4,7 +4,8 @@ import { FallDataToArray } from "./FallDataToArray";
 
 export function ShowFallSemester({
     setFall,
-    Visible
+    Visible,
+    SearchVisible
 }: SetFallProp): JSX.Element {
     return (
         <div>
@@ -13,7 +14,7 @@ export function ShowFallSemester({
                     <h2>Fall Semester</h2>
                 </tr>
                 <tr
-                    style={{ borderBottom: 0, borderRight: 0, borderLeft: 0 }}
+                    style={{ borderRight: 0, borderLeft: 0 }}
                     className="inner-border"
                 >
                     <td>
@@ -25,11 +26,13 @@ export function ShowFallSemester({
                     <td>
                         <h5>Course Credit</h5>
                     </td>
+                    {Visible && <td></td>}
                 </tr>
             </table>
             <FallDataToArray
                 setFall={setFall}
                 Visible={Visible}
+                SearchVisible={SearchVisible}
             ></FallDataToArray>
         </div>
     );

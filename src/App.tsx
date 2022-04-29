@@ -2,18 +2,13 @@ import React from "react";
 import "./App.css";
 import { MakePlan } from "./Components/MakePlan";
 import { Homepage } from "./Components/Homepage";
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Navigate
-} from "react-router-dom";
+import { Routes, Route, Navigate, HashRouter } from "react-router-dom";
 
 function App(): JSX.Element {
     return (
         <>
             {/* This is the alias of BrowserRouter i.e. Router */}
-            <Router>
+            <HashRouter>
                 <Routes>
                     {/* This route is for homepage component 
           with exact path "/", in element props 
@@ -32,7 +27,7 @@ function App(): JSX.Element {
                         element={<Navigate replace to="/makeplan" />}
                     />
                 </Routes>
-            </Router>
+            </HashRouter>
         </>
     );
 }

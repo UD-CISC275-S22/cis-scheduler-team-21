@@ -4,7 +4,8 @@ import { SpringDataToArray } from "./SpringDataToArray";
 
 export function ShowSpringSemester({
     setSpring,
-    Visible
+    Visible,
+    SearchVisible
 }: setSpringProp): JSX.Element {
     return (
         <div>
@@ -13,7 +14,7 @@ export function ShowSpringSemester({
                     <h2>Spring Semester</h2>
                 </tr>
                 <tr
-                    style={{ borderBottom: 0, borderRight: 0, borderLeft: 0 }}
+                    style={{ borderRight: 0, borderLeft: 0 }}
                     className="inner-border"
                 >
                     <td>
@@ -25,11 +26,13 @@ export function ShowSpringSemester({
                     <td>
                         <h5>Course Credit</h5>
                     </td>
+                    {Visible && <td></td>}
                 </tr>
             </table>
             <SpringDataToArray
                 setSpring={setSpring}
                 Visible={Visible}
+                SearchVisible={SearchVisible}
             ></SpringDataToArray>
         </div>
     );

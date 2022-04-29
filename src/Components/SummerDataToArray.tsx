@@ -7,7 +7,8 @@ import { Button } from "react-bootstrap";
 
 export function SummerDataToArray({
     setSummer,
-    Visible
+    Visible,
+    SearchVisible
 }: SetSummerProp): JSX.Element {
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
@@ -50,7 +51,7 @@ export function SummerDataToArray({
         }
     }
     function deleteTable(): void {
-        setSummer(<></>);
+        setSummer(null);
     }
     function deleteCourse(course: Course) {
         const courseCopy: Course[] = selectedCourses.filter(
@@ -89,51 +90,53 @@ export function SummerDataToArray({
                     )}
                 </table>
             </div>
-            <span style={{ marginLeft: "15ch" }}>
-                <input
-                    id="searchID4"
-                    type="text"
-                    list="searchList"
-                    placeholder="Type a course..."
-                ></input>
-                <datalist id="searchList">
-                    {courseObjects.map(
-                        (course: Course): JSX.Element => (
-                            <option key={course.code} value={course.code}>
-                                {course.code}
-                            </option>
-                        )
-                    )}
-                </datalist>
-                <Button id="search-button" onClick={addTable}>
-                    +
-                </Button>
-                <span
-                    style={{
-                        float: "right",
-                        marginRight: "23ch"
-                    }}
-                >
-                    {Visible && (
-                        <span>
-                            <Button
-                                style={{ backgroundColor: "darkRed" }}
-                                onClick={deleteTable}
-                            >
-                                Delete Summer
-                            </Button>
-                            <Button
-                                style={{ backgroundColor: "gold" }}
-                                onClick={() => clearCourses(selectedCourses)}
-                            >
-                                Clear Summer
-                            </Button>
-                            <Button style={{ backgroundColor: "green" }}>
-                                Save
-                            </Button>
-                        </span>
-                    )}
+            {SearchVisible && (
+                <span style={{ marginLeft: "15ch" }}>
+                    <input
+                        id="searchID4"
+                        type="text"
+                        list="searchList"
+                        placeholder="Type a course..."
+                    ></input>
+                    <datalist id="searchList">
+                        {courseObjects.map(
+                            (course: Course): JSX.Element => (
+                                <option key={course.code} value={course.code}>
+                                    {course.code}
+                                </option>
+                            )
+                        )}
+                    </datalist>
+                    <Button id="search-button" onClick={addTable}>
+                        +
+                    </Button>
                 </span>
+            )}
+            <span
+                style={{
+                    float: "right",
+                    marginRight: "23ch"
+                }}
+            >
+                {Visible && (
+                    <span>
+                        <Button
+                            style={{ backgroundColor: "darkRed" }}
+                            onClick={deleteTable}
+                        >
+                            Delete Summer
+                        </Button>
+                        <Button
+                            style={{ backgroundColor: "gold" }}
+                            onClick={() => clearCourses(selectedCourses)}
+                        >
+                            Clear Summer
+                        </Button>
+                        <Button style={{ backgroundColor: "green" }}>
+                            Save
+                        </Button>
+                    </span>
+                )}
             </span>
         </div>
     );
