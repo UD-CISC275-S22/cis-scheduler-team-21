@@ -15,7 +15,7 @@ class App extends React.Component {
                         {/* This route is for homepage component 
           with exact path "/", in element props 
           we passes the imported component*/}
-                        <Route path="/homepage" element={<Homepage />} />
+                        <Route path="homepage" element={<Homepage />} />
                         <Route
                             path="/cis-scheduler-team-21/"
                             element={<Navigate replace to="/homepage" />}
@@ -23,7 +23,7 @@ class App extends React.Component {
                         {/* This route is for makeplan component 
           with path "/homepage", in element props 
           we passes the imported component*/}
-                        <Route path="/makeplan" element={<MakePlan />} />
+                        <Route path="makeplan" element={<MakePlan />} />
                         <Route
                             path="/cis-scheduler-team-21/homepage"
                             element={<Navigate replace to="/makeplan" />}
