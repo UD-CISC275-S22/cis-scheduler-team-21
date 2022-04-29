@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { MakePlan } from "./Components/MakePlan";
 import { Homepage } from "./Components/Homepage";
-import { Routes, Route, Navigate, HashRouter } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 //import { render } from "@testing-library/react";
 
 class App extends React.Component {
@@ -10,26 +10,24 @@ class App extends React.Component {
         return (
             <>
                 {/* This is the alias of BrowserRouter i.e. Router */}
-                <HashRouter>
-                    <Routes>
-                        {/* This route is for homepage component 
+                <Routes>
+                    {/* This route is for homepage component 
           with exact path "/", in element props 
           we passes the imported component*/}
-                        <Route path="homepage" element={<Homepage />} />
-                        <Route
-                            path="/cis-scheduler-team-21/"
-                            element={<Navigate replace to="/homepage" />}
-                        />
-                        {/* This route is for makeplan component 
+                    <Route path="homepage" element={<Homepage />} />
+                    <Route
+                        path="/cis-scheduler-team-21/"
+                        element={<Navigate replace to="/homepage" />}
+                    />
+                    {/* This route is for makeplan component 
           with path "/homepage", in element props 
           we passes the imported component*/}
-                        <Route path="makeplan" element={<MakePlan />} />
-                        <Route
-                            path="/cis-scheduler-team-21/homepage"
-                            element={<Navigate replace to="/makeplan" />}
-                        />
-                    </Routes>
-                </HashRouter>
+                    <Route path="makeplan" element={<MakePlan />} />
+                    <Route
+                        path="/cis-scheduler-team-21/homepage"
+                        element={<Navigate replace to="/makeplan" />}
+                    />
+                </Routes>
             </>
         );
     }
