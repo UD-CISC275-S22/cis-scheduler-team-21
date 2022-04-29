@@ -32,7 +32,7 @@ function App(): JSX.Element {
                         element={<Navigate replace to="/#/makeplan" />}
                     />
                     **
-                    <Route path="/cis-scheduler-team-21/#" element={Homepage} />
+                    <Route path="/cis-scheduler-team-21/#/homepage" />
                     **
                 </Routes>
             </Router>
