@@ -18,7 +18,7 @@ export function PlanContainer({
     const [visible, setVisible] = useState<boolean>(false);
     const [editVis, setEditVis] = useState<boolean>(false);
     const [Plan, setPlan] = useState<Plan>(plan);
-    const [Plan2, setPlan2] = useState<Plan>(plan);
+    //const [Plan2, setPlan2] = useState<Plan>(plan);
     function deletePlan(): void {
         setPlans(plans.filter((x: Plan): boolean => x.id !== plan.id));
     }
@@ -28,8 +28,8 @@ export function PlanContainer({
     function updatePlan(event: React.ChangeEvent<HTMLInputElement>) {
         const updatedPlan: Plan = {
             Title: event.target.value,
-            id: plan.id,
-            description: plan.description
+            id: plan.id
+            //description: plan.description
         };
         setPlan(updatedPlan);
         const plansCopy: Plan[] = plans.map((plan: Plan) =>
@@ -37,13 +37,13 @@ export function PlanContainer({
         );
         setPlans(plansCopy);
     }
-    function updateDescription(event: React.ChangeEvent<HTMLInputElement>) {
-        const updatedPlan: Plan = {
+    function updateDescription() {
+        /**const updatedPlan: Plan = {
             Title: plan.Title,
-            id: plan.id,
-            description: event.target.value
-        };
-        setPlan2(updatedPlan);
+            id: plan.id
+            //description: event.target.value
+        };*/
+        //setPlan2(updatedPlan);
         const plansCopy: Plan[] = plans.map((plan: Plan) =>
             plan.id === Plan.id ? (plan = Plan) : plan
         );
@@ -67,7 +67,6 @@ export function PlanContainer({
                             as="textarea"
                             rows={2}
                             placeholder="Enter new description..."
-                            value={Plan2.description}
                             onChange={updateDescription}
                         />
                     </Form.Group>
@@ -96,9 +95,7 @@ export function PlanContainer({
                                 fontSize: "2ch",
                                 marginTop: "2ch"
                             }}
-                        >
-                            {Plan2.description}
-                        </p>
+                        ></p>
                     </Col>
                     <Col></Col>
                 </Row>
