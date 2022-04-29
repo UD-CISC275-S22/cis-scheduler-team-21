@@ -51,12 +51,12 @@ All files                |       0 |        0 |       0 |       0 |
  src                     |       0 |      100 |       0 |       0 |                   
   App.tsx                |       0 |      100 |       0 |       0 | 13                
  src/Components          |       0 |        0 |       0 |       0 |                   
-  AddSemester.tsx        |       0 |        0 |       0 |       0 | 10-126            
+  AddSemester.tsx        |       0 |        0 |       0 |       0 | 10-124            
   CommonPlan.tsx         |       0 |        0 |       0 |       0 | 9-24              
   FallDataToArray.tsx    |       0 |        0 |       0 |       0 | 13-132            
   Homepage.tsx           |       0 |      100 |       0 |       0 | 7                 
-  MakePlan.tsx           |       0 |        0 |       0 |       0 | 12-102            
-  PlanContainer.tsx      |       0 |        0 |       0 |       0 | 18-33             
+  MakePlan.tsx           |       0 |        0 |       0 |       0 | 12-101            
+  PlanContainer.tsx      |       0 |        0 |       0 |       0 | 18-96             
   ShowFallSemester.tsx   |       0 |        0 |       0 |       0 | 10                
   ShowSpringSemester.tsx |       0 |        0 |       0 |       0 | 10                
   ShowSummerSession.tsx  |       0 |        0 |       0 |       0 | 10                
@@ -71,5 +71,5 @@ All files                |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        2.845 s
+Time:        3.337 s
 Ran all test suites.
