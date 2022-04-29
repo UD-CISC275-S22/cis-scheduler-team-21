@@ -18,10 +18,10 @@ function App(): JSX.Element {
                     {/* This route is for homepage component 
           with exact path "/", in element props 
           we passes the imported component*/}
-                    <Route path="/homepage" element={<Homepage />} />
+                    <Route path="/" element={<Homepage />} />
                     <Route
                         path="/cis-scheduler-team-21/"
-                        element={<Navigate replace to="/#/homepage" />}
+                        element={<Navigate replace to="#/homepage" />}
                     />
                     {/* This route is for makeplan component 
           with path "/homepage", in element props 
@@ -32,7 +32,7 @@ function App(): JSX.Element {
                         element={<Navigate replace to="/#/makeplan" />}
                     />
                     **
-                    <Route path="/cis-scheduler-team-21/#/homepage" />
+                    <Route path="/cis-scheduler-team-21/" />
                     **
                 </Routes>
             </Router>
