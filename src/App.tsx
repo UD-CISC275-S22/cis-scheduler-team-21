@@ -31,9 +31,6 @@ function App(): JSX.Element {
                         path="/cis-scheduler-team-21/homepage"
                         element={<Navigate replace to="/#/makeplan" />}
                     />
-                    **
-                    <Route path="/" element={Homepage} />
-                    **
                 </Routes>
             </Router>
         </>
