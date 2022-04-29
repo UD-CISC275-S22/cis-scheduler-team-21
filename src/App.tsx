@@ -6,7 +6,7 @@ import {
     Routes,
     Route,
     Navigate,
-    BrowserRouter as Router
+    HashRouter as Router
 } from "react-router-dom";
 
 function App(): JSX.Element {
@@ -21,7 +21,7 @@ function App(): JSX.Element {
                     <Route path="/homepage" element={<Homepage />} />
                     <Route
                         path="/cis-scheduler-team-21/"
-                        element={<Navigate replace to="/homepage" />}
+                        element={<Navigate replace to="/#/homepage" />}
                     />
                     {/* This route is for makeplan component 
           with path "/homepage", in element props 
@@ -29,7 +29,7 @@ function App(): JSX.Element {
                     <Route path="/makeplan" element={<MakePlan />} />
                     <Route
                         path="/cis-scheduler-team-21/homepage"
-                        element={<Navigate replace to="/makeplan" />}
+                        element={<Navigate replace to="/#/makeplan" />}
                     />
                     **
                     <Route path="/" element={Homepage} />
