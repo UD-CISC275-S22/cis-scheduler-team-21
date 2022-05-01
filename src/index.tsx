@@ -5,12 +5,11 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { PlanProps } from "./Components/PlanContainer";
+//import { PlanProps } from "./Components/PlanContainer";
 
+//<App plan={plan} plans={plans} setPlans={setPlans} />
 ReactDOM.render(
-    <React.StrictMode>
-        <App plan={plan} plans={plans} setPlans={setPlans} />
-    </React.StrictMode>,
+    <React.StrictMode></React.StrictMode>,
     document.getElementById("root")
 );
 
