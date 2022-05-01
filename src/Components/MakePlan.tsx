@@ -39,7 +39,10 @@ export function MakePlan(): JSX.Element {
                         close
                     </button>
                     <div>
-                        <Form.Group controlId="formStartYear">
+                        <Form.Group
+                            data-testid="change-year"
+                            controlId="formStartYear"
+                        >
                             <Form.Control
                                 value={Year}
                                 type="number"
@@ -50,7 +53,10 @@ export function MakePlan(): JSX.Element {
                         </Form.Group>
                     </div>
                     <div>
-                        <Dropdown className="degreedropdown">
+                        <Dropdown
+                            data-testid="degree-dropdown"
+                            className="degreedropdown"
+                        >
                             <Dropdown.Toggle id="degree" variant="secondary">
                                 {Degree}
                             </Dropdown.Toggle>
