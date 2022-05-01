@@ -120,7 +120,7 @@ export function FallDataToArray({
                 }}
             >
                 {Visible && (
-                    <span>
+                    <span data-testid="fall-edit-mode">
                         <Button
                             style={{ backgroundColor: "darkRed" }}
                             onClick={deleteTable}

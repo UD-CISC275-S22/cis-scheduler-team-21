@@ -14,10 +14,10 @@ export function Homepage(): JSX.Element {
             </header>
             <div>
                 <body className="App-Body">
-                    <h2>Welcome!!!</h2> to the UD CIS SCHEDULER. Here you can
-                    setup schedules for your computer science degree! First
-                    start by creating a plan, then add the semesters and courses
-                    from there.
+                    <h2>Welcome!!!</h2> to the UD CIS SCHEDULER from CISC275.
+                    Here you can setup schedules for your computer science
+                    degree! First start by creating a plan, then add the
+                    semesters and courses from there.
                 </body>
             </div>
             <CommonPlan></CommonPlan>

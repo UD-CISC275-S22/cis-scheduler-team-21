@@ -9,7 +9,11 @@ export function ShowFallSemester({
 }: SetFallProp): JSX.Element {
     return (
         <div>
-            <table className="add-border" style={{ borderBottom: 0 }}>
+            <table
+                data-testid="fall-table"
+                className="add-border"
+                style={{ borderBottom: 0 }}
+            >
                 <tr style={{ textAlign: "center", backgroundColor: "white" }}>
                     <h2>Fall Semester</h2>
                 </tr>

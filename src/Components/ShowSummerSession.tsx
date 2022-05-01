@@ -9,7 +9,11 @@ export function ShowSummerSession({
 }: SetSummerProp): JSX.Element {
     return (
         <div>
-            <table className="add-border" style={{ borderBottom: 0 }}>
+            <table
+                data-testid="summer-table"
+                className="add-border"
+                style={{ borderBottom: 0 }}
+            >
                 <tr style={{ textAlign: "center", backgroundColor: "white" }}>
                     <h2>Summer Session</h2>
                 </tr>

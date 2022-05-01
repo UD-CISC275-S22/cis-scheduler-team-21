@@ -4,6 +4,7 @@ import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 import { Plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
+import { CommonPlan } from "./CommonPlan";
 import { Link } from "react-router-dom";
 
 //The total plans a person has made
@@ -12,7 +13,7 @@ export function MakePlan(): JSX.Element {
     const [Plans, setPlans] = useState<Plan[]>([]);
     const [Counter, setCounter] = useState<number>(1);
     const [Visible, setVisible] = useState<boolean>(false);
-    const [Title, setTitle] = useState<string>("Select Degree");
+    const [Degree, setDegree] = useState<string>("Select Degree");
     const [Year, setYear] = useState<string>("2022");
 
     function newPlan(): void {
@@ -53,17 +54,17 @@ export function MakePlan(): JSX.Element {
                     <div>
                         <Dropdown className="degreedropdown">
                             <Dropdown.Toggle id="degree" variant="secondary">
-                                {Title}
+                                {Degree}
                             </Dropdown.Toggle>
                             <DropdownMenu variant="dark">
                                 <DropdownItem
-                                    onClick={() => setTitle("Bachelor of Art")}
+                                    onClick={() => setDegree("Bachelor of Art")}
                                 >
                                     Bachelor of Art
                                 </DropdownItem>
                                 <DropdownItem
                                     onClick={() =>
-                                        setTitle("Bachelor of Science")
+                                        setDegree("Bachelor of Science")
                                     }
                                 >
                                     Bachelor of Science
@@ -74,7 +75,7 @@ export function MakePlan(): JSX.Element {
                     <button
                         className="create-btn"
                         onClick={newPlan}
-                        disabled={Title == "Select Degree"}
+                        disabled={Degree == "Select Degree"}
                     >
                         Create Plan
                     </button>

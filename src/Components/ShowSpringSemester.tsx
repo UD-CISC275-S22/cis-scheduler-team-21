@@ -9,7 +9,11 @@ export function ShowSpringSemester({
 }: setSpringProp): JSX.Element {
     return (
         <div>
-            <table className="add-border" style={{ borderBottom: 0 }}>
+            <table
+                data-testid="spring-table"
+                className="add-border"
+                style={{ borderBottom: 0 }}
+            >
                 <tr style={{ textAlign: "center", backgroundColor: "white" }}>
                     <h2>Spring Semester</h2>
                 </tr>

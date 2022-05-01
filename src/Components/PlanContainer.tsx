@@ -4,7 +4,7 @@ import { AddSemester } from "./AddSemester";
 import "../App.css";
 import { Plan } from "../Interfaces/Courses";
 
-interface PlanProps {
+export interface PlanProps {
     plan: Plan;
     plans: Plan[];
     setPlans: (plans: Plan[]) => void;
