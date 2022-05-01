@@ -42,11 +42,18 @@ describe("Common Plan Component tests", () => {
         userEvent.click(showCommonPlan);
         expect(screen.getByTestId("common-plan-image")).toBeInTheDocument();
     });
-    /**test("Clicking the hide button hides the common plan image", () => {
+    test("Clicking the hide button hides the common plan image", () => {
+        const showCommonPlan = screen.getByRole("button", {
+            name: /Show Common 4 Year Plan/i
+        });
+        userEvent.click(showCommonPlan);
         const hideCommonPlan = screen.getByRole("button", {
             name: /Hide Common 4 Year Plan/i
         });
+
+        const image: HTMLElement = screen.getByTestId("common-plan-image");
+
         userEvent.click(hideCommonPlan);
-        expect(document.getElementsByTagName("img")).not.toBeInTheDocument();
-    });*/
+        expect(image).not.toBeInTheDocument();
+    });
 });
