@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { FallTableContents } from "../Components/FallTableContents";
+import { FallTableContents } from "../TableComponents/FallTableContents";
 import userEvent from "@testing-library/user-event";
 
 const setFallElement = () => {
