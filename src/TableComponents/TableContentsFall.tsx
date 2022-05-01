@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
-import { SetWinterProp } from "../Interfaces/semesterInterfaces";
+import { SetFallProp } from "../Interfaces/semesterInterfaces";
 import "../App.css";
 import { Button } from "react-bootstrap";
 
-export function WinterDataToArray({
-    setWinter,
+export function TableContentsFall({
+    setFall,
     Visible,
     SearchVisible
-}: SetWinterProp): JSX.Element {
+}: SetFallProp): JSX.Element {
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
@@ -25,7 +25,7 @@ export function WinterDataToArray({
 
     function addTable(): JSX.Element | void {
         const courseInp: HTMLInputElement = document.getElementById(
-            "searchID3"
+            "searchID"
         ) as HTMLInputElement;
         const courseObj: string = courseInp.value;
         if (
@@ -52,7 +52,7 @@ export function WinterDataToArray({
         }
     }
     function deleteTable(): void {
-        setWinter(null);
+        setFall(null);
     }
     function deleteCourse(course: Course) {
         const courseCopy: Course[] = selectedCourses.filter(
@@ -67,42 +67,54 @@ export function WinterDataToArray({
     return (
         <div>
             <div style={{ marginBottom: "1ch" }}>
-                <table className="add-border">
-                    {selectedCourses.map(
-                        (course: Course): JSX.Element => (
-                            <tr key={course.code} className="innerTR">
-                                <td>{course.code}</td>
-                                <td>{course.name}</td>
-                                <td>{course.credits}</td>
-                                {Visible && (
-                                    <td>
-                                        <Button
-                                            style={{
-                                                backgroundColor: "darkRed"
-                                            }}
-                                            onClick={() => deleteCourse(course)}
-                                        >
-                                            Delete
-                                        </Button>
-                                    </td>
-                                )}
-                            </tr>
-                        )
-                    )}
+                <table>
+                    <tbody>
+                        {selectedCourses.map(
+                            (course: Course): JSX.Element => (
+                                <tr
+                                    key={course.code}
+                                    data-testid={course.code}
+                                    className="innerTR"
+                                >
+                                    <td>{course.code}</td>
+                                    <td>{course.name}</td>
+                                    <td>{course.credits}</td>
+                                    {Visible && (
+                                        <td>
+                                            <Button
+                                                style={{
+                                                    backgroundColor: "darkRed"
+                                                }}
+                                                onClick={() =>
+                                                    deleteCourse(course)
+                                                }
+                                                data-testid={
+                                                    course.code + " delete"
+                                                }
+                                            >
+                                                Delete
+                                            </Button>
+                                        </td>
+                                    )}
+                                </tr>
+                            )
+                        )}
+                    </tbody>
                 </table>
             </div>
             {SearchVisible && (
                 <span
-                    data-testid="winter-search-mode"
+                    data-testid="fall-search-mode"
                     style={{ marginLeft: "15ch" }}
                 >
                     <input
-                        id="searchID3"
+                        data-testid="searchIDFall"
+                        id="searchID"
                         type="text"
                         list="searchList"
                         placeholder="Type a course..."
                     ></input>
-                    <datalist id="searchList">
+                    <datalist id="searchList" data-testid="searchList">
                         {courseObjects.map(
                             (course: Course): JSX.Element => (
                                 <option key={course.code} value={course.code}>
@@ -111,7 +123,7 @@ export function WinterDataToArray({
                             )
                         )}
                     </datalist>
-                    <Button id="search-button" onClick={addTable}>
+                    <Button data-testid="add-button" onClick={addTable}>
                         +
                     </Button>
                 </span>
@@ -119,22 +131,23 @@ export function WinterDataToArray({
             <span
                 style={{
                     float: "right",
-                    marginRight: "26ch"
+                    marginRight: "31ch"
                 }}
             >
                 {Visible && (
-                    <span data-testid="winter-edit-mode">
+                    <span data-testid="fall-edit-mode">
                         <Button
                             style={{ backgroundColor: "darkRed" }}
                             onClick={deleteTable}
                         >
-                            Delete Winter
+                            Delete Fall
                         </Button>
                         <Button
+                            data-testid="clearFall"
                             style={{ backgroundColor: "gold" }}
                             onClick={() => clearCourses(selectedCourses)}
                         >
-                            Clear Winter
+                            Clear Fall
                         </Button>
                         <Button style={{ backgroundColor: "green" }}>
                             Save

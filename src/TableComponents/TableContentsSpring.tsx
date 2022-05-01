@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
-import { SetFallProp } from "../Interfaces/semesterInterfaces";
+import { setSpringProp } from "../Interfaces/semesterInterfaces";
 import "../App.css";
 import { Button } from "react-bootstrap";
 
-export function FallTableContents({
-    setFall,
+export function TableContentsSpring({
+    setSpring,
     Visible,
     SearchVisible
-}: SetFallProp): JSX.Element {
+}: setSpringProp): JSX.Element {
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
@@ -25,7 +25,7 @@ export function FallTableContents({
 
     function addTable(): JSX.Element | void {
         const courseInp: HTMLInputElement = document.getElementById(
-            "searchID"
+            "searchID2"
         ) as HTMLInputElement;
         const courseObj: string = courseInp.value;
         if (
@@ -51,8 +51,9 @@ export function FallTableContents({
             }
         }
     }
+
     function deleteTable(): void {
-        setFall(null);
+        setSpring(null);
     }
     function deleteCourse(course: Course) {
         const courseCopy: Course[] = selectedCourses.filter(
@@ -67,54 +68,42 @@ export function FallTableContents({
     return (
         <div>
             <div style={{ marginBottom: "1ch" }}>
-                <table>
-                    <tbody>
-                        {selectedCourses.map(
-                            (course: Course): JSX.Element => (
-                                <tr
-                                    key={course.code}
-                                    data-testid={course.code}
-                                    className="innerTR"
-                                >
-                                    <td>{course.code}</td>
-                                    <td>{course.name}</td>
-                                    <td>{course.credits}</td>
-                                    {Visible && (
-                                        <td>
-                                            <Button
-                                                style={{
-                                                    backgroundColor: "darkRed"
-                                                }}
-                                                onClick={() =>
-                                                    deleteCourse(course)
-                                                }
-                                                data-testid={
-                                                    course.code + " delete"
-                                                }
-                                            >
-                                                Delete
-                                            </Button>
-                                        </td>
-                                    )}
-                                </tr>
-                            )
-                        )}
-                    </tbody>
+                <table className="add-border">
+                    {selectedCourses.map(
+                        (course: Course): JSX.Element => (
+                            <tr key={course.code} className="innerTR">
+                                <td>{course.code}</td>
+                                <td>{course.name}</td>
+                                <td>{course.credits}</td>
+                                {Visible && (
+                                    <td>
+                                        <Button
+                                            style={{
+                                                backgroundColor: "darkRed"
+                                            }}
+                                            onClick={() => deleteCourse(course)}
+                                        >
+                                            Delete
+                                        </Button>
+                                    </td>
+                                )}
+                            </tr>
+                        )
+                    )}
                 </table>
             </div>
             {SearchVisible && (
                 <span
-                    data-testid="fall-search-mode"
+                    data-testid="spring-search-mode"
                     style={{ marginLeft: "15ch" }}
                 >
                     <input
-                        data-testid="searchIDFall"
-                        id="searchID"
+                        id="searchID2"
                         type="text"
                         list="searchList"
                         placeholder="Type a course..."
                     ></input>
-                    <datalist id="searchList" data-testid="searchList">
+                    <datalist id="searchList">
                         {courseObjects.map(
                             (course: Course): JSX.Element => (
                                 <option key={course.code} value={course.code}>
@@ -123,7 +112,7 @@ export function FallTableContents({
                             )
                         )}
                     </datalist>
-                    <Button data-testid="add-button" onClick={addTable}>
+                    <Button id="search-button" onClick={addTable}>
                         +
                     </Button>
                 </span>
@@ -131,23 +120,22 @@ export function FallTableContents({
             <span
                 style={{
                     float: "right",
-                    marginRight: "31ch"
+                    marginRight: "26ch"
                 }}
             >
                 {Visible && (
-                    <span data-testid="fall-edit-mode">
+                    <span data-testid="spring-edit-mode">
                         <Button
                             style={{ backgroundColor: "darkRed" }}
                             onClick={deleteTable}
                         >
-                            Delete Fall
+                            Delete Spring
                         </Button>
                         <Button
-                            data-testid="clearFall"
                             style={{ backgroundColor: "gold" }}
                             onClick={() => clearCourses(selectedCourses)}
                         >
-                            Clear Fall
+                            Clear Spring
                         </Button>
                         <Button style={{ backgroundColor: "green" }}>
                             Save

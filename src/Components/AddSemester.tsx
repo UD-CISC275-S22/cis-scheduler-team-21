@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Button, Col, Row } from "react-bootstrap";
-import { ShowFallSemester } from "../TableComponents/ShowFallSemester";
-import { ShowSpringSemester } from "../TableComponents/ShowSpringSemester";
-import { ShowWinterSession } from "../TableComponents/ShowWinterSession";
-import { ShowSummerSession } from "../TableComponents/ShowSummerSession";
+import { ShowFallTable } from "../TableComponents/ShowFallTable";
+import { ShowSpringTable } from "../TableComponents/ShowSpringTable";
+import { ShowWinterTable } from "../TableComponents/ShowWinterTable";
+import { ShowSummerTable } from "../TableComponents/ShowSummerTable";
 import "../App.css";
 
 export function AddSemester(): JSX.Element {
@@ -51,11 +51,11 @@ export function AddSemester(): JSX.Element {
     }
     function addFall(visibleState: boolean, visibleSearchState: boolean): void {
         setFallElement(
-            <ShowFallSemester
+            <ShowFallTable
                 setFall={setFallElement}
                 Visible={visibleState}
                 SearchVisible={visibleSearchState}
-            ></ShowFallSemester>
+            ></ShowFallTable>
         );
     }
     function addSpring(
@@ -63,11 +63,11 @@ export function AddSemester(): JSX.Element {
         visibleSearchState: boolean
     ): void {
         setSpringElement(
-            <ShowSpringSemester
+            <ShowSpringTable
                 setSpring={setSpringElement}
                 Visible={visibleState}
                 SearchVisible={visibleSearchState}
-            ></ShowSpringSemester>
+            ></ShowSpringTable>
         );
     }
     function addSummer(
@@ -75,11 +75,11 @@ export function AddSemester(): JSX.Element {
         visibleSearchState: boolean
     ): void {
         setSummerElement(
-            <ShowSummerSession
+            <ShowSummerTable
                 setSummer={setSummerElement}
                 Visible={visibleState}
                 SearchVisible={visibleSearchState}
-            ></ShowSummerSession>
+            ></ShowSummerTable>
         );
     }
     function addWinter(
@@ -87,11 +87,11 @@ export function AddSemester(): JSX.Element {
         visibleSearchState: boolean
     ): void {
         setWinterElement(
-            <ShowWinterSession
+            <ShowWinterTable
                 setWinter={setWinterElement}
                 Visible={visibleState}
                 SearchVisible={visibleSearchState}
-            ></ShowWinterSession>
+            ></ShowWinterTable>
         );
     }
     return (

@@ -1,24 +1,23 @@
 import React from "react";
-import { SetFallProp } from "../Interfaces/semesterInterfaces";
-import { FallTableContents } from "./FallTableContents";
+import { TableContentsSummer } from "./TableContentsSummer";
+import { SetSummerProp } from "../Interfaces/semesterInterfaces";
 
-export function ShowFallSemester({
-    setFall,
+export function ShowSummerTable({
+    setSummer,
     Visible,
     SearchVisible
-}: SetFallProp): JSX.Element {
+}: SetSummerProp): JSX.Element {
     return (
         <div>
             <table
-                data-testid="fall-table"
-                /* className="add-border"
-                style={{ borderBottom: 0 }} */
+                data-testid="summer-table"
+                className="add-border"
+                style={{ borderBottom: 0 }}
             >
                 <tbody>
                     <tr
                         style={{
-                            backgroundColor: "white",
-                            width: "100%"
+                            backgroundColor: "white"
                         }}
                     >
                         <th
@@ -26,13 +25,12 @@ export function ShowFallSemester({
                                 textAlign: "center"
                             }}
                         >
-                            <h2>Fall Semester</h2>
+                            <h2>Summer Session</h2>
                         </th>
                     </tr>
                     <tr
-                        /* style={{ borderRight: 0, borderLeft: 0 }}
-                        className="inner-border" */
-                        style={{ width: "100%", display: "table" }}
+                        style={{ borderRight: 0, borderLeft: 0 }}
+                        className="inner-border"
                     >
                         <td>
                             <h5>Courses ID</h5>
@@ -47,11 +45,11 @@ export function ShowFallSemester({
                     </tr>
                 </tbody>
             </table>
-            <FallTableContents
-                setFall={setFall}
+            <TableContentsSummer
+                setSummer={setSummer}
                 Visible={Visible}
                 SearchVisible={SearchVisible}
-            ></FallTableContents>
+            ></TableContentsSummer>
         </div>
     );
 }

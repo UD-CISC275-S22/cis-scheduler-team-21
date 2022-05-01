@@ -5,7 +5,7 @@ import { SetSummerProp } from "../Interfaces/semesterInterfaces";
 import "../App.css";
 import { Button } from "react-bootstrap";
 
-export function SummerDataToArray({
+export function TableContentsSummer({
     setSummer,
     Visible,
     SearchVisible

@@ -1,18 +1,18 @@
 import React from "react";
-import { SummerDataToArray } from "./SummerDataToArray";
-import { SetSummerProp } from "../Interfaces/semesterInterfaces";
+import { TableContentsWinter } from "./TableContentsWinter";
+import { SetWinterProp } from "../Interfaces/semesterInterfaces";
 
-export function ShowSummerSession({
-    setSummer,
+export function ShowWinterTable({
+    setWinter,
     Visible,
     SearchVisible
-}: SetSummerProp): JSX.Element {
+}: SetWinterProp): JSX.Element {
     return (
         <div>
             <table
-                data-testid="summer-table"
+                data-testid="winter-table"
                 className="add-border"
-                style={{ borderBottom: 0 }}
+                style={{ borderBottom: 0, float: "right" }}
             >
                 <tbody>
                     <tr
@@ -25,7 +25,7 @@ export function ShowSummerSession({
                                 textAlign: "center"
                             }}
                         >
-                            <h2>Summer Session</h2>
+                            <h2>Winter Session</h2>
                         </th>
                     </tr>
                     <tr
@@ -45,11 +45,11 @@ export function ShowSummerSession({
                     </tr>
                 </tbody>
             </table>
-            <SummerDataToArray
-                setSummer={setSummer}
+            <TableContentsWinter
+                setWinter={setWinter}
                 Visible={Visible}
                 SearchVisible={SearchVisible}
-            ></SummerDataToArray>
+            ></TableContentsWinter>
         </div>
     );
 }
