@@ -101,6 +101,20 @@ describe("AddSemester Component tests", () => {
         });
         expect(searchButton).toBeInTheDocument();
     });
+    test("Delete table works", () => {
+        const fallButton = screen.getByRole("button", {
+            name: /Add Fall Semester/i
+        });
+        userEvent.click(fallButton);
+        const editButton = screen.getByRole("button", {
+            name: /Edit Mode/i
+        });
+        editButton.click();
+        const fallTable = screen.getByTestId("fall-table");
+        const deleteButton: HTMLElement = screen.getByText("Delete Fall");
+        deleteButton.click();
+        expect(fallTable).not.toBeInTheDocument();
+    });
     test("When Edit Mode is clicked it reveals a series of edit buttons for the fall semester", () => {
         render(
             <ShowFallSemester

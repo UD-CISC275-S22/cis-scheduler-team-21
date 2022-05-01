@@ -140,6 +140,7 @@ export function FallTable({
                             Delete Fall
                         </Button>
                         <Button
+                            data-testid="clearFall"
                             style={{ backgroundColor: "gold" }}
                             onClick={() => clearCourses(selectedCourses)}
                         >

@@ -49,4 +49,39 @@ describe("FallDataToArrayTests", () => {
         deleteCourse.click();
         expect(courseInTable).not.toBeInTheDocument();
     });
+    test("Clear Courses to work", () => {
+        const searchBar: HTMLElement = screen.getByTestId("searchIDFall");
+        searchBar.click();
+        userEvent.type(searchBar, "CISC 275");
+        const DataList: HTMLElement = screen.getByTestId("searchList");
+        DataList.click();
+        const AddButton: HTMLElement = screen.getByTestId("add-button");
+        AddButton.click();
+        const course275: HTMLElement = screen.getByTestId("CISC 275");
+        searchBar.click();
+        userEvent.type(searchBar, "CISC 220");
+        DataList.click();
+        AddButton.click();
+        const course220: HTMLElement = screen.getByTestId("CISC 220");
+        const clearButton = screen.getByTestId("clearFall");
+        clearButton.click();
+
+        expect(course275).not.toBeInTheDocument();
+        expect(course220).not.toBeInTheDocument();
+    });
+    test("Courses cannot be duplicated in table", () => {
+        const searchBar: HTMLElement = screen.getByTestId("searchIDFall");
+        searchBar.click();
+        userEvent.type(searchBar, "CISC 275");
+        const DataList: HTMLElement = screen.getByTestId("searchList");
+        DataList.click();
+        const AddButton: HTMLElement = screen.getByTestId("add-button");
+        AddButton.click();
+        searchBar.click();
+        userEvent.type(searchBar, "CISC 275");
+        DataList.click();
+        AddButton.click();
+        const nodes = screen.queryAllByTestId("CISC 275");
+        expect(nodes.length).toEqual(1);
+    });
 });
