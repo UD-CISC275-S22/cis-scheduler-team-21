@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Button, Col, Row } from "react-bootstrap";
-import { ShowFallSemester } from "./ShowFallSemester";
-import { ShowSpringSemester } from "./ShowSpringSemester";
-import { ShowWinterSession } from "./ShowWinterSession";
-import { ShowSummerSession } from "./ShowSummerSession";
+import { ShowFallSemester } from "../TableComponents/ShowFallSemester";
+import { ShowSpringSemester } from "../TableComponents/ShowSpringSemester";
+import { ShowWinterSession } from "../TableComponents/ShowWinterSession";
+import { ShowSummerSession } from "../TableComponents/ShowSummerSession";
 import "../App.css";
 
 export function AddSemester(): JSX.Element {

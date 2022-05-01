@@ -1,23 +1,24 @@
 import React from "react";
-import { WinterDataToArray } from "./WinterDataToArray";
-import { SetWinterProp } from "../Interfaces/semesterInterfaces";
+import { SetFallProp } from "../Interfaces/semesterInterfaces";
+import { FallTableContents } from "./FallTableContents";
 
-export function ShowWinterSession({
-    setWinter,
+export function ShowFallSemester({
+    setFall,
     Visible,
     SearchVisible
-}: SetWinterProp): JSX.Element {
+}: SetFallProp): JSX.Element {
     return (
         <div>
             <table
-                data-testid="winter-table"
-                className="add-border"
-                style={{ borderBottom: 0, float: "right" }}
+                data-testid="fall-table"
+                /* className="add-border"
+                style={{ borderBottom: 0 }} */
             >
                 <tbody>
                     <tr
                         style={{
-                            backgroundColor: "white"
+                            backgroundColor: "white",
+                            width: "100%"
                         }}
                     >
                         <th
@@ -29,8 +30,9 @@ export function ShowWinterSession({
                         </th>
                     </tr>
                     <tr
-                        style={{ borderRight: 0, borderLeft: 0 }}
-                        className="inner-border"
+                        /* style={{ borderRight: 0, borderLeft: 0 }}
+                        className="inner-border" */
+                        style={{ width: "100%", display: "table" }}
                     >
                         <td>
                             <h5>Courses ID</h5>
@@ -45,11 +47,11 @@ export function ShowWinterSession({
                     </tr>
                 </tbody>
             </table>
-            <WinterDataToArray
-                setWinter={setWinter}
+            <FallTableContents
+                setFall={setFall}
                 Visible={Visible}
                 SearchVisible={SearchVisible}
-            ></WinterDataToArray>
+            ></FallTableContents>
         </div>
     );
 }

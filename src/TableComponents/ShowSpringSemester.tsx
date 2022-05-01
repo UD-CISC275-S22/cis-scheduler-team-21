@@ -1,16 +1,16 @@
 import React from "react";
-import { SetFallProp } from "../Interfaces/semesterInterfaces";
-import { FallTable } from "./FallTable";
+import { setSpringProp } from "../Interfaces/semesterInterfaces";
+import { SpringDataToArray } from "./SpringDataToArray";
 
-export function ShowFallSemester({
-    setFall,
+export function ShowSpringSemester({
+    setSpring,
     Visible,
     SearchVisible
-}: SetFallProp): JSX.Element {
+}: setSpringProp): JSX.Element {
     return (
         <div>
             <table
-                data-testid="fall-table"
+                data-testid="spring-table"
                 className="add-border"
                 style={{ borderBottom: 0 }}
             >
@@ -25,7 +25,7 @@ export function ShowFallSemester({
                                 textAlign: "center"
                             }}
                         >
-                            <h2>Fall Semester</h2>
+                            <h2>Spring Semester</h2>
                         </th>
                     </tr>
                     <tr
@@ -45,11 +45,11 @@ export function ShowFallSemester({
                     </tr>
                 </tbody>
             </table>
-            <FallTable
-                setFall={setFall}
+            <SpringDataToArray
+                setSpring={setSpring}
                 Visible={Visible}
                 SearchVisible={SearchVisible}
-            ></FallTable>
+            ></SpringDataToArray>
         </div>
     );
 }
