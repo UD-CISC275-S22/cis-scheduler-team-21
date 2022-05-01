@@ -5,7 +5,7 @@ import { SetFallProp } from "../Interfaces/semesterInterfaces";
 import "../App.css";
 import { Button } from "react-bootstrap";
 
-export function FallTable({
+export function FallTableContents({
     setFall,
     Visible,
     SearchVisible
@@ -67,7 +67,7 @@ export function FallTable({
     return (
         <div>
             <div style={{ marginBottom: "1ch" }}>
-                <table className="add-border">
+                <table>
                     <tbody>
                         {selectedCourses.map(
                             (course: Course): JSX.Element => (

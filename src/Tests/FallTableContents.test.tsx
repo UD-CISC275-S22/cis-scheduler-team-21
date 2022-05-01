@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { FallTable } from "../Components/FallTable";
+import { FallTableContents } from "../Components/FallTableContents";
 import userEvent from "@testing-library/user-event";
 
 const setFallElement = () => {
@@ -10,7 +10,7 @@ const setFallElement = () => {
 describe("FallDataToArrayTests", () => {
     beforeEach(() => {
         render(
-            <FallTable
+            <FallTableContents
                 setFall={setFallElement}
                 Visible={true}
                 SearchVisible={true}
@@ -83,5 +83,14 @@ describe("FallDataToArrayTests", () => {
         AddButton.click();
         const nodes = screen.queryAllByTestId("CISC 275");
         expect(nodes.length).toEqual(1);
+    });
+    test("Random letters should not be added to the table", () => {
+        const searchBar: HTMLElement = screen.getByTestId("searchIDFall");
+        searchBar.click();
+        userEvent.type(searchBar, "jaskdfhlakjdfsh");
+        const AddButton: HTMLElement = screen.getByTestId("add-button");
+        AddButton.click();
+        const nodes = screen.queryAllByText("jaskdfhlakjdfsh");
+        expect(nodes.length).toEqual(0);
     });
 });

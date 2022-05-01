@@ -1,6 +1,6 @@
 import React from "react";
 import { SetFallProp } from "../Interfaces/semesterInterfaces";
-import { FallTable } from "./FallTable";
+import { FallTableContents } from "./FallTableContents";
 
 export function ShowFallSemester({
     setFall,
@@ -11,13 +11,14 @@ export function ShowFallSemester({
         <div>
             <table
                 data-testid="fall-table"
-                className="add-border"
-                style={{ borderBottom: 0 }}
+                /* className="add-border"
+                style={{ borderBottom: 0 }} */
             >
                 <tbody>
                     <tr
                         style={{
-                            backgroundColor: "white"
+                            backgroundColor: "white",
+                            width: "100%"
                         }}
                     >
                         <th
@@ -29,8 +30,9 @@ export function ShowFallSemester({
                         </th>
                     </tr>
                     <tr
-                        style={{ borderRight: 0, borderLeft: 0 }}
-                        className="inner-border"
+                        /* style={{ borderRight: 0, borderLeft: 0 }}
+                        className="inner-border" */
+                        style={{ width: "100%", display: "table" }}
                     >
                         <td>
                             <h5>Courses ID</h5>
@@ -45,11 +47,11 @@ export function ShowFallSemester({
                     </tr>
                 </tbody>
             </table>
-            <FallTable
+            <FallTableContents
                 setFall={setFall}
                 Visible={Visible}
                 SearchVisible={SearchVisible}
-            ></FallTable>
+            ></FallTableContents>
         </div>
     );
 }
