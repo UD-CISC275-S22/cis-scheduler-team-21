@@ -136,7 +136,7 @@ describe("AddSemester Component tests", () => {
     test("When Edit Mode is clicked it reveals a series of edit buttons for the winter session", () => {
         render(
             <ShowWinterSession
-                setWinterl={setWinterElement}
+                setWinter={setWinterElement}
                 Visible={true}
                 SearchVisible={false}
             ></ShowWinterSession>
