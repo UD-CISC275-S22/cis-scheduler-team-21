@@ -5,8 +5,6 @@ import DropdownMenu from "react-bootstrap/DropdownMenu";
 import { Plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
 //import { CommonPlan } from "./CommonPlan";
-import { Link } from "react-router-dom";
-
 //The total plans a person has made
 
 export function MakePlan(): JSX.Element {
@@ -41,7 +39,10 @@ export function MakePlan(): JSX.Element {
                         close
                     </button>
                     <div>
-                        <Form.Group controlId="formStartYear">
+                        <Form.Group
+                            data-testid="change-year"
+                            controlId="formStartYear"
+                        >
                             <Form.Control
                                 value={Year}
                                 type="number"
@@ -52,7 +53,10 @@ export function MakePlan(): JSX.Element {
                         </Form.Group>
                     </div>
                     <div>
-                        <Dropdown className="degreedropdown">
+                        <Dropdown
+                            data-testid="degree-dropdown"
+                            className="degreedropdown"
+                        >
                             <Dropdown.Toggle id="degree" variant="secondary">
                                 {Degree}
                             </Dropdown.Toggle>
@@ -97,14 +101,10 @@ export function MakePlan(): JSX.Element {
                         ></PlanContainer>
                     </div>
                 ))}
-                <li>
-                    <Link to="/makeplan">
-                        <Button onClick={() => setVisible(true)}>
-                            New Plan
-                        </Button>
-                    </Link>
-                </li>
-                <div className="main">{Visible && <Popup></Popup>}</div>
+                <Button onClick={() => setVisible(true)}>New Plan</Button>
+                <div className="main">
+                    {Visible && <Popup data-testid="popup-window"></Popup>}
+                </div>
             </div>
         </div>
     );

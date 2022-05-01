@@ -1,7 +1,7 @@
 import React from "react";
 //import "/src/App.css";
-import { MakePlan } from "./MakePlan";
 import { CommonPlan } from "./CommonPlan";
+import { BeginButton } from "./BeginButton";
 
 export function Homepage(): JSX.Element {
     return (
@@ -21,7 +21,7 @@ export function Homepage(): JSX.Element {
             </div>
             <CommonPlan></CommonPlan>
             <br></br>
-            <MakePlan></MakePlan>
+            <BeginButton></BeginButton>
         </div>
     );
 }
