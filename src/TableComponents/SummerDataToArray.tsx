@@ -92,7 +92,10 @@ export function SummerDataToArray({
                 </table>
             </div>
             {SearchVisible && (
-                <span style={{ marginLeft: "15ch" }}>
+                <span
+                    data-testid="summer-search-mode"
+                    style={{ marginLeft: "15ch" }}
+                >
                     <input
                         id="searchID4"
                         type="text"

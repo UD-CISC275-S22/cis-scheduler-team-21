@@ -4,7 +4,7 @@ import { MakePlan } from "../Components/MakePlan";
 import { MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 
-describe("AddSemester Component tests", () => {
+describe("MakePlan Component tests", () => {
     beforeEach(() =>
         render(
             <MemoryRouter>

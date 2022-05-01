@@ -103,7 +103,10 @@ export function FallTableContents({
                 </table>
             </div>
             {SearchVisible && (
-                <span style={{ marginLeft: "15ch" }}>
+                <span
+                    data-testid="fall-search-mode"
+                    style={{ marginLeft: "15ch" }}
+                >
                     <input
                         data-testid="searchIDFall"
                         id="searchID"
