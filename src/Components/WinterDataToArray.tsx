@@ -92,7 +92,10 @@ export function WinterDataToArray({
                 </table>
             </div>
             {SearchVisible && (
-                <span style={{ marginLeft: "15ch" }}>
+                <span
+                    data-testid="winter-search-mode"
+                    style={{ marginLeft: "15ch" }}
+                >
                     <input
                         id="searchID3"
                         type="text"
