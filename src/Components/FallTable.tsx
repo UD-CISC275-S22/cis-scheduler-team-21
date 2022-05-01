@@ -5,7 +5,7 @@ import { SetFallProp } from "../Interfaces/semesterInterfaces";
 import "../App.css";
 import { Button } from "react-bootstrap";
 
-export function FallDataToArray({
+export function FallTable({
     setFall,
     Visible,
     SearchVisible
@@ -68,38 +68,50 @@ export function FallDataToArray({
         <div>
             <div style={{ marginBottom: "1ch" }}>
                 <table className="add-border">
-                    {selectedCourses.map(
-                        (course: Course): JSX.Element => (
-                            <tr key={course.code} className="innerTR">
-                                <td>{course.code}</td>
-                                <td>{course.name}</td>
-                                <td>{course.credits}</td>
-                                {Visible && (
-                                    <td>
-                                        <Button
-                                            style={{
-                                                backgroundColor: "darkRed"
-                                            }}
-                                            onClick={() => deleteCourse(course)}
-                                        >
-                                            Delete
-                                        </Button>
-                                    </td>
-                                )}
-                            </tr>
-                        )
-                    )}
+                    <tbody>
+                        {selectedCourses.map(
+                            (course: Course): JSX.Element => (
+                                <tr
+                                    key={course.code}
+                                    data-testid={course.code}
+                                    className="innerTR"
+                                >
+                                    <td>{course.code}</td>
+                                    <td>{course.name}</td>
+                                    <td>{course.credits}</td>
+                                    {Visible && (
+                                        <td>
+                                            <Button
+                                                style={{
+                                                    backgroundColor: "darkRed"
+                                                }}
+                                                onClick={() =>
+                                                    deleteCourse(course)
+                                                }
+                                                data-testid={
+                                                    course.code + " delete"
+                                                }
+                                            >
+                                                Delete
+                                            </Button>
+                                        </td>
+                                    )}
+                                </tr>
+                            )
+                        )}
+                    </tbody>
                 </table>
             </div>
             {SearchVisible && (
                 <span style={{ marginLeft: "15ch" }}>
                     <input
+                        data-testid="searchIDFall"
                         id="searchID"
                         type="text"
                         list="searchList"
                         placeholder="Type a course..."
                     ></input>
-                    <datalist id="searchList">
+                    <datalist id="searchList" data-testid="searchList">
                         {courseObjects.map(
                             (course: Course): JSX.Element => (
                                 <option key={course.code} value={course.code}>
@@ -108,7 +120,7 @@ export function FallDataToArray({
                             )
                         )}
                     </datalist>
-                    <Button id="search-button" onClick={addTable}>
+                    <Button data-testid="add-button" onClick={addTable}>
                         +
                     </Button>
                 </span>
