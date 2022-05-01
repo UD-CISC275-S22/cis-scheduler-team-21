@@ -4,7 +4,7 @@ import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
 import { Plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
-import { CommonPlan } from "./CommonPlan";
+//import { CommonPlan } from "./CommonPlan";
 import { Link } from "react-router-dom";
 
 //The total plans a person has made
