@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { FallTableContents } from "../TableComponents/FallTableContents";
+import { TableContentsFall } from "../TableComponents/TableContentsFall";
 import userEvent from "@testing-library/user-event";
 
 const setFallElement = () => {
@@ -10,7 +10,7 @@ const setFallElement = () => {
 describe("FallDataToArrayTests", () => {
     beforeEach(() => {
         render(
-            <FallTableContents
+            <TableContentsFall
                 setFall={setFallElement}
                 Visible={true}
                 SearchVisible={true}

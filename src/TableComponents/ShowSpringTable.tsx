@@ -1,8 +1,8 @@
 import React from "react";
 import { setSpringProp } from "../Interfaces/semesterInterfaces";
-import { SpringDataToArray } from "./SpringDataToArray";
+import { TableContentsSpring } from "./TableContentsSpring";
 
-export function ShowSpringSemester({
+export function ShowSpringTable({
     setSpring,
     Visible,
     SearchVisible
@@ -45,11 +45,11 @@ export function ShowSpringSemester({
                     </tr>
                 </tbody>
             </table>
-            <SpringDataToArray
+            <TableContentsSpring
                 setSpring={setSpring}
                 Visible={Visible}
                 SearchVisible={SearchVisible}
-            ></SpringDataToArray>
+            ></TableContentsSpring>
         </div>
     );
 }

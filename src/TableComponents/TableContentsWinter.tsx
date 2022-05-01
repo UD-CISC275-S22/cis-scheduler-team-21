@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
-import { setSpringProp } from "../Interfaces/semesterInterfaces";
+import { SetWinterProp } from "../Interfaces/semesterInterfaces";
 import "../App.css";
 import { Button } from "react-bootstrap";
 
-export function SpringDataToArray({
-    setSpring,
+export function TableContentsWinter({
+    setWinter,
     Visible,
     SearchVisible
-}: setSpringProp): JSX.Element {
+}: SetWinterProp): JSX.Element {
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
@@ -25,7 +25,7 @@ export function SpringDataToArray({
 
     function addTable(): JSX.Element | void {
         const courseInp: HTMLInputElement = document.getElementById(
-            "searchID2"
+            "searchID3"
         ) as HTMLInputElement;
         const courseObj: string = courseInp.value;
         if (
@@ -51,9 +51,8 @@ export function SpringDataToArray({
             }
         }
     }
-
     function deleteTable(): void {
-        setSpring(null);
+        setWinter(null);
     }
     function deleteCourse(course: Course) {
         const courseCopy: Course[] = selectedCourses.filter(
@@ -94,11 +93,11 @@ export function SpringDataToArray({
             </div>
             {SearchVisible && (
                 <span
-                    data-testid="spring-search-mode"
+                    data-testid="winter-search-mode"
                     style={{ marginLeft: "15ch" }}
                 >
                     <input
-                        id="searchID2"
+                        id="searchID3"
                         type="text"
                         list="searchList"
                         placeholder="Type a course..."
@@ -124,18 +123,18 @@ export function SpringDataToArray({
                 }}
             >
                 {Visible && (
-                    <span data-testid="spring-edit-mode">
+                    <span data-testid="winter-edit-mode">
                         <Button
                             style={{ backgroundColor: "darkRed" }}
                             onClick={deleteTable}
                         >
-                            Delete Spring
+                            Delete Winter
                         </Button>
                         <Button
                             style={{ backgroundColor: "gold" }}
                             onClick={() => clearCourses(selectedCourses)}
                         >
-                            Clear Spring
+                            Clear Winter
                         </Button>
                         <Button style={{ backgroundColor: "green" }}>
                             Save
