@@ -3,13 +3,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-//import App from "./App";
+import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 //import { PlanProps } from "./Components/PlanContainer";
+//import { Plan } from "./Interfaces/Courses";
 
-//<App plan={plan} plans={plans} setPlans={setPlans} />
+/**const setPlanElement = () => {
+    return;
+};
+ plan={plan} plans={plans} setPlans={setPlanElement}*/
+
 ReactDOM.render(
-    <React.StrictMode></React.StrictMode>,
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>,
     document.getElementById("root")
 );
 

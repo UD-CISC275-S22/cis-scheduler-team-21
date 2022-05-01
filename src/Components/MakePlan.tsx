@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Dropdown, Form } from "react-bootstrap";
-import DropdownItem from "react-bootstrap/esm/DropdownItem";
-import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
+import DropdownItem from "react-bootstrap/DropdownItem";
+import DropdownMenu from "react-bootstrap/DropdownMenu";
 import { Plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
 //import { CommonPlan } from "./CommonPlan";
