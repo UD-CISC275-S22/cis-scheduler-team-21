@@ -151,4 +151,60 @@ describe("AddSemester Component tests", () => {
         const summerEdit = screen.getByTestId("summer-edit-mode");
         expect(summerEdit).toBeInTheDocument();
     });
+    test("When Search Mode is clicked it reveals a search bar for the fall semester", () => {
+        const fallButton = screen.getByRole("button", {
+            name: /Add Fall Semester/i
+        });
+        userEvent.click(fallButton);
+
+        const searchButton = screen.getByRole("button", {
+            name: /Search Mode/i
+        });
+        userEvent.click(searchButton);
+
+        const fallSearch = screen.getByTestId("fall-search-mode");
+        expect(fallSearch).toBeInTheDocument();
+    });
+    test("When Search Mode is clicked it reveals a search bar for the spring semester", () => {
+        const springButton = screen.getByRole("button", {
+            name: /Add Spring Semester/i
+        });
+        userEvent.click(springButton);
+
+        const searchButton = screen.getByRole("button", {
+            name: /Search Mode/i
+        });
+        userEvent.click(searchButton);
+
+        const springSearch = screen.getByTestId("spring-search-mode");
+        expect(springSearch).toBeInTheDocument();
+    });
+    test("When Search Mode is clicked it reveals a search bar for the winter session", () => {
+        const winterButton = screen.getByRole("button", {
+            name: /Add Winter Session/i
+        });
+        userEvent.click(winterButton);
+
+        const searchButton = screen.getByRole("button", {
+            name: /Search Mode/i
+        });
+        userEvent.click(searchButton);
+
+        const winterSearch = screen.getByTestId("winter-search-mode");
+        expect(winterSearch).toBeInTheDocument();
+    });
+    test("When Search Mode is clicked it reveals a search bar for the summer session", () => {
+        const summerButton = screen.getByRole("button", {
+            name: /Add Summer Session/i
+        });
+        userEvent.click(summerButton);
+
+        const searchButton = screen.getByRole("button", {
+            name: /Search Mode/i
+        });
+        userEvent.click(searchButton);
+
+        const summerSearch = screen.getByTestId("summer-search-mode");
+        expect(summerSearch).toBeInTheDocument();
+    });
 });

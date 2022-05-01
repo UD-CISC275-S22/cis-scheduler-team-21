@@ -93,7 +93,10 @@ export function SpringDataToArray({
                 </table>
             </div>
             {SearchVisible && (
-                <span style={{ marginLeft: "15ch" }}>
+                <span
+                    data-testid="spring-search-mode"
+                    style={{ marginLeft: "15ch" }}
+                >
                     <input
                         id="searchID2"
                         type="text"
