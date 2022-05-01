@@ -11,10 +11,18 @@ export function CommonPlan(): JSX.Element {
     function RevealButtons({ setVisible }: RevealButtonsProps): JSX.Element {
         return (
             <div>
-                <Button onClick={() => setVisible(true)} disabled={visible}>
+                <Button
+                    data-testid="show-button"
+                    onClick={() => setVisible(true)}
+                    disabled={visible}
+                >
                     Show Common 4 Year Plan
                 </Button>
-                <Button onClick={() => setVisible(false)} disabled={!visible}>
+                <Button
+                    data-testid="hide-button"
+                    onClick={() => setVisible(false)}
+                    disabled={!visible}
+                >
                     Hide Common 4 Year Plan
                 </Button>
             </div>
@@ -27,6 +35,7 @@ export function CommonPlan(): JSX.Element {
             <RevealButtons setVisible={setVisible}></RevealButtons>
             {visible && (
                 <img
+                    data-testid="common-plan-image"
                     src={
                         "https://i.postimg.cc/CLSS3cqj/Screen-Shot-2022-04-07-at-2-34-26-PM.png"
                     }

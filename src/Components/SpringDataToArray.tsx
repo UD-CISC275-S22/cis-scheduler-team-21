@@ -120,7 +120,7 @@ export function SpringDataToArray({
                 }}
             >
                 {Visible && (
-                    <span>
+                    <span data-testid="spring-edit-mode">
                         <Button
                             style={{ backgroundColor: "darkRed" }}
                             onClick={deleteTable}

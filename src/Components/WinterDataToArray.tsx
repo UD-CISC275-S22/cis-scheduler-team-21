@@ -119,7 +119,7 @@ export function WinterDataToArray({
                 }}
             >
                 {Visible && (
-                    <span>
+                    <span data-testid="winter-edit-mode">
                         <Button
                             style={{ backgroundColor: "darkRed" }}
                             onClick={deleteTable}

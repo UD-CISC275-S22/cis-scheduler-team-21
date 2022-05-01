@@ -119,7 +119,7 @@ export function SummerDataToArray({
                 }}
             >
                 {Visible && (
-                    <span>
+                    <span data-testid="summer-edit-mode">
                         <Button
                             style={{ backgroundColor: "darkRed" }}
                             onClick={deleteTable}

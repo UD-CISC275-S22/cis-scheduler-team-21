@@ -2,6 +2,9 @@ import React from "react";
 import "./App.css";
 import { MakePlan } from "./Components/MakePlan";
 import { Homepage } from "./Components/Homepage";
+import { PlanContainer } from "./Components/PlanContainer";
+import { PlanProps } from "./Components/PlanContainer";
+//import { Plan } from "./Interfaces/Courses";
 import {
     Routes,
     Route,
@@ -9,7 +12,7 @@ import {
     HashRouter as Router
 } from "react-router-dom";
 
-function App(): JSX.Element {
+function App({ plan, plans, setPlans }: PlanProps): JSX.Element {
     return (
         <>
             {/* This is the alias of BrowserRouter i.e. Router */}
@@ -30,6 +33,20 @@ function App(): JSX.Element {
                     <Route
                         path="/cis-scheduler-team-21/homepage"
                         element={<Navigate replace to="/#/makeplan" />}
+                    />
+                    <Route
+                        path="/show-plan"
+                        element={
+                            <PlanContainer
+                                plan={plan}
+                                plans={plans}
+                                setPlans={setPlans}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/cis-scheduler-team-21/#/makeplan"
+                        element={<Navigate replace to="#/show-plan" />}
                     />
                     **
                     <Route path="/cis-scheduler-team-21/" />

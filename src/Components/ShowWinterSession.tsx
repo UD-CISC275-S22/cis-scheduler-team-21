@@ -10,6 +10,7 @@ export function ShowWinterSession({
     return (
         <div>
             <table
+                data-testid="winter-table"
                 className="add-border"
                 style={{ borderBottom: 0, float: "right" }}
             >
