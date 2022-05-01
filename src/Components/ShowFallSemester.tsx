@@ -1,6 +1,6 @@
 import React from "react";
 import { SetFallProp } from "../Interfaces/semesterInterfaces";
-import { FallDataToArray } from "./FallDataToArray";
+import { FallTable } from "./FallTable";
 
 export function ShowFallSemester({
     setFall,
@@ -14,30 +14,42 @@ export function ShowFallSemester({
                 className="add-border"
                 style={{ borderBottom: 0 }}
             >
-                <tr style={{ textAlign: "center", backgroundColor: "white" }}>
-                    <h2>Fall Semester</h2>
-                </tr>
-                <tr
-                    style={{ borderRight: 0, borderLeft: 0 }}
-                    className="inner-border"
-                >
-                    <td>
-                        <h5>Courses ID</h5>
-                    </td>
-                    <td>
-                        <h5>Course Name</h5>
-                    </td>
-                    <td>
-                        <h5>Course Credit</h5>
-                    </td>
-                    {Visible && <td></td>}
-                </tr>
+                <tbody>
+                    <tr
+                        style={{
+                            backgroundColor: "white"
+                        }}
+                    >
+                        <th
+                            style={{
+                                textAlign: "center"
+                            }}
+                        >
+                            <h2>Fall Semester</h2>
+                        </th>
+                    </tr>
+                    <tr
+                        style={{ borderRight: 0, borderLeft: 0 }}
+                        className="inner-border"
+                    >
+                        <td>
+                            <h5>Courses ID</h5>
+                        </td>
+                        <td>
+                            <h5>Course Name</h5>
+                        </td>
+                        <td>
+                            <h5>Course Credit</h5>
+                        </td>
+                        {Visible && <td></td>}
+                    </tr>
+                </tbody>
             </table>
-            <FallDataToArray
+            <FallTable
                 setFall={setFall}
                 Visible={Visible}
                 SearchVisible={SearchVisible}
-            ></FallDataToArray>
+            ></FallTable>
         </div>
     );
 }

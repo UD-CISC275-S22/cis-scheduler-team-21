@@ -12,13 +12,12 @@ export function Homepage(): JSX.Element {
                 <h4>Christian Rullan</h4>
                 <h4>Kiefer Yost</h4>
             </header>
-            <div>
-                <body className="App-Body">
-                    <h2>Welcome!!!</h2> to the UD CIS SCHEDULER from CISC275.
-                    Here you can setup schedules for your computer science
-                    degree! First start by creating a plan, then add the
-                    semesters and courses from there.
-                </body>
+
+            <div className="App-Body">
+                <h2>Welcome!!!</h2> To the UD CIS SCHEDULER from CISC275. Here
+                you can setup schedules for your computer science degree! First
+                start by creating a plan, then add the semesters and courses
+                from there.
             </div>
             <CommonPlan></CommonPlan>
             <br></br>

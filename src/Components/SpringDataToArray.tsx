@@ -47,6 +47,7 @@ export function SpringDataToArray({
             } else {
                 const AddCourse2: Course[] = [...selectedCourses, singleCourse];
                 setSelectedCourses(AddCourse2);
+                courseInp.value = "";
             }
         }
     }
