@@ -3,23 +3,6 @@ import { render, screen } from "@testing-library/react";
 import { AddSemester } from "../Components/AddSemester";
 import { MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
-import { ShowFallSemester } from "../Components/ShowFallSemester";
-import { ShowSpringSemester } from "../Components/ShowSpringSemester";
-import { ShowWinterSession } from "../Components/ShowWinterSession";
-import { ShowSummerSession } from "../Components/ShowSummerSession";
-
-const setFallElement = () => {
-    return;
-};
-const setSpringElement = () => {
-    return;
-};
-const setWinterElement = () => {
-    return;
-};
-const setSummerElement = () => {
-    return;
-};
 
 describe("AddSemester Component tests", () => {
     beforeEach(() =>
@@ -116,13 +99,11 @@ describe("AddSemester Component tests", () => {
         expect(fallTable).not.toBeInTheDocument();
     });
     test("When Edit Mode is clicked it reveals a series of edit buttons for the fall semester", () => {
-        render(
-            <ShowFallSemester
-                setFall={setFallElement}
-                Visible={true}
-                SearchVisible={false}
-            ></ShowFallSemester>
-        );
+        const fallButton = screen.getByRole("button", {
+            name: /Add Fall Semester/i
+        });
+        userEvent.click(fallButton);
+
         const editButton = screen.getByRole("button", {
             name: /Edit Mode/i
         });
@@ -132,13 +113,10 @@ describe("AddSemester Component tests", () => {
         expect(fallEdit).toBeInTheDocument();
     });
     test("When Edit Mode is clicked it reveals a series of edit buttons for the spring semester", () => {
-        render(
-            <ShowSpringSemester
-                setSpring={setSpringElement}
-                Visible={true}
-                SearchVisible={false}
-            ></ShowSpringSemester>
-        );
+        const springButton = screen.getByRole("button", {
+            name: /Add Spring Semester/i
+        });
+        userEvent.click(springButton);
         const editButton = screen.getByRole("button", {
             name: /Edit Mode/i
         });
@@ -148,13 +126,10 @@ describe("AddSemester Component tests", () => {
         expect(springEdit).toBeInTheDocument();
     });
     test("When Edit Mode is clicked it reveals a series of edit buttons for the winter session", () => {
-        render(
-            <ShowWinterSession
-                setWinter={setWinterElement}
-                Visible={true}
-                SearchVisible={false}
-            ></ShowWinterSession>
-        );
+        const winterButton = screen.getByRole("button", {
+            name: /Add Winter Session/i
+        });
+        userEvent.click(winterButton);
         const editButton = screen.getByRole("button", {
             name: /Edit Mode/i
         });
@@ -164,13 +139,10 @@ describe("AddSemester Component tests", () => {
         expect(winterEdit).toBeInTheDocument();
     });
     test("When Edit Mode is clicked it reveals a series of edit buttons for the summer session", () => {
-        render(
-            <ShowSummerSession
-                setSummer={setSummerElement}
-                Visible={true}
-                SearchVisible={false}
-            ></ShowSummerSession>
-        );
+        const summerButton = screen.getByRole("button", {
+            name: /Add Summer Session/i
+        });
+        userEvent.click(summerButton);
         const editButton = screen.getByRole("button", {
             name: /Edit Mode/i
         });
