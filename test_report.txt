@@ -2,8 +2,8 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/AddSemester.test.tsx
-PASS src/Tests/FallTable.test.tsx
+PASS src/Tests/AddSemester.test.tsx (9.108 s)
+PASS src/Tests/FallTable.test.tsx (6.405 s)
 PASS src/Tests/CommonPlan.test.tsx
 PASS src/Tests/MakePlan.test.tsx
 PASS src/Tests/BeginButton.test.tsx
@@ -13,11 +13,11 @@ PASS src/App.test.tsx
 -------------------------|---------|----------|---------|---------|-------------------
 File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------------|---------|----------|---------|---------|-------------------
-All files                |   49.76 |    51.28 |   47.52 |      50 |                   
+All files                |   55.29 |    65.38 |   51.48 |   55.55 |                   
  src                     |     100 |      100 |     100 |     100 |                   
   App.tsx                |     100 |      100 |     100 |     100 |                   
- src/Components          |   49.53 |    51.28 |      47 |   49.76 |                   
-  AddSemester.tsx        |   72.72 |       50 |    90.9 |   72.72 | 38-49             
+ src/Components          |   55.09 |    65.38 |      51 |   55.34 |                   
+  AddSemester.tsx        |     100 |      100 |     100 |     100 |                   
   BeginButton.tsx        |     100 |      100 |     100 |     100 |                   
   CommonPlan.tsx         |      80 |      100 |      75 |      80 | 23                
   FallTable.tsx          |     100 |       90 |     100 |     100 | 31                
@@ -28,16 +28,16 @@ All files                |   49.76 |    51.28 |   47.52 |      50 |
   ShowSpringSemester.tsx |     100 |      100 |     100 |     100 |                   
   ShowSummerSession.tsx  |     100 |      100 |     100 |     100 |                   
   ShowWinterSession.tsx  |     100 |      100 |     100 |     100 |                   
-  SpringDataToArray.tsx  |    30.3 |       30 |      20 |    30.3 | 27-66,74-133      
-  SummerDataToArray.tsx  |    30.3 |       30 |      20 |    30.3 | 27-65,73-132      
-  WinterDataToArray.tsx  |    30.3 |       30 |      20 |    30.3 | 27-65,73-132      
+  SpringDataToArray.tsx  |   33.33 |       40 |   26.66 |   33.33 | 27-66,74-84,136   
+  SummerDataToArray.tsx  |   33.33 |       40 |   26.66 |   33.33 | 27-65,73-83,135   
+  WinterDataToArray.tsx  |   33.33 |       40 |   26.66 |   33.33 | 27-65,73-83,135   
  src/Interfaces          |       0 |        0 |       0 |       0 |                   
   Courses.ts             |       0 |        0 |       0 |       0 |                   
   semesterInterfaces.tsx |       0 |        0 |       0 |       0 |                   
 -------------------------|---------|----------|---------|---------|-------------------
 
 Test Suites: 8 passed, 8 total
-Tests:       35 passed, 35 total
+Tests:       39 passed, 39 total
 Snapshots:   0 total
-Time:        11.192 s
+Time:        20.63 s
 Ran all test suites.
