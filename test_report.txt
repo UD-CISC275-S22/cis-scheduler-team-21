@@ -2,13 +2,14 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/AddSemester.test.tsx (8.238 s)
-PASS src/Tests/TableContentsWinter.test.tsx (6.592 s)
-PASS src/Tests/TableContentsSummer.test.tsx (6.328 s)
-PASS src/Tests/TableContentsSpring.test.tsx (6.731 s)
-PASS src/Tests/TableContentsFall.test.tsx (6.08 s)
+PASS src/Tests/AddSemester.test.tsx (7.806 s)
+PASS src/Tests/TableContentsWinter.test.tsx (6.352 s)
+PASS src/Tests/TableContentsSummer.test.tsx (5.894 s)
+PASS src/Tests/TableContentsSpring.test.tsx (6.791 s)
+PASS src/Tests/TableContentsFall.test.tsx (5.933 s)
 PASS src/Tests/CommonPlan.test.tsx
 PASS src/Tests/MakePlan.test.tsx
+PASS src/Tests/PlanContainer.test.tsx
 PASS src/Tests/BeginButton.test.tsx
 PASS src/Tests/Homepage.test.tsx
 PASS src/Tests/ShowFallTable.test.tsx
@@ -16,16 +17,16 @@ PASS src/App.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------|---------|----------|---------|---------|-------------------
-All files                 |   86.17 |    89.74 |   85.14 |   86.57 |                   
+All files                 |   98.57 |      100 |   96.96 |   98.57 |                   
  src                      |     100 |      100 |     100 |     100 |                   
   App.tsx                 |     100 |      100 |     100 |     100 |                   
- src/Components           |    62.5 |    73.33 |   58.33 |   63.29 |                   
+ src/Components           |   95.94 |      100 |   91.17 |   95.89 |                   
   AddSemester.tsx         |     100 |      100 |     100 |     100 |                   
   BeginButton.tsx         |     100 |      100 |     100 |     100 |                   
   CommonPlan.tsx          |     100 |      100 |     100 |     100 |                   
   Homepage.tsx            |     100 |      100 |     100 |     100 |                   
-  MakePlan.tsx            |    42.1 |      100 |   33.33 |    42.1 | 18-28,37-71,96    
-  PlanContainer.tsx       |       0 |        0 |       0 |       0 | 18-111            
+  MakePlan.tsx            |   84.21 |      100 |   66.66 |   84.21 | 35-67             
+  PlanContainer.tsx       |     100 |      100 |     100 |     100 |                   
  src/Interfaces           |       0 |        0 |       0 |       0 |                   
   Courses.ts              |       0 |        0 |       0 |       0 |                   
   semesterInterfaces.tsx  |       0 |        0 |       0 |       0 |                   
@@ -40,8 +41,8 @@ All files                 |   86.17 |    89.74 |   85.14 |   86.57 |
   TableContentsWinter.tsx |     100 |      100 |     100 |     100 |                   
 --------------------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 11 passed, 11 total
-Tests:       59 passed, 59 total
+Test Suites: 12 passed, 12 total
+Tests:       63 passed, 63 total
 Snapshots:   0 total
-Time:        38.704 s
+Time:        38.251 s
 Ran all test suites.
