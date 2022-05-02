@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Dropdown, Form } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/DropdownItem";
 import DropdownMenu from "react-bootstrap/DropdownMenu";
+//import DropdownToggle from "react-bootstrap/DropdownToggle";
 import { Plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
 
@@ -42,6 +43,7 @@ export function MakePlan(): JSX.Element {
                             controlId="formStartYear"
                         >
                             <Form.Control
+                                data-testid="input-year"
                                 value={Year}
                                 type="number"
                                 onChange={(
@@ -62,14 +64,18 @@ export function MakePlan(): JSX.Element {
                             >
                                 {Degree}
                             </Dropdown.Toggle>
-                            <DropdownMenu variant="dark">
+                            <DropdownMenu
+                                data-testid="degree-dropdown-menu"
+                                variant="dark"
+                            >
                                 <DropdownItem
+                                    data-testid="bachelor-art-dropdownItem"
                                     onClick={() => setDegree("Bachelor of Art")}
                                 >
                                     Bachelor of Art
                                 </DropdownItem>
                                 <DropdownItem
-                                    data-testid="BS"
+                                    data-testid="bachelor-science-dropdownItem"
                                     onClick={() =>
                                         setDegree("Bachelor of Science")
                                     }

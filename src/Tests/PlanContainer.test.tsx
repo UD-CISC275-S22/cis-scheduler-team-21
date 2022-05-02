@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { PlanContainer } from "../Components/PlanContainer";
 import { Plan } from "../Interfaces/Courses";
 import userEvent from "@testing-library/user-event";
+import { MemoryRouter } from "react-router-dom";
 
 const setPlans = () => {
     return;
@@ -19,11 +20,13 @@ const newplanList: Plan[] = [newPlan];
 describe("PlanContainer component test", () => {
     beforeEach(() => {
         render(
-            <PlanContainer
-                plan={newPlan}
-                plans={newplanList}
-                setPlans={setPlans}
-            />
+            <MemoryRouter>
+                <PlanContainer
+                    plan={newPlan}
+                    plans={newplanList}
+                    setPlans={setPlans}
+                />
+            </MemoryRouter>
         );
     });
     test("check if plan name and description exist", () => {

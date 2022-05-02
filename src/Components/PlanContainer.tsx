@@ -3,6 +3,7 @@ import { Button, Col, Form, Row } from "react-bootstrap";
 import { AddSemester } from "./AddSemester";
 import "../App.css";
 import { Plan } from "../Interfaces/Courses";
+import { Link } from "react-router-dom";
 
 export interface PlanProps {
     plan: Plan;
@@ -102,7 +103,14 @@ export function PlanContainer({
                         paddingRight: "2ch"
                     }}
                 >
-                    <Button onClick={() => setVisible(!visible)}>Show</Button>
+                    <li>
+                        <Link to="/showplan">
+                            <Button onClick={() => setVisible(!visible)}>
+                                Show
+                            </Button>
+                        </Link>
+                    </li>
+
                     <Button
                         onClick={deletePlan}
                         style={{

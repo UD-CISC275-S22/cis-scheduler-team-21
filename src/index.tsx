@@ -10,8 +10,7 @@ import reportWebVitals from "./reportWebVitals";
 
 /**const setPlanElement = () => {
     return;
-};
- plan={plan} plans={plans} setPlans={setPlanElement}*/
+};*/
 
 ReactDOM.render(
     <React.StrictMode>

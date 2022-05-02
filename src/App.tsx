@@ -2,27 +2,13 @@ import React from "react";
 import "./App.css";
 import { MakePlan } from "./Components/MakePlan";
 import { Homepage } from "./Components/Homepage";
-//import { PlanContainer } from "./Components/PlanContainer";
-//import { PlanProps } from "./Components/PlanContainer";
-//import { Plan } from "./Interfaces/Courses";
+import { AddSemester } from "./Components/AddSemester";
 import {
     Routes,
     Route,
     Navigate,
     HashRouter as Router
 } from "react-router-dom";
-
-/**{ plan, plans, setPlans }: PlanProps
-<Route
-                        path="/show-plan"
-                        element={
-                            <PlanContainer
-                                plan={plan}
-                                plans={plans}
-                                setPlans={setPlans}
-                            />
-                        }
-                    />*/
 
 function App(): JSX.Element {
     return (
@@ -46,9 +32,10 @@ function App(): JSX.Element {
                         path="/cis-scheduler-team-21/homepage"
                         element={<Navigate replace to="/#/makeplan" />}
                     />
+                    <Route path="/showplan" element={<AddSemester />} />
                     <Route
                         path="/cis-scheduler-team-21/#/makeplan"
-                        element={<Navigate replace to="#/show-plan" />}
+                        element={<Navigate replace to="/#/showplan" />}
                     />
                     **
                     <Route path="/cis-scheduler-team-21/" />
