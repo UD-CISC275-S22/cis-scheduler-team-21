@@ -95,7 +95,7 @@ export function AddSemester(): JSX.Element {
         );
     }
     return (
-        <div>
+        <div className="showPlan-background">
             <div
                 style={{
                     textAlign: "center"
