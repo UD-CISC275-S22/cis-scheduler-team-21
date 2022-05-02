@@ -84,7 +84,7 @@ describe("AddSemester Component tests", () => {
         });
         expect(searchButton).toBeInTheDocument();
     });
-    test("Delete table works", () => {
+    test("Delete table works fall", () => {
         const fallButton = screen.getByRole("button", {
             name: /Add Fall Semester/i
         });
@@ -95,6 +95,48 @@ describe("AddSemester Component tests", () => {
         editButton.click();
         const fallTable = screen.getByTestId("fall-table");
         const deleteButton: HTMLElement = screen.getByText("Delete Fall");
+        deleteButton.click();
+        expect(fallTable).not.toBeInTheDocument();
+    });
+    test("Delete table works spring", () => {
+        const fallButton = screen.getByRole("button", {
+            name: /Add Spring Semester/i
+        });
+        userEvent.click(fallButton);
+        const editButton = screen.getByRole("button", {
+            name: /Edit Mode/i
+        });
+        editButton.click();
+        const fallTable = screen.getByTestId("spring-table");
+        const deleteButton: HTMLElement = screen.getByText("Delete Spring");
+        deleteButton.click();
+        expect(fallTable).not.toBeInTheDocument();
+    });
+    test("Delete table works winter", () => {
+        const fallButton = screen.getByRole("button", {
+            name: /Add Winter Session/i
+        });
+        userEvent.click(fallButton);
+        const editButton = screen.getByRole("button", {
+            name: /Edit Mode/i
+        });
+        editButton.click();
+        const fallTable = screen.getByTestId("winter-table");
+        const deleteButton: HTMLElement = screen.getByText("Delete Winter");
+        deleteButton.click();
+        expect(fallTable).not.toBeInTheDocument();
+    });
+    test("Delete table works summer", () => {
+        const fallButton = screen.getByRole("button", {
+            name: /Add Summer Session/i
+        });
+        userEvent.click(fallButton);
+        const editButton = screen.getByRole("button", {
+            name: /Edit Mode/i
+        });
+        editButton.click();
+        const fallTable = screen.getByTestId("summer-table");
+        const deleteButton: HTMLElement = screen.getByText("Delete Summer");
         deleteButton.click();
         expect(fallTable).not.toBeInTheDocument();
     });

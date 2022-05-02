@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
-import { SetFallProp } from "../Interfaces/semesterInterfaces";
+import { SetSummerProp } from "../Interfaces/semesterInterfaces";
 import "../App.css";
 import { Button } from "react-bootstrap";
 
-export function FallTable({
-    setFall,
+export function TableContentsSummer({
+    setSummer,
     Visible,
     SearchVisible
-}: SetFallProp): JSX.Element {
+}: SetSummerProp): JSX.Element {
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
@@ -25,7 +25,7 @@ export function FallTable({
 
     function addTable(): JSX.Element | void {
         const courseInp: HTMLInputElement = document.getElementById(
-            "searchID"
+            "searchID4"
         ) as HTMLInputElement;
         const courseObj: string = courseInp.value;
         if (
@@ -52,7 +52,7 @@ export function FallTable({
         }
     }
     function deleteTable(): void {
-        setFall(null);
+        setSummer(null);
     }
     function deleteCourse(course: Course) {
         const courseCopy: Course[] = selectedCourses.filter(
@@ -72,8 +72,8 @@ export function FallTable({
                         {selectedCourses.map(
                             (course: Course): JSX.Element => (
                                 <tr
-                                    key={course.code}
                                     data-testid={course.code}
+                                    key={course.code}
                                     className="innerTR"
                                 >
                                     <td>{course.code}</td>
@@ -104,17 +104,17 @@ export function FallTable({
             </div>
             {SearchVisible && (
                 <span
-                    data-testid="fall-search-mode"
+                    data-testid="summer-search-mode"
                     style={{ marginLeft: "15ch" }}
                 >
                     <input
-                        data-testid="searchIDFall"
-                        id="searchID"
+                        data-testid="searchIDSummer"
+                        id="searchID4"
                         type="text"
                         list="searchList"
                         placeholder="Type a course..."
                     ></input>
-                    <datalist id="searchList" data-testid="searchList">
+                    <datalist data-testid="searchList" id="searchList">
                         {courseObjects.map(
                             (course: Course): JSX.Element => (
                                 <option key={course.code} value={course.code}>
@@ -123,7 +123,7 @@ export function FallTable({
                             )
                         )}
                     </datalist>
-                    <Button data-testid="add-button" onClick={addTable}>
+                    <Button id="search-button" onClick={addTable}>
                         +
                     </Button>
                 </span>
@@ -131,23 +131,22 @@ export function FallTable({
             <span
                 style={{
                     float: "right",
-                    marginRight: "31ch"
+                    marginRight: "23ch"
                 }}
             >
                 {Visible && (
-                    <span data-testid="fall-edit-mode">
+                    <span data-testid="summer-edit-mode">
                         <Button
                             style={{ backgroundColor: "darkRed" }}
                             onClick={deleteTable}
                         >
-                            Delete Fall
+                            Delete Summer
                         </Button>
                         <Button
-                            data-testid="clearFall"
                             style={{ backgroundColor: "gold" }}
                             onClick={() => clearCourses(selectedCourses)}
                         >
-                            Clear Fall
+                            Clear Summer
                         </Button>
                         <Button style={{ backgroundColor: "green" }}>
                             Save
@@ -155,7 +154,6 @@ export function FallTable({
                     </span>
                 )}
             </span>
-            <br></br>
         </div>
     );
 }

@@ -5,8 +5,6 @@ import DropdownMenu from "react-bootstrap/DropdownMenu";
 //import DropdownToggle from "react-bootstrap/DropdownToggle";
 import { Plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
-//import { CommonPlan } from "./CommonPlan";
-//The total plans a person has made
 
 export function MakePlan(): JSX.Element {
     const [Plans, setPlans] = useState<Plan[]>([]);
@@ -59,7 +57,11 @@ export function MakePlan(): JSX.Element {
                             data-testid="degree-dropdown"
                             className="degreedropdown"
                         >
-                            <Dropdown.Toggle id="degree" variant="secondary">
+                            <Dropdown.Toggle
+                                data-testid="degree-dropdown2"
+                                id="degree"
+                                variant="secondary"
+                            >
                                 {Degree}
                             </Dropdown.Toggle>
                             <DropdownMenu

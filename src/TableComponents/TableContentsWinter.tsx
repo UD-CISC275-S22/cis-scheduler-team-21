@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
-import { SetSummerProp } from "../Interfaces/semesterInterfaces";
+import { SetWinterProp } from "../Interfaces/semesterInterfaces";
 import "../App.css";
 import { Button } from "react-bootstrap";
 
-export function SummerDataToArray({
-    setSummer,
+export function TableContentsWinter({
+    setWinter,
     Visible,
     SearchVisible
-}: SetSummerProp): JSX.Element {
+}: SetWinterProp): JSX.Element {
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
@@ -25,7 +25,7 @@ export function SummerDataToArray({
 
     function addTable(): JSX.Element | void {
         const courseInp: HTMLInputElement = document.getElementById(
-            "searchID4"
+            "searchID3"
         ) as HTMLInputElement;
         const courseObj: string = courseInp.value;
         if (
@@ -52,7 +52,7 @@ export function SummerDataToArray({
         }
     }
     function deleteTable(): void {
-        setSummer(null);
+        setWinter(null);
     }
     function deleteCourse(course: Course) {
         const courseCopy: Course[] = selectedCourses.filter(
@@ -68,41 +68,53 @@ export function SummerDataToArray({
         <div>
             <div style={{ marginBottom: "1ch" }}>
                 <table className="add-border">
-                    {selectedCourses.map(
-                        (course: Course): JSX.Element => (
-                            <tr key={course.code} className="innerTR">
-                                <td>{course.code}</td>
-                                <td>{course.name}</td>
-                                <td>{course.credits}</td>
-                                {Visible && (
-                                    <td>
-                                        <Button
-                                            style={{
-                                                backgroundColor: "darkRed"
-                                            }}
-                                            onClick={() => deleteCourse(course)}
-                                        >
-                                            Delete
-                                        </Button>
-                                    </td>
-                                )}
-                            </tr>
-                        )
-                    )}
+                    <tbody>
+                        {selectedCourses.map(
+                            (course: Course): JSX.Element => (
+                                <tr
+                                    data-testid={course.code}
+                                    key={course.code}
+                                    className="innerTR"
+                                >
+                                    <td>{course.code}</td>
+                                    <td>{course.name}</td>
+                                    <td>{course.credits}</td>
+                                    {Visible && (
+                                        <td>
+                                            <Button
+                                                style={{
+                                                    backgroundColor: "darkRed"
+                                                }}
+                                                onClick={() =>
+                                                    deleteCourse(course)
+                                                }
+                                                data-testid={
+                                                    course.code + " delete"
+                                                }
+                                            >
+                                                Delete
+                                            </Button>
+                                        </td>
+                                    )}
+                                </tr>
+                            )
+                        )}
+                    </tbody>
                 </table>
             </div>
             {SearchVisible && (
                 <span
-                    data-testid="summer-search-mode"
+                    data-testid="winter-search-mode"
                     style={{ marginLeft: "15ch" }}
                 >
                     <input
-                        id="searchID4"
+                        data-testid="searchIDWinter"
+                        id="searchID3"
                         type="text"
                         list="searchList"
                         placeholder="Type a course..."
                     ></input>
-                    <datalist id="searchList">
+                    <datalist data-testid="searchList" id="searchList">
                         {courseObjects.map(
                             (course: Course): JSX.Element => (
                                 <option key={course.code} value={course.code}>
@@ -119,22 +131,22 @@ export function SummerDataToArray({
             <span
                 style={{
                     float: "right",
-                    marginRight: "23ch"
+                    marginRight: "26ch"
                 }}
             >
                 {Visible && (
-                    <span data-testid="summer-edit-mode">
+                    <span data-testid="winter-edit-mode">
                         <Button
                             style={{ backgroundColor: "darkRed" }}
                             onClick={deleteTable}
                         >
-                            Delete Summer
+                            Delete Winter
                         </Button>
                         <Button
                             style={{ backgroundColor: "gold" }}
                             onClick={() => clearCourses(selectedCourses)}
                         >
-                            Clear Summer
+                            Clear Winter
                         </Button>
                         <Button style={{ backgroundColor: "green" }}>
                             Save
@@ -142,6 +154,7 @@ export function SummerDataToArray({
                     </span>
                 )}
             </span>
+            <br></br>
         </div>
     );
 }

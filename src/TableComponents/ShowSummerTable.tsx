@@ -1,8 +1,8 @@
 import React from "react";
-import { SummerDataToArray } from "./SummerDataToArray";
+import { TableContentsSummer } from "./TableContentsSummer";
 import { SetSummerProp } from "../Interfaces/semesterInterfaces";
 
-export function ShowSummerSession({
+export function ShowSummerTable({
     setSummer,
     Visible,
     SearchVisible
@@ -45,11 +45,11 @@ export function ShowSummerSession({
                     </tr>
                 </tbody>
             </table>
-            <SummerDataToArray
+            <TableContentsSummer
                 setSummer={setSummer}
                 Visible={Visible}
                 SearchVisible={SearchVisible}
-            ></SummerDataToArray>
+            ></TableContentsSummer>
         </div>
     );
 }

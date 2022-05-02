@@ -1,23 +1,24 @@
 import React from "react";
-import { setSpringProp } from "../Interfaces/semesterInterfaces";
-import { SpringDataToArray } from "./SpringDataToArray";
+import { SetFallProp } from "../Interfaces/semesterInterfaces";
+import { TableContentsFall } from "./TableContentsFall";
 
-export function ShowSpringSemester({
-    setSpring,
+export function ShowFallTable({
+    setFall,
     Visible,
     SearchVisible
-}: setSpringProp): JSX.Element {
+}: SetFallProp): JSX.Element {
     return (
         <div>
             <table
-                data-testid="spring-table"
-                className="add-border"
-                style={{ borderBottom: 0 }}
+                data-testid="fall-table"
+                /* className="add-border"
+                style={{ borderBottom: 0 }} */
             >
                 <tbody>
                     <tr
                         style={{
-                            backgroundColor: "white"
+                            backgroundColor: "white",
+                            width: "100%"
                         }}
                     >
                         <th
@@ -25,12 +26,13 @@ export function ShowSpringSemester({
                                 textAlign: "center"
                             }}
                         >
-                            <h2>Spring Semester</h2>
+                            <h2>Fall Semester</h2>
                         </th>
                     </tr>
                     <tr
-                        style={{ borderRight: 0, borderLeft: 0 }}
-                        className="inner-border"
+                        /* style={{ borderRight: 0, borderLeft: 0 }}
+                        className="inner-border" */
+                        style={{ width: "100%", display: "table" }}
                     >
                         <td>
                             <h5>Courses ID</h5>
@@ -45,11 +47,11 @@ export function ShowSpringSemester({
                     </tr>
                 </tbody>
             </table>
-            <SpringDataToArray
-                setSpring={setSpring}
+            <TableContentsFall
+                setFall={setFall}
                 Visible={Visible}
                 SearchVisible={SearchVisible}
-            ></SpringDataToArray>
+            ></TableContentsFall>
         </div>
     );
 }

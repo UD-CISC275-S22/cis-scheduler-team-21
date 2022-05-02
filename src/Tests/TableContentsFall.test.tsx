@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { FallTable } from "../Components/FallTable";
+import { TableContentsFall } from "../TableComponents/TableContentsFall";
 import userEvent from "@testing-library/user-event";
 
 const setFallElement = () => {
@@ -10,7 +10,7 @@ const setFallElement = () => {
 describe("FallDataToArrayTests", () => {
     beforeEach(() => {
         render(
-            <FallTable
+            <TableContentsFall
                 setFall={setFallElement}
                 Visible={true}
                 SearchVisible={true}
@@ -27,7 +27,7 @@ describe("FallDataToArrayTests", () => {
         expect(DataList).toBeInTheDocument();
 
         DataList.click();
-        const AddButton: HTMLElement = screen.getByTestId("add-button");
+        const AddButton: HTMLElement = screen.getByText("+");
         expect(AddButton).toBeInTheDocument();
 
         AddButton.click();
@@ -40,7 +40,7 @@ describe("FallDataToArrayTests", () => {
         userEvent.type(searchBar, "CISC 275");
         const DataList: HTMLElement = screen.getByTestId("searchList");
         DataList.click();
-        const AddButton: HTMLElement = screen.getByTestId("add-button");
+        const AddButton: HTMLElement = screen.getByText("+");
         AddButton.click();
         const courseInTable: HTMLElement = screen.getByTestId("CISC 275");
 
@@ -55,7 +55,7 @@ describe("FallDataToArrayTests", () => {
         userEvent.type(searchBar, "CISC 275");
         const DataList: HTMLElement = screen.getByTestId("searchList");
         DataList.click();
-        const AddButton: HTMLElement = screen.getByTestId("add-button");
+        const AddButton: HTMLElement = screen.getByText("+");
         AddButton.click();
         const course275: HTMLElement = screen.getByTestId("CISC 275");
         searchBar.click();
@@ -75,7 +75,7 @@ describe("FallDataToArrayTests", () => {
         userEvent.type(searchBar, "CISC 275");
         const DataList: HTMLElement = screen.getByTestId("searchList");
         DataList.click();
-        const AddButton: HTMLElement = screen.getByTestId("add-button");
+        const AddButton: HTMLElement = screen.getByText("+");
         AddButton.click();
         searchBar.click();
         userEvent.type(searchBar, "CISC 275");
@@ -83,5 +83,14 @@ describe("FallDataToArrayTests", () => {
         AddButton.click();
         const nodes = screen.queryAllByTestId("CISC 275");
         expect(nodes.length).toEqual(1);
+    });
+    test("Random letters should not be added to the table", () => {
+        const searchBar: HTMLElement = screen.getByTestId("searchIDFall");
+        searchBar.click();
+        userEvent.type(searchBar, "jaskdfhlakjdfsh");
+        const AddButton: HTMLElement = screen.getByText("+");
+        AddButton.click();
+        const nodes = screen.queryAllByText("jaskdfhlakjdfsh");
+        expect(nodes.length).toEqual(0);
     });
 });

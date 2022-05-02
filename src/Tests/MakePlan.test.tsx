@@ -1,8 +1,8 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { MakePlan } from "../Components/MakePlan";
 import { MemoryRouter } from "react-router-dom";
-//import userEvent from "@testing-library/user-event";
+import userEvent from "@testing-library/user-event";
 
 describe("MakePlan Component tests", () => {
     beforeEach(() =>
@@ -116,10 +116,28 @@ describe("MakePlan Component tests", () => {
         });
         newPlanButton.click();
 
-        //const inputYear = screen.getByTestId("input-year");
-
-        //userEvent.click(inputYear);
-        const year = screen.getByText("2022");
-        expect(year).toBeInTheDocument();
+        const year = screen.getByDisplayValue("2022");
+        fireEvent.change(year, {
+            target: { value: "new value" }
+        });
+        expect(year).not.toBeInTheDocument();
+    });
+    test("Delete plan works when its created", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        userEvent.click(newPlanButton);
+        const dropMenu: HTMLElement = screen.getByTestId("degree-dropdown2");
+        dropMenu.click();
+        const option: HTMLElement = screen.getByTestId(
+            "bachelor-science-dropdownItem"
+        );
+        option.click();
+        const createButton: HTMLElement = screen.getByText("Create Plan");
+        createButton.click();
+        const plan: HTMLElement = screen.getByText("Plan 1");
+        const deleteButton: HTMLElement = screen.getByText("Delete");
+        deleteButton.click();
+        expect(plan).not.toBeInTheDocument();
     });
 });

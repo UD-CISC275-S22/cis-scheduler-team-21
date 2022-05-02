@@ -1,8 +1,8 @@
 import React from "react";
-import { WinterDataToArray } from "./WinterDataToArray";
+import { TableContentsWinter } from "./TableContentsWinter";
 import { SetWinterProp } from "../Interfaces/semesterInterfaces";
 
-export function ShowWinterSession({
+export function ShowWinterTable({
     setWinter,
     Visible,
     SearchVisible
@@ -45,11 +45,11 @@ export function ShowWinterSession({
                     </tr>
                 </tbody>
             </table>
-            <WinterDataToArray
+            <TableContentsWinter
                 setWinter={setWinter}
                 Visible={Visible}
                 SearchVisible={SearchVisible}
-            ></WinterDataToArray>
+            ></TableContentsWinter>
         </div>
     );
 }
