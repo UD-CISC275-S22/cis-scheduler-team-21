@@ -69,27 +69,38 @@ export function TableContentsSpring({
         <div>
             <div style={{ marginBottom: "1ch" }}>
                 <table className="add-border">
-                    {selectedCourses.map(
-                        (course: Course): JSX.Element => (
-                            <tr key={course.code} className="innerTR">
-                                <td>{course.code}</td>
-                                <td>{course.name}</td>
-                                <td>{course.credits}</td>
-                                {Visible && (
-                                    <td>
-                                        <Button
-                                            style={{
-                                                backgroundColor: "darkRed"
-                                            }}
-                                            onClick={() => deleteCourse(course)}
-                                        >
-                                            Delete
-                                        </Button>
-                                    </td>
-                                )}
-                            </tr>
-                        )
-                    )}
+                    <tbody>
+                        {selectedCourses.map(
+                            (course: Course): JSX.Element => (
+                                <tr
+                                    data-testid={course.code}
+                                    key={course.code}
+                                    className="innerTR"
+                                >
+                                    <td>{course.code}</td>
+                                    <td>{course.name}</td>
+                                    <td>{course.credits}</td>
+                                    {Visible && (
+                                        <td>
+                                            <Button
+                                                style={{
+                                                    backgroundColor: "darkRed"
+                                                }}
+                                                onClick={() =>
+                                                    deleteCourse(course)
+                                                }
+                                                data-testid={
+                                                    course.code + " delete"
+                                                }
+                                            >
+                                                Delete
+                                            </Button>
+                                        </td>
+                                    )}
+                                </tr>
+                            )
+                        )}
+                    </tbody>
                 </table>
             </div>
             {SearchVisible && (
@@ -98,12 +109,13 @@ export function TableContentsSpring({
                     style={{ marginLeft: "15ch" }}
                 >
                     <input
+                        data-testid="searchIDSpring"
                         id="searchID2"
                         type="text"
                         list="searchList"
                         placeholder="Type a course..."
                     ></input>
-                    <datalist id="searchList">
+                    <datalist data-testid="searchList" id="searchList">
                         {courseObjects.map(
                             (course: Course): JSX.Element => (
                                 <option key={course.code} value={course.code}>
