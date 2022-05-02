@@ -98,7 +98,7 @@ export function MakePlan(): JSX.Element {
     }
 
     return (
-        <div>
+        <div className="makePlan-background">
             <div>
                 {/* {visible && <div></div>} */}
                 {Plans.map((plan: Plan) => (
