@@ -2,8 +2,11 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/AddSemester.test.tsx (6.759 s)
-PASS src/Tests/TableContentsFall.test.tsx (5.156 s)
+PASS src/Tests/AddSemester.test.tsx (8.238 s)
+PASS src/Tests/TableContentsWinter.test.tsx (6.592 s)
+PASS src/Tests/TableContentsSummer.test.tsx (6.328 s)
+PASS src/Tests/TableContentsSpring.test.tsx (6.731 s)
+PASS src/Tests/TableContentsFall.test.tsx (6.08 s)
 PASS src/Tests/CommonPlan.test.tsx
 PASS src/Tests/MakePlan.test.tsx
 PASS src/Tests/BeginButton.test.tsx
@@ -13,7 +16,7 @@ PASS src/App.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------|---------|----------|---------|---------|-------------------
-All files                 |   55.76 |    66.66 |   52.47 |   56.01 |                   
+All files                 |   86.17 |    89.74 |   85.14 |   86.57 |                   
  src                      |     100 |      100 |     100 |     100 |                   
   App.tsx                 |     100 |      100 |     100 |     100 |                   
  src/Components           |    62.5 |    73.33 |   58.33 |   63.29 |                   
@@ -26,19 +29,19 @@ All files                 |   55.76 |    66.66 |   52.47 |   56.01 |
  src/Interfaces           |       0 |        0 |       0 |       0 |                   
   Courses.ts              |       0 |        0 |       0 |       0 |                   
   semesterInterfaces.tsx  |       0 |        0 |       0 |       0 |                   
- src/TableComponents      |   51.47 |     62.5 |   48.43 |   51.47 |                   
+ src/TableComponents      |     100 |      100 |     100 |     100 |                   
   ShowFallTable.tsx       |     100 |      100 |     100 |     100 |                   
   ShowSpringTable.tsx     |     100 |      100 |     100 |     100 |                   
   ShowSummerTable.tsx     |     100 |      100 |     100 |     100 |                   
   ShowWinterTable.tsx     |     100 |      100 |     100 |     100 |                   
   TableContentsFall.tsx   |     100 |      100 |     100 |     100 |                   
-  TableContentsSpring.tsx |   33.33 |       40 |   26.66 |   33.33 | 27-66,74-84,136   
-  TableContentsSummer.tsx |   33.33 |       40 |   26.66 |   33.33 | 27-65,73-83,135   
-  TableContentsWinter.tsx |   33.33 |       40 |   26.66 |   33.33 | 27-65,73-83,135   
+  TableContentsSpring.tsx |     100 |      100 |     100 |     100 |                   
+  TableContentsSummer.tsx |     100 |      100 |     100 |     100 |                   
+  TableContentsWinter.tsx |     100 |      100 |     100 |     100 |                   
 --------------------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 8 passed, 8 total
-Tests:       41 passed, 41 total
+Test Suites: 11 passed, 11 total
+Tests:       59 passed, 59 total
 Snapshots:   0 total
-Time:        15.786 s
+Time:        38.704 s
 Ran all test suites.
