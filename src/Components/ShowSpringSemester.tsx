@@ -25,7 +25,7 @@ export function ShowSpringSemester({
                                 textAlign: "center"
                             }}
                         >
-                            <h2>Fall Semester</h2>
+                            <h2>Spring Semester</h2>
                         </th>
                     </tr>
                     <tr

@@ -25,7 +25,7 @@ export function ShowSummerSession({
                                 textAlign: "center"
                             }}
                         >
-                            <h2>Fall Semester</h2>
+                            <h2>Summer Session</h2>
                         </th>
                     </tr>
                     <tr
