@@ -42,4 +42,20 @@ describe("MakePlan Component tests", () => {
         const yearInput = screen.getByTestId("change-year");
         expect(yearInput).toBeInTheDocument();
     });
+    test("Delete plan works when its created", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        userEvent.click(newPlanButton);
+        const dropMenu: HTMLElement = screen.getByTestId("degree-dropdown2");
+        dropMenu.click();
+        const option: HTMLElement = screen.getByTestId("BS");
+        option.click();
+        const createButton: HTMLElement = screen.getByText("Create Plan");
+        createButton.click();
+        const plan: HTMLElement = screen.getByText("Plan 1");
+        const deleteButton: HTMLElement = screen.getByText("Delete");
+        deleteButton.click();
+        expect(plan).not.toBeInTheDocument();
+    });
 });
