@@ -75,7 +75,8 @@ export function PlanContainer({
                 <Row>
                     <Col
                         style={{
-                            overflow: "clip"
+                            overflow: "clip",
+                            textAlign: "left"
                         }}
                     >
                         <b
@@ -108,16 +109,26 @@ export function PlanContainer({
                         paddingRight: "2ch"
                     }}
                 >
-                    <Button onClick={() => setVisible(!visible)}>Show</Button>
+                    <Button
+                        className="orangeButton"
+                        onClick={() => setVisible(!visible)}
+                    >
+                        Show
+                    </Button>
+                    <Button className="orangeButton" onClick={updateEdit}>
+                        Edit
+                    </Button>
                     <Button
                         onClick={deletePlan}
                         style={{
-                            backgroundColor: "darkRed"
+                            backgroundColor: "darkRed",
+                            marginLeft: "2ch",
+                            marginTop: "1ch",
+                            fontSize: "1ch"
                         }}
                     >
                         Delete
                     </Button>
-                    <Button onClick={updateEdit}>Edit</Button>
                 </div>
                 <div
                     style={{
