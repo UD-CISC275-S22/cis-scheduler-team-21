@@ -104,19 +104,14 @@ export function PlanContainer({
                         paddingRight: "2ch"
                     }}
                 >
-                    <li>
-                        <Link to="/showplan">
-                            <Button onClick={() => setVisible(!visible)}>
-                                Show
-                            </Button>
-                        </Link>
-                    </li>
-                    <Button
-                        className="orangeButton"
-                        onClick={() => setVisible(!visible)}
-                    >
-                        Show
-                    </Button>
+                    <Link to="/showplan">
+                        <Button
+                            className="orangeButton"
+                            onClick={() => setVisible(!visible)}
+                        >
+                            Show
+                        </Button>
+                    </Link>
                     <Button className="orangeButton" onClick={updateEdit}>
                         Edit
                     </Button>
