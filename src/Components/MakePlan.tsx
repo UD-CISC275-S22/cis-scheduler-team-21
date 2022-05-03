@@ -108,6 +108,7 @@ export function MakePlan(): JSX.Element {
                             plans={Plans}
                             setPlans={setPlans}
                         ></PlanContainer>
+                        <hr></hr>
                     </div>
                 ))}
                 <Button onClick={() => setVisible(true)}>New Plan</Button>
