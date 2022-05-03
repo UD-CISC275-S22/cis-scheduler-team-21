@@ -104,6 +104,13 @@ export function PlanContainer({
                         paddingRight: "2ch"
                     }}
                 >
+                    <li>
+                        <Link to="/showplan">
+                            <Button onClick={() => setVisible(!visible)}>
+                                Show
+                            </Button>
+                        </Link>
+                    </li>
                     <Button
                         className="orangeButton"
                         onClick={() => setVisible(!visible)}
