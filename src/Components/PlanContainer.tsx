@@ -3,6 +3,7 @@ import { Button, Col, Form, Row } from "react-bootstrap";
 import { AddSemester } from "./AddSemester";
 import "../App.css";
 import { Plan } from "../Interfaces/Courses";
+import { Link } from "react-router-dom";
 
 export interface PlanProps {
     plan: Plan;
@@ -32,10 +33,6 @@ export function PlanContainer({
             description: plan.description
         };
         setPlan(updatedPlan);
-        const plansCopy: Plan[] = plans.map((plan: Plan) =>
-            plan.id === Plan.id ? (plan = Plan) : plan
-        );
-        setPlans(plansCopy);
     }
     function updateDescription(event: React.ChangeEvent<HTMLInputElement>) {
         const updatedPlan: Plan = {
@@ -44,10 +41,6 @@ export function PlanContainer({
             description: event.target.value
         };
         setPlan2(updatedPlan);
-        const plansCopy: Plan[] = plans.map((plan: Plan) =>
-            plan.id === Plan.id ? (plan = Plan) : plan
-        );
-        setPlans(plansCopy);
     }
     return (
         <div>
@@ -56,6 +49,7 @@ export function PlanContainer({
                     <Form.Group>
                         <Form.Label>Plan Name:</Form.Label>
                         <Form.Control
+                            data-testid="titleEdit"
                             placeholder="Enter new plan name..."
                             value={Plan.Title}
                             style={{ width: "20%" }}
@@ -63,6 +57,7 @@ export function PlanContainer({
                         />
                         <Form.Label>Description:</Form.Label>
                         <Form.Control
+                            data-testid="descriptionEdit"
                             style={{ width: "40%" }}
                             as="textarea"
                             rows={2}

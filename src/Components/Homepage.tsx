@@ -1,7 +1,7 @@
 import React from "react";
-//import "/src/App.css";
+import "../App.css";
 import { CommonPlan } from "./CommonPlan";
-import { BeginButton } from "./BeginButton";
+//import { BeginButton } from "./BeginButton";
 import { MakePlan } from "./MakePlan";
 
 export function Homepage(): JSX.Element {

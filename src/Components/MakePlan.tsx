@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { Button, Dropdown, Form } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/DropdownItem";
 import DropdownMenu from "react-bootstrap/DropdownMenu";
+//import DropdownToggle from "react-bootstrap/DropdownToggle";
 import { Plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
-//import { CommonPlan } from "./CommonPlan";
-//The total plans a person has made
 
 export function MakePlan(): JSX.Element {
     const [Plans, setPlans] = useState<Plan[]>([]);
@@ -44,6 +43,7 @@ export function MakePlan(): JSX.Element {
                             controlId="formStartYear"
                         >
                             <Form.Control
+                                data-testid="input-year"
                                 value={Year}
                                 type="number"
                                 onChange={(
@@ -57,16 +57,25 @@ export function MakePlan(): JSX.Element {
                             data-testid="degree-dropdown"
                             className="degreedropdown"
                         >
-                            <Dropdown.Toggle id="degree" variant="secondary">
+                            <Dropdown.Toggle
+                                data-testid="degree-dropdown2"
+                                id="degree"
+                                variant="secondary"
+                            >
                                 {Degree}
                             </Dropdown.Toggle>
-                            <DropdownMenu variant="dark">
+                            <DropdownMenu
+                                data-testid="degree-dropdown-menu"
+                                variant="dark"
+                            >
                                 <DropdownItem
+                                    data-testid="bachelor-art-dropdownItem"
                                     onClick={() => setDegree("Bachelor of Art")}
                                 >
                                     Bachelor of Art
                                 </DropdownItem>
                                 <DropdownItem
+                                    data-testid="bachelor-science-dropdownItem"
                                     onClick={() =>
                                         setDegree("Bachelor of Science")
                                     }
@@ -89,7 +98,7 @@ export function MakePlan(): JSX.Element {
     }
 
     return (
-        <div>
+        <div className="makePlan-background">
             <div>
                 {/* {visible && <div></div>} */}
                 {Plans.map((plan: Plan) => (
