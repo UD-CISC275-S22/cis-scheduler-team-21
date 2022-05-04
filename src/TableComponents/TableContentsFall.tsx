@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
 import { SetFallProp } from "../Interfaces/semesterInterfaces";
-import "../App.css";
 import { Button } from "react-bootstrap";
 
 export function TableContentsFall({
@@ -148,9 +147,6 @@ export function TableContentsFall({
                             onClick={() => clearCourses(selectedCourses)}
                         >
                             Clear Fall
-                        </Button>
-                        <Button style={{ backgroundColor: "green" }}>
-                            Save
                         </Button>
                     </span>
                 )}

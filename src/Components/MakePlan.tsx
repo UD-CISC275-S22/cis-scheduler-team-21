@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button, Dropdown, Form } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/DropdownItem";
 import DropdownMenu from "react-bootstrap/DropdownMenu";
-//import DropdownToggle from "react-bootstrap/DropdownToggle";
 import { Plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
 
@@ -20,7 +19,6 @@ export function MakePlan(): JSX.Element {
             id: Counter,
             description: ""
         };
-        //const planListCopy: Plan[] = [...planList, newPlan];
         const planList: Plan[] = [...Plans, newPlan];
         const counterCopy: number = Counter + 1;
         setPlans(planList);

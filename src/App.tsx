@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import { MakePlan } from "./Components/MakePlan";
 import { Homepage } from "./Components/Homepage";
-import { PlanContainer } from "./Components/PlanContainer";
 import {
     Routes,
     Route,

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
 import { SetSummerProp } from "../Interfaces/semesterInterfaces";
-import "../App.css";
 import { Button } from "react-bootstrap";
 
 export function TableContentsSummer({
@@ -147,9 +146,6 @@ export function TableContentsSummer({
                             onClick={() => clearCourses(selectedCourses)}
                         >
                             Clear Summer
-                        </Button>
-                        <Button style={{ backgroundColor: "green" }}>
-                            Save
                         </Button>
                     </span>
                 )}

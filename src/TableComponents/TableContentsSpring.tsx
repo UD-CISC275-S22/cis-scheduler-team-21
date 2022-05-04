@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
 import { setSpringProp } from "../Interfaces/semesterInterfaces";
-import "../App.css";
 import { Button } from "react-bootstrap";
 
 export function TableContentsSpring({
@@ -148,9 +147,6 @@ export function TableContentsSpring({
                             onClick={() => clearCourses(selectedCourses)}
                         >
                             Clear Spring
-                        </Button>
-                        <Button style={{ backgroundColor: "green" }}>
-                            Save
                         </Button>
                     </span>
                 )}

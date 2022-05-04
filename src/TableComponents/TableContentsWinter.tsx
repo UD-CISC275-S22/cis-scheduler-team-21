@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
 import { SetWinterProp } from "../Interfaces/semesterInterfaces";
-import "../App.css";
 import { Button } from "react-bootstrap";
 
 export function TableContentsWinter({
@@ -147,9 +146,6 @@ export function TableContentsWinter({
                             onClick={() => clearCourses(selectedCourses)}
                         >
                             Clear Winter
-                        </Button>
-                        <Button style={{ backgroundColor: "green" }}>
-                            Save
                         </Button>
                     </span>
                 )}
