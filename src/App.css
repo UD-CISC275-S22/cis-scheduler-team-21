@@ -1,7 +1,5 @@
 .App {
     text-align: center;
-    background-image: linear-gradient(to left, aqua, purple);
-    height: 100vh;
 }
 
 .App-logo {
@@ -17,7 +15,19 @@
 
 .App-header {
     width: 100%;
-    min-height: 40vh;
+    background-color: #b9524a;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(30px + 2vmin);
+    color: white;
+}
+.App-header-Year {
+    width: 100%;
+    background-color: #b9524a;
+    min-height: 10vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,13 +68,17 @@
 }
 
 .App-Body {
+    margin-top: -3ch;
     border-width: 1ch;
-    border-style: ridge;
+    border-style: solid;
+    border: rgb(80, 76, 76);
+    border-radius: 1ch;
     margin-left: 25%;
     margin-right: 25%;
-    color: white;
-    background-color: #232538;
+    color: black;
+    background-color: #bfecec;
     font-size: 110%;
+    box-shadow: 2px 2px 10px 1px #000000;
 }
 
 .add-border {
@@ -203,9 +217,9 @@ tr:nth-child(even) {
 }
 
 .Plan {
-    border: 2.5px #800020;
-    border-style: solid;
-    background-color: white;
+    background-color: #c5c5c5;
+    border-radius: 1ch;
+    color: rgb(0, 0, 0);
     margin-bottom: 4ch;
     margin-top: 4ch;
     margin-left: 8ch;
@@ -214,14 +228,34 @@ tr:nth-child(even) {
     padding-top: 1ch;
     padding-left: 2ch;
 }
-
-.makePlan-background {
-    background-image: linear-gradient(to left, yellow, red);
-    height: 100vh;
-    text-align: center;
+.orangeButton:hover {
+    background-color: #c55048;
+}
+.orangeButton:active {
+    box-shadow: none !important;
+    background-color: #c55048;
+    border: #c55048;
+    top: 3px;
+}
+.orangeButton:focus {
+    background-color: #c55048;
+    /* box-shadow: 5px 5px 5px rgba(2, 2, 2, 0.486); */
+    box-shadow: 0px 3px 0px 0px #5e2418;
+}
+.orangeButton {
+    color: black;
+    position: relative;
+    box-shadow: 0px 3px 0px 0px #5e2418;
+    /*  box-shadow: 5px 5px 5px rgba(2, 2, 2, 0.486); */
+    background-color: #c55048;
+    border: #c55048;
+    margin-left: 1.5ch;
 }
 
-.showPlan-background {
-    background-image: linear-gradient(to left, green, blue);
-    height: 100vh;
+.yearDisplay {
+    font-size: 6ch;
+    font-weight: 600;
+    font-style: italic;
+    display: inline;
+    margin-left: 1.5ch;
 }

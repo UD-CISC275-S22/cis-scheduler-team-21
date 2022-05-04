@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
-import { AddSemester } from "./AddSemester";
 import "../App.css";
 import { Plan } from "../Interfaces/Courses";
 import { Link } from "react-router-dom";
@@ -9,12 +8,14 @@ export interface PlanProps {
     plan: Plan;
     plans: Plan[];
     setPlans: (plans: Plan[]) => void;
+    years: string;
 }
 
 export function PlanContainer({
     plan,
     plans,
-    setPlans
+    setPlans,
+    years
 }: PlanProps): JSX.Element {
     const [visible, setVisible] = useState<boolean>(false);
     const [editVis, setEditVis] = useState<boolean>(false);
@@ -81,7 +82,8 @@ export function PlanContainer({
                 <Row>
                     <Col
                         style={{
-                            overflow: "clip"
+                            overflow: "clip",
+                            textAlign: "left"
                         }}
                     >
                         <b
@@ -114,33 +116,28 @@ export function PlanContainer({
                         paddingRight: "2ch"
                     }}
                 >
-                    <li>
-                        <Link to="/showplan">
-                            <Button onClick={() => setVisible(!visible)}>
-                                Show
-                            </Button>
-                        </Link>
-                    </li>
-
+                    <Link to="/showplan" state={{ yearValue: years }}>
+                        <Button
+                            className="orangeButton"
+                            onClick={() => setVisible(!visible)}
+                        >
+                            Show
+                        </Button>
+                    </Link>
+                    <Button className="orangeButton" onClick={updateEdit}>
+                        Edit
+                    </Button>
                     <Button
                         onClick={deletePlan}
                         style={{
-                            backgroundColor: "darkRed"
+                            backgroundColor: "darkRed",
+                            marginLeft: "2ch",
+                            marginTop: "1ch",
+                            fontSize: "1ch"
                         }}
                     >
                         Delete
                     </Button>
-                    <Button onClick={saveButton}>Save</Button>
-                    <Button onClick={updateEdit}>Edit</Button>
-                </div>
-                <div
-                    style={{
-                        display: visible ? "block" : "none"
-                    }}
-                >
-                    <br></br>
-                    <br></br>
-                    <AddSemester></AddSemester>
                 </div>
             </div>
         </div>

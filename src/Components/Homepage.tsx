@@ -1,7 +1,8 @@
 import React from "react";
-//import "/src/App.css";
+import "../App.css";
 import { CommonPlan } from "./CommonPlan";
-import { BeginButton } from "./BeginButton";
+//import { BeginButton } from "./BeginButton";
+import { MakePlan } from "./MakePlan";
 
 export function Homepage(): JSX.Element {
     return (
@@ -9,8 +10,7 @@ export function Homepage(): JSX.Element {
             <header className="App-header">
                 UD CIS SCHEDULER
                 <br></br>
-                <h4>Christian Rullan</h4>
-                <h4>Kiefer Yost</h4>
+                <h4>Christian Rullan, Kiefer Yost</h4>
             </header>
 
             <div className="App-Body">
@@ -20,8 +20,8 @@ export function Homepage(): JSX.Element {
                 from there.
             </div>
             <CommonPlan></CommonPlan>
-            <br></br>
-            <BeginButton></BeginButton>
+            <hr></hr>
+            <MakePlan></MakePlan>
         </div>
     );
 }
