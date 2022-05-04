@@ -5,6 +5,7 @@ import DropdownMenu from "react-bootstrap/DropdownMenu";
 //import DropdownToggle from "react-bootstrap/DropdownToggle";
 import { Plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
+//import { useParams } from "react-router-dom";
 
 export function MakePlan(): JSX.Element {
     const [Plans, setPlans] = useState<Plan[]>([]);
@@ -96,6 +97,17 @@ export function MakePlan(): JSX.Element {
             </div>
         );
     }
+    /**const [pageContent, setPageContent] = React.useState(null);
+    const { planContents } = useParams();
+    React.useEffect(() => {
+        fetch(
+            `https://ud-cisc275-s22.github.io/cis-scheduler-team-21/${planContents}`
+        )
+            .then((res) => res.json())
+            .then((data) => setPageContent(data));
+    }, [planContents]);*/
+
+    //if (!pageContent) return null;
 
     return (
         <div className="makePlan-background">

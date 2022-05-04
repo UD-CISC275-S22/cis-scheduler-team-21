@@ -20,6 +20,17 @@ export function PlanContainer({
     const [editVis, setEditVis] = useState<boolean>(false);
     const [Plan, setPlan] = useState<Plan>(plan);
     const [Plan2, setPlan2] = useState<Plan>(plan);
+    const saveDataKey = "Page-Data";
+    const previousData = localStorage.getItem(saveDataKey);
+
+    if (previousData !== null) {
+        setPlans(JSON.parse(previousData));
+    } else {
+        setPlans(JSON.stringify(plans));
+    }
+    function saveButton(): void {
+        localStorage.setItem(saveDataKey, JSON.parse(plans));
+    }
     function deletePlan(): void {
         setPlans(plans.filter((x: Plan): boolean => x.id !== plan.id));
     }
@@ -119,6 +130,7 @@ export function PlanContainer({
                     >
                         Delete
                     </Button>
+                    <Button onClick={saveButton}>Save</Button>
                     <Button onClick={updateEdit}>Edit</Button>
                 </div>
                 <div
