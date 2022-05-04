@@ -2,34 +2,35 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/AddSemester.test.tsx (8.711 s)
+PASS src/Tests/AddSemester.test.tsx (6.68 s)
 PASS src/Tests/MakePlan.test.tsx
-PASS src/Tests/TableContentsWinter.test.tsx (7.072 s)
-PASS src/Tests/TableContentsSummer.test.tsx (6.85 s)
-PASS src/Tests/TableContentsSpring.test.tsx (7.188 s)
-PASS src/Tests/TableContentsFall.test.tsx (6.444 s)
+PASS src/Tests/TableContentsWinter.test.tsx (5.778 s)
+PASS src/Tests/TableContentsSpring.test.tsx (5.455 s)
+PASS src/Tests/TableContentsSummer.test.tsx (5.66 s)
+PASS src/Tests/TableContentsFall.test.tsx (5.186 s)
 PASS src/Tests/CommonPlan.test.tsx
 PASS src/Tests/PlanContainer.test.tsx
-PASS src/Tests/BeginButton.test.tsx
 PASS src/Tests/Homepage.test.tsx
 PASS src/Tests/ShowFallTable.test.tsx
-PASS src/App.test.tsx
+PASS src/Tests/App.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------|---------|----------|---------|---------|-------------------
-All files                 |     100 |      100 |     100 |     100 |                   
+All files                 |   95.41 |    97.22 |   96.03 |   95.39 |                   
  src                      |     100 |      100 |     100 |     100 |                   
   App.tsx                 |     100 |      100 |     100 |     100 |                   
- src/Components           |     100 |      100 |     100 |     100 |                   
+ src/Components           |   87.65 |    91.66 |   88.88 |    87.5 |                   
   AddSemester.tsx         |     100 |      100 |     100 |     100 |                   
-  BeginButton.tsx         |     100 |      100 |     100 |     100 |                   
   CommonPlan.tsx          |     100 |      100 |     100 |     100 |                   
   Homepage.tsx            |     100 |      100 |     100 |     100 |                   
   MakePlan.tsx            |     100 |      100 |     100 |     100 |                   
   PlanContainer.tsx       |     100 |      100 |     100 |     100 |                   
+  YearContainer.tsx       |       0 |        0 |       0 |       0 | 7-17              
+  Years.tsx               |       0 |      100 |       0 |       0 | 9-24              
  src/Interfaces           |       0 |        0 |       0 |       0 |                   
   Courses.ts              |       0 |        0 |       0 |       0 |                   
   semesterInterfaces.tsx  |       0 |        0 |       0 |       0 |                   
+  yearInterface.tsx       |       0 |        0 |       0 |       0 |                   
  src/TableComponents      |     100 |      100 |     100 |     100 |                   
   ShowFallTable.tsx       |     100 |      100 |     100 |     100 |                   
   ShowSpringTable.tsx     |     100 |      100 |     100 |     100 |                   
@@ -41,8 +42,8 @@ All files                 |     100 |      100 |     100 |     100 |
   TableContentsWinter.tsx |     100 |      100 |     100 |     100 |                   
 --------------------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 12 passed, 12 total
-Tests:       69 passed, 69 total
+Test Suites: 11 passed, 11 total
+Tests:       66 passed, 66 total
 Snapshots:   0 total
-Time:        42.721 s
+Time:        33.417 s
 Ran all test suites.
