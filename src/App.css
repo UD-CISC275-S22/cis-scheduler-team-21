@@ -24,6 +24,17 @@
     font-size: calc(30px + 2vmin);
     color: white;
 }
+.App-header-Year {
+    width: 100%;
+    background-color: #b9524a;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(30px + 2vmin);
+    color: white;
+}
 
 .App-link {
     color: #61dafb;
@@ -238,5 +249,13 @@ tr:nth-child(even) {
     /*  box-shadow: 5px 5px 5px rgba(2, 2, 2, 0.486); */
     background-color: #c55048;
     border: #c55048;
+    margin-left: 1.5ch;
+}
+
+.yearDisplay {
+    font-size: 6ch;
+    font-weight: 600;
+    font-style: italic;
+    display: inline;
     margin-left: 1.5ch;
 }

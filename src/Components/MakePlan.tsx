@@ -107,6 +107,7 @@ export function MakePlan(): JSX.Element {
                             plan={plan}
                             plans={Plans}
                             setPlans={setPlans}
+                            years={Year}
                         ></PlanContainer>
                         <hr></hr>
                     </div>

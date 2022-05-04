@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
-import { AddSemester } from "./AddSemester";
 import "../App.css";
 import { Plan } from "../Interfaces/Courses";
 import { Link } from "react-router-dom";
@@ -9,12 +8,14 @@ export interface PlanProps {
     plan: Plan;
     plans: Plan[];
     setPlans: (plans: Plan[]) => void;
+    years: string;
 }
 
 export function PlanContainer({
     plan,
     plans,
-    setPlans
+    setPlans,
+    years
 }: PlanProps): JSX.Element {
     const [visible, setVisible] = useState<boolean>(false);
     const [editVis, setEditVis] = useState<boolean>(false);
@@ -104,7 +105,7 @@ export function PlanContainer({
                         paddingRight: "2ch"
                     }}
                 >
-                    <Link to="/showplan">
+                    <Link to="/showplan" state={{ yearValue: years }}>
                         <Button
                             className="orangeButton"
                             onClick={() => setVisible(!visible)}
@@ -126,15 +127,6 @@ export function PlanContainer({
                     >
                         Delete
                     </Button>
-                </div>
-                <div
-                    style={{
-                        display: visible ? "block" : "none"
-                    }}
-                >
-                    <br></br>
-                    <br></br>
-                    <AddSemester></AddSemester>
                 </div>
             </div>
         </div>
