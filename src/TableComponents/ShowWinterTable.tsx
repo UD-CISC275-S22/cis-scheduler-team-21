@@ -6,7 +6,8 @@ export function ShowWinterTable({
     setWinter,
     Visible,
     SearchVisible
-}: SetWinterProp): JSX.Element {
+}: //DataKey
+SetWinterProp): JSX.Element {
     return (
         <div>
             <table
@@ -49,6 +50,7 @@ export function ShowWinterTable({
                 setWinter={setWinter}
                 Visible={Visible}
                 SearchVisible={SearchVisible}
+                //DataKey={DataKey}
             ></TableContentsWinter>
         </div>
     );

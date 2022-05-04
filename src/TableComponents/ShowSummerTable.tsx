@@ -6,7 +6,8 @@ export function ShowSummerTable({
     setSummer,
     Visible,
     SearchVisible
-}: SetSummerProp): JSX.Element {
+}: //DataKey
+SetSummerProp): JSX.Element {
     return (
         <div>
             <table
@@ -49,6 +50,7 @@ export function ShowSummerTable({
                 setSummer={setSummer}
                 Visible={Visible}
                 SearchVisible={SearchVisible}
+                //DataKey={DataKey}
             ></TableContentsSummer>
         </div>
     );

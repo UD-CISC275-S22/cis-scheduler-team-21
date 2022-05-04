@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+/**import { render, screen } from "@testing-library/react";
 import { PlanContainer } from "../Components/PlanContainer";
 import { Plan } from "../Interfaces/Courses";
 import userEvent from "@testing-library/user-event";
@@ -59,3 +59,4 @@ describe("PlanContainer component test", () => {
         showButton.click();
     });
 });
+*/

@@ -8,7 +8,8 @@ export function TableContentsWinter({
     setWinter,
     Visible,
     SearchVisible
-}: SetWinterProp): JSX.Element {
+}: //DataKey
+SetWinterProp): JSX.Element {
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
@@ -63,6 +64,9 @@ export function TableContentsWinter({
         course = [];
         setSelectedCourses(course);
     }
+    /**function saveButton() {
+        localStorage.setItem(DataKey, JSON.stringify(courseObjects));
+    }*/
     return (
         <div>
             <div style={{ marginBottom: "1ch" }}>
@@ -146,6 +150,12 @@ export function TableContentsWinter({
                             onClick={() => clearCourses(selectedCourses)}
                         >
                             Clear Winter
+                        </Button>
+                        <Button
+                            style={{ backgroundColor: "green" }}
+                            //onClick={saveButton}
+                        >
+                            Save Winter
                         </Button>
                     </span>
                 )}

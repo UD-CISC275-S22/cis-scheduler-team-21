@@ -8,7 +8,8 @@ export function TableContentsFall({
     setFall,
     Visible,
     SearchVisible
-}: SetFallProp): JSX.Element {
+}: //DataKey
+SetFallProp): JSX.Element {
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
@@ -63,6 +64,9 @@ export function TableContentsFall({
         course = [];
         setSelectedCourses(course);
     }
+    /**function saveButton() {
+        localStorage.setItem(DataKey, JSON.stringify(courseObjects));
+    }*/
     return (
         <div>
             <div style={{ marginBottom: "1ch" }}>
@@ -147,6 +151,9 @@ export function TableContentsFall({
                             onClick={() => clearCourses(selectedCourses)}
                         >
                             Clear Fall
+                        </Button>
+                        <Button style={{ backgroundColor: "green" }}>
+                            Save Fall
                         </Button>
                     </span>
                 )}

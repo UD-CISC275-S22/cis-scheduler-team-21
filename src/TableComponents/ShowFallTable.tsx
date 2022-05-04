@@ -6,7 +6,8 @@ export function ShowFallTable({
     setFall,
     Visible,
     SearchVisible
-}: SetFallProp): JSX.Element {
+}: // DataKey
+SetFallProp): JSX.Element {
     return (
         <div>
             <table data-testid="fall-table" className="add-border">
@@ -47,6 +48,7 @@ export function ShowFallTable({
                 setFall={setFall}
                 Visible={Visible}
                 SearchVisible={SearchVisible}
+                //DataKey={DataKey}
             ></TableContentsFall>
         </div>
     );

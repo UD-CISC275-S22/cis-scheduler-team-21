@@ -8,7 +8,8 @@ export function TableContentsSummer({
     setSummer,
     Visible,
     SearchVisible
-}: SetSummerProp): JSX.Element {
+}: //DataKey
+SetSummerProp): JSX.Element {
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
@@ -63,6 +64,9 @@ export function TableContentsSummer({
         course = [];
         setSelectedCourses(course);
     }
+    /**function saveButton() {
+        localStorage.setItem(DataKey, JSON.stringify(courseObjects));
+    }*/
     return (
         <div>
             <div style={{ marginBottom: "1ch" }}>
@@ -146,6 +150,12 @@ export function TableContentsSummer({
                             onClick={() => clearCourses(selectedCourses)}
                         >
                             Clear Summer
+                        </Button>
+                        <Button
+                            style={{ backgroundColor: "green" }}
+                            //onClick={saveButton}
+                        >
+                            Save Summer
                         </Button>
                     </span>
                 )}

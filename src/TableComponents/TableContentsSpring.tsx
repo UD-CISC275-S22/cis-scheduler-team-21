@@ -8,7 +8,8 @@ export function TableContentsSpring({
     setSpring,
     Visible,
     SearchVisible
-}: setSpringProp): JSX.Element {
+}: // DataKey
+setSpringProp): JSX.Element {
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
@@ -64,6 +65,9 @@ export function TableContentsSpring({
         course = [];
         setSelectedCourses(course);
     }
+    /**function saveButton() {
+        localStorage.setItem(DataKey, JSON.stringify(courseObjects));
+    }*/
     return (
         <div>
             <div style={{ marginBottom: "1ch" }}>
@@ -147,6 +151,12 @@ export function TableContentsSpring({
                             onClick={() => clearCourses(selectedCourses)}
                         >
                             Clear Spring
+                        </Button>
+                        <Button
+                            style={{ backgroundColor: "green" }}
+                            //onClick={saveButton}
+                        >
+                            Save Spring
                         </Button>
                     </span>
                 )}

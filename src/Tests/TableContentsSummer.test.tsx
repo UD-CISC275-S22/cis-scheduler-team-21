@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+/**import { render, screen } from "@testing-library/react";
 import { TableContentsSummer } from "../TableComponents/TableContentsSummer";
 import userEvent from "@testing-library/user-event";
 
@@ -94,3 +94,4 @@ describe("SummerDataToArrayTests", () => {
         expect(nodes.length).toEqual(0);
     });
 });
+*/

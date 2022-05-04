@@ -3,6 +3,7 @@ import { Button, Col, Form, Row } from "react-bootstrap";
 import "../App.css";
 import { Plan } from "../Interfaces/Courses";
 import { Link } from "react-router-dom";
+//import { Years } from "./Years";
 
 export interface PlanProps {
     plan: Plan;
@@ -10,6 +11,15 @@ export interface PlanProps {
     setPlans: (plans: Plan[]) => void;
     years: string;
 }
+
+/**const DataKey = "Page-Data";
+let loadedData = <Years DataKey={DataKey} />;
+
+const previousData = localStorage.getItem(DataKey);
+
+if (previousData !== null) {
+    loadedData = JSON.parse(previousData);
+}*/
 
 export function PlanContainer({
     plan,
@@ -21,17 +31,14 @@ export function PlanContainer({
     const [editVis, setEditVis] = useState<boolean>(false);
     const [Plan, setPlan] = useState<Plan>(plan);
     const [Plan2, setPlan2] = useState<Plan>(plan);
-    const saveDataKey = "Page-Data";
-    const previousData = localStorage.getItem(saveDataKey);
 
-    if (previousData !== null) {
-        setPlans(JSON.parse(previousData));
-    } else {
-        setPlans(JSON.stringify(plans));
-    }
-    function saveButton(): void {
-        localStorage.setItem(saveDataKey, JSON.parse(plans));
-    }
+    /**function saveButton(): void {
+        localStorage.setItem(saveDataKey, JSON.stringify(plans));
+    }*/
+    /**function revealLoadedData(): JSX.Element {
+        setVisible(!visible);
+        return <div>{loadedData}</div>;
+    }*/
     function deletePlan(): void {
         setPlans(plans.filter((x: Plan): boolean => x.id !== plan.id));
     }

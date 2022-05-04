@@ -4,8 +4,10 @@ import { ShowFallTable } from "../TableComponents/ShowFallTable";
 import { ShowSpringTable } from "../TableComponents/ShowSpringTable";
 import { ShowWinterTable } from "../TableComponents/ShowWinterTable";
 import { ShowSummerTable } from "../TableComponents/ShowSummerTable";
+//import { Year } from "../Interfaces/yearInterface";
 import "../App.css";
 
+//{ DataKey }: { DataKey: string }
 export function AddSemester(): JSX.Element {
     const [FallElement, setFallElement] = useState<JSX.Element | null>(null);
     const [SpringElement, setSpringElement] = useState<JSX.Element | null>(
@@ -19,6 +21,7 @@ export function AddSemester(): JSX.Element {
     );
     const [Visible, setVisible] = useState<boolean>(false);
     const [SearchVisible, setSearchVisible] = useState<boolean>(false);
+
     function setVisEdit(): void {
         setVisible(!Visible);
         if (FallElement !== null) {
@@ -55,6 +58,7 @@ export function AddSemester(): JSX.Element {
                 setFall={setFallElement}
                 Visible={visibleState}
                 SearchVisible={visibleSearchState}
+                //DataKey={DataKey}
             ></ShowFallTable>
         );
     }
@@ -67,6 +71,7 @@ export function AddSemester(): JSX.Element {
                 setSpring={setSpringElement}
                 Visible={visibleState}
                 SearchVisible={visibleSearchState}
+                //DataKey={DataKey}
             ></ShowSpringTable>
         );
     }
@@ -79,6 +84,7 @@ export function AddSemester(): JSX.Element {
                 setSummer={setSummerElement}
                 Visible={visibleState}
                 SearchVisible={visibleSearchState}
+                //DataKey={DataKey}
             ></ShowSummerTable>
         );
     }
@@ -91,6 +97,7 @@ export function AddSemester(): JSX.Element {
                 setWinter={setWinterElement}
                 Visible={visibleState}
                 SearchVisible={visibleSearchState}
+                //DataKey={DataKey}
             ></ShowWinterTable>
         );
     }
