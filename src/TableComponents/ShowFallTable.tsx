@@ -9,11 +9,7 @@ export function ShowFallTable({
 }: SetFallProp): JSX.Element {
     return (
         <div>
-            <table
-                data-testid="fall-table"
-                /* className="add-border"
-                style={{ borderBottom: 0 }} */
-            >
+            <table data-testid="fall-table" className="add-border">
                 <tbody>
                     <tr
                         style={{
