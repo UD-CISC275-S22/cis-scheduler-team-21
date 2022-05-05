@@ -1,3 +1,9 @@
 export interface setYearProp {
-    year: number;
+    year: Year;
+    setYear: (years: Year[]) => void;
+    yearList: Year[];
+}
+export interface Year {
+    title: string;
+    id: number;
 }
