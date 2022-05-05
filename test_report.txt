@@ -2,12 +2,12 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/AddSemester.test.tsx (6.68 s)
+PASS src/Tests/AddSemester.test.tsx (9.575 s)
 PASS src/Tests/MakePlan.test.tsx
-PASS src/Tests/TableContentsWinter.test.tsx (5.778 s)
-PASS src/Tests/TableContentsSpring.test.tsx (5.455 s)
-PASS src/Tests/TableContentsSummer.test.tsx (5.66 s)
-PASS src/Tests/TableContentsFall.test.tsx (5.186 s)
+PASS src/Tests/TableContentsWinter.test.tsx (8.046 s)
+PASS src/Tests/TableContentsSummer.test.tsx (7.568 s)
+PASS src/Tests/TableContentsSpring.test.tsx (7.954 s)
+PASS src/Tests/TableContentsFall.test.tsx (7.749 s)
 PASS src/Tests/CommonPlan.test.tsx
 PASS src/Tests/PlanContainer.test.tsx
 PASS src/Tests/Homepage.test.tsx
@@ -16,17 +16,17 @@ PASS src/Tests/App.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------|---------|----------|---------|---------|-------------------
-All files                 |   95.41 |    97.22 |   96.03 |   95.39 |                   
+All files                 |   91.22 |    97.22 |   93.26 |   91.18 |                   
  src                      |     100 |      100 |     100 |     100 |                   
   App.tsx                 |     100 |      100 |     100 |     100 |                   
- src/Components           |   87.65 |    91.66 |   88.88 |    87.5 |                   
+ src/Components           |   78.02 |    91.66 |   82.05 |   77.77 |                   
   AddSemester.tsx         |     100 |      100 |     100 |     100 |                   
   CommonPlan.tsx          |     100 |      100 |     100 |     100 |                   
   Homepage.tsx            |     100 |      100 |     100 |     100 |                   
   MakePlan.tsx            |     100 |      100 |     100 |     100 |                   
   PlanContainer.tsx       |     100 |      100 |     100 |     100 |                   
-  YearContainer.tsx       |       0 |        0 |       0 |       0 | 7-17              
-  Years.tsx               |       0 |      100 |       0 |       0 | 9-24              
+  YearContainer.tsx       |       0 |        0 |       0 |       0 | 11-27             
+  Years.tsx               |       0 |      100 |       0 |       0 | 14-52             
  src/Interfaces           |       0 |        0 |       0 |       0 |                   
   Courses.ts              |       0 |        0 |       0 |       0 |                   
   semesterInterfaces.tsx  |       0 |        0 |       0 |       0 |                   
@@ -45,5 +45,5 @@ All files                 |   95.41 |    97.22 |   96.03 |   95.39 |
 Test Suites: 11 passed, 11 total
 Tests:       66 passed, 66 total
 Snapshots:   0 total
-Time:        33.417 s
+Time:        47.035 s
 Ran all test suites.
