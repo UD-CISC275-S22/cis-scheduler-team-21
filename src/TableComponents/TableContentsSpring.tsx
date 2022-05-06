@@ -113,7 +113,7 @@ export function TableContentsSpring({
                         type="text"
                         list="searchList"
                         placeholder="Type a course..."
-                        onChange={updateInput}
+                        onBlur={updateInput}
                     ></input>
                     <datalist data-testid="searchList" id="searchList">
                         {courseObjects.map(

@@ -3,6 +3,7 @@ import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
 import { SetFallProp } from "../Interfaces/semesterInterfaces";
 import { Button } from "react-bootstrap";
+import { getValue } from "@testing-library/user-event/dist/utils";
 
 export function TableContentsFall({
     setFall,
@@ -44,6 +45,7 @@ export function TableContentsFall({
                 const AddCourse2: Course[] = [...selectedCourses, singleCourse];
                 setSelectedCourses(AddCourse2);
                 setInput("");
+                clearSearchBar();
             }
         }
     }
@@ -62,6 +64,12 @@ export function TableContentsFall({
     }
     function updateInput(event: React.ChangeEvent<HTMLInputElement>): void {
         setInput(event.target.value);
+    }
+    function clearSearchBar(): void {
+        const courseInp: HTMLInputElement = document.getElementById(
+            "searchID"
+        ) as HTMLInputElement;
+        courseInp.value = "";
     }
     return (
         <div>
@@ -112,7 +120,7 @@ export function TableContentsFall({
                         type="text"
                         list="searchList"
                         placeholder="Type a course..."
-                        onChange={updateInput}
+                        onBlur={updateInput}
                     ></input>
                     <datalist id="searchList" data-testid="searchList">
                         {courseObjects.map(
