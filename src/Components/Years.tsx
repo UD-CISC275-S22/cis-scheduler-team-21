@@ -33,6 +33,7 @@ export function Years(): JSX.Element {
         Junior,
         Senior
     ]);
+    const [editVis, setEditVis] = useState<boolean>(false);
     const [counter, setCounter] = useState<number>(5);
     function addYear(): void {
         setCounter(counter + 1);
@@ -46,14 +47,29 @@ export function Years(): JSX.Element {
     }
     return (
         <div style={{ paddingBottom: "8ch" }}>
-            <header className="App-header-Year">Year View</header>
+            <header className="App-header-Year">
+                <span style={{ width: "100%", textAlign: "center" }}>
+                    <span style={{ marginLeft: "5.5ch" }}>Year View</span>
+                    <Button
+                        style={{
+                            float: "right",
+                            marginRight: "6ch",
+                            marginTop: "2ch"
+                        }}
+                        onClick={() => setEditVis(!editVis)}
+                    >
+                        Edit
+                    </Button>
+                </span>
+            </header>
             {yearList.map(
                 (year: Year): JSX.Element => (
                     <span key={year.id}>
                         <YearContainer
                             year={year}
-                            setYear={setYearList}
+                            setYearList={setYearList}
                             yearList={yearList}
+                            editVis={editVis}
                         ></YearContainer>
                         <hr></hr>
                     </span>
