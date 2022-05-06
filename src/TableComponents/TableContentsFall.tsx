@@ -65,10 +65,12 @@ export function TableContentsFall({
         setInput(event.target.value);
     }
     function clearSearchBar(): void {
-        const courseInp: HTMLInputElement = document.getElementById(
-            "searchID"
-        ) as HTMLInputElement;
-        courseInp.value = "";
+        const courseInp: HTMLCollectionOf<HTMLInputElement> =
+            document.getElementsByTagName("input");
+        const arrayElements: HTMLInputElement[] = Array.from(courseInp);
+        arrayElements.map(
+            (input: HTMLInputElement): string => (input.value = "")
+        );
     }
     return (
         <div>
@@ -120,6 +122,7 @@ export function TableContentsFall({
                         list="searchList"
                         placeholder="Type a course..."
                         onBlur={updateInput}
+                        defaultValue={""}
                     ></input>
                     <datalist id="searchList" data-testid="searchList">
                         {courseObjects.map(

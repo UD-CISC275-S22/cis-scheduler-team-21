@@ -66,10 +66,12 @@ export function TableContentsSpring({
         setInput(event.target.value);
     }
     function clearSearchBar(): void {
-        const courseInp: HTMLInputElement = document.getElementById(
-            "searchID2"
-        ) as HTMLInputElement;
-        courseInp.value = "";
+        const courseInp: HTMLCollectionOf<HTMLInputElement> =
+            document.getElementsByTagName("input");
+        const arrayElements: HTMLInputElement[] = Array.from(courseInp);
+        arrayElements.map(
+            (input: HTMLInputElement): string => (input.value = "")
+        );
     }
     return (
         <div>
