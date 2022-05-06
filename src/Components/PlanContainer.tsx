@@ -13,15 +13,6 @@ export interface PlanProps {
     DataKey: string;
 }
 
-/**const DataKey = "Plan-Data";
-let loadedData: Plan[] = [];
-
-const previousData = localStorage.getItem(DataKey);
-
-if (previousData !== null) {
-    loadedData = JSON.parse(previousData);
-}*/
-
 export function PlanContainer({
     plan,
     PlansArray,
@@ -33,7 +24,8 @@ export function PlanContainer({
     const [editVis, setEditVis] = useState<boolean>(false);
     const [Plan, setPlan] = useState<Plan>(plan);
     const [Plan2, setPlan2] = useState<Plan>(plan);
-    const [data, setData] = useState<Plan[]>(PlansArray);
+    //const [data, setData] = useState<Plan[]>(PlansArray);
+    let data: Plan[] = [];
 
     function deletePlan(): void {
         setPlans(PlansArray.filter((x: Plan): boolean => x.id !== plan.id));
@@ -43,6 +35,7 @@ export function PlanContainer({
     }
     function savePlan(): void {
         localStorage.setItem(DataKey, JSON.stringify(data));
+        console.log(data);
     }
 
     function updatePlan(event: React.ChangeEvent<HTMLInputElement>) {
@@ -52,7 +45,8 @@ export function PlanContainer({
             description: plan.description
         };
         setPlan(updatedPlan);
-        setData([...data, updatedPlan]);
+        //setData([...data, updatedPlan]);
+        data = [...data, updatedPlan];
     }
     function updateDescription(event: React.ChangeEvent<HTMLInputElement>) {
         const updatedPlan: Plan = {

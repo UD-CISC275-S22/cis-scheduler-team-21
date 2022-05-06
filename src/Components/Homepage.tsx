@@ -5,15 +5,17 @@ import { CommonPlan } from "./CommonPlan";
 //import { BeginButton } from "./BeginButton";
 import { MakePlan } from "./MakePlan";
 import { Plan } from "../Interfaces/Courses";
+import { Button } from "react-bootstrap";
 
 const DataKey = "Page-Data";
-let loadedData: Plan[] = [];
+const loadedData: Plan[] = [];
 
-const previousData = localStorage.getItem(DataKey);
+/**const previousData = localStorage.getItem(DataKey);
+console.log(loadedData);
 
 if (previousData !== null) {
     loadedData = JSON.parse(previousData);
-}
+}*/
 
 export function Homepage(): JSX.Element {
     const [plans, setPlans] = useState<Plan[]>(loadedData);
@@ -37,8 +39,7 @@ export function Homepage(): JSX.Element {
             </div>
             <CommonPlan></CommonPlan>
             <hr></hr>
-            {plans}
-            {clearStorage}
+            <Button onClick={clearStorage}>Clear Storage</Button>
             <MakePlan
                 DataKey={DataKey}
                 PlansArray={plans}

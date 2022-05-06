@@ -10,14 +10,14 @@ import { Plan } from "../Interfaces/Courses";
 
 type locationStateString = { yearValue: string };
 
-const DataKey = "Page-Data";
+/**const DataKey = "Page-Data";
 let loadedData: Plan[] = [];
 
 const previousData = localStorage.getItem(DataKey);
 
 if (previousData !== null) {
     loadedData = JSON.parse(previousData);
-}
+}*/
 
 //{ DataKey }: Year
 export function Years(): JSX.Element {
