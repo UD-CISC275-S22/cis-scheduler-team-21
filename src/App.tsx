@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { MakePlan } from "./Components/MakePlan";
+//import { MakePlan } from "./Components/MakePlan";
 import { Homepage } from "./Components/Homepage";
 import {
     Routes,
