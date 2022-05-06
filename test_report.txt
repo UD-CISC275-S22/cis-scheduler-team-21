@@ -2,12 +2,12 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/AddSemester.test.tsx (9.571 s)
+PASS src/Tests/AddSemester.test.tsx (6.576 s)
 PASS src/Tests/MakePlan.test.tsx
-PASS src/Tests/TableContentsFall.test.tsx (9.59 s)
-PASS src/Tests/TableContentsWinter.test.tsx (9.521 s)
-PASS src/Tests/TableContentsSummer.test.tsx (9.122 s)
-PASS src/Tests/TableContentsSpring.test.tsx (9.807 s)
+PASS src/Tests/TableContentsFall.test.tsx (6.318 s)
+PASS src/Tests/TableContentsWinter.test.tsx (6.193 s)
+PASS src/Tests/TableContentsSummer.test.tsx (6.043 s)
+PASS src/Tests/TableContentsSpring.test.tsx (6.372 s)
 PASS src/Tests/CommonPlan.test.tsx
 PASS src/Tests/PlanContainer.test.tsx
 PASS src/Tests/Homepage.test.tsx
@@ -16,11 +16,11 @@ PASS src/Tests/App.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------|---------|----------|---------|---------|-------------------
-All files                 |   90.11 |     92.1 |   92.37 |   90.07 |                   
+All files                 |   88.71 |     92.3 |   91.59 |   88.67 |                   
  src                      |     100 |      100 |     100 |     100 |                   
   App.tsx                 |     100 |      100 |     100 |     100 |                   
- src/Components           |   73.95 |    78.57 |   78.04 |   73.68 |                   
-  AddSemester.tsx         |     100 |      100 |     100 |     100 |                   
+ src/Components           |      71 |       80 |   76.19 |    70.7 |                   
+  AddSemester.tsx         |   89.18 |      100 |   91.66 |   89.18 | 98-101            
   CommonPlan.tsx          |     100 |      100 |     100 |     100 |                   
   Homepage.tsx            |     100 |      100 |     100 |     100 |                   
   MakePlan.tsx            |     100 |      100 |     100 |     100 |                   
@@ -45,5 +45,5 @@ All files                 |   90.11 |     92.1 |   92.37 |   90.07 |
 Test Suites: 11 passed, 11 total
 Tests:       66 passed, 66 total
 Snapshots:   0 total
-Time:        53.518 s
+Time:        35.586 s
 Ran all test suites.
