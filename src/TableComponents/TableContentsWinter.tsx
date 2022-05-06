@@ -9,6 +9,7 @@ export function TableContentsWinter({
     Visible,
     SearchVisible
 }: SetWinterProp): JSX.Element {
+    const [input, setInput] = useState<string>("");
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
@@ -23,17 +24,13 @@ export function TableContentsWinter({
     });
 
     function addTable(): JSX.Element | void {
-        const courseInp: HTMLInputElement = document.getElementById(
-            "searchID3"
-        ) as HTMLInputElement;
-        const courseObj: string = courseInp.value;
         if (
             courseObjects.some(
-                (course: Course): boolean => course.code === courseObj
+                (course: Course): boolean => course.code === input
             )
         ) {
             const AddCourse: Course[] = courseObjects.filter(
-                (course: Course): boolean => course.code === courseObj
+                (course: Course): boolean => course.code === input
             );
             const singleCourse: Course = AddCourse[0];
             if (
@@ -46,7 +43,7 @@ export function TableContentsWinter({
             } else {
                 const AddCourse2: Course[] = [...selectedCourses, singleCourse];
                 setSelectedCourses(AddCourse2);
-                courseInp.value = "";
+                setInput("");
             }
         }
     }
@@ -62,6 +59,9 @@ export function TableContentsWinter({
     function clearCourses(course: Course[]) {
         course = [];
         setSelectedCourses(course);
+    }
+    function updateInput(event: React.ChangeEvent<HTMLInputElement>): void {
+        setInput(event.target.value);
     }
     return (
         <div>
@@ -112,6 +112,7 @@ export function TableContentsWinter({
                         type="text"
                         list="searchList"
                         placeholder="Type a course..."
+                        onChange={updateInput}
                     ></input>
                     <datalist data-testid="searchList" id="searchList">
                         {courseObjects.map(
