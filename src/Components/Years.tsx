@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import "../App.css";
 import { YearContainer } from "./YearContainer";
+import { Plan } from "../Interfaces/Courses";
 //import { Button } from "react-bootstrap";
 //import { useState } from "react";
 //import { Year } from "../Interfaces/yearInterface";
@@ -9,14 +10,14 @@ import { YearContainer } from "./YearContainer";
 
 type locationStateString = { yearValue: string };
 
-/**const DataKey = "Page-Data";
-let loadedData = <YearContainer DataKey={DataKey} />;
+const DataKey = "Page-Data";
+let loadedData: Plan[] = [];
 
 const previousData = localStorage.getItem(DataKey);
 
 if (previousData !== null) {
     loadedData = JSON.parse(previousData);
-}*/
+}
 
 //{ DataKey }: Year
 export function Years(): JSX.Element {

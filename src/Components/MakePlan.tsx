@@ -3,12 +3,22 @@ import { Button, Dropdown, Form } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/DropdownItem";
 import DropdownMenu from "react-bootstrap/DropdownMenu";
 import { Plan } from "../Interfaces/Courses";
-import { PlanContainer } from "./PlanContainer";
+import { PlanContainer, PlanProps } from "./PlanContainer";
 //import { Year } from "../Interfaces/yearInterface";
 //import { useParams } from "react-router-dom";
 
-export function MakePlan(): JSX.Element {
-    const [Plans, setPlans] = useState<Plan[]>([]);
+export interface makePlanProps {
+    DataKey: string;
+    PlansArray: Plan[];
+    setPlan: (Plans: Plan[]) => void;
+}
+
+export function MakePlan({
+    DataKey,
+    PlansArray,
+    setPlan
+}: makePlanProps): JSX.Element {
+    //const [Plans, setPlans] = useState<Plan[]>([]);
     const [Counter, setCounter] = useState<number>(1);
     const [Visible, setVisible] = useState<boolean>(false);
     const [Degree, setDegree] = useState<string>("Select Degree");
@@ -21,9 +31,9 @@ export function MakePlan(): JSX.Element {
             id: Counter,
             description: ""
         };
-        const planList: Plan[] = [...Plans, newPlan];
+        const planList: Plan[] = [...PlansArray, newPlan];
         const counterCopy: number = Counter + 1;
-        setPlans(planList);
+        setPlan(planList);
         setCounter(counterCopy);
     }
 
@@ -107,18 +117,19 @@ export function MakePlan(): JSX.Element {
     }, [planContents]);*/
 
     //if (!pageContent) return null;
-
     return (
         <div className="makePlan-background">
             <div>
                 {/* {visible && <div></div>} */}
-                {Plans.map((plan: Plan) => (
+
+                {PlansArray.map((plan: Plan) => (
                     <div key={plan.id}>
                         <PlanContainer
                             plan={plan}
-                            plans={Plans}
-                            setPlans={setPlans}
+                            PlansArray={PlansArray}
+                            setPlans={setPlan}
                             years={Year}
+                            DataKey={DataKey}
                         ></PlanContainer>
                         <hr></hr>
                     </div>

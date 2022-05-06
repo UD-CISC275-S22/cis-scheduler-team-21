@@ -1,9 +1,9 @@
 import React from "react";
-/**import { render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { PlanContainer } from "../Components/PlanContainer";
 import { Plan } from "../Interfaces/Courses";
 import userEvent from "@testing-library/user-event";
-import { MemoryRouter } from "react-router-dom";
+/**import { MemoryRouter } from "react-router-dom";
 
 const setPlans = () => {
     return;
@@ -26,6 +26,7 @@ describe("PlanContainer component test", () => {
                     plans={newplanList}
                     setPlans={setPlans}
                     years={"2001"}
+                    saveButton={saveButton}
                 />
             </MemoryRouter>
         );

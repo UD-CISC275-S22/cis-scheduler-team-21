@@ -4,25 +4,25 @@ import { setYearProp } from "../Interfaces/yearInterface";
 //import { Year } from "../Interfaces/yearInterface";
 import { AddSemester } from "./AddSemester";
 
-//{ DataKey }: Year
 export function YearContainer({ year }: setYearProp): JSX.Element {
     const [Visible, setVisible] = useState<boolean>(false);
     const [Semesters] = useState<JSX.Element>(<AddSemester />);
+    //const [data, setData] = useState<JSX.Element>(loadedData);
 
     /**function displayYear({ year }: setYearProp): number {
         return year;
-    }
+    }*/
     /**function saveButton() {
-        localStorage.setItem(DataKey, JSON.stringify(Semesters));
-    }
-    <Button
-                    style={{ float: "right", backgroundColor: "green" }}
-                    //onClick={saveButton}
-                >
-                    Save Year
-                </Button>*/
+        localStorage.setItem(DataKey, JSON.stringify(data));
+    }*/
+
     return (
         <div>
+            <div>
+                <Button style={{ float: "right", backgroundColor: "green" }}>
+                    Save Year
+                </Button>
+            </div>
             <br></br>
             <span>
                 <span className="yearDisplay">{year}</span>

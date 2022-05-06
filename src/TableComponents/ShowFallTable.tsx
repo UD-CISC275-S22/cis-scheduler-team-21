@@ -1,15 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 import { SetFallProp } from "../Interfaces/semesterInterfaces";
 import { TableContentsFall } from "./TableContentsFall";
+
+const DataKey = "Fall-Semester-Data";
 
 export function ShowFallTable({
     setFall,
     Visible,
     SearchVisible
-}: // DataKey
+}: //DataKey
 SetFallProp): JSX.Element {
+    /**let loadedData = (
+        
+    );
+    const [data, setData] = useState<JSX.Element>(loadedData);
+    const previousData = localStorage.getItem(DataKey);
+
+    if (previousData !== null) {
+        loadedData = JSON.parse(previousData);
+    }
+
+    function saveButton() {
+        localStorage.setItem(DataKey, JSON.stringify(data));
+        const obj = JSON.parse(data);
+    }
+    function parseData() {
+        if (data.type === String) {
+            {
+                return localStorage.getItem(DataKey, JSON.parse(data));
+            }
+        }
+    }*/
     return (
         <div>
+            <div>
+                <Button style={{ backgroundColor: "green" }}>
+                    Save Fall Semester
+                </Button>
+            </div>
             <table data-testid="fall-table" className="add-border">
                 <tbody>
                     <tr
@@ -44,12 +73,6 @@ SetFallProp): JSX.Element {
                     </tr>
                 </tbody>
             </table>
-            <TableContentsFall
-                setFall={setFall}
-                Visible={Visible}
-                SearchVisible={SearchVisible}
-                //DataKey={DataKey}
-            ></TableContentsFall>
         </div>
     );
 }

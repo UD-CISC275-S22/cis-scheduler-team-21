@@ -1,5 +1,5 @@
 import React from "react";
-/**import { render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { AddSemester } from "../Components/AddSemester";
 import { MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
@@ -250,4 +250,3 @@ describe("AddSemester Component tests", () => {
         expect(summerSearch).toBeInTheDocument();
     });
 });
-*/

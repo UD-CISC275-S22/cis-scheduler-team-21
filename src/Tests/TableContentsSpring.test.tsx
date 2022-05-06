@@ -1,5 +1,5 @@
 import React from "react";
-/**import { render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { TableContentsSpring } from "../TableComponents/TableContentsSpring";
 import userEvent from "@testing-library/user-event";
 
@@ -94,4 +94,3 @@ describe("SpringDataToArrayTests", () => {
         expect(nodes.length).toEqual(0);
     });
 });
-*/

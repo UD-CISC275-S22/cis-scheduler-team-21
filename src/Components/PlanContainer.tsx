@@ -7,13 +7,14 @@ import { Link } from "react-router-dom";
 
 export interface PlanProps {
     plan: Plan;
-    plans: Plan[];
+    PlansArray: Plan[];
     setPlans: (plans: Plan[]) => void;
     years: string;
+    DataKey: string;
 }
 
-/**const DataKey = "Page-Data";
-let loadedData = <Years DataKey={DataKey} />;
+/**const DataKey = "Plan-Data";
+let loadedData: Plan[] = [];
 
 const previousData = localStorage.getItem(DataKey);
 
@@ -23,28 +24,27 @@ if (previousData !== null) {
 
 export function PlanContainer({
     plan,
-    plans,
+    PlansArray,
     setPlans,
-    years
+    years,
+    DataKey
 }: PlanProps): JSX.Element {
     const [visible, setVisible] = useState<boolean>(false);
     const [editVis, setEditVis] = useState<boolean>(false);
     const [Plan, setPlan] = useState<Plan>(plan);
     const [Plan2, setPlan2] = useState<Plan>(plan);
+    const [data, setData] = useState<Plan[]>(PlansArray);
 
-    /**function saveButton(): void {
-        localStorage.setItem(saveDataKey, JSON.stringify(plans));
-    }*/
-    /**function revealLoadedData(): JSX.Element {
-        setVisible(!visible);
-        return <div>{loadedData}</div>;
-    }*/
     function deletePlan(): void {
-        setPlans(plans.filter((x: Plan): boolean => x.id !== plan.id));
+        setPlans(PlansArray.filter((x: Plan): boolean => x.id !== plan.id));
     }
     function updateEdit(): void {
         setEditVis(!editVis);
     }
+    function savePlan(): void {
+        localStorage.setItem(DataKey, JSON.stringify(data));
+    }
+
     function updatePlan(event: React.ChangeEvent<HTMLInputElement>) {
         const updatedPlan: Plan = {
             Title: event.target.value,
@@ -52,6 +52,7 @@ export function PlanContainer({
             description: plan.description
         };
         setPlan(updatedPlan);
+        setData([...data, updatedPlan]);
     }
     function updateDescription(event: React.ChangeEvent<HTMLInputElement>) {
         const updatedPlan: Plan = {
@@ -133,6 +134,9 @@ export function PlanContainer({
                     </Link>
                     <Button className="orangeButton" onClick={updateEdit}>
                         Edit
+                    </Button>
+                    <Button className="orangeButton" onClick={savePlan}>
+                        Save Plan
                     </Button>
                     <Button
                         onClick={deletePlan}

@@ -3,6 +3,16 @@ import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
 import { SetFallProp } from "../Interfaces/semesterInterfaces";
 import { Button } from "react-bootstrap";
+import { ShowFallTable } from "./ShowFallTable";
+//import { SetFallProp } from "../Interfaces/semesterInterfaces";
+
+/**const DataKey = "Fall-Semester-Data";
+let loadedData: Course[] = [];
+const previousData = localStorage.getItem(DataKey);
+
+if (previousData !== null) {
+    loadedData = JSON.parse(previousData);
+}*/
 
 export function TableContentsFall({
     setFall,
@@ -12,6 +22,7 @@ export function TableContentsFall({
 SetFallProp): JSX.Element {
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
     const courseObjects: Course[] = [];
+    //const [course, setCourse] = useState<Course[]>(loadedData);
     const StringData: string = JSON.stringify(Data);
     const DataObjects: Section[] = Object.values(JSON.parse(StringData));
 

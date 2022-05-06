@@ -1,10 +1,26 @@
 import React from "react";
+import { useState } from "react";
 import "../App.css";
 import { CommonPlan } from "./CommonPlan";
 //import { BeginButton } from "./BeginButton";
 import { MakePlan } from "./MakePlan";
+import { Plan } from "../Interfaces/Courses";
+
+const DataKey = "Page-Data";
+let loadedData: Plan[] = [];
+
+const previousData = localStorage.getItem(DataKey);
+
+if (previousData !== null) {
+    loadedData = JSON.parse(previousData);
+}
 
 export function Homepage(): JSX.Element {
+    const [plans, setPlans] = useState<Plan[]>(loadedData);
+
+    function clearStorage(): void {
+        localStorage.clear();
+    }
     return (
         <div className="App">
             <header className="App-header">
@@ -21,7 +37,13 @@ export function Homepage(): JSX.Element {
             </div>
             <CommonPlan></CommonPlan>
             <hr></hr>
-            <MakePlan></MakePlan>
+            {plans}
+            {clearStorage}
+            <MakePlan
+                DataKey={DataKey}
+                PlansArray={plans}
+                setPlan={setPlans}
+            ></MakePlan>
         </div>
     );
 }

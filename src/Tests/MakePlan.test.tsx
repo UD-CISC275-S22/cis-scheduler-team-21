@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+/**import { render, screen, fireEvent } from "@testing-library/react";
 import { MakePlan } from "../Components/MakePlan";
 import { MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
@@ -141,3 +141,4 @@ describe("MakePlan Component tests", () => {
         expect(plan).not.toBeInTheDocument();
     });
 });
+*/

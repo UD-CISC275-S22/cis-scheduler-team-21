@@ -13,7 +13,7 @@ import { Years } from "./Components/Years";
 //import { useState } from "react";
 
 /**const DataKey = "Page-Data";
-let loadedData = <Years DataKey={DataKey} />;
+let loadedData = Plan[] = [];
 
 const previousData = localStorage.getItem(DataKey);
 
@@ -28,6 +28,11 @@ function App(): JSX.Element {
         localStorage.setItem(DataKey, JSON.stringify(data));
     }*/
 
+    /**<Route path="/showplan" element={<MakePlan />} />
+                    <Route
+                        path="/cis-scheduler-team-21/homepage"
+                        element={<Navigate replace to="/#/showplan" />}
+                    />*/
     return (
         <>
             {/* This is the alias of BrowserRouter i.e. Router */}
@@ -44,14 +49,9 @@ function App(): JSX.Element {
                     {/* This route is for makeplan component 
           with path "/homepage", in element props 
           we passes the imported component*/}
-                    <Route path="/showplan" element={<MakePlan />} />
-                    <Route
-                        path="/cis-scheduler-team-21/homepage"
-                        element={<Navigate replace to="/#/showplan" />}
-                    />
                     <Route path="/showplan" element={<Years />} />
                     <Route
-                        path="/cis-scheduler-team-21/#/makeplan"
+                        path="/cis-scheduler-team-21/#/homepage"
                         element={<Navigate replace to="/#/showplan" />}
                     />
                     **
