@@ -2,12 +2,12 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/AddSemester.test.tsx (7.285 s)
+PASS src/Tests/AddSemester.test.tsx (9.571 s)
 PASS src/Tests/MakePlan.test.tsx
-PASS src/Tests/TableContentsWinter.test.tsx (5.811 s)
-PASS src/Tests/TableContentsSummer.test.tsx (5.518 s)
-PASS src/Tests/TableContentsSpring.test.tsx (6.043 s)
-PASS src/Tests/TableContentsFall.test.tsx (5.469 s)
+PASS src/Tests/TableContentsFall.test.tsx (9.59 s)
+PASS src/Tests/TableContentsWinter.test.tsx (9.521 s)
+PASS src/Tests/TableContentsSummer.test.tsx (9.122 s)
+PASS src/Tests/TableContentsSpring.test.tsx (9.807 s)
 PASS src/Tests/CommonPlan.test.tsx
 PASS src/Tests/PlanContainer.test.tsx
 PASS src/Tests/Homepage.test.tsx
@@ -16,7 +16,7 @@ PASS src/Tests/App.test.tsx
 --------------------------|---------|----------|---------|---------|-------------------
 File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------------|---------|----------|---------|---------|-------------------
-All files                 |   89.27 |     92.1 |    91.5 |   89.22 |                   
+All files                 |   90.11 |     92.1 |   92.37 |   90.07 |                   
  src                      |     100 |      100 |     100 |     100 |                   
   App.tsx                 |     100 |      100 |     100 |     100 |                   
  src/Components           |   73.95 |    78.57 |   78.04 |   73.68 |                   
@@ -45,5 +45,5 @@ All files                 |   89.27 |     92.1 |    91.5 |   89.22 |
 Test Suites: 11 passed, 11 total
 Tests:       66 passed, 66 total
 Snapshots:   0 total
-Time:        35.116 s
+Time:        53.518 s
 Ran all test suites.
