@@ -44,6 +44,7 @@ export function TableContentsSpring({
                 const AddCourse2: Course[] = [...selectedCourses, singleCourse];
                 setSelectedCourses(AddCourse2);
                 setInput("");
+                clearSearchBar();
             }
         }
     }
@@ -63,6 +64,12 @@ export function TableContentsSpring({
     }
     function updateInput(event: React.ChangeEvent<HTMLInputElement>): void {
         setInput(event.target.value);
+    }
+    function clearSearchBar(): void {
+        const courseInp: HTMLInputElement = document.getElementById(
+            "searchID2"
+        ) as HTMLInputElement;
+        courseInp.value = "";
     }
     return (
         <div>

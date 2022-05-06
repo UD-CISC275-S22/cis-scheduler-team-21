@@ -3,7 +3,6 @@ import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
 import { SetFallProp } from "../Interfaces/semesterInterfaces";
 import { Button } from "react-bootstrap";
-import { getValue } from "@testing-library/user-event/dist/utils";
 
 export function TableContentsFall({
     setFall,
