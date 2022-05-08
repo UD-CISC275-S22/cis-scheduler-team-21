@@ -3,6 +3,7 @@ import Data from "../Data/catalog.json";
 import { Course, Section } from "../Interfaces/Courses";
 import { SetFallProp } from "../Interfaces/semesterInterfaces";
 import { Button } from "react-bootstrap";
+import { CourseEdit } from "../Components/CourseEdit";
 
 export function TableContentsFall({
     setFall,
@@ -11,6 +12,8 @@ export function TableContentsFall({
 }: SetFallProp): JSX.Element {
     const [input, setInput] = useState<string>("");
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
+    const [classPopup, setClassPopup] = useState<JSX.Element | null>(null);
+    const [currentCourse, setCurrentCourse] = useState<Course>();
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
     const DataObjects: Section[] = Object.values(JSON.parse(StringData));
@@ -72,6 +75,18 @@ export function TableContentsFall({
             (input: HTMLInputElement): string => (input.value = "")
         );
     }
+    function coursePopup(): void {
+        return setClassPopup(
+            <CourseEdit
+                setPopup={setClassPopup}
+                setCourse={setCurrentCourse}
+                course={currentCourse}
+            />
+        );
+    }
+    function courseSetter(course: Course) {
+        setCurrentCourse(course);
+    }
     return (
         <div>
             <div style={{ marginBottom: "1ch" }}>
@@ -84,7 +99,21 @@ export function TableContentsFall({
                                     data-testid={course.code}
                                     className="innerTR"
                                 >
-                                    <td>{course.code}</td>
+                                    {courseSetter}
+                                    {Visible && (
+                                        <td>
+                                            <ins
+                                                style={{
+                                                    cursor: "pointer",
+                                                    color: "blue"
+                                                }}
+                                                onClick={coursePopup}
+                                            >
+                                                {course.code}
+                                            </ins>
+                                        </td>
+                                    )}
+                                    {!Visible && <td>{course.code}</td>}
                                     <td>{course.name}</td>
                                     <td>{course.credits}</td>
                                     {Visible && (
@@ -163,6 +192,7 @@ export function TableContentsFall({
                 )}
             </span>
             <br></br>
+            {classPopup}
         </div>
     );
 }
