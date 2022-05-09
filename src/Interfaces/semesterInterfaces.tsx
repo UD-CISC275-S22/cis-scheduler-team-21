@@ -21,3 +21,9 @@ export interface SetSummerProp {
     Visible: boolean;
     SearchVisible: boolean;
 }
+
+/* export interface AddSemesterProps {
+    oldCourseList: Course[];
+    newCourseList: Course[];
+    setNewCourseList: (courses: Course[]) => void;
+} */
