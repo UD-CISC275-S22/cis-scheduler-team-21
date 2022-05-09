@@ -4,6 +4,8 @@ import "../App.css";
 import { YearContainer } from "./YearContainer";
 import { Year } from "../Interfaces/yearInterface";
 import { Button } from "react-bootstrap";
+import Data from "../Data/catalog.json";
+import { Course, Section } from "../Interfaces/Courses";
 
 //type locationStateString = { yearValue: string };
 
@@ -11,6 +13,19 @@ export function Years(): JSX.Element {
     //const location = useLocation();
     //const { yearValue } = location.state as locationStateString;
     //const yearInt: number = parseInt(yearValue);
+
+    const courseObjects: Course[] = [];
+    const StringData: string = JSON.stringify(Data);
+    const DataObjects: Section[] = Object.values(JSON.parse(StringData));
+
+    DataObjects.map((section: Section) => {
+        const courseString: string = JSON.stringify(section);
+        const courseList: Course[] = Object.values(JSON.parse(courseString));
+        courseList.map((course: Course) => {
+            courseObjects.push(course);
+        });
+    });
+
     const Freshman: Year = {
         title: "Freshman",
         id: 1

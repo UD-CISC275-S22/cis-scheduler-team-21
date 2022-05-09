@@ -13,18 +13,6 @@ export function TableContentsFall({
     const [input, setInput] = useState<string>("");
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
     const [classPopup, setClassPopup] = useState<JSX.Element | null>(null);
-    const [currentCourse, setCurrentCourse] = useState<Course>();
-    const courseObjects: Course[] = [];
-    const StringData: string = JSON.stringify(Data);
-    const DataObjects: Section[] = Object.values(JSON.parse(StringData));
-
-    DataObjects.map((section: Section) => {
-        const courseString: string = JSON.stringify(section);
-        const courseList: Course[] = Object.values(JSON.parse(courseString));
-        courseList.map((course: Course) => {
-            courseObjects.push(course);
-        });
-    });
 
     function addTable(): JSX.Element | void {
         if (
@@ -75,17 +63,15 @@ export function TableContentsFall({
             (input: HTMLInputElement): string => (input.value = "")
         );
     }
-    function coursePopup(): void {
+    function coursePopup(courseArg: Course): void {
         return setClassPopup(
             <CourseEdit
                 setPopup={setClassPopup}
-                setCourse={setCurrentCourse}
-                course={currentCourse}
+                setSelectedCourses={setSelectedCourses}
+                SelectedCourses={selectedCourses}
+                course={courseArg}
             />
         );
-    }
-    function courseSetter(course: Course) {
-        setCurrentCourse(course);
     }
     return (
         <div>
@@ -99,7 +85,6 @@ export function TableContentsFall({
                                     data-testid={course.code}
                                     className="innerTR"
                                 >
-                                    {courseSetter}
                                     {Visible && (
                                         <td>
                                             <ins
@@ -107,7 +92,9 @@ export function TableContentsFall({
                                                     cursor: "pointer",
                                                     color: "blue"
                                                 }}
-                                                onClick={coursePopup}
+                                                onClick={() =>
+                                                    coursePopup(course)
+                                                }
                                             >
                                                 {course.code}
                                             </ins>
