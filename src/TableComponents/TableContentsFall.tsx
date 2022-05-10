@@ -118,7 +118,7 @@ export function TableContentsFall({
         setSelectedCourses(selectedCopy);
     }
     return (
-        <div style={{ zIndex: "2", position: "relative" }}>
+        <div>
             <div style={{ marginBottom: "1ch" }}>
                 <table className="add-border">
                     <tbody>
@@ -233,7 +233,9 @@ export function TableContentsFall({
                 )}
             </span>
             <br></br>
-            {classPopup}
+            <div style={{ zIndex: "5", position: "relative" }}>
+                {classPopup}
+            </div>
         </div>
     );
 }
