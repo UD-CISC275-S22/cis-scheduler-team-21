@@ -147,7 +147,7 @@ export function AddSemester(): JSX.Element {
                     Edit Mode
                 </Button>
                 <Button onClick={setVisSearch} style={{ marginLeft: ".5ch" }}>
-                    Search Mode
+                    Search for a Course
                 </Button>
             </div>
             <div>

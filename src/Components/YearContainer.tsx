@@ -11,7 +11,6 @@ export function YearContainer({
 }: setYearProp): JSX.Element {
     const [yearClone, setYear] = useState<Year>(year);
     const [Visible, setVisible] = useState<boolean>(false);
-    const [Semesters] = useState<JSX.Element>(<AddSemester />);
     function deleteYear(): void {
         const newYearList: Year[] = yearList.filter(
             (year1: Year): boolean => year1.id !== year.id
@@ -26,7 +25,7 @@ export function YearContainer({
         setYear(updatedYear);
     }
     return (
-        <div>
+        <div style={{ zIndex: "0", display: "relative" }}>
             <br></br>
             <span>
                 {editVis && (
@@ -43,7 +42,10 @@ export function YearContainer({
                 <span className="yearDisplay">{yearClone.title}</span>
                 <Button
                     className="orangeButton"
-                    style={{ marginBottom: "4ch", fontSize: "80%" }}
+                    style={{
+                        marginBottom: "4ch",
+                        fontSize: "80%"
+                    }}
                     onClick={() => setVisible(!Visible)}
                 >
                     +
@@ -63,7 +65,7 @@ export function YearContainer({
                 )}
             </span>
             <div style={{ display: Visible ? "block" : "none" }}>
-                {Semesters}
+                <AddSemester />
             </div>
         </div>
     );

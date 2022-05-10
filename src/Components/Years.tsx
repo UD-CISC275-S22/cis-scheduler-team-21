@@ -49,7 +49,7 @@ export function Years(): JSX.Element {
         <div style={{ paddingBottom: "8ch" }}>
             <header className="App-header-Year">
                 <span style={{ width: "100%", textAlign: "center" }}>
-                    <span style={{ marginLeft: "5.5ch" }}>Year View</span>
+                    <span style={{ marginLeft: "8ch" }}>Year View</span>
                     <Button
                         style={{
                             float: "right",
@@ -58,7 +58,7 @@ export function Years(): JSX.Element {
                         }}
                         onClick={() => setEditVis(!editVis)}
                     >
-                        Edit
+                        Rename Years
                     </Button>
                 </span>
             </header>
@@ -71,11 +71,17 @@ export function Years(): JSX.Element {
                             yearList={yearList}
                             editVis={editVis}
                         ></YearContainer>
-                        <hr></hr>
+                        <hr style={{ zIndex: "-1", position: "relative" }}></hr>
                     </span>
                 )
             )}
-            <div style={{ textAlign: "center" }}>
+            <div
+                style={{
+                    textAlign: "center",
+                    zIndex: "0",
+                    position: "absolute"
+                }}
+            >
                 <Button onClick={addYear} className="orangeButton">
                     Add Year
                 </Button>
