@@ -2,48 +2,138 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/AddSemester.test.tsx (6.576 s)
+PASS src/Tests/AddSemester.test.tsx (7.441 s)
 PASS src/Tests/MakePlan.test.tsx
-PASS src/Tests/TableContentsFall.test.tsx (6.318 s)
-PASS src/Tests/TableContentsWinter.test.tsx (6.193 s)
-PASS src/Tests/TableContentsSummer.test.tsx (6.043 s)
-PASS src/Tests/TableContentsSpring.test.tsx (6.372 s)
+PASS src/Tests/TableContentsFall.test.tsx (6.897 s)
+  ● Console
+
+    console.error
+      Warning: validateDOMNesting(...): <td> cannot appear as a child of <td>.
+          at td
+          at td
+          at tr
+          at tbody
+          at table
+          at div
+          at div
+          at TableContentsFall (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/TableComponents/TableContentsFall.tsx:9:5)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateDOMNesting (node_modules/react-dom/cjs/react-dom.development.js:10081:7)
+      at createInstance (node_modules/react-dom/cjs/react-dom.development.js:10181:5)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:19464:28)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22812:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
+
+PASS src/Tests/TableContentsWinter.test.tsx (6.91 s)
+  ● Console
+
+    console.error
+      Warning: validateDOMNesting(...): <td> cannot appear as a child of <td>.
+          at td
+          at td
+          at tr
+          at tbody
+          at table
+          at div
+          at div
+          at TableContentsWinter (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/TableComponents/TableContentsWinter.tsx:9:5)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateDOMNesting (node_modules/react-dom/cjs/react-dom.development.js:10081:7)
+      at createInstance (node_modules/react-dom/cjs/react-dom.development.js:10181:5)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:19464:28)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22812:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
+
+PASS src/Tests/TableContentsSummer.test.tsx (6.442 s)
+  ● Console
+
+    console.error
+      Warning: validateDOMNesting(...): <td> cannot appear as a child of <td>.
+          at td
+          at td
+          at tr
+          at tbody
+          at table
+          at div
+          at div
+          at TableContentsSummer (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/TableComponents/TableContentsSummer.tsx:9:5)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateDOMNesting (node_modules/react-dom/cjs/react-dom.development.js:10081:7)
+      at createInstance (node_modules/react-dom/cjs/react-dom.development.js:10181:5)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:19464:28)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22812:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
+
+PASS src/Tests/TableContentsSpring.test.tsx (6.755 s)
+  ● Console
+
+    console.error
+      Warning: validateDOMNesting(...): <td> cannot appear as a child of <td>.
+          at td
+          at td
+          at tr
+          at tbody
+          at table
+          at div
+          at div
+          at TableContentsSpring (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/TableComponents/TableContentsSpring.tsx:9:5)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateDOMNesting (node_modules/react-dom/cjs/react-dom.development.js:10081:7)
+      at createInstance (node_modules/react-dom/cjs/react-dom.development.js:10181:5)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:19464:28)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22812:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
+
 PASS src/Tests/CommonPlan.test.tsx
 PASS src/Tests/PlanContainer.test.tsx
 PASS src/Tests/Homepage.test.tsx
 PASS src/Tests/ShowFallTable.test.tsx
 PASS src/Tests/App.test.tsx
---------------------------|---------|----------|---------|---------|-------------------
-File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
---------------------------|---------|----------|---------|---------|-------------------
-All files                 |   88.71 |     92.3 |   91.59 |   88.67 |                   
- src                      |     100 |      100 |     100 |     100 |                   
-  App.tsx                 |     100 |      100 |     100 |     100 |                   
- src/Components           |      71 |       80 |   76.19 |    70.7 |                   
-  AddSemester.tsx         |   89.18 |      100 |   91.66 |   89.18 | 98-101            
-  CommonPlan.tsx          |     100 |      100 |     100 |     100 |                   
-  Homepage.tsx            |     100 |      100 |     100 |     100 |                   
-  MakePlan.tsx            |     100 |      100 |     100 |     100 |                   
-  PlanContainer.tsx       |     100 |      100 |     100 |     100 |                   
-  YearContainer.tsx       |       0 |        0 |       0 |       0 | 12-47             
-  Years.tsx               |       0 |      100 |       0 |       0 | 14-67             
- src/Interfaces           |       0 |        0 |       0 |       0 |                   
-  Courses.ts              |       0 |        0 |       0 |       0 |                   
-  semesterInterfaces.tsx  |       0 |        0 |       0 |       0 |                   
-  yearInterface.tsx       |       0 |        0 |       0 |       0 |                   
- src/TableComponents      |     100 |      100 |     100 |     100 |                   
-  ShowFallTable.tsx       |     100 |      100 |     100 |     100 |                   
-  ShowSpringTable.tsx     |     100 |      100 |     100 |     100 |                   
-  ShowSummerTable.tsx     |     100 |      100 |     100 |     100 |                   
-  ShowWinterTable.tsx     |     100 |      100 |     100 |     100 |                   
-  TableContentsFall.tsx   |     100 |      100 |     100 |     100 |                   
-  TableContentsSpring.tsx |     100 |      100 |     100 |     100 |                   
-  TableContentsSummer.tsx |     100 |      100 |     100 |     100 |                   
-  TableContentsWinter.tsx |     100 |      100 |     100 |     100 |                   
---------------------------|---------|----------|---------|---------|-------------------
+---------------------------|---------|----------|---------|---------|-------------------
+File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+---------------------------|---------|----------|---------|---------|-------------------
+All files                  |   63.61 |       70 |   69.87 |   63.51 |                   
+ src                       |     100 |      100 |     100 |     100 |                   
+  App.tsx                  |     100 |      100 |     100 |     100 |                   
+ src/Components            |   47.33 |       60 |   58.18 |   46.97 |                   
+  AddSemester.tsx          |   89.18 |      100 |   91.66 |   89.18 | 98-101            
+  CommonPlan.tsx           |     100 |      100 |     100 |     100 |                   
+  CourseEdit.tsx           |       0 |        0 |       0 |       0 | 12-217            
+  Homepage.tsx             |     100 |      100 |     100 |     100 |                   
+  MakePlan.tsx             |     100 |      100 |     100 |     100 |                   
+  PlanContainer.tsx        |     100 |      100 |     100 |     100 |                   
+  YearContainer.tsx        |       0 |        0 |       0 |       0 | 12-49             
+  Years.tsx                |       0 |      100 |       0 |       0 | 14-67             
+ src/Interfaces            |       0 |        0 |       0 |       0 |                   
+  Courses.ts               |       0 |        0 |       0 |       0 |                   
+  coursePopupInterface.tsx |       0 |        0 |       0 |       0 |                   
+  semesterInterfaces.tsx   |       0 |        0 |       0 |       0 |                   
+  yearInterface.tsx        |       0 |        0 |       0 |       0 |                   
+ src/TableComponents       |   74.54 |       75 |      76 |   74.54 |                   
+  ShowFallTable.tsx        |     100 |      100 |     100 |     100 |                   
+  ShowSpringTable.tsx      |     100 |      100 |     100 |     100 |                   
+  ShowSummerTable.tsx      |     100 |      100 |     100 |     100 |                   
+  ShowWinterTable.tsx      |     100 |      100 |     100 |     100 |                   
+  TableContentsFall.tsx    |   74.07 |    72.22 |      75 |   74.07 | 90-118,140,171    
+  TableContentsSpring.tsx  |   74.07 |    72.22 |      75 |   74.07 | 90-118,140,171    
+  TableContentsSummer.tsx  |   74.07 |    72.22 |      75 |   74.07 | 90-118,140,171    
+  TableContentsWinter.tsx  |   74.07 |    72.22 |      75 |   74.07 | 90-118,140,171    
+---------------------------|---------|----------|---------|---------|-------------------
 
 Test Suites: 11 passed, 11 total
 Tests:       66 passed, 66 total
 Snapshots:   0 total
-Time:        35.586 s
+Time:        38.705 s
 Ran all test suites.
