@@ -1,4 +1,3 @@
-import { Console } from "console";
 import React from "react";
 import { Course } from "../Interfaces/Courses";
 import { degreeProps } from "../Interfaces/degreeInterface";
@@ -7,6 +6,7 @@ export function DegreeRequirement({
     planCourses,
     concentration
 }: degreeProps): JSX.Element {
+    concentration;
     const coreClasses: string[] = [
         "CISC 108",
         "CISC 181",

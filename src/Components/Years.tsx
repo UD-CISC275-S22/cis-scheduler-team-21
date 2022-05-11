@@ -39,12 +39,6 @@ export function Years(): JSX.Element {
     const [editVis, setEditVis] = useState<boolean>(false);
     const [counter, setCounter] = useState<number>(5);
     const [planCourses, setPlanCourses] = useState<Course[]>([]);
-    const [jsx, setJsx] = useState<JSX.Element>(
-        <DegreeRequirement
-            planCourses={planCourses}
-            concentration={concentrationValue}
-        ></DegreeRequirement>
-    );
     function addYear(): void {
         setCounter(counter + 1);
         const nextCount: number = counter + 1;
