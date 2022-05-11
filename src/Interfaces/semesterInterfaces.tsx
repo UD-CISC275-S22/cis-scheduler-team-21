@@ -1,7 +1,11 @@
+import { Course } from "./Courses";
+
 export interface SetFallProp {
     setFall: (fallSemester: JSX.Element | null) => void;
     Visible: boolean;
     SearchVisible: boolean;
+    planCourses: Course[];
+    setPlanCourses: (courses: Course[]) => void;
 }
 
 export interface setSpringProp {
@@ -22,8 +26,7 @@ export interface SetSummerProp {
     SearchVisible: boolean;
 }
 
-/* export interface AddSemesterProps {
-    oldCourseList: Course[];
-    newCourseList: Course[];
-    setNewCourseList: (courses: Course[]) => void;
-} */
+export interface addSemesterProps {
+    planCourses: Course[];
+    setPlanCourses: (courses: Course[]) => void;
+}

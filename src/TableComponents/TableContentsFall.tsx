@@ -8,7 +8,9 @@ import { CourseEdit } from "../Components/CourseEdit";
 export function TableContentsFall({
     setFall,
     Visible,
-    SearchVisible
+    SearchVisible,
+    planCourses,
+    setPlanCourses
 }: SetFallProp): JSX.Element {
     const [input, setInput] = useState<string>("");
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
@@ -44,6 +46,11 @@ export function TableContentsFall({
                 (course: Course): boolean => course.code === input
             )
         ) {
+            /* if (
+                !planCourses.some(
+                    (course: Course): boolean => course.code === input
+                )
+            ) { */
             const AddCourse: Course[] = courseObjects.filter(
                 (course: Course): boolean => course.code === input
             );
@@ -53,10 +60,18 @@ export function TableContentsFall({
                     (course: Course): boolean => course.ID === singleCourse.ID
                 )
             ) {
-                return; //needs error message
+                return; //needs error message>
             } else {
-                const AddCourse2: Course[] = [...selectedCourses, singleCourse];
-                setSelectedCourses(AddCourse2);
+                const addNewCourse: Course[] = [
+                    ...selectedCourses,
+                    singleCourse
+                ];
+                const planCoursesCopy: Course[] = [
+                    ...planCourses,
+                    singleCourse
+                ];
+                setSelectedCourses(addNewCourse);
+                setPlanCourses(planCoursesCopy);
                 setInput("");
                 clearSearchBar();
             }

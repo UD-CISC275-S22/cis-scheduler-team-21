@@ -6,6 +6,9 @@ import userEvent from "@testing-library/user-event";
 const setFallElement = () => {
     return;
 };
+const setPlanCourses = () => {
+    return;
+};
 
 describe("FallDataToArrayTests", () => {
     beforeEach(() => {
@@ -14,6 +17,8 @@ describe("FallDataToArrayTests", () => {
                 setFall={setFallElement}
                 Visible={true}
                 SearchVisible={true}
+                planCourses={[]}
+                setPlanCourses={setPlanCourses}
             />
         );
     });

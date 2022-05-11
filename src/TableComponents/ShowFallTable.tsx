@@ -5,7 +5,9 @@ import { TableContentsFall } from "./TableContentsFall";
 export function ShowFallTable({
     setFall,
     Visible,
-    SearchVisible
+    SearchVisible,
+    planCourses,
+    setPlanCourses
 }: SetFallProp): JSX.Element {
     return (
         <div>
@@ -53,6 +55,8 @@ export function ShowFallTable({
                 setFall={setFall}
                 Visible={Visible}
                 SearchVisible={SearchVisible}
+                planCourses={planCourses}
+                setPlanCourses={setPlanCourses}
             ></TableContentsFall>
         </div>
     );

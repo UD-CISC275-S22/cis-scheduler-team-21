@@ -7,7 +7,9 @@ export function YearContainer({
     year,
     setYearList,
     yearList,
-    editVis
+    editVis,
+    planCourses,
+    setPlanCourses
 }: setYearProp): JSX.Element {
     const [yearClone, setYear] = useState<Year>(year);
     const [Visible, setVisible] = useState<boolean>(false);
@@ -65,7 +67,10 @@ export function YearContainer({
                 )}
             </span>
             <div style={{ display: Visible ? "block" : "none" }}>
-                <AddSemester />
+                <AddSemester
+                    planCourses={planCourses}
+                    setPlanCourses={setPlanCourses}
+                />
             </div>
         </div>
     );

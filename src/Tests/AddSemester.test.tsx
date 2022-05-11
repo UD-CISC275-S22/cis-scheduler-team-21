@@ -4,11 +4,15 @@ import { AddSemester } from "../Components/AddSemester";
 import { MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 
+const setPlanCourses = () => {
+    return;
+};
+
 describe("AddSemester Component tests", () => {
     beforeEach(() =>
         render(
             <MemoryRouter>
-                <AddSemester />
+                <AddSemester planCourses={[]} setPlanCourses={setPlanCourses} />
             </MemoryRouter>
         )
     );

@@ -4,13 +4,16 @@ import "../App.css";
 import { YearContainer } from "./YearContainer";
 import { Year } from "../Interfaces/yearInterface";
 import { Button } from "react-bootstrap";
+import { Course } from "../Interfaces/Courses";
+import { DegreeRequirement } from "./DegreeRequirement";
+import { useLocation } from "react-router-dom";
 
-//type locationStateString = { yearValue: string };
+type locationStateString = { concentrationValue: string };
 
 export function Years(): JSX.Element {
-    //const location = useLocation();
-    //const { yearValue } = location.state as locationStateString;
-    //const yearInt: number = parseInt(yearValue);
+    const location = useLocation();
+    const { concentrationValue } = location.state as locationStateString;
+
     const Freshman: Year = {
         title: "Freshman",
         id: 1
@@ -35,6 +38,7 @@ export function Years(): JSX.Element {
     ]);
     const [editVis, setEditVis] = useState<boolean>(false);
     const [counter, setCounter] = useState<number>(5);
+    const [planCourses, setPlanCourses] = useState<Course[]>([]);
     function addYear(): void {
         setCounter(counter + 1);
         const nextCount: number = counter + 1;
@@ -62,6 +66,12 @@ export function Years(): JSX.Element {
                     </Button>
                 </span>
             </header>
+            <div>
+                <DegreeRequirement
+                    planCourses={planCourses}
+                    concentration={concentrationValue}
+                ></DegreeRequirement>
+            </div>
             {yearList.map(
                 (year: Year): JSX.Element => (
                     <span key={year.id}>
@@ -70,6 +80,8 @@ export function Years(): JSX.Element {
                             setYearList={setYearList}
                             yearList={yearList}
                             editVis={editVis}
+                            planCourses={planCourses}
+                            setPlanCourses={setPlanCourses}
                         ></YearContainer>
                         <hr style={{ zIndex: "-1", position: "relative" }}></hr>
                     </span>

@@ -8,14 +8,14 @@ export interface PlanProps {
     plan: Plan;
     plans: Plan[];
     setPlans: (plans: Plan[]) => void;
-    years: string;
+    concentration: string;
 }
 
 export function PlanContainer({
     plan,
     plans,
     setPlans,
-    years
+    concentration
 }: PlanProps): JSX.Element {
     const [visible, setVisible] = useState<boolean>(false);
     const [editVis, setEditVis] = useState<boolean>(false);
@@ -105,7 +105,10 @@ export function PlanContainer({
                         paddingRight: "2ch"
                     }}
                 >
-                    <Link to="/showplan" state={{ yearValue: years }}>
+                    <Link
+                        to="/showplan"
+                        state={{ concentrationValue: concentration }}
+                    >
                         <Button
                             className="orangeButton"
                             onClick={() => setVisible(!visible)}
