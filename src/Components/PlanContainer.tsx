@@ -8,16 +8,13 @@ export interface PlanProps {
     plan: Plan;
     plans: Plan[];
     setPlans: (plans: Plan[]) => void;
-    concentration: string;
 }
 
 export function PlanContainer({
     plan,
     plans,
-    setPlans,
-    concentration
+    setPlans
 }: PlanProps): JSX.Element {
-    const [visible, setVisible] = useState<boolean>(false);
     const [editVis, setEditVis] = useState<boolean>(false);
     const [Plan, setPlan] = useState<Plan>(plan);
     const [Plan2, setPlan2] = useState<Plan>(plan);
@@ -31,7 +28,8 @@ export function PlanContainer({
         const updatedPlan: Plan = {
             Title: event.target.value,
             id: plan.id,
-            description: plan.description
+            description: plan.description,
+            degree: plan.degree
         };
         setPlan(updatedPlan);
         const planListCopy: Plan[] = plans.map((planElement: Plan): Plan => {
@@ -48,7 +46,8 @@ export function PlanContainer({
         const updatedPlan: Plan = {
             Title: plan.Title,
             id: plan.id,
-            description: event.target.value
+            description: event.target.value,
+            degree: plan.degree
         };
         setPlan2(updatedPlan);
         const planListCopy: Plan[] = plans.map((planElement: Plan): Plan => {
@@ -125,14 +124,9 @@ export function PlanContainer({
                 >
                     <Link
                         to="/showplan"
-                        state={{ concentrationValue: concentration }}
+                        state={{ concentrationValue: plan.degree }}
                     >
-                        <Button
-                            className="orangeButton"
-                            onClick={() => setVisible(!visible)}
-                        >
-                            Show
-                        </Button>
+                        <Button className="orangeButton">Show</Button>
                     </Link>
                     <Button className="orangeButton" onClick={updateEdit}>
                         Edit

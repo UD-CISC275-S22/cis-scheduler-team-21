@@ -30,4 +30,5 @@ export interface Plan {
     Title: string;
     id: number;
     description: string;
+    degree: string;
 }

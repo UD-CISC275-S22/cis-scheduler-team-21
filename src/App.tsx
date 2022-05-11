@@ -22,7 +22,7 @@ function App(): JSX.Element {
                     <Route path="/" element={<Homepage />} />
                     <Route
                         path="/cis-scheduler-team-21/"
-                        element={<Navigate replace to="#/homepage" />}
+                        element={<Navigate replace to="/homepage" />}
                     />
                     {/* This route is for makeplan component 
           with path "/homepage", in element props 

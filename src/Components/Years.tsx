@@ -7,6 +7,7 @@ import { Button } from "react-bootstrap";
 import { Course } from "../Interfaces/Courses";
 import { DegreeRequirement } from "./DegreeRequirement";
 import { useLocation } from "react-router-dom";
+import { SystemsAndNetworks } from "../Concentrations/SystemsAndNetworks";
 
 type locationStateString = { concentrationValue: string };
 
@@ -39,6 +40,12 @@ export function Years(): JSX.Element {
     const [editVis, setEditVis] = useState<boolean>(false);
     const [counter, setCounter] = useState<number>(5);
     const [planCourses, setPlanCourses] = useState<Course[]>([]);
+    /* const [degreeReq, setDegreeReq] = useState<JSX.Element>(
+        <SystemsAndNetworks
+            planCourses={planCourses}
+            degreeSetter={degreeSetter}
+        ></SystemsAndNetworks>
+    ); */
     function addYear(): void {
         setCounter(counter + 1);
         const nextCount: number = counter + 1;
@@ -49,6 +56,15 @@ export function Years(): JSX.Element {
         const yearListCopy: Year[] = [...yearList, newYear];
         setYearList(yearListCopy);
     }
+    /*   function degreeSetter(jsx: JSX.Element): void {
+        setDegreeReq(
+            <DegreeRequirement
+                planCourses={planCourses}
+                concentration={concentrationValue}
+                setDegreeReq={() => setDegreeReq(jsx)}
+            ></DegreeRequirement>
+        );
+    } */
 
     return (
         <div style={{ paddingBottom: "8ch" }}>
