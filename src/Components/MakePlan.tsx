@@ -31,6 +31,7 @@ export function MakePlan({
             id: Counter,
             description: ""
         };
+        //const planList: Plan[] = [...PlansArray, newPlan];
         const planList: Plan[] = [...PlansArray, newPlan];
         const counterCopy: number = Counter + 1;
         setPlan(planList);
@@ -117,6 +118,7 @@ export function MakePlan({
     }, [planContents]);*/
 
     //if (!pageContent) return null;
+    /***/
     return (
         <div className="makePlan-background">
             <div>

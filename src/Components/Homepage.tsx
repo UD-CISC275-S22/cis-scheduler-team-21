@@ -8,14 +8,14 @@ import { Plan } from "../Interfaces/Courses";
 import { Button } from "react-bootstrap";
 
 const DataKey = "Page-Data";
-const loadedData: Plan[] = [];
+let loadedData: Plan[] = [];
 
-/**const previousData = localStorage.getItem(DataKey);
+const previousData = localStorage.getItem(DataKey);
 console.log(loadedData);
 
 if (previousData !== null) {
     loadedData = JSON.parse(previousData);
-}*/
+}
 
 export function Homepage(): JSX.Element {
     const [plans, setPlans] = useState<Plan[]>(loadedData);

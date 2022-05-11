@@ -25,17 +25,12 @@ export function PlanContainer({
     const [Plan, setPlan] = useState<Plan>(plan);
     const [Plan2, setPlan2] = useState<Plan>(plan);
     //const [data, setData] = useState<Plan[]>(PlansArray);
-    let data: Plan[] = [];
 
     function deletePlan(): void {
         setPlans(PlansArray.filter((x: Plan): boolean => x.id !== plan.id));
     }
     function updateEdit(): void {
         setEditVis(!editVis);
-    }
-    function savePlan(): void {
-        localStorage.setItem(DataKey, JSON.stringify(data));
-        console.log(data);
     }
 
     function updatePlan(event: React.ChangeEvent<HTMLInputElement>) {
@@ -45,8 +40,6 @@ export function PlanContainer({
             description: plan.description
         };
         setPlan(updatedPlan);
-        //setData([...data, updatedPlan]);
-        data = [...data, updatedPlan];
     }
     function updateDescription(event: React.ChangeEvent<HTMLInputElement>) {
         const updatedPlan: Plan = {
@@ -128,9 +121,6 @@ export function PlanContainer({
                     </Link>
                     <Button className="orangeButton" onClick={updateEdit}>
                         Edit
-                    </Button>
-                    <Button className="orangeButton" onClick={savePlan}>
-                        Save Plan
                     </Button>
                     <Button
                         onClick={deletePlan}
