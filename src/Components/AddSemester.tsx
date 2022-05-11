@@ -5,8 +5,12 @@ import { ShowSpringTable } from "../TableComponents/ShowSpringTable";
 import { ShowWinterTable } from "../TableComponents/ShowWinterTable";
 import { ShowSummerTable } from "../TableComponents/ShowSummerTable";
 import "../App.css";
+import { addSemesterProps } from "../Interfaces/semesterInterfaces";
 
-export function AddSemester(): JSX.Element {
+export function AddSemester({
+    planCourses,
+    setPlanCourses
+}: addSemesterProps): JSX.Element {
     const [FallElement, setFallElement] = useState<JSX.Element | null>(null);
     const [SpringElement, setSpringElement] = useState<JSX.Element | null>(
         null
@@ -55,6 +59,8 @@ export function AddSemester(): JSX.Element {
                 setFall={setFallElement}
                 Visible={visibleState}
                 SearchVisible={visibleSearchState}
+                planCourses={planCourses}
+                setPlanCourses={setPlanCourses}
             ></ShowFallTable>
         );
     }

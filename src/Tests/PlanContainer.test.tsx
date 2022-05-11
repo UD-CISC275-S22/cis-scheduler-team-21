@@ -25,7 +25,7 @@ describe("PlanContainer component test", () => {
                     plan={newPlan}
                     plans={newplanList}
                     setPlans={setPlans}
-                    years={"2001"}
+                    concentration={"Bachelor of Art"}
                 />
             </MemoryRouter>
         );
