@@ -2,9 +2,116 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/AddSemester.test.tsx (7.441 s)
-PASS src/Tests/MakePlan.test.tsx
-PASS src/Tests/TableContentsFall.test.tsx (6.897 s)
+PASS src/Tests/AddSemester.test.tsx (7.462 s)
+FAIL src/Tests/MakePlan.test.tsx
+  ● MakePlan Component tests › Delete plan works when its created
+
+    TestingLibraryElementError: Unable to find an element with the text: Plan 1. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"makePlan-background"[39m
+        [36m>[39m
+          [36m<div>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"btn btn-primary"[39m
+              [33mstyle[39m=[32m"left: 60ch; position: relative; background-color: green;"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mSave Plans[0m
+            [36m</button>[39m
+            [36m<div>[39m
+              [36m<div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"Plan"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"row"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"col"[39m
+                      [33mstyle[39m=[32m"overflow: clip; text-align: left;"[39m
+                    [36m>[39m
+                      [36m<b[39m
+                        [33mstyle[39m=[32m"font-size: 4ch;"[39m
+                      [36m>[39m
+                        [0mPlan 0[0m
+                      [36m</b>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"col"[39m
+                      [33mstyle[39m=[32m"word-break: break-all;"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mstyle[39m=[32m"font-size: 2ch; margin-top: 2ch;"[39m
+                      [36m/>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"col"[39m
+                    [36m/>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mstyle[39m=[32m"float: right; padding-right: 2ch;"[39m
+                  [36m>[39m
+                    [36m<a[39m
+                      [33mhref[39m=[32m"/showplan"[39m
+                    [36m>[39m
+                      [36m<button[39m
+                        [33mclass[39m=[32m"orangeButton btn btn-primary"[39m
+                        [33mtype[39m=[32m"button"[39m
+                      [36m>[39m
+                        [0mShow[0m
+                      [36m</button>[39m
+                    [36m</a>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"orangeButton btn btn-primary"[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mEdit[0m
+                    [36m</button>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"btn btn-primary"[39m
+                      [33mstyle[39m=[32m"background-color: darkRed; margin-left: 2ch; margin-top: 1ch; font-size: 1ch;"[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mDelete[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<hr />[39m
+            [36m</div>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"btn btn-primary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mNew Plan[0m
+            [36m</button>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"main"[39m
+            [36m/>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+      136 |         const createButton: HTMLElement = screen.getByText("Create Plan");
+      137 |         createButton.click();
+    > 138 |         const plan: HTMLElement = screen.getByText("Plan 1");
+          |                                          ^
+      139 |         const deleteButton: HTMLElement = screen.getByText("Delete");
+      140 |         deleteButton.click();
+      141 |         expect(plan).not.toBeInTheDocument();
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
+      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/Tests/MakePlan.test.tsx:138:42)
+
+PASS src/Tests/TableContentsFall.test.tsx (6.996 s)
   ● Console
 
     console.error
@@ -27,7 +134,7 @@ PASS src/Tests/TableContentsFall.test.tsx (6.897 s)
       at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
       at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
 
-PASS src/Tests/TableContentsWinter.test.tsx (6.91 s)
+PASS src/Tests/TableContentsWinter.test.tsx (7.029 s)
   ● Console
 
     console.error
@@ -50,7 +157,7 @@ PASS src/Tests/TableContentsWinter.test.tsx (6.91 s)
       at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
       at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
 
-PASS src/Tests/TableContentsSummer.test.tsx (6.442 s)
+PASS src/Tests/TableContentsSummer.test.tsx (6.612 s)
   ● Console
 
     console.error
@@ -73,7 +180,7 @@ PASS src/Tests/TableContentsSummer.test.tsx (6.442 s)
       at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
       at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
 
-PASS src/Tests/TableContentsSpring.test.tsx (6.755 s)
+PASS src/Tests/TableContentsSpring.test.tsx (7.145 s)
   ● Console
 
     console.error
@@ -98,42 +205,44 @@ PASS src/Tests/TableContentsSpring.test.tsx (6.755 s)
 
 PASS src/Tests/CommonPlan.test.tsx
 PASS src/Tests/PlanContainer.test.tsx
-PASS src/Tests/Homepage.test.tsx
 PASS src/Tests/ShowFallTable.test.tsx
+PASS src/Tests/Homepage.test.tsx
 PASS src/Tests/App.test.tsx
----------------------------|---------|----------|---------|---------|-------------------
-File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
----------------------------|---------|----------|---------|---------|-------------------
-All files                  |   63.61 |       70 |   69.87 |   63.51 |                   
- src                       |     100 |      100 |     100 |     100 |                   
-  App.tsx                  |     100 |      100 |     100 |     100 |                   
- src/Components            |   47.33 |       60 |   58.18 |   46.97 |                   
-  AddSemester.tsx          |   89.18 |      100 |   91.66 |   89.18 | 98-101            
-  CommonPlan.tsx           |     100 |      100 |     100 |     100 |                   
-  CourseEdit.tsx           |       0 |        0 |       0 |       0 | 12-217            
-  Homepage.tsx             |     100 |      100 |     100 |     100 |                   
-  MakePlan.tsx             |     100 |      100 |     100 |     100 |                   
-  PlanContainer.tsx        |     100 |      100 |     100 |     100 |                   
-  YearContainer.tsx        |       0 |        0 |       0 |       0 | 12-49             
-  Years.tsx                |       0 |      100 |       0 |       0 | 14-67             
- src/Interfaces            |       0 |        0 |       0 |       0 |                   
-  Courses.ts               |       0 |        0 |       0 |       0 |                   
-  coursePopupInterface.tsx |       0 |        0 |       0 |       0 |                   
-  semesterInterfaces.tsx   |       0 |        0 |       0 |       0 |                   
-  yearInterface.tsx        |       0 |        0 |       0 |       0 |                   
- src/TableComponents       |   74.54 |       75 |      76 |   74.54 |                   
-  ShowFallTable.tsx        |     100 |      100 |     100 |     100 |                   
-  ShowSpringTable.tsx      |     100 |      100 |     100 |     100 |                   
-  ShowSummerTable.tsx      |     100 |      100 |     100 |     100 |                   
-  ShowWinterTable.tsx      |     100 |      100 |     100 |     100 |                   
-  TableContentsFall.tsx    |   74.07 |    72.22 |      75 |   74.07 | 90-118,140,171    
-  TableContentsSpring.tsx  |   74.07 |    72.22 |      75 |   74.07 | 90-118,140,171    
-  TableContentsSummer.tsx  |   74.07 |    72.22 |      75 |   74.07 | 90-118,140,171    
-  TableContentsWinter.tsx  |   74.07 |    72.22 |      75 |   74.07 | 90-118,140,171    
----------------------------|---------|----------|---------|---------|-------------------
+---------------------------|---------|----------|---------|---------|--------------------
+File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s  
+---------------------------|---------|----------|---------|---------|--------------------
+All files                  |    62.4 |    67.69 |   66.87 |   62.56 |                    
+ src                       |     100 |      100 |     100 |     100 |                    
+  App.tsx                  |     100 |      100 |     100 |     100 |                    
+ src/Components            |   46.96 |       56 |   52.45 |   47.22 |                    
+  AddSemester.tsx          |   89.18 |      100 |   91.66 |   89.18 | 104-107            
+  CommonPlan.tsx           |     100 |      100 |     100 |     100 |                    
+  CourseEdit.tsx           |       0 |        0 |       0 |       0 | 12-217             
+  DegreeRequirement.tsx    |       0 |        0 |       0 |       0 | 9-29               
+  Homepage.tsx             |     100 |      100 |     100 |     100 |                    
+  MakePlan.tsx             |   89.28 |    66.66 |      90 |   89.28 | 12,18,39           
+  PlanContainer.tsx        |      84 |    66.66 |   77.77 |    87.5 | 25,42,59           
+  YearContainer.tsx        |       0 |        0 |       0 |       0 | 14-51              
+  Years.tsx                |       0 |      100 |       0 |       0 | 14-78              
+ src/Interfaces            |       0 |        0 |       0 |       0 |                    
+  Courses.ts               |       0 |        0 |       0 |       0 |                    
+  coursePopupInterface.tsx |       0 |        0 |       0 |       0 |                    
+  degreeInterface.tsx      |       0 |        0 |       0 |       0 |                    
+  semesterInterfaces.tsx   |       0 |        0 |       0 |       0 |                    
+  yearInterface.tsx        |       0 |        0 |       0 |       0 |                    
+ src/TableComponents       |   74.66 |       75 |   75.24 |   74.66 |                    
+  ShowFallTable.tsx        |     100 |      100 |     100 |     100 |                    
+  ShowSpringTable.tsx      |     100 |      100 |     100 |     100 |                    
+  ShowSummerTable.tsx      |     100 |      100 |     100 |     100 |                    
+  ShowWinterTable.tsx      |     100 |      100 |     100 |     100 |                    
+  TableContentsFall.tsx    |   74.57 |    72.22 |      72 |   74.57 | 88,109-137,159,190 
+  TableContentsSpring.tsx  |   74.07 |    72.22 |      75 |   74.07 | 90-118,140,171     
+  TableContentsSummer.tsx  |   74.07 |    72.22 |      75 |   74.07 | 90-118,140,171     
+  TableContentsWinter.tsx  |   74.07 |    72.22 |      75 |   74.07 | 90-118,140,171     
+---------------------------|---------|----------|---------|---------|--------------------
 
-Test Suites: 11 passed, 11 total
-Tests:       66 passed, 66 total
+Test Suites: 1 failed, 10 passed, 11 total
+Tests:       1 failed, 65 passed, 66 total
 Snapshots:   0 total
-Time:        38.705 s
+Time:        39.779 s
 Ran all test suites.
