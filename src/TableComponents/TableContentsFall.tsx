@@ -84,6 +84,10 @@ export function TableContentsFall({
         const courseCopy: Course[] = selectedCourses.filter(
             (x: Course): boolean => x !== course
         );
+        const planCoursesCopy: Course[] = planCourses.filter(
+            (course2: Course) => course2.code !== course.code
+        );
+        setPlanCourses(planCoursesCopy);
         setSelectedCourses(courseCopy);
     }
     function clearCourses(course: Course[]) {

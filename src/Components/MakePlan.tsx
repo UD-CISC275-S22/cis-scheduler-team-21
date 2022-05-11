@@ -5,9 +5,20 @@ import DropdownMenu from "react-bootstrap/DropdownMenu";
 import { Plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
 
+const saveDataKey = "PlanList-Data";
+let loadedData: Plan[] = [];
+const previousData: string | null = localStorage.getItem(saveDataKey);
+if (previousData !== null) {
+    loadedData = JSON.parse(previousData);
+}
+
 export function MakePlan(): JSX.Element {
-    const [Plans, setPlans] = useState<Plan[]>([]);
-    const [Counter, setCounter] = useState<number>(1);
+    let mostRecentID = 0;
+    if (loadedData.length !== 0) {
+        mostRecentID = loadedData[loadedData.length - 1].id;
+    }
+    const [Plans, setPlans] = useState<Plan[]>(loadedData);
+    const [Counter, setCounter] = useState<number>(mostRecentID);
     const [Visible, setVisible] = useState<boolean>(false);
     const [Degree, setDegree] = useState<string>("Select Degree");
     const [Year, setYear] = useState<string>("2022");
@@ -23,6 +34,9 @@ export function MakePlan(): JSX.Element {
         const counterCopy: number = Counter + 1;
         setPlans(planList);
         setCounter(counterCopy);
+    }
+    function saveData() {
+        localStorage.setItem(saveDataKey, JSON.stringify(Plans));
     }
 
     function Popup() {
@@ -98,6 +112,16 @@ export function MakePlan(): JSX.Element {
     return (
         <div className="makePlan-background">
             <div>
+                <Button
+                    style={{
+                        left: "60ch",
+                        position: "relative",
+                        backgroundColor: "green"
+                    }}
+                    onClick={saveData}
+                >
+                    Save Plans
+                </Button>
                 {/* {visible && <div></div>} */}
                 {Plans.map((plan: Plan) => (
                     <div key={plan.id}>

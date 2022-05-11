@@ -34,6 +34,15 @@ export function PlanContainer({
             description: plan.description
         };
         setPlan(updatedPlan);
+        const planListCopy: Plan[] = plans.map((planElement: Plan): Plan => {
+            if (planElement.id === plan.id) {
+                planElement = updatedPlan;
+                return planElement;
+            } else {
+                return planElement;
+            }
+        });
+        setPlans(planListCopy);
     }
     function updateDescription(event: React.ChangeEvent<HTMLInputElement>) {
         const updatedPlan: Plan = {
@@ -42,6 +51,15 @@ export function PlanContainer({
             description: event.target.value
         };
         setPlan2(updatedPlan);
+        const planListCopy: Plan[] = plans.map((planElement: Plan): Plan => {
+            if (planElement.id === plan.id) {
+                planElement = updatedPlan;
+                return planElement;
+            } else {
+                return planElement;
+            }
+        });
+        setPlans(planListCopy);
     }
     return (
         <div>
