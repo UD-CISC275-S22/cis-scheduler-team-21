@@ -1,45 +1,21 @@
-import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import React from "react";
 import { SetFallProp } from "../Interfaces/semesterInterfaces";
 import { TableContentsFall } from "./TableContentsFall";
-
-const DataKey = "Fall-Semester-Data";
 
 export function ShowFallTable({
     setFall,
     Visible,
-    SearchVisible
-}: //DataKey
-SetFallProp): JSX.Element {
-    /**let loadedData = (
-        
-    );
-    const [data, setData] = useState<JSX.Element>(loadedData);
-    const previousData = localStorage.getItem(DataKey);
-
-    if (previousData !== null) {
-        loadedData = JSON.parse(previousData);
-    }
-
-    function saveButton() {
-        localStorage.setItem(DataKey, JSON.stringify(data));
-        const obj = JSON.parse(data);
-    }
-    function parseData() {
-        if (data.type === String) {
-            {
-                return localStorage.getItem(DataKey, JSON.parse(data));
-            }
-        }
-    }*/
+    SearchVisible,
+    planCourses,
+    setPlanCourses
+}: SetFallProp): JSX.Element {
     return (
         <div>
-            <div>
-                <Button style={{ backgroundColor: "green" }}>
-                    Save Fall Semester
-                </Button>
-            </div>
-            <table data-testid="fall-table" className="add-border">
+            <table
+                data-testid="fall-table"
+                className="add-border"
+                style={{ borderBottom: 0 }}
+            >
                 <tbody>
                     <tr
                         style={{
@@ -56,9 +32,11 @@ SetFallProp): JSX.Element {
                         </th>
                     </tr>
                     <tr
-                        /* style={{ borderRight: 0, borderLeft: 0 }}
-                        className="inner-border" */
-                        style={{ width: "100%", display: "table" }}
+                        className="inner-border"
+                        style={{
+                            borderRight: 0,
+                            borderLeft: 0
+                        }}
                     >
                         <td>
                             <h5>Courses ID</h5>
@@ -73,6 +51,13 @@ SetFallProp): JSX.Element {
                     </tr>
                 </tbody>
             </table>
+            <TableContentsFall
+                setFall={setFall}
+                Visible={Visible}
+                SearchVisible={SearchVisible}
+                planCourses={planCourses}
+                setPlanCourses={setPlanCourses}
+            ></TableContentsFall>
         </div>
     );
 }

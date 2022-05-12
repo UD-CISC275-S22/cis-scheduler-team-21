@@ -7,6 +7,9 @@ import { ShowFallTable } from "../TableComponents/ShowFallTable";
 const setFallElement = () => {
     return;
 };
+const setPlanCourses = () => {
+    return;
+};
 
 describe("ShowFallTable Component tests", () => {
     beforeEach(() =>
@@ -15,6 +18,8 @@ describe("ShowFallTable Component tests", () => {
                 setFall={setFallElement}
                 Visible={false}
                 SearchVisible={false}
+                planCourses={[]}
+                setPlanCourses={setPlanCourses}
             />
         )
     );

@@ -6,9 +6,12 @@ import { ShowWinterTable } from "../TableComponents/ShowWinterTable";
 import { ShowSummerTable } from "../TableComponents/ShowSummerTable";
 //import { Year } from "../Interfaces/yearInterface";
 import "../App.css";
+import { addSemesterProps } from "../Interfaces/semesterInterfaces";
 
-//{ DataKey }: { DataKey: string }
-export function AddSemester(): JSX.Element {
+export function AddSemester({
+    planCourses,
+    setPlanCourses
+}: addSemesterProps): JSX.Element {
     const [FallElement, setFallElement] = useState<JSX.Element | null>(null);
     const [SpringElement, setSpringElement] = useState<JSX.Element | null>(
         null
@@ -58,7 +61,8 @@ export function AddSemester(): JSX.Element {
                 setFall={setFallElement}
                 Visible={visibleState}
                 SearchVisible={visibleSearchState}
-                //DataKey={DataKey}
+                planCourses={planCourses}
+                setPlanCourses={setPlanCourses}
             ></ShowFallTable>
         );
     }
@@ -101,6 +105,12 @@ export function AddSemester(): JSX.Element {
             ></ShowWinterTable>
         );
     }
+    function fullClear() {
+        setFallElement(null);
+        setSpringElement(null);
+        setSummerElement(null);
+        setWinterElement(null);
+    }
     return (
         <div className="showPlan-background">
             <div
@@ -136,9 +146,19 @@ export function AddSemester(): JSX.Element {
             <div
                 style={{ float: "right", marginRight: "3ch", marginTop: "2ch" }}
             >
-                <Button onClick={setVisEdit}>Edit Mode</Button>
+                {Visible && (
+                    <Button
+                        onClick={fullClear}
+                        style={{ backgroundColor: "red" }}
+                    >
+                        Remove ALL
+                    </Button>
+                )}
+                <Button onClick={setVisEdit} style={{ marginLeft: ".5ch" }}>
+                    Edit Mode
+                </Button>
                 <Button onClick={setVisSearch} style={{ marginLeft: ".5ch" }}>
-                    Search Mode
+                    Search for a Course
                 </Button>
             </div>
             <div>

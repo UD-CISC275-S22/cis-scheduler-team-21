@@ -7,18 +7,16 @@ import { Link } from "react-router-dom";
 
 export interface PlanProps {
     plan: Plan;
-    PlansArray: Plan[];
+    plans: Plan[];
     setPlans: (plans: Plan[]) => void;
-    years: string;
-    DataKey: string;
+    concentration: string;
 }
 
 export function PlanContainer({
     plan,
-    PlansArray,
+    plans,
     setPlans,
-    years,
-    DataKey
+    concentration
 }: PlanProps): JSX.Element {
     const [visible, setVisible] = useState<boolean>(false);
     const [editVis, setEditVis] = useState<boolean>(false);
@@ -27,7 +25,7 @@ export function PlanContainer({
     //const [data, setData] = useState<Plan[]>(PlansArray);
 
     function deletePlan(): void {
-        setPlans(PlansArray.filter((x: Plan): boolean => x.id !== plan.id));
+        setPlans(plans.filter((x: Plan): boolean => x.id !== plan.id));
     }
     function updateEdit(): void {
         setEditVis(!editVis);
@@ -40,6 +38,15 @@ export function PlanContainer({
             description: plan.description
         };
         setPlan(updatedPlan);
+        const planListCopy: Plan[] = plans.map((planElement: Plan): Plan => {
+            if (planElement.id === plan.id) {
+                planElement = updatedPlan;
+                return planElement;
+            } else {
+                return planElement;
+            }
+        });
+        setPlans(planListCopy);
     }
     function updateDescription(event: React.ChangeEvent<HTMLInputElement>) {
         const updatedPlan: Plan = {
@@ -48,6 +55,15 @@ export function PlanContainer({
             description: event.target.value
         };
         setPlan2(updatedPlan);
+        const planListCopy: Plan[] = plans.map((planElement: Plan): Plan => {
+            if (planElement.id === plan.id) {
+                planElement = updatedPlan;
+                return planElement;
+            } else {
+                return planElement;
+            }
+        });
+        setPlans(planListCopy);
     }
     return (
         <div>
@@ -111,7 +127,10 @@ export function PlanContainer({
                         paddingRight: "2ch"
                     }}
                 >
-                    <Link to="/showplan" state={{ yearValue: years }}>
+                    <Link
+                        to="/showplan"
+                        state={{ concentrationValue: concentration }}
+                    >
                         <Button
                             className="orangeButton"
                             onClick={() => setVisible(!visible)}

@@ -1,57 +1,67 @@
 import React, { useState } from "react";
 import Data from "../Data/catalog.json";
-import { Course, Section } from "../Interfaces/Courses";
+import { Course, CourseJSON, Section } from "../Interfaces/Courses";
 import { setSpringProp } from "../Interfaces/semesterInterfaces";
 import { Button } from "react-bootstrap";
+import { CourseEdit } from "../Components/CourseEdit";
 
 export function TableContentsSpring({
     setSpring,
     Visible,
     SearchVisible
-}: // DataKey
-setSpringProp): JSX.Element {
+}: setSpringProp): JSX.Element {
+    const [input, setInput] = useState<string>("");
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
+    const [classPopup, setClassPopup] = useState<JSX.Element | null>(null);
     const courseObjects: Course[] = [];
     const StringData: string = JSON.stringify(Data);
     const DataObjects: Section[] = Object.values(JSON.parse(StringData));
 
     DataObjects.map((section: Section) => {
         const courseString: string = JSON.stringify(section);
-        const courseList: Course[] = Object.values(JSON.parse(courseString));
-        courseList.map((course: Course) => {
-            courseObjects.push(course);
+        const courseList: CourseJSON[] = Object.values(
+            JSON.parse(courseString)
+        );
+        courseList.map((course: CourseJSON) => {
+            const courseTemp: Course = {
+                ID: course.code,
+                code: course.code,
+                name: course.name,
+                descr: course.descr,
+                credits: course.credits,
+                preReq: course.preReq,
+                restrict: course.restrict,
+                breadth: course.breadth,
+                typ: course.typ
+            };
+            courseObjects.push(courseTemp);
         });
     });
-
+    let originalCourse: Course;
     function addTable(): JSX.Element | void {
-        const courseInp: HTMLInputElement = document.getElementById(
-            "searchID2"
-        ) as HTMLInputElement;
-        const courseObj: string = courseInp.value;
         if (
             courseObjects.some(
-                (course: Course): boolean => course.code === courseObj
+                (course: Course): boolean => course.code === input
             )
         ) {
             const AddCourse: Course[] = courseObjects.filter(
-                (course: Course): boolean => course.code === courseObj
+                (course: Course): boolean => course.code === input
             );
             const singleCourse: Course = AddCourse[0];
             if (
                 selectedCourses.some(
-                    (course: Course): boolean =>
-                        course.code === singleCourse.code
+                    (course: Course): boolean => course.ID === singleCourse.ID
                 )
             ) {
                 return; //needs error message
             } else {
                 const AddCourse2: Course[] = [...selectedCourses, singleCourse];
                 setSelectedCourses(AddCourse2);
-                courseInp.value = "";
+                setInput("");
+                clearSearchBar();
             }
         }
     }
-
     function deleteTable(): void {
         setSpring(null);
     }
@@ -65,9 +75,48 @@ setSpringProp): JSX.Element {
         course = [];
         setSelectedCourses(course);
     }
-    /**function saveButton() {
-        localStorage.setItem(DataKey, JSON.stringify(courseObjects));
-    }*/
+    function updateInput(event: React.ChangeEvent<HTMLInputElement>): void {
+        setInput(event.target.value);
+    }
+    function clearSearchBar(): void {
+        const courseInp: HTMLCollectionOf<HTMLInputElement> =
+            document.getElementsByTagName("input");
+        const arrayElements: HTMLInputElement[] = Array.from(courseInp);
+        arrayElements.map(
+            (input: HTMLInputElement): string => (input.value = "")
+        );
+    }
+    function coursePopup(courseArg: Course): void {
+        return setClassPopup(
+            <CourseEdit
+                setPopup={setClassPopup}
+                setSelectedCourses={setSelectedCourses}
+                SelectedCourses={selectedCourses}
+                course={courseArg}
+            />
+        );
+    }
+    function reset(course: Course): void {
+        courseObjects.map((course1: Course): Course => {
+            if (course1.ID === course.ID) {
+                originalCourse = course1;
+                return course1;
+            } else {
+                return course1;
+            }
+        });
+        const selectedCopy: Course[] = selectedCourses.map(
+            (course1: Course): Course => {
+                if (course1.ID === course.ID) {
+                    course1 = originalCourse;
+                    return course1;
+                } else {
+                    return course1;
+                }
+            }
+        );
+        setSelectedCourses(selectedCopy);
+    }
     return (
         <div>
             <div style={{ marginBottom: "1ch" }}>
@@ -76,28 +125,55 @@ setSpringProp): JSX.Element {
                         {selectedCourses.map(
                             (course: Course): JSX.Element => (
                                 <tr
-                                    data-testid={course.code}
                                     key={course.code}
+                                    data-testid={course.code}
                                     className="innerTR"
                                 >
-                                    <td>{course.code}</td>
+                                    {Visible && (
+                                        <td>
+                                            <ins
+                                                style={{
+                                                    cursor: "pointer",
+                                                    color: "blue"
+                                                }}
+                                                onClick={() =>
+                                                    coursePopup(course)
+                                                }
+                                            >
+                                                {course.code}
+                                            </ins>
+                                        </td>
+                                    )}
+                                    {!Visible && <td>{course.code}</td>}
                                     <td>{course.name}</td>
                                     <td>{course.credits}</td>
                                     {Visible && (
                                         <td>
-                                            <Button
-                                                style={{
-                                                    backgroundColor: "darkRed"
-                                                }}
-                                                onClick={() =>
-                                                    deleteCourse(course)
-                                                }
-                                                data-testid={
-                                                    course.code + " delete"
-                                                }
-                                            >
-                                                Delete
-                                            </Button>
+                                            <td>
+                                                <Button
+                                                    style={{
+                                                        backgroundColor:
+                                                            "darkRed"
+                                                    }}
+                                                    onClick={() =>
+                                                        deleteCourse(course)
+                                                    }
+                                                    data-testid={
+                                                        course.code + " delete"
+                                                    }
+                                                >
+                                                    Delete
+                                                </Button>
+                                            </td>
+                                            <td>
+                                                <Button
+                                                    onClick={() =>
+                                                        reset(course)
+                                                    }
+                                                >
+                                                    Reset
+                                                </Button>
+                                            </td>
                                         </td>
                                     )}
                                 </tr>
@@ -117,17 +193,17 @@ setSpringProp): JSX.Element {
                         type="text"
                         list="searchList"
                         placeholder="Type a course..."
+                        onBlur={updateInput}
+                        defaultValue={""}
                     ></input>
-                    <datalist data-testid="searchList" id="searchList">
-                        {courseObjects.map(
-                            (course: Course): JSX.Element => (
-                                <option key={course.code} value={course.code}>
-                                    {course.code}
-                                </option>
-                            )
-                        )}
+                    <datalist id="searchList" data-testid="searchList">
+                        {courseObjects.map((course: Course) => (
+                            <option key={course.code} value={course.code}>
+                                {course.code}
+                            </option>
+                        ))}
                     </datalist>
-                    <Button id="search-button" onClick={addTable}>
+                    <Button data-testid="add-button" onClick={addTable}>
                         +
                     </Button>
                 </span>
@@ -135,7 +211,7 @@ setSpringProp): JSX.Element {
             <span
                 style={{
                     float: "right",
-                    marginRight: "26ch"
+                    marginRight: "31ch"
                 }}
             >
                 {Visible && (
@@ -147,6 +223,7 @@ setSpringProp): JSX.Element {
                             Delete Spring
                         </Button>
                         <Button
+                            data-testid="clearSpring"
                             style={{ backgroundColor: "gold" }}
                             onClick={() => clearCourses(selectedCourses)}
                         >
@@ -162,6 +239,9 @@ setSpringProp): JSX.Element {
                 )}
             </span>
             <br></br>
+            <div style={{ zIndex: "5", position: "relative" }}>
+                {classPopup}
+            </div>
         </div>
     );
 }

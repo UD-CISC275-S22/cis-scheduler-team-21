@@ -1,26 +1,20 @@
 import React, { useState } from "react";
 import Data from "../Data/catalog.json";
-import { Course, Section } from "../Interfaces/Courses";
+import { Course, CourseJSON, Section } from "../Interfaces/Courses";
 import { SetFallProp } from "../Interfaces/semesterInterfaces";
 import { Button } from "react-bootstrap";
-import { ShowFallTable } from "./ShowFallTable";
-//import { SetFallProp } from "../Interfaces/semesterInterfaces";
-
-/**const DataKey = "Fall-Semester-Data";
-let loadedData: Course[] = [];
-const previousData = localStorage.getItem(DataKey);
-
-if (previousData !== null) {
-    loadedData = JSON.parse(previousData);
-}*/
+import { CourseEdit } from "../Components/CourseEdit";
 
 export function TableContentsFall({
     setFall,
     Visible,
-    SearchVisible
-}: //DataKey
-SetFallProp): JSX.Element {
+    SearchVisible,
+    planCourses,
+    setPlanCourses
+}: SetFallProp): JSX.Element {
+    const [input, setInput] = useState<string>("");
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
+    const [classPopup, setClassPopup] = useState<JSX.Element | null>(null);
     const courseObjects: Course[] = [];
     //const [course, setCourse] = useState<Course[]>(loadedData);
     const StringData: string = JSON.stringify(Data);
@@ -28,37 +22,59 @@ SetFallProp): JSX.Element {
 
     DataObjects.map((section: Section) => {
         const courseString: string = JSON.stringify(section);
-        const courseList: Course[] = Object.values(JSON.parse(courseString));
-        courseList.map((course: Course) => {
-            courseObjects.push(course);
+        const courseList: CourseJSON[] = Object.values(
+            JSON.parse(courseString)
+        );
+        courseList.map((course: CourseJSON) => {
+            const courseTemp: Course = {
+                ID: course.code,
+                code: course.code,
+                name: course.name,
+                descr: course.descr,
+                credits: course.credits,
+                preReq: course.preReq,
+                restrict: course.restrict,
+                breadth: course.breadth,
+                typ: course.typ
+            };
+            courseObjects.push(courseTemp);
         });
     });
-
+    let originalCourse: Course;
     function addTable(): JSX.Element | void {
-        const courseInp: HTMLInputElement = document.getElementById(
-            "searchID"
-        ) as HTMLInputElement;
-        const courseObj: string = courseInp.value;
         if (
             courseObjects.some(
-                (course: Course): boolean => course.code === courseObj
+                (course: Course): boolean => course.code === input
             )
         ) {
+            /* if (
+                !planCourses.some(
+                    (course: Course): boolean => course.code === input
+                )
+            ) { */
             const AddCourse: Course[] = courseObjects.filter(
-                (course: Course): boolean => course.code === courseObj
+                (course: Course): boolean => course.code === input
             );
             const singleCourse: Course = AddCourse[0];
             if (
                 selectedCourses.some(
-                    (course: Course): boolean =>
-                        course.code === singleCourse.code
+                    (course: Course): boolean => course.ID === singleCourse.ID
                 )
             ) {
-                return; //needs error message
+                return; //needs error message>
             } else {
-                const AddCourse2: Course[] = [...selectedCourses, singleCourse];
-                setSelectedCourses(AddCourse2);
-                courseInp.value = "";
+                const addNewCourse: Course[] = [
+                    ...selectedCourses,
+                    singleCourse
+                ];
+                const planCoursesCopy: Course[] = [
+                    ...planCourses,
+                    singleCourse
+                ];
+                setSelectedCourses(addNewCourse);
+                setPlanCourses(planCoursesCopy);
+                setInput("");
+                clearSearchBar();
             }
         }
     }
@@ -69,19 +85,62 @@ SetFallProp): JSX.Element {
         const courseCopy: Course[] = selectedCourses.filter(
             (x: Course): boolean => x !== course
         );
+        const planCoursesCopy: Course[] = planCourses.filter(
+            (course2: Course) => course2.code !== course.code
+        );
+        setPlanCourses(planCoursesCopy);
         setSelectedCourses(courseCopy);
     }
     function clearCourses(course: Course[]) {
         course = [];
         setSelectedCourses(course);
     }
-    /**function saveButton() {
-        localStorage.setItem(DataKey, JSON.stringify(courseObjects));
-    }*/
+    function updateInput(event: React.ChangeEvent<HTMLInputElement>): void {
+        setInput(event.target.value);
+    }
+    function clearSearchBar(): void {
+        const courseInp: HTMLCollectionOf<HTMLInputElement> =
+            document.getElementsByTagName("input");
+        const arrayElements: HTMLInputElement[] = Array.from(courseInp);
+        arrayElements.map(
+            (input: HTMLInputElement): string => (input.value = "")
+        );
+    }
+    function coursePopup(courseArg: Course): void {
+        return setClassPopup(
+            <CourseEdit
+                setPopup={setClassPopup}
+                setSelectedCourses={setSelectedCourses}
+                SelectedCourses={selectedCourses}
+                course={courseArg}
+            />
+        );
+    }
+    function reset(course: Course): void {
+        courseObjects.map((course1: Course): Course => {
+            if (course1.ID === course.ID) {
+                originalCourse = course1;
+                return course1;
+            } else {
+                return course1;
+            }
+        });
+        const selectedCopy: Course[] = selectedCourses.map(
+            (course1: Course): Course => {
+                if (course1.ID === course.ID) {
+                    course1 = originalCourse;
+                    return course1;
+                } else {
+                    return course1;
+                }
+            }
+        );
+        setSelectedCourses(selectedCopy);
+    }
     return (
         <div>
             <div style={{ marginBottom: "1ch" }}>
-                <table>
+                <table className="add-border">
                     <tbody>
                         {selectedCourses.map(
                             (course: Course): JSX.Element => (
@@ -90,24 +149,51 @@ SetFallProp): JSX.Element {
                                     data-testid={course.code}
                                     className="innerTR"
                                 >
-                                    <td>{course.code}</td>
+                                    {Visible && (
+                                        <td>
+                                            <ins
+                                                style={{
+                                                    cursor: "pointer",
+                                                    color: "blue"
+                                                }}
+                                                onClick={() =>
+                                                    coursePopup(course)
+                                                }
+                                            >
+                                                {course.code}
+                                            </ins>
+                                        </td>
+                                    )}
+                                    {!Visible && <td>{course.code}</td>}
                                     <td>{course.name}</td>
                                     <td>{course.credits}</td>
                                     {Visible && (
                                         <td>
-                                            <Button
-                                                style={{
-                                                    backgroundColor: "darkRed"
-                                                }}
-                                                onClick={() =>
-                                                    deleteCourse(course)
-                                                }
-                                                data-testid={
-                                                    course.code + " delete"
-                                                }
-                                            >
-                                                Delete
-                                            </Button>
+                                            <td>
+                                                <Button
+                                                    style={{
+                                                        backgroundColor:
+                                                            "darkRed"
+                                                    }}
+                                                    onClick={() =>
+                                                        deleteCourse(course)
+                                                    }
+                                                    data-testid={
+                                                        course.code + " delete"
+                                                    }
+                                                >
+                                                    Delete
+                                                </Button>
+                                            </td>
+                                            <td>
+                                                <Button
+                                                    onClick={() =>
+                                                        reset(course)
+                                                    }
+                                                >
+                                                    Reset
+                                                </Button>
+                                            </td>
                                         </td>
                                     )}
                                 </tr>
@@ -127,15 +213,15 @@ SetFallProp): JSX.Element {
                         type="text"
                         list="searchList"
                         placeholder="Type a course..."
+                        onBlur={updateInput}
+                        defaultValue={""}
                     ></input>
                     <datalist id="searchList" data-testid="searchList">
-                        {courseObjects.map(
-                            (course: Course): JSX.Element => (
-                                <option key={course.code} value={course.code}>
-                                    {course.code}
-                                </option>
-                            )
-                        )}
+                        {courseObjects.map((course: Course) => (
+                            <option key={course.code} value={course.code}>
+                                {course.code}
+                            </option>
+                        ))}
                     </datalist>
                     <Button data-testid="add-button" onClick={addTable}>
                         +
@@ -170,6 +256,9 @@ SetFallProp): JSX.Element {
                 )}
             </span>
             <br></br>
+            <div style={{ zIndex: "5", position: "relative" }}>
+                {classPopup}
+            </div>
         </div>
     );
 }

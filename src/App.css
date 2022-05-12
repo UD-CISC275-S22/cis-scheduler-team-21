@@ -253,9 +253,9 @@ tr:nth-child(even) {
 }
 
 .yearDisplay {
-    font-size: 6ch;
-    font-weight: 600;
-    font-style: italic;
+    font-size: 4ch;
+    font-weight: 700;
+    font-style: normal;
     display: inline;
     margin-left: 1.5ch;
 }

@@ -3,23 +3,22 @@ import { Button, Dropdown, Form } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/DropdownItem";
 import DropdownMenu from "react-bootstrap/DropdownMenu";
 import { Plan } from "../Interfaces/Courses";
-import { PlanContainer, PlanProps } from "./PlanContainer";
-//import { Year } from "../Interfaces/yearInterface";
-//import { useParams } from "react-router-dom";
+import { PlanContainer } from "./PlanContainer";
 
-export interface makePlanProps {
-    DataKey: string;
-    PlansArray: Plan[];
-    setPlan: (Plans: Plan[]) => void;
+const saveDataKey = "PlanList-Data";
+let loadedData: Plan[] = [];
+const previousData: string | null = sessionStorage.getItem(saveDataKey);
+if (previousData !== null) {
+    loadedData = JSON.parse(previousData);
 }
 
-export function MakePlan({
-    DataKey,
-    PlansArray,
-    setPlan
-}: makePlanProps): JSX.Element {
-    //const [Plans, setPlans] = useState<Plan[]>([]);
-    const [Counter, setCounter] = useState<number>(1);
+export function MakePlan(): JSX.Element {
+    let mostRecentID = 0;
+    if (loadedData.length !== 0) {
+        mostRecentID = loadedData[loadedData.length - 1].id;
+    }
+    const [Plans, setPlans] = useState<Plan[]>(loadedData);
+    const [Counter, setCounter] = useState<number>(mostRecentID);
     const [Visible, setVisible] = useState<boolean>(false);
     const [Degree, setDegree] = useState<string>("Select Degree");
     const [Year, setYear] = useState<string>("2022");
@@ -32,10 +31,13 @@ export function MakePlan({
             description: ""
         };
         //const planList: Plan[] = [...PlansArray, newPlan];
-        const planList: Plan[] = [...PlansArray, newPlan];
+        const planList: Plan[] = [...Plans, newPlan];
         const counterCopy: number = Counter + 1;
-        setPlan(planList);
+        setPlans(planList);
         setCounter(counterCopy);
+    }
+    function saveData() {
+        sessionStorage.setItem(saveDataKey, JSON.stringify(Plans));
     }
 
     function Popup() {
@@ -122,16 +124,25 @@ export function MakePlan({
     return (
         <div className="makePlan-background">
             <div>
+                <Button
+                    style={{
+                        left: "60ch",
+                        position: "relative",
+                        backgroundColor: "green"
+                    }}
+                    onClick={saveData}
+                >
+                    Save Plans
+                </Button>
                 {/* {visible && <div></div>} */}
 
-                {PlansArray.map((plan: Plan) => (
+                {Plans.map((plan: Plan) => (
                     <div key={plan.id}>
                         <PlanContainer
                             plan={plan}
-                            PlansArray={PlansArray}
-                            setPlans={setPlan}
-                            years={Year}
-                            DataKey={DataKey}
+                            plans={Plans}
+                            setPlans={setPlans}
+                            concentration={Degree}
                         ></PlanContainer>
                         <hr></hr>
                     </div>
