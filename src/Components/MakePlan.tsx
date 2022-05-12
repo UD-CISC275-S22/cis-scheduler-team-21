@@ -7,7 +7,7 @@ import { PlanContainer } from "./PlanContainer";
 
 const saveDataKey = "PlanList-Data";
 let loadedData: Plan[] = [];
-const previousData: string | null = sessionStorage.getItem(saveDataKey);
+const previousData: string | null = localStorage.getItem(saveDataKey);
 if (previousData !== null) {
     loadedData = JSON.parse(previousData);
 }
@@ -37,7 +37,7 @@ export function MakePlan(): JSX.Element {
         setCounter(counterCopy);
     }
     function saveData() {
-        sessionStorage.setItem(saveDataKey, JSON.stringify(Plans));
+        localStorage.setItem(saveDataKey, JSON.stringify(Plans));
     }
 
     function Popup() {
