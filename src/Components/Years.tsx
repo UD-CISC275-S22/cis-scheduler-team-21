@@ -10,7 +10,18 @@ import { useLocation } from "react-router-dom";
 
 type locationStateString = { concentrationValue: string };
 
+/**const DataKey = "Page-Data";
+let loadedData: Plan[] = [];
+
+const previousData = localStorage.getItem(DataKey);
+
+if (previousData !== null) {
+    loadedData = JSON.parse(previousData);
+}*/
+
+//{ DataKey }: Year
 export function Years(): JSX.Element {
+    //const [data, setData] = useState<JSX.Element>(loadedData);
     const location = useLocation();
     const { concentrationValue } = location.state as locationStateString;
 

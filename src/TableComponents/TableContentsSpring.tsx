@@ -229,6 +229,12 @@ export function TableContentsSpring({
                         >
                             Clear Spring
                         </Button>
+                        <Button
+                            style={{ backgroundColor: "green" }}
+                            //onClick={saveButton}
+                        >
+                            Save Spring
+                        </Button>
                     </span>
                 )}
             </span>

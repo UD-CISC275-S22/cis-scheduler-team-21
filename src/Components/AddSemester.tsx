@@ -4,6 +4,7 @@ import { ShowFallTable } from "../TableComponents/ShowFallTable";
 import { ShowSpringTable } from "../TableComponents/ShowSpringTable";
 import { ShowWinterTable } from "../TableComponents/ShowWinterTable";
 import { ShowSummerTable } from "../TableComponents/ShowSummerTable";
+//import { Year } from "../Interfaces/yearInterface";
 import "../App.css";
 import { addSemesterProps } from "../Interfaces/semesterInterfaces";
 
@@ -23,6 +24,7 @@ export function AddSemester({
     );
     const [Visible, setVisible] = useState<boolean>(false);
     const [SearchVisible, setSearchVisible] = useState<boolean>(false);
+
     function setVisEdit(): void {
         setVisible(!Visible);
         if (FallElement !== null) {
@@ -73,6 +75,7 @@ export function AddSemester({
                 setSpring={setSpringElement}
                 Visible={visibleState}
                 SearchVisible={visibleSearchState}
+                //DataKey={DataKey}
             ></ShowSpringTable>
         );
     }
@@ -85,6 +88,7 @@ export function AddSemester({
                 setSummer={setSummerElement}
                 Visible={visibleState}
                 SearchVisible={visibleSearchState}
+                //DataKey={DataKey}
             ></ShowSummerTable>
         );
     }
@@ -97,6 +101,7 @@ export function AddSemester({
                 setWinter={setWinterElement}
                 Visible={visibleState}
                 SearchVisible={visibleSearchState}
+                //DataKey={DataKey}
             ></ShowWinterTable>
         );
     }

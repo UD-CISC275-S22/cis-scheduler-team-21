@@ -16,6 +16,7 @@ export function TableContentsFall({
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
     const [classPopup, setClassPopup] = useState<JSX.Element | null>(null);
     const courseObjects: Course[] = [];
+    //const [course, setCourse] = useState<Course[]>(loadedData);
     const StringData: string = JSON.stringify(Data);
     const DataObjects: Section[] = Object.values(JSON.parse(StringData));
 
@@ -247,6 +248,9 @@ export function TableContentsFall({
                             onClick={() => clearCourses(selectedCourses)}
                         >
                             Clear Fall
+                        </Button>
+                        <Button style={{ backgroundColor: "green" }}>
+                            Save Fall
                         </Button>
                     </span>
                 )}
