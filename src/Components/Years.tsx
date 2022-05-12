@@ -60,7 +60,6 @@ export function Years(): JSX.Element {
         const yearListCopy: Year[] = [...yearList, newYear];
         setYearList(yearListCopy);
     }
-
     return (
         <div style={{ paddingBottom: "8ch" }}>
             <header className="App-header-Year">

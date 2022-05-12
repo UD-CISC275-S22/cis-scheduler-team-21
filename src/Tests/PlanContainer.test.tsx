@@ -12,7 +12,8 @@ const setPlans = () => {
 const newPlan: Plan = {
     Title: "Test",
     id: 1,
-    description: "Hello"
+    description: "Hello",
+    degree: "Bachelor of Art"
 };
 
 const newplanList: Plan[] = [newPlan];
@@ -25,7 +26,6 @@ describe("PlanContainer component test", () => {
                     plan={newPlan}
                     plans={newplanList}
                     setPlans={setPlans}
-                    concentration={"Bachelor of Art"}
                 />
             </MemoryRouter>
         );
