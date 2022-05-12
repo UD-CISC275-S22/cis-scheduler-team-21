@@ -3,6 +3,7 @@ import { Button, Col, Form, Row } from "react-bootstrap";
 import "../App.css";
 import { Plan } from "../Interfaces/Courses";
 import { Link } from "react-router-dom";
+//import { Years } from "./Years";
 
 export interface PlanProps {
     plan: Plan;
@@ -18,12 +19,15 @@ export function PlanContainer({
     const [editVis, setEditVis] = useState<boolean>(false);
     const [Plan, setPlan] = useState<Plan>(plan);
     const [Plan2, setPlan2] = useState<Plan>(plan);
+    //const [data, setData] = useState<Plan[]>(PlansArray);
+
     function deletePlan(): void {
         setPlans(plans.filter((x: Plan): boolean => x.id !== plan.id));
     }
     function updateEdit(): void {
         setEditVis(!editVis);
     }
+
     function updatePlan(event: React.ChangeEvent<HTMLInputElement>) {
         const updatedPlan: Plan = {
             Title: event.target.value,

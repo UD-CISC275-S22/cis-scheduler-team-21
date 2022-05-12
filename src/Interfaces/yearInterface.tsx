@@ -12,3 +12,7 @@ export interface Year {
     title: string;
     id: number;
 }
+
+/**export interface Year {
+    DataKey: string;
+}*/

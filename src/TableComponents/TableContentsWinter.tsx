@@ -229,6 +229,12 @@ export function TableContentsWinter({
                         >
                             Clear Winter
                         </Button>
+                        <Button
+                            style={{ backgroundColor: "green" }}
+                            //onClick={saveButton}
+                        >
+                            Save Winter
+                        </Button>
                     </span>
                 )}
             </span>
