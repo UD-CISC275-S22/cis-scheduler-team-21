@@ -24,7 +24,7 @@ export function SystemsAndNetworks({
         "MATH 210",
         "MATH 241"
     ];
-    const additionalReq: string[] = ["CISC 355", "ENGL 312", "ENGL 410"];
+    /*   const additionalReq: string[] = ["CISC 355", "ENGL 312", "ENGL 410"];
 
     const capstoneClasses: string[] = [
         "CISC 498",
@@ -47,7 +47,7 @@ export function SystemsAndNetworks({
         "PHYS 227",
         "PHYS 208",
         "PHYS 228"
-    ];
+    ]; */
     return (
         <div>
             <div>

@@ -1,7 +1,5 @@
-import { getValue } from "@testing-library/user-event/dist/utils";
-import React, { useState } from "react";
+import React from "react";
 import { SystemsAndNetworks } from "../Concentrations/SystemsAndNetworks";
-import { Course } from "../Interfaces/Courses";
 import { degreeProps } from "../Interfaces/degreeInterface";
 
 export function DegreeRequirement({
