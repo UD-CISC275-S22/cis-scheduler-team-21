@@ -5,9 +5,9 @@ import DropdownMenu from "react-bootstrap/DropdownMenu";
 import { Plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
 
-const saveDataKey = "PlanList-Data";
+const planDataKey = "PlanList-Data";
 let loadedData: Plan[] = [];
-const previousData: string | null = localStorage.getItem(saveDataKey);
+const previousData: string | null = localStorage.getItem(planDataKey);
 if (previousData !== null) {
     loadedData = JSON.parse(previousData);
 }
@@ -36,8 +36,8 @@ export function MakePlan(): JSX.Element {
         setPlans(planList);
         setCounter(counterCopy);
     }
-    function saveData() {
-        localStorage.setItem(saveDataKey, JSON.stringify(Plans));
+    function savePlans() {
+        localStorage.setItem(planDataKey, JSON.stringify(Plans));
     }
 
     function Popup() {
@@ -130,7 +130,7 @@ export function MakePlan(): JSX.Element {
                         position: "relative",
                         backgroundColor: "green"
                     }}
-                    onClick={saveData}
+                    onClick={savePlans}
                 >
                     Save Plans
                 </Button>

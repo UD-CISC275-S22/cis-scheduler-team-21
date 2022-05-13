@@ -5,6 +5,15 @@ import { SetFallProp } from "../Interfaces/semesterInterfaces";
 import { Button } from "react-bootstrap";
 import { CourseEdit } from "../Components/CourseEdit";
 
+const fallDataKey = "FallSem-Data";
+let loadedData: Course[] = [];
+
+const previousData = localStorage.getItem(fallDataKey);
+
+if (previousData !== null) {
+    loadedData = JSON.parse(previousData);
+}
+
 export function TableContentsFall({
     setFall,
     Visible,
@@ -16,9 +25,10 @@ export function TableContentsFall({
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
     const [classPopup, setClassPopup] = useState<JSX.Element | null>(null);
     const courseObjects: Course[] = [];
-    //const [course, setCourse] = useState<Course[]>(loadedData);
+    const [fallCourses, setFallCourses] = useState<Course[]>(loadedData);
     const StringData: string = JSON.stringify(Data);
     const DataObjects: Section[] = Object.values(JSON.parse(StringData));
+    //let fallCourses: Course[] = [];
 
     DataObjects.map((section: Section) => {
         const courseString: string = JSON.stringify(section);
@@ -73,8 +83,10 @@ export function TableContentsFall({
                 ];
                 setSelectedCourses(addNewCourse);
                 setPlanCourses(planCoursesCopy);
+                //setCourse(planCoursesCopy);
                 setInput("");
                 clearSearchBar();
+                setFallCourses(addNewCourse);
             }
         }
     }
@@ -136,6 +148,10 @@ export function TableContentsFall({
             }
         );
         setSelectedCourses(selectedCopy);
+    }
+    function saveFall() {
+        //setCourse(planCourses);
+        localStorage.setItem(fallDataKey, JSON.stringify(fallCourses));
     }
     return (
         <div>
@@ -249,7 +265,10 @@ export function TableContentsFall({
                         >
                             Clear Fall
                         </Button>
-                        <Button style={{ backgroundColor: "green" }}>
+                        <Button
+                            style={{ backgroundColor: "green" }}
+                            onClick={saveFall}
+                        >
                             Save Fall
                         </Button>
                     </span>

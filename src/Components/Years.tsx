@@ -10,18 +10,9 @@ import { useLocation } from "react-router-dom";
 
 type locationStateString = { concentrationValue: string };
 
-/**const DataKey = "Page-Data";
-let loadedData: Plan[] = [];
+const yearDataKey = "Years-Data";
 
-const previousData = localStorage.getItem(DataKey);
-
-if (previousData !== null) {
-    loadedData = JSON.parse(previousData);
-}*/
-
-//{ DataKey }: Year
 export function Years(): JSX.Element {
-    //const [data, setData] = useState<JSX.Element>(loadedData);
     const location = useLocation();
     const { concentrationValue } = location.state as locationStateString;
 
@@ -41,12 +32,21 @@ export function Years(): JSX.Element {
         title: "Senior",
         id: 4
     };
+    let loadedData: Year[] = [Freshman, Sophomore, Junior, Senior];
+
+    const previousData = localStorage.getItem(yearDataKey);
+
+    if (previousData !== null) {
+        loadedData = Object.values(JSON.parse(previousData));
+    }
+
     const [yearList, setYearList] = useState<Year[]>([
         Freshman,
         Sophomore,
         Junior,
         Senior
     ]);
+    const [yearsData, setYearsData] = useState<Year[]>(loadedData);
     const [editVis, setEditVis] = useState<boolean>(false);
     const [counter, setCounter] = useState<number>(5);
     const [planCourses, setPlanCourses] = useState<Course[]>([]);
@@ -59,6 +59,11 @@ export function Years(): JSX.Element {
         };
         const yearListCopy: Year[] = [...yearList, newYear];
         setYearList(yearListCopy);
+        //setYearsData([...loadedData, newYear]);
+        localStorage.setItem(yearDataKey, JSON.stringify(yearListCopy));
+    }
+    function saveYears() {
+        localStorage.setItem(yearDataKey, JSON.stringify(yearsData));
     }
 
     return (
@@ -72,6 +77,16 @@ export function Years(): JSX.Element {
                             marginRight: "6ch",
                             marginTop: "2ch"
                         }}
+                        onClick={saveYears}
+                    >
+                        Save Years
+                    </Button>
+                    <Button
+                        style={{
+                            float: "right",
+                            marginRight: "1ch",
+                            marginTop: "2ch"
+                        }}
                         onClick={() => setEditVis(!editVis)}
                     >
                         Rename Years
@@ -80,6 +95,7 @@ export function Years(): JSX.Element {
             </header>
             <div>
                 <DegreeRequirement
+                    //key={course.id}
                     planCourses={planCourses}
                     concentration={concentrationValue}
                 ></DegreeRequirement>
