@@ -10,16 +10,6 @@ import { useLocation } from "react-router-dom";
 
 type locationStateString = { concentrationValue: string };
 
-/**const DataKey = "Page-Data";
-let loadedData: Plan[] = [];
-
-const previousData = localStorage.getItem(DataKey);
-
-if (previousData !== null) {
-    loadedData = JSON.parse(previousData);
-}*/
-
-//{ DataKey }: Year
 export function Years(): JSX.Element {
     //const [data, setData] = useState<JSX.Element>(loadedData);
     const location = useLocation();
@@ -41,24 +31,32 @@ export function Years(): JSX.Element {
         title: "Senior",
         id: 4
     };
-    const [yearList, setYearList] = useState<Year[]>([
-        Freshman,
-        Sophomore,
-        Junior,
-        Senior
-    ]);
+    const saveDataKey = "yearsList-Data";
+    let loadedData: Year[] = [Freshman, Sophomore, Junior, Senior];
+    const previousData: string | null = localStorage.getItem(saveDataKey);
+    let mostRecentID = 5;
+    if (previousData !== null) {
+        loadedData = Object.values(JSON.parse(previousData));
+        mostRecentID = loadedData[loadedData.length - 1].id + 1;
+    }
+    console.log(loadedData);
+    const [yearList, setYearList] = useState<Year[]>(loadedData);
     const [editVis, setEditVis] = useState<boolean>(false);
-    const [counter, setCounter] = useState<number>(5);
+    const [counter, setCounter] = useState<number>(mostRecentID);
     const [planCourses, setPlanCourses] = useState<Course[]>([]);
     function addYear(): void {
-        setCounter(counter + 1);
         const nextCount: number = counter + 1;
         const newYear: Year = {
             title: "New School Year",
             id: nextCount
         };
+        setCounter(nextCount);
         const yearListCopy: Year[] = [...yearList, newYear];
         setYearList(yearListCopy);
+        localStorage.setItem(saveDataKey, JSON.stringify(yearListCopy));
+    }
+    function saveButton(): void {
+        localStorage.setItem(saveDataKey, JSON.stringify(yearList));
     }
     return (
         <div style={{ paddingBottom: "8ch" }}>
@@ -75,6 +73,7 @@ export function Years(): JSX.Element {
                     >
                         Rename Years
                     </Button>
+                    <Button onClick={saveButton}>Save</Button>
                 </span>
             </header>
             <div>

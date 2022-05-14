@@ -4,6 +4,7 @@ import { Course, CourseJSON, Section } from "../Interfaces/Courses";
 import { SetFallProp } from "../Interfaces/semesterInterfaces";
 import { Button } from "react-bootstrap";
 import { CourseEdit } from "../Components/CourseEdit";
+import { ShowFallTable } from "./ShowFallTable";
 
 export function TableContentsFall({
     setFall,
@@ -73,6 +74,15 @@ export function TableContentsFall({
                 ];
                 setSelectedCourses(addNewCourse);
                 setPlanCourses(planCoursesCopy);
+                setFall(
+                    <ShowFallTable
+                        setFall={setFall}
+                        Visible={Visible}
+                        SearchVisible={SearchVisible}
+                        planCourses={planCoursesCopy}
+                        setPlanCourses={setPlanCourses}
+                    ></ShowFallTable>
+                );
                 setInput("");
                 clearSearchBar();
             }
