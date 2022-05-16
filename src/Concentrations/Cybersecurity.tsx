@@ -3,9 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import { Course } from "../Interfaces/Courses";
 import { planCoursesProp } from "../Interfaces/degreeInterface";
 
-export function SystemsAndNetworks({
-    planCourses
-}: planCoursesProp): JSX.Element {
+export function Cybersecurity({ planCourses }: planCoursesProp): JSX.Element {
     const planCoursesString: string[] = planCourses.map(
         (course: Course): string => course.code
     );
@@ -83,33 +81,24 @@ export function SystemsAndNetworks({
     }
 
     const concentrationReq: string[] = [
-        "CISC 360",
         "CISC 361",
         "CISC 372",
         "CISC 450",
-        "CISC 471"
-    ];
-    const securityReq: string[] = [
         "CISC 464",
         "CPEG 465",
-        "CPEG 470",
-        "CPEG 476",
+        "CPEG 494"
+    ];
+    const securityReq: string[] = [
+        "CPEG 472",
         "CPEG 473",
         "CPEG 475",
-        "CPEG 497"
-    ];
-    const advancedSystemsReq: string[] = [
-        "CISC 437",
-        "CISC 453",
-        "CISC 459",
-        "CISC 464",
-        "CISC 474",
-        "CISC 475",
-        "CISC 479",
-        "CPEG 473",
-        "CPEG 497"
+        "CPEG 476",
+        "CPEG 495"
     ];
     const restrictedElectives1: string[] = [
+        "MATH 242",
+        "MATH 349",
+        "MATH 549",
         "CISC 304",
         "CISC 436",
         "CISC 437",
@@ -118,31 +107,22 @@ export function SystemsAndNetworks({
         "CISC 449",
         "CISC 453",
         "CISC 459",
-        "CISC 464",
-        "CISC 474",
-        "CISC 475",
-        "CISC 479",
-        "CISC 481",
-        "CISC 483",
-        "CISC 484",
-        "CISC 489"
+        "CICS 481",
+        "CICS 483",
+        "CICS 484",
+        "CISC 474"
     ];
     const restrictedElectives2: string[] = [
-        "CPEG 202",
-        "CPEG 222",
-        "CPEG 323",
-        "CPEG 422",
-        "CPEG 460",
-        "CPEG 465",
         "CPEG 470",
+        "CPEG 471",
+        "CPEG 472",
+        "CPEG 473",
         "CPEG 475",
         "CPEG 476",
         "CPEG 494",
-        "CPEG 497",
+        "CPEG 495",
         "ELEG 387",
-        "ELEG 487",
-        "MATH 242",
-        "MATH 349"
+        "ELEG 487"
     ];
 
     return (
@@ -163,6 +143,7 @@ export function SystemsAndNetworks({
                         }
                     })}
                 </Col>
+
                 <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
                     <b>Additional Requirements {"\n"}</b>
                     {additionalReq.map((course: string) => {
@@ -230,24 +211,8 @@ export function SystemsAndNetworks({
                 </Col>
                 <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
                     <b>Security Requirement {"\n"}</b>
-                    <i>-One of the following- {"\n"}</i>
-                    {securityReq.map((course: string) => {
-                        if (
-                            planCourses.some(
-                                (courseObj: Course): boolean =>
-                                    courseObj.code === course
-                            )
-                        ) {
-                            return course + "✅\n";
-                        } else {
-                            return course + "\n";
-                        }
-                    })}
-                </Col>
-                <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
-                    <b>Advanced Systems Requirement {"\n"}</b>
                     <i>-Two of the following- {"\n"}</i>
-                    {advancedSystemsReq.map((course: string) => {
+                    {securityReq.map((course: string) => {
                         if (
                             planCourses.some(
                                 (courseObj: Course): boolean =>

@@ -4,6 +4,7 @@ import { Course, CourseJSON, Section } from "../Interfaces/Courses";
 import { SetFallProp } from "../Interfaces/semesterInterfaces";
 import { Button } from "react-bootstrap";
 import { CourseEdit } from "../Components/CourseEdit";
+import { ShowFallTable } from "./ShowFallTable";
 
 export function TableContentsFall({
     setFall,
@@ -73,6 +74,15 @@ export function TableContentsFall({
                 ];
                 setSelectedCourses(addNewCourse);
                 setPlanCourses(planCoursesCopy);
+                setFall(
+                    <ShowFallTable
+                        setFall={setFall}
+                        Visible={Visible}
+                        SearchVisible={SearchVisible}
+                        planCourses={planCoursesCopy}
+                        setPlanCourses={setPlanCourses}
+                    ></ShowFallTable>
+                );
                 setInput("");
                 clearSearchBar();
             }
@@ -169,31 +179,25 @@ export function TableContentsFall({
                                     <td>{course.credits}</td>
                                     {Visible && (
                                         <td>
-                                            <td>
-                                                <Button
-                                                    style={{
-                                                        backgroundColor:
-                                                            "darkRed"
-                                                    }}
-                                                    onClick={() =>
-                                                        deleteCourse(course)
-                                                    }
-                                                    data-testid={
-                                                        course.code + " delete"
-                                                    }
-                                                >
-                                                    Delete
-                                                </Button>
-                                            </td>
-                                            <td>
-                                                <Button
-                                                    onClick={() =>
-                                                        reset(course)
-                                                    }
-                                                >
-                                                    Reset
-                                                </Button>
-                                            </td>
+                                            <Button
+                                                style={{
+                                                    backgroundColor: "darkRed"
+                                                }}
+                                                onClick={() =>
+                                                    deleteCourse(course)
+                                                }
+                                                data-testid={
+                                                    course.code + " delete"
+                                                }
+                                            >
+                                                Delete
+                                            </Button>
+
+                                            <Button
+                                                onClick={() => reset(course)}
+                                            >
+                                                Reset
+                                            </Button>
                                         </td>
                                     )}
                                 </tr>

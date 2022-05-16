@@ -4,16 +4,20 @@ import { Course, CourseJSON, Section } from "../Interfaces/Courses";
 import { SetWinterProp } from "../Interfaces/semesterInterfaces";
 import { Button } from "react-bootstrap";
 import { CourseEdit } from "../Components/CourseEdit";
+import { ShowWinterTable } from "./ShowWinterTable";
 
 export function TableContentsWinter({
     setWinter,
     Visible,
-    SearchVisible
+    SearchVisible,
+    planCourses,
+    setPlanCourses
 }: SetWinterProp): JSX.Element {
     const [input, setInput] = useState<string>("");
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
     const [classPopup, setClassPopup] = useState<JSX.Element | null>(null);
     const courseObjects: Course[] = [];
+    //const [course, setCourse] = useState<Course[]>(loadedData);
     const StringData: string = JSON.stringify(Data);
     const DataObjects: Section[] = Object.values(JSON.parse(StringData));
 
@@ -44,6 +48,11 @@ export function TableContentsWinter({
                 (course: Course): boolean => course.code === input
             )
         ) {
+            /* if (
+                !planCourses.some(
+                    (course: Course): boolean => course.code === input
+                )
+            ) { */
             const AddCourse: Course[] = courseObjects.filter(
                 (course: Course): boolean => course.code === input
             );
@@ -53,10 +62,27 @@ export function TableContentsWinter({
                     (course: Course): boolean => course.ID === singleCourse.ID
                 )
             ) {
-                return; //needs error message
+                return; //needs error message>
             } else {
-                const AddCourse2: Course[] = [...selectedCourses, singleCourse];
-                setSelectedCourses(AddCourse2);
+                const addNewCourse: Course[] = [
+                    ...selectedCourses,
+                    singleCourse
+                ];
+                const planCoursesCopy: Course[] = [
+                    ...planCourses,
+                    singleCourse
+                ];
+                setSelectedCourses(addNewCourse);
+                setPlanCourses(planCoursesCopy);
+                setWinter(
+                    <ShowWinterTable
+                        setWinter={setWinter}
+                        Visible={Visible}
+                        SearchVisible={SearchVisible}
+                        planCourses={planCoursesCopy}
+                        setPlanCourses={setPlanCourses}
+                    ></ShowWinterTable>
+                );
                 setInput("");
                 clearSearchBar();
             }
@@ -69,6 +95,10 @@ export function TableContentsWinter({
         const courseCopy: Course[] = selectedCourses.filter(
             (x: Course): boolean => x !== course
         );
+        const planCoursesCopy: Course[] = planCourses.filter(
+            (course2: Course) => course2.code !== course.code
+        );
+        setPlanCourses(planCoursesCopy);
         setSelectedCourses(courseCopy);
     }
     function clearCourses(course: Course[]) {
@@ -149,31 +179,25 @@ export function TableContentsWinter({
                                     <td>{course.credits}</td>
                                     {Visible && (
                                         <td>
-                                            <td>
-                                                <Button
-                                                    style={{
-                                                        backgroundColor:
-                                                            "darkRed"
-                                                    }}
-                                                    onClick={() =>
-                                                        deleteCourse(course)
-                                                    }
-                                                    data-testid={
-                                                        course.code + " delete"
-                                                    }
-                                                >
-                                                    Delete
-                                                </Button>
-                                            </td>
-                                            <td>
-                                                <Button
-                                                    onClick={() =>
-                                                        reset(course)
-                                                    }
-                                                >
-                                                    Reset
-                                                </Button>
-                                            </td>
+                                            <Button
+                                                style={{
+                                                    backgroundColor: "darkRed"
+                                                }}
+                                                onClick={() =>
+                                                    deleteCourse(course)
+                                                }
+                                                data-testid={
+                                                    course.code + " delete"
+                                                }
+                                            >
+                                                Delete
+                                            </Button>
+
+                                            <Button
+                                                onClick={() => reset(course)}
+                                            >
+                                                Reset
+                                            </Button>
                                         </td>
                                     )}
                                 </tr>
@@ -229,10 +253,7 @@ export function TableContentsWinter({
                         >
                             Clear Winter
                         </Button>
-                        <Button
-                            style={{ backgroundColor: "green" }}
-                            //onClick={saveButton}
-                        >
+                        <Button style={{ backgroundColor: "green" }}>
                             Save Winter
                         </Button>
                     </span>

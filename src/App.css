@@ -139,6 +139,7 @@ td {
     background-color: #fff;
     border-style: solid;
     border-radius: 25px;
+    overflow-y: scroll;
 }
 
 .popup-inner .close-btn {

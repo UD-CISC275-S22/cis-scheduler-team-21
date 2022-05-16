@@ -3,9 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import { Course } from "../Interfaces/Courses";
 import { planCoursesProp } from "../Interfaces/degreeInterface";
 
-export function SystemsAndNetworks({
-    planCourses
-}: planCoursesProp): JSX.Element {
+export function HPC({ planCourses }: planCoursesProp): JSX.Element {
     const planCoursesString: string[] = planCourses.map(
         (course: Course): string => course.code
     );
@@ -21,7 +19,6 @@ export function SystemsAndNetworks({
         "MATH 210",
         "MATH 241"
     ];
-    const extraMath: string[] = ["MATH 205", "MATH 350"];
     let additionalReq: string[];
     if (
         planCoursesString.includes("CISC 355") &&
@@ -87,66 +84,37 @@ export function SystemsAndNetworks({
         "CISC 361",
         "CISC 372",
         "CISC 450",
-        "CISC 471"
-    ];
-    const securityReq: string[] = [
-        "CISC 464",
-        "CPEG 465",
-        "CPEG 470",
-        "CPEG 476",
-        "CPEG 473",
-        "CPEG 475",
-        "CPEG 497"
-    ];
-    const advancedSystemsReq: string[] = [
-        "CISC 437",
-        "CISC 453",
-        "CISC 459",
-        "CISC 464",
-        "CISC 474",
-        "CISC 475",
-        "CISC 479",
-        "CPEG 473",
-        "CPEG 497"
-    ];
-    const restrictedElectives1: string[] = [
-        "CISC 304",
-        "CISC 436",
-        "CISC 437",
-        "CISC 440",
-        "CISC 442",
-        "CISC 449",
-        "CISC 453",
-        "CISC 459",
-        "CISC 464",
-        "CISC 474",
-        "CISC 475",
-        "CISC 479",
-        "CISC 481",
-        "CISC 483",
-        "CISC 484",
-        "CISC 489"
-    ];
-    const restrictedElectives2: string[] = [
-        "CPEG 202",
-        "CPEG 222",
-        "CPEG 323",
-        "CPEG 422",
-        "CPEG 460",
-        "CPEG 465",
-        "CPEG 470",
-        "CPEG 475",
-        "CPEG 476",
-        "CPEG 494",
-        "CPEG 497",
-        "ELEG 387",
-        "ELEG 487",
+        "CISC 471",
         "MATH 242",
-        "MATH 349"
+        "MATH 243"
+    ];
+    const dataTrack: string[] = [
+        "CISC 437",
+        "MATH 350",
+        "MATH 450",
+        "CISC 483 or CISC 484"
+    ];
+    const dataElective: string[] = [
+        "MATH 302",
+        "MATH 349",
+        "MATH 351",
+        "MATH 535",
+        "ANY 300+ CISC COURSE"
+    ];
+    const mathTrack: string[] = [
+        "MATH 351",
+        "MATH 428",
+        "MATH 205 or MATH 350"
+    ];
+    const mathElective: string[] = [
+        "MATH 205",
+        "MATH 350",
+        "ANY 300+ CISC COURSE"
     ];
 
     return (
         <div>
+            <b style={{ marginLeft: "44ch" }}>Choose One Track</b>
             <Row>
                 <Col sm={"auto"}>
                     <b>Core Requirement {"\n"}</b>
@@ -198,22 +166,6 @@ export function SystemsAndNetworks({
                     })}
                 </Col>
                 <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
-                    <b>Prob/Stat Course {"\n"}</b>
-                    <i>-One of the following- {"\n"}</i>
-                    {extraMath.map((course: string) => {
-                        if (
-                            planCourses.some(
-                                (courseObj: Course): boolean =>
-                                    courseObj.code === course
-                            )
-                        ) {
-                            return course + "✅\n";
-                        } else {
-                            return course + "\n";
-                        }
-                    })}
-                </Col>
-                <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
                     <b>Concentration Core {"\n"}</b>
                     {concentrationReq.map((course: string) => {
                         if (
@@ -229,9 +181,23 @@ export function SystemsAndNetworks({
                     })}
                 </Col>
                 <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
-                    <b>Security Requirement {"\n"}</b>
-                    <i>-One of the following- {"\n"}</i>
-                    {securityReq.map((course: string) => {
+                    <b>Data Track Requirements {"\n"}</b>
+                    {dataTrack.map((course: string) => {
+                        if (
+                            planCourses.some((courseObj: Course): boolean =>
+                                course.includes(courseObj.code)
+                            )
+                        ) {
+                            return course + "✅\n";
+                        } else {
+                            return course + "\n";
+                        }
+                    })}
+                </Col>
+                <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
+                    <b>Data Track Electives {"\n"}</b>
+                    <i>-Five Credits of the following- {"\n"}</i>
+                    {dataElective.map((course: string) => {
                         if (
                             planCourses.some(
                                 (courseObj: Course): boolean =>
@@ -245,29 +211,11 @@ export function SystemsAndNetworks({
                     })}
                 </Col>
                 <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
-                    <b>Advanced Systems Requirement {"\n"}</b>
-                    <i>-Two of the following- {"\n"}</i>
-                    {advancedSystemsReq.map((course: string) => {
+                    <b>Math Track Requirements {"\n"}</b>
+                    {mathTrack.map((course: string) => {
                         if (
-                            planCourses.some(
-                                (courseObj: Course): boolean =>
-                                    courseObj.code === course
-                            )
-                        ) {
-                            return course + "✅\n";
-                        } else {
-                            return course + "\n";
-                        }
-                    })}
-                </Col>
-                <Col sm={"1"} style={{ whiteSpace: "pre", marginRight: "3ch" }}>
-                    <b>Restricted Electives {"\n"}</b>
-                    <i>-Six credits of the following- {"\n"}</i>
-                    {restrictedElectives1.map((course: string) => {
-                        if (
-                            planCourses.some(
-                                (courseObj: Course): boolean =>
-                                    courseObj.code === course
+                            planCourses.some((courseObj: Course): boolean =>
+                                course.includes(courseObj.code)
                             )
                         ) {
                             return course + "✅\n";
@@ -277,15 +225,16 @@ export function SystemsAndNetworks({
                     })}
                 </Col>
                 <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
-                    {"\n \n"}
-                    {restrictedElectives2.map((course: string) => {
+                    <b>Math Track Electives {"\n"}</b>
+                    <i>-Five Credits of the following- {"\n"}</i>
+                    {mathElective.map((course: string) => {
                         if (
                             planCourses.some(
                                 (courseObj: Course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
-                            return course + "✅ \n";
+                            return course + "✅\n";
                         } else {
                             return course + "\n";
                         }

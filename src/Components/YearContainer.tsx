@@ -50,7 +50,7 @@ export function YearContainer({
                     }}
                     onClick={() => setVisible(!Visible)}
                 >
-                    +
+                    Show/Hide
                 </Button>
                 {editVis && (
                     <Button

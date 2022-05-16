@@ -5,7 +5,9 @@ import { SetWinterProp } from "../Interfaces/semesterInterfaces";
 export function ShowWinterTable({
     setWinter,
     Visible,
-    SearchVisible
+    SearchVisible,
+    planCourses,
+    setPlanCourses
 }: //DataKey
 SetWinterProp): JSX.Element {
     return (
@@ -50,7 +52,8 @@ SetWinterProp): JSX.Element {
                 setWinter={setWinter}
                 Visible={Visible}
                 SearchVisible={SearchVisible}
-                //DataKey={DataKey}
+                planCourses={planCourses}
+                setPlanCourses={setPlanCourses}
             ></TableContentsWinter>
         </div>
     );

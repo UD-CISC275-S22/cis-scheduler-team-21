@@ -6,6 +6,9 @@ import userEvent from "@testing-library/user-event";
 const setSummerElement = () => {
     return;
 };
+const setPlanCourses = () => {
+    return;
+};
 
 describe("SummerDataToArrayTests", () => {
     beforeEach(() => {
@@ -14,6 +17,8 @@ describe("SummerDataToArrayTests", () => {
                 setSummer={setSummerElement}
                 Visible={true}
                 SearchVisible={true}
+                planCourses={[]}
+                setPlanCourses={setPlanCourses}
             />
         );
     });

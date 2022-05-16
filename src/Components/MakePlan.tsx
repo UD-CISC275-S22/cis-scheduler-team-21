@@ -14,7 +14,7 @@ if (previousData !== null) {
 }
 
 export function MakePlan(): JSX.Element {
-    let mostRecentID = 0;
+    let mostRecentID = 1;
     if (loadedData.length !== 0) {
         mostRecentID = loadedData[loadedData.length - 1].id + 1;
     }
@@ -39,7 +39,8 @@ export function MakePlan(): JSX.Element {
         setPlans(planList);
         setCounter(counterCopy);
         localStorage.setItem(saveDataKey, JSON.stringify(planList));
-        location.reload();
+        //const URL: string = document.URL;
+        window.location.reload();
     }
     function saveData() {
         localStorage.setItem(saveDataKey, JSON.stringify(Plans));
@@ -87,25 +88,43 @@ export function MakePlan(): JSX.Element {
                                 variant="dark"
                             >
                                 <DropdownItem
-                                    data-testid="bachelor-art-dropdownItem"
-                                    onClick={() => setDegree("Bachelor of Art")}
-                                >
-                                    Bachelor of Art
-                                </DropdownItem>
-                                <DropdownItem
-                                    data-testid="bachelor-science-dropdownItem"
-                                    onClick={() =>
-                                        setDegree("Bachelor of Science")
-                                    }
-                                >
-                                    Bachelor of Science
-                                </DropdownItem>
-                                <DropdownItem
+                                    data-testid="Systems And Networks"
                                     onClick={() =>
                                         setDegree("Systems And Networks")
                                     }
                                 >
                                     Systems And Networks
+                                </DropdownItem>
+                                <DropdownItem onClick={() => setDegree("AI")}>
+                                    Artifical Intelligence
+                                </DropdownItem>
+                                <DropdownItem
+                                    onClick={() => setDegree("Cybersecurity")}
+                                >
+                                    Cybersecurity
+                                </DropdownItem>
+                                <DropdownItem
+                                    onClick={() => setDegree("Bioinformatics")}
+                                >
+                                    Bioinformatics
+                                </DropdownItem>
+                                <DropdownItem
+                                    onClick={() => setDegree("DataScience")}
+                                >
+                                    DataScience
+                                </DropdownItem>
+                                <DropdownItem onClick={() => setDegree("HPC")}>
+                                    High Performance Computing
+                                </DropdownItem>
+                                <DropdownItem
+                                    onClick={() => setDegree("Theory")}
+                                >
+                                    Theory And Computaton
+                                </DropdownItem>
+                                <DropdownItem
+                                    onClick={() => setDegree("Traditional")}
+                                >
+                                    Traditional/Custom
                                 </DropdownItem>
                             </DropdownMenu>
                         </Dropdown>

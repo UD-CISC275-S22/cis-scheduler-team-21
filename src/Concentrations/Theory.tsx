@@ -3,9 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import { Course } from "../Interfaces/Courses";
 import { planCoursesProp } from "../Interfaces/degreeInterface";
 
-export function SystemsAndNetworks({
-    planCourses
-}: planCoursesProp): JSX.Element {
+export function Theory({ planCourses }: planCoursesProp): JSX.Element {
     const planCoursesString: string[] = planCourses.map(
         (course: Course): string => course.code
     );
@@ -83,70 +81,45 @@ export function SystemsAndNetworks({
     }
 
     const concentrationReq: string[] = [
-        "CISC 360",
-        "CISC 361",
-        "CISC 372",
-        "CISC 450",
-        "CISC 471"
-    ];
-    const securityReq: string[] = [
-        "CISC 464",
-        "CPEG 465",
-        "CPEG 470",
-        "CPEG 476",
-        "CPEG 473",
-        "CPEG 475",
-        "CPEG 497"
-    ];
-    const advancedSystemsReq: string[] = [
-        "CISC 437",
-        "CISC 453",
-        "CISC 459",
-        "CISC 464",
-        "CISC 474",
-        "CISC 475",
-        "CISC 479",
-        "CPEG 473",
-        "CPEG 497"
-    ];
-    const restrictedElectives1: string[] = [
         "CISC 304",
-        "CISC 436",
-        "CISC 437",
-        "CISC 440",
-        "CISC 442",
-        "CISC 449",
-        "CISC 453",
-        "CISC 459",
-        "CISC 464",
-        "CISC 474",
-        "CISC 475",
-        "CISC 479",
-        "CISC 481",
-        "CISC 483",
-        "CISC 484",
-        "CISC 489"
+        "CISC 401",
+        "Math 242",
+        "Math 349"
     ];
-    const restrictedElectives2: string[] = [
-        "CPEG 202",
-        "CPEG 222",
-        "CPEG 323",
-        "CPEG 422",
-        "CPEG 460",
-        "CPEG 465",
-        "CPEG 470",
-        "CPEG 475",
-        "CPEG 476",
-        "CPEG 494",
-        "CPEG 497",
+    const discreteTrack: string[] = [
+        "CISC 404",
+        "MATH 245",
+        "MATH 315",
+        "MATH 451"
+    ];
+    const continousTrack: string[] = [
+        "MATH 243",
+        "MATH 302",
+        "MATH 535",
+        "MATH 426"
+    ];
+    const restrictedElectives: string[] = [
+        "CISC 372",
+        "CISC 404",
+        "CISC 410",
+        "CISC 414",
+        "CISC 471",
+        "CISC 481",
         "ELEG 387",
         "ELEG 487",
-        "MATH 242",
-        "MATH 349"
+        "MATH 243",
+        "MATH 245",
+        "MATH 302",
+        "MATH 315",
+        "MATH 350",
+        "MATH 428",
+        "MATH 450",
+        "MATH 451"
     ];
 
     return (
         <div>
+            <b style={{ marginLeft: "42ch" }}>Choose only one track</b>
             <Row>
                 <Col sm={"auto"}>
                     <b>Core Requirement {"\n"}</b>
@@ -229,9 +202,8 @@ export function SystemsAndNetworks({
                     })}
                 </Col>
                 <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
-                    <b>Security Requirement {"\n"}</b>
-                    <i>-One of the following- {"\n"}</i>
-                    {securityReq.map((course: string) => {
+                    <b>Discrete Track {"\n"}</b>
+                    {discreteTrack.map((course: string) => {
                         if (
                             planCourses.some(
                                 (courseObj: Course): boolean =>
@@ -245,9 +217,8 @@ export function SystemsAndNetworks({
                     })}
                 </Col>
                 <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
-                    <b>Advanced Systems Requirement {"\n"}</b>
-                    <i>-Two of the following- {"\n"}</i>
-                    {advancedSystemsReq.map((course: string) => {
+                    <b>Continous Track {"\n"}</b>
+                    {continousTrack.map((course: string) => {
                         if (
                             planCourses.some(
                                 (courseObj: Course): boolean =>
@@ -260,10 +231,10 @@ export function SystemsAndNetworks({
                         }
                     })}
                 </Col>
-                <Col sm={"1"} style={{ whiteSpace: "pre", marginRight: "3ch" }}>
+                <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
                     <b>Restricted Electives {"\n"}</b>
                     <i>-Six credits of the following- {"\n"}</i>
-                    {restrictedElectives1.map((course: string) => {
+                    {restrictedElectives.map((course: string) => {
                         if (
                             planCourses.some(
                                 (courseObj: Course): boolean =>
@@ -277,24 +248,6 @@ export function SystemsAndNetworks({
                     })}
                 </Col>
                 <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
-                    {"\n \n"}
-                    {restrictedElectives2.map((course: string) => {
-                        if (
-                            planCourses.some(
-                                (courseObj: Course): boolean =>
-                                    courseObj.code === course
-                            )
-                        ) {
-                            return course + "✅ \n";
-                        } else {
-                            return course + "\n";
-                        }
-                    })}
-                </Col>
-                <Col
-                    sm={"auto"}
-                    style={{ whiteSpace: "pre", marginLeft: "1.5ch" }}
-                >
                     <b>Lab Science Requirement {"\n"}</b>
                     <i>-Choose one group- {"\n"}</i>
                     {labScience.map((course: string) => {

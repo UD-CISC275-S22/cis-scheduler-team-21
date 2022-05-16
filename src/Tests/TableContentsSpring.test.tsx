@@ -6,6 +6,9 @@ import userEvent from "@testing-library/user-event";
 const setSpringElement = () => {
     return;
 };
+const setPlanCourses = () => {
+    return;
+};
 
 describe("SpringDataToArrayTests", () => {
     beforeEach(() => {
@@ -14,6 +17,8 @@ describe("SpringDataToArrayTests", () => {
                 setSpring={setSpringElement}
                 Visible={true}
                 SearchVisible={true}
+                planCourses={[]}
+                setPlanCourses={setPlanCourses}
             />
         );
     });
