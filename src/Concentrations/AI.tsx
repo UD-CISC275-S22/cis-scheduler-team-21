@@ -3,9 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import { Course } from "../Interfaces/Courses";
 import { planCoursesProp } from "../Interfaces/degreeInterface";
 
-export function SystemsAndNetworks({
-    planCourses
-}: planCoursesProp): JSX.Element {
+export function AI({ planCourses }: planCoursesProp): JSX.Element {
     const planCoursesString: string[] = planCourses.map(
         (course: Course): string => course.code
     );
@@ -21,7 +19,7 @@ export function SystemsAndNetworks({
         "MATH 210",
         "MATH 241"
     ];
-    const extraMath: string[] = ["MATH 205", "MATH 350"];
+
     let additionalReq: string[];
     if (
         planCoursesString.includes("CISC 355") &&
@@ -83,66 +81,39 @@ export function SystemsAndNetworks({
     }
 
     const concentrationReq: string[] = [
-        "CISC 360",
-        "CISC 361",
-        "CISC 372",
-        "CISC 450",
-        "CISC 471"
-    ];
-    const securityReq: string[] = [
-        "CISC 464",
-        "CPEG 465",
-        "CPEG 470",
-        "CPEG 476",
-        "CPEG 473",
-        "CPEG 475",
-        "CPEG 497"
-    ];
-    const advancedSystemsReq: string[] = [
-        "CISC 437",
-        "CISC 453",
-        "CISC 459",
-        "CISC 464",
-        "CISC 474",
-        "CISC 475",
-        "CISC 479",
-        "CPEG 473",
-        "CPEG 497"
-    ];
-    const restrictedElectives1: string[] = [
         "CISC 304",
-        "CISC 436",
-        "CISC 437",
-        "CISC 440",
         "CISC 442",
-        "CISC 449",
-        "CISC 453",
-        "CISC 459",
-        "CISC 464",
-        "CISC 474",
-        "CISC 475",
-        "CISC 479",
         "CISC 481",
         "CISC 483",
-        "CISC 484",
-        "CISC 489"
+        "CISC 484"
     ];
-    const restrictedElectives2: string[] = [
-        "CPEG 202",
-        "CPEG 222",
-        "CPEG 323",
-        "CPEG 422",
-        "CPEG 460",
-        "CPEG 465",
-        "CPEG 470",
-        "CPEG 475",
-        "CPEG 476",
-        "CPEG 494",
-        "CPEG 497",
+    const extraMath: string[] = ["MATH 205", "MATH 350"];
+    const systemsReq: string[] = ["CISC 361", "CISC372"];
+    const restrictedElectives1: string[] = [
+        "CISC 436",
+        "CISC 437",
+        "CISC 489",
+        "CISC889",
+        "EDUC 462",
+        "ELEG 404",
+        "ELEG 418",
         "ELEG 387",
         "ELEG 487",
+        "LING 202",
+        "LING 404"
+    ];
+    const restrictedElectives2: string[] = [
+        "LING 418",
+        "LING 444",
+        "LING 451",
+        "LING 455",
+        "MAST 632",
         "MATH 242",
-        "MATH 349"
+        "MATH 349",
+        "MEEG 671",
+        "PSYC 310",
+        "PSYC 340",
+        "PSYCH 344"
     ];
 
     return (
@@ -163,6 +134,7 @@ export function SystemsAndNetworks({
                         }
                     })}
                 </Col>
+
                 <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
                     <b>Additional Requirements {"\n"}</b>
                     {additionalReq.map((course: string) => {
@@ -198,6 +170,21 @@ export function SystemsAndNetworks({
                     })}
                 </Col>
                 <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
+                    <b>Concentration Core {"\n"}</b>
+                    {concentrationReq.map((course: string) => {
+                        if (
+                            planCourses.some(
+                                (courseObj: Course): boolean =>
+                                    courseObj.code === course
+                            )
+                        ) {
+                            return course + "✅\n";
+                        } else {
+                            return course + " \n";
+                        }
+                    })}
+                </Col>
+                <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
                     <b>Prob/Stat Course {"\n"}</b>
                     <i>-One of the following- {"\n"}</i>
                     {extraMath.map((course: string) => {
@@ -214,40 +201,9 @@ export function SystemsAndNetworks({
                     })}
                 </Col>
                 <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
-                    <b>Concentration Core {"\n"}</b>
-                    {concentrationReq.map((course: string) => {
-                        if (
-                            planCourses.some(
-                                (courseObj: Course): boolean =>
-                                    courseObj.code === course
-                            )
-                        ) {
-                            return course + "✅\n";
-                        } else {
-                            return course + " \n";
-                        }
-                    })}
-                </Col>
-                <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
-                    <b>Security Requirement {"\n"}</b>
+                    <b>Systems Requirement {"\n"}</b>
                     <i>-One of the following- {"\n"}</i>
-                    {securityReq.map((course: string) => {
-                        if (
-                            planCourses.some(
-                                (courseObj: Course): boolean =>
-                                    courseObj.code === course
-                            )
-                        ) {
-                            return course + "✅\n";
-                        } else {
-                            return course + "\n";
-                        }
-                    })}
-                </Col>
-                <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
-                    <b>Advanced Systems Requirement {"\n"}</b>
-                    <i>-Two of the following- {"\n"}</i>
-                    {advancedSystemsReq.map((course: string) => {
+                    {systemsReq.map((course: string) => {
                         if (
                             planCourses.some(
                                 (courseObj: Course): boolean =>
@@ -262,7 +218,7 @@ export function SystemsAndNetworks({
                 </Col>
                 <Col sm={"1"} style={{ whiteSpace: "pre", marginRight: "3ch" }}>
                     <b>Restricted Electives {"\n"}</b>
-                    <i>-Six credits of the following- {"\n"}</i>
+                    <i>-twelve credits of the following- {"\n"}</i>
                     {restrictedElectives1.map((course: string) => {
                         if (
                             planCourses.some(
@@ -293,7 +249,7 @@ export function SystemsAndNetworks({
                 </Col>
                 <Col
                     sm={"auto"}
-                    style={{ whiteSpace: "pre", marginLeft: "1.5ch" }}
+                    style={{ whiteSpace: "pre", marginLeft: "3ch" }}
                 >
                     <b>Lab Science Requirement {"\n"}</b>
                     <i>-Choose one group- {"\n"}</i>

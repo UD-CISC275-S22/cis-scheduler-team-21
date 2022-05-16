@@ -12,6 +12,21 @@ describe("MakePlan Component tests", () => {
             </MemoryRouter>
         )
     );
+    const original = window.location;
+
+    beforeAll(() => {
+        Object.defineProperty(window, "location", {
+            configurable: true,
+            value: { reload: jest.fn() }
+        });
+    });
+
+    afterAll(() => {
+        Object.defineProperty(window, "location", {
+            configurable: true,
+            value: original
+        });
+    });
     test("There is a button named New Plan", () => {
         const newPlanButton = screen.getByRole("button", {
             name: /New Plan/i
@@ -74,7 +89,7 @@ describe("MakePlan Component tests", () => {
 
         expect(closeButton.click()).not.toBeTruthy();
     });
-    test("Clicking the Bachelor of Science within the dropdown sets the degree to bachelor of science", () => {
+    test("Clicking Systems and Networks within the dropdown sets the degree to it", () => {
         const newPlanButton = screen.getByRole("button", {
             name: /New Plan/i
         });
@@ -85,29 +100,10 @@ describe("MakePlan Component tests", () => {
         });
         dropdownToggle.click();
 
-        const dropdownItem = screen.getByTestId(
-            "bachelor-science-dropdownItem"
-        );
+        const dropdownItem = screen.getByText("Systems And Networks");
         dropdownItem.click();
 
-        const name = screen.getByText("Bachelor of Science");
-        expect(name).toBeInTheDocument();
-    });
-    test("Clicking the Bachelor of Art within the dropdown sets the degree to bachelor of art", () => {
-        const newPlanButton = screen.getByRole("button", {
-            name: /New Plan/i
-        });
-        newPlanButton.click();
-
-        const dropdownToggle = screen.getByRole("button", {
-            name: /Select Degree/i
-        });
-        dropdownToggle.click();
-
-        const dropdownItem = screen.getByTestId("bachelor-art-dropdownItem");
-        dropdownItem.click();
-
-        const name = screen.getByText("Bachelor of Art");
+        const name = screen.getByText("Systems And Networks");
         expect(name).toBeInTheDocument();
     });
     test("Changing the year sets the year", () => {
@@ -129,9 +125,7 @@ describe("MakePlan Component tests", () => {
         userEvent.click(newPlanButton);
         const dropMenu: HTMLElement = screen.getByTestId("degree-dropdown2");
         dropMenu.click();
-        const option: HTMLElement = screen.getByTestId(
-            "bachelor-science-dropdownItem"
-        );
+        const option: HTMLElement = screen.getByText("Systems And Networks");
         option.click();
         const createButton: HTMLElement = screen.getByText("Create Plan");
         createButton.click();

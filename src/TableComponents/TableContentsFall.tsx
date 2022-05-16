@@ -179,31 +179,25 @@ export function TableContentsFall({
                                     <td>{course.credits}</td>
                                     {Visible && (
                                         <td>
-                                            <td>
-                                                <Button
-                                                    style={{
-                                                        backgroundColor:
-                                                            "darkRed"
-                                                    }}
-                                                    onClick={() =>
-                                                        deleteCourse(course)
-                                                    }
-                                                    data-testid={
-                                                        course.code + " delete"
-                                                    }
-                                                >
-                                                    Delete
-                                                </Button>
-                                            </td>
-                                            <td>
-                                                <Button
-                                                    onClick={() =>
-                                                        reset(course)
-                                                    }
-                                                >
-                                                    Reset
-                                                </Button>
-                                            </td>
+                                            <Button
+                                                style={{
+                                                    backgroundColor: "darkRed"
+                                                }}
+                                                onClick={() =>
+                                                    deleteCourse(course)
+                                                }
+                                                data-testid={
+                                                    course.code + " delete"
+                                                }
+                                            >
+                                                Delete
+                                            </Button>
+
+                                            <Button
+                                                onClick={() => reset(course)}
+                                            >
+                                                Reset
+                                            </Button>
                                         </td>
                                     )}
                                 </tr>

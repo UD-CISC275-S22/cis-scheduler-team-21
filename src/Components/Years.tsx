@@ -44,6 +44,7 @@ export function Years(): JSX.Element {
     const [editVis, setEditVis] = useState<boolean>(false);
     const [counter, setCounter] = useState<number>(mostRecentID);
     const [planCourses, setPlanCourses] = useState<Course[]>([]);
+    const [degreeReq, setDegreeReq] = useState<JSX.Element | null>(null);
     function addYear(): void {
         const nextCount: number = counter + 1;
         const newYear: Year = {
@@ -58,30 +59,34 @@ export function Years(): JSX.Element {
     function saveButton(): void {
         localStorage.setItem(saveDataKey, JSON.stringify(yearList));
     }
+    function showReq(): void {
+        return setDegreeReq(
+            <DegreeRequirement
+                planCourses={planCourses}
+                concentration={concentrationValue}
+                setDegreeReq={setDegreeReq}
+            ></DegreeRequirement>
+        );
+    }
     return (
         <div style={{ paddingBottom: "8ch" }}>
             <header className="App-header-Year">
-                <span style={{ width: "100%", textAlign: "center" }}>
-                    <span style={{ marginLeft: "8ch" }}>Year View</span>
-                    <Button
-                        style={{
-                            float: "right",
-                            marginRight: "6ch",
-                            marginTop: "2ch"
-                        }}
-                        onClick={() => setEditVis(!editVis)}
-                    >
-                        Rename Years
+                <div style={{ width: "100%", textAlign: "center" }}>
+                    Year View
+                </div>
+                <div
+                    style={{
+                        textAlign: "center"
+                    }}
+                >
+                    <Button onClick={() => setEditVis(!editVis)}>
+                        Rename/Delete Years
                     </Button>
                     <Button onClick={saveButton}>Save</Button>
-                </span>
+                    <Button onClick={showReq}>Course Requirements</Button>
+                </div>
             </header>
-            <div>
-                <DegreeRequirement
-                    planCourses={planCourses}
-                    concentration={concentrationValue}
-                ></DegreeRequirement>
-            </div>
+            <div>{degreeReq}</div>
             {yearList.map(
                 (year: Year): JSX.Element => (
                     <span key={year.id}>

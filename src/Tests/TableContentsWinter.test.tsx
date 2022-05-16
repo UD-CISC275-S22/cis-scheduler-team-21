@@ -6,6 +6,9 @@ import userEvent from "@testing-library/user-event";
 const setWinterElement = () => {
     return;
 };
+const setPlanCourses = () => {
+    return;
+};
 
 describe("WinterDataToArrayTests", () => {
     beforeEach(() => {
@@ -14,6 +17,8 @@ describe("WinterDataToArrayTests", () => {
                 setWinter={setWinterElement}
                 Visible={true}
                 SearchVisible={true}
+                planCourses={[]}
+                setPlanCourses={setPlanCourses}
             />
         );
     });

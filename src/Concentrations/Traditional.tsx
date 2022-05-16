@@ -3,9 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import { Course } from "../Interfaces/Courses";
 import { planCoursesProp } from "../Interfaces/degreeInterface";
 
-export function SystemsAndNetworks({
-    planCourses
-}: planCoursesProp): JSX.Element {
+export function Traditional({ planCourses }: planCoursesProp): JSX.Element {
     const planCoursesString: string[] = planCourses.map(
         (course: Course): string => course.code
     );
@@ -18,8 +16,13 @@ export function SystemsAndNetworks({
         "CISC 275",
         "CISC 303",
         "CISC 320",
+        "CISC 361",
+        "CISC 372",
         "MATH 210",
-        "MATH 241"
+        "MATH 241",
+        "MATH 242",
+        "Six additional credits of computer science technical electives numbered 301 or above, except for CISC 355, CISC 356, CISC 357, CISC 465, CISC 366 and CISC 466.",
+        "Twelve credits in advanced courses in a focus area approved by the student's CISC advisor and the CISC Undergraduate Coordinator."
     ];
     const extraMath: string[] = ["MATH 205", "MATH 350"];
     let additionalReq: string[];
@@ -81,69 +84,6 @@ export function SystemsAndNetworks({
             "PHYS 228"
         ];
     }
-
-    const concentrationReq: string[] = [
-        "CISC 360",
-        "CISC 361",
-        "CISC 372",
-        "CISC 450",
-        "CISC 471"
-    ];
-    const securityReq: string[] = [
-        "CISC 464",
-        "CPEG 465",
-        "CPEG 470",
-        "CPEG 476",
-        "CPEG 473",
-        "CPEG 475",
-        "CPEG 497"
-    ];
-    const advancedSystemsReq: string[] = [
-        "CISC 437",
-        "CISC 453",
-        "CISC 459",
-        "CISC 464",
-        "CISC 474",
-        "CISC 475",
-        "CISC 479",
-        "CPEG 473",
-        "CPEG 497"
-    ];
-    const restrictedElectives1: string[] = [
-        "CISC 304",
-        "CISC 436",
-        "CISC 437",
-        "CISC 440",
-        "CISC 442",
-        "CISC 449",
-        "CISC 453",
-        "CISC 459",
-        "CISC 464",
-        "CISC 474",
-        "CISC 475",
-        "CISC 479",
-        "CISC 481",
-        "CISC 483",
-        "CISC 484",
-        "CISC 489"
-    ];
-    const restrictedElectives2: string[] = [
-        "CPEG 202",
-        "CPEG 222",
-        "CPEG 323",
-        "CPEG 422",
-        "CPEG 460",
-        "CPEG 465",
-        "CPEG 470",
-        "CPEG 475",
-        "CPEG 476",
-        "CPEG 494",
-        "CPEG 497",
-        "ELEG 387",
-        "ELEG 487",
-        "MATH 242",
-        "MATH 349"
-    ];
 
     return (
         <div>
@@ -208,84 +148,6 @@ export function SystemsAndNetworks({
                             )
                         ) {
                             return course + "✅\n";
-                        } else {
-                            return course + "\n";
-                        }
-                    })}
-                </Col>
-                <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
-                    <b>Concentration Core {"\n"}</b>
-                    {concentrationReq.map((course: string) => {
-                        if (
-                            planCourses.some(
-                                (courseObj: Course): boolean =>
-                                    courseObj.code === course
-                            )
-                        ) {
-                            return course + "✅\n";
-                        } else {
-                            return course + " \n";
-                        }
-                    })}
-                </Col>
-                <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
-                    <b>Security Requirement {"\n"}</b>
-                    <i>-One of the following- {"\n"}</i>
-                    {securityReq.map((course: string) => {
-                        if (
-                            planCourses.some(
-                                (courseObj: Course): boolean =>
-                                    courseObj.code === course
-                            )
-                        ) {
-                            return course + "✅\n";
-                        } else {
-                            return course + "\n";
-                        }
-                    })}
-                </Col>
-                <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
-                    <b>Advanced Systems Requirement {"\n"}</b>
-                    <i>-Two of the following- {"\n"}</i>
-                    {advancedSystemsReq.map((course: string) => {
-                        if (
-                            planCourses.some(
-                                (courseObj: Course): boolean =>
-                                    courseObj.code === course
-                            )
-                        ) {
-                            return course + "✅\n";
-                        } else {
-                            return course + "\n";
-                        }
-                    })}
-                </Col>
-                <Col sm={"1"} style={{ whiteSpace: "pre", marginRight: "3ch" }}>
-                    <b>Restricted Electives {"\n"}</b>
-                    <i>-Six credits of the following- {"\n"}</i>
-                    {restrictedElectives1.map((course: string) => {
-                        if (
-                            planCourses.some(
-                                (courseObj: Course): boolean =>
-                                    courseObj.code === course
-                            )
-                        ) {
-                            return course + "✅\n";
-                        } else {
-                            return course + "\n";
-                        }
-                    })}
-                </Col>
-                <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
-                    {"\n \n"}
-                    {restrictedElectives2.map((course: string) => {
-                        if (
-                            planCourses.some(
-                                (courseObj: Course): boolean =>
-                                    courseObj.code === course
-                            )
-                        ) {
-                            return course + "✅ \n";
                         } else {
                             return course + "\n";
                         }
