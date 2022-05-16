@@ -1,6 +1,8 @@
 import React from "react";
 import { SetFallProp } from "../Interfaces/semesterInterfaces";
 import { TableContentsFall } from "./TableContentsFall";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 export function ShowFallTable({
     setFall,
@@ -51,13 +53,15 @@ export function ShowFallTable({
                     </tr>
                 </tbody>
             </table>
-            <TableContentsFall
-                setFall={setFall}
-                Visible={Visible}
-                SearchVisible={SearchVisible}
-                planCourses={planCourses}
-                setPlanCourses={setPlanCourses}
-            ></TableContentsFall>
+            <DndProvider backend={HTML5Backend}>
+                <TableContentsFall
+                    setFall={setFall}
+                    Visible={Visible}
+                    SearchVisible={SearchVisible}
+                    planCourses={planCourses}
+                    setPlanCourses={setPlanCourses}
+                ></TableContentsFall>
+            </DndProvider>
         </div>
     );
 }

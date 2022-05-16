@@ -3,14 +3,22 @@ import React, { useState } from "react";
 import "../App.css";
 import { YearContainer } from "./YearContainer";
 import { Year } from "../Interfaces/yearInterface";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { Course } from "../Interfaces/Courses";
 import { DegreeRequirement } from "./DegreeRequirement";
 import { useLocation } from "react-router-dom";
+import { CoursePool } from "./CoursePool";
 
 type locationStateString = { concentrationValue: string };
 
-const yearDataKey = "Years-Data";
+const FallCheckedCourseData: string | null =
+    localStorage.getItem("FallSem-Data");
+let loadedData: Course[] = [];
+
+if (FallCheckedCourseData !== null) {
+    loadedData = JSON.parse(FallCheckedCourseData);
+    console.log(loadedData);
+}
 
 export function Years(): JSX.Element {
     const location = useLocation();
@@ -32,13 +40,6 @@ export function Years(): JSX.Element {
         title: "Senior",
         id: 4
     };
-    let loadedData: Year[] = [Freshman, Sophomore, Junior, Senior];
-
-    const previousData = localStorage.getItem(yearDataKey);
-
-    if (previousData !== null) {
-        loadedData = Object.values(JSON.parse(previousData));
-    }
 
     const [yearList, setYearList] = useState<Year[]>([
         Freshman,
@@ -46,7 +47,7 @@ export function Years(): JSX.Element {
         Junior,
         Senior
     ]);
-    const [yearsData, setYearsData] = useState<Year[]>(loadedData);
+    //const [yearsData, setYearsData] = useState<Year[]>(loadedData);
     const [editVis, setEditVis] = useState<boolean>(false);
     const [counter, setCounter] = useState<number>(5);
     const [planCourses, setPlanCourses] = useState<Course[]>([]);
@@ -60,10 +61,36 @@ export function Years(): JSX.Element {
         const yearListCopy: Year[] = [...yearList, newYear];
         setYearList(yearListCopy);
         //setYearsData([...loadedData, newYear]);
-        localStorage.setItem(yearDataKey, JSON.stringify(yearListCopy));
+        //localStorage.setItem(yearDataKey, JSON.stringify(yearListCopy));
     }
-    function saveYears() {
+    /**function saveYears() {
         localStorage.setItem(yearDataKey, JSON.stringify(yearsData));
+    }*/
+
+    function deleteCourse(course: Course) {
+        const courseCopy: Course[] = loadedData.filter(
+            (x: Course): boolean => x !== course
+        );
+        loadedData = [...courseCopy];
+    }
+
+    const [checked, setChecked] = useState<boolean>(false);
+    let courseCodes: string[] = [];
+
+    function checkBox(code: string, e: React.ChangeEvent<HTMLInputElement>) {
+        const checkedOrNot = e.target.checked;
+        if (checkedOrNot == true) {
+            setChecked(true);
+            courseCodes = courseCodes.includes(code)
+                ? [...courseCodes]
+                : [...courseCodes, code];
+        } else {
+            setChecked(false);
+            courseCodes = courseCodes.filter(
+                (courseCode: string): boolean => courseCode == code
+            );
+        }
+        //console.log(courseCodes);
     }
 
     return (
@@ -71,16 +98,6 @@ export function Years(): JSX.Element {
             <header className="App-header-Year">
                 <span style={{ width: "100%", textAlign: "center" }}>
                     <span style={{ marginLeft: "8ch" }}>Year View</span>
-                    <Button
-                        style={{
-                            float: "right",
-                            marginRight: "6ch",
-                            marginTop: "2ch"
-                        }}
-                        onClick={saveYears}
-                    >
-                        Save Years
-                    </Button>
                     <Button
                         style={{
                             float: "right",
@@ -125,6 +142,66 @@ export function Years(): JSX.Element {
                 <Button onClick={addYear} className="orangeButton">
                     Add Year
                 </Button>
+            </div>
+            <div>
+                <br></br>
+                <br></br>
+                <br></br>
+                <header className="App-header-Pool">
+                    <span style={{ width: "100%", textAlign: "center" }}>
+                        <span>Course Pool</span>
+                    </span>
+                </header>
+                <div style={{ marginBottom: "1ch" }}>
+                    <table className="add-border">
+                        <tbody>
+                            {loadedData.map(
+                                (course: Course): JSX.Element => (
+                                    <tr
+                                        key={course.code}
+                                        data-testid={course.code}
+                                        className="innerTR"
+                                    >
+                                        <td>{course.code}</td>
+                                        <td>{course.name}</td>
+                                        <td>{course.credits}</td>
+                                        <td>
+                                            <td>
+                                                <Button
+                                                    style={{
+                                                        backgroundColor:
+                                                            "darkRed"
+                                                    }}
+                                                    onClick={() =>
+                                                        deleteCourse(course)
+                                                    }
+                                                    data-testid={
+                                                        course.code + " delete"
+                                                    }
+                                                >
+                                                    Delete
+                                                </Button>
+                                            </td>
+                                            <td>
+                                                <Form.Check
+                                                    type="checkbox"
+                                                    id={course.code}
+                                                    className="checkBox"
+                                                    onChange={(e) => {
+                                                        checkBox(
+                                                            course.code,
+                                                            e
+                                                        );
+                                                    }}
+                                                ></Form.Check>
+                                            </td>
+                                        </td>
+                                    </tr>
+                                )
+                            )}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );

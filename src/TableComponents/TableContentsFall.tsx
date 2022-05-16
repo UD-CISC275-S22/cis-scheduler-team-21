@@ -2,17 +2,13 @@ import React, { useState } from "react";
 import Data from "../Data/catalog.json";
 import { Course, CourseJSON, Section } from "../Interfaces/Courses";
 import { SetFallProp } from "../Interfaces/semesterInterfaces";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { CourseEdit } from "../Components/CourseEdit";
 
 const fallDataKey = "FallSem-Data";
-let loadedData: Course[] = [];
+const loadedData: Course[] = [];
 
-const previousData = localStorage.getItem(fallDataKey);
-
-if (previousData !== null) {
-    loadedData = JSON.parse(previousData);
-}
+export let checkedCourses: Course[] = [];
 
 export function TableContentsFall({
     setFall,
@@ -25,10 +21,8 @@ export function TableContentsFall({
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
     const [classPopup, setClassPopup] = useState<JSX.Element | null>(null);
     const courseObjects: Course[] = [];
-    const [fallCourses, setFallCourses] = useState<Course[]>(loadedData);
     const StringData: string = JSON.stringify(Data);
     const DataObjects: Section[] = Object.values(JSON.parse(StringData));
-    //let fallCourses: Course[] = [];
 
     DataObjects.map((section: Section) => {
         const courseString: string = JSON.stringify(section);
@@ -51,6 +45,7 @@ export function TableContentsFall({
         });
     });
     let originalCourse: Course;
+
     function addTable(): JSX.Element | void {
         if (
             courseObjects.some(
@@ -77,6 +72,7 @@ export function TableContentsFall({
                     ...selectedCourses,
                     singleCourse
                 ];
+                //setIndex([...index, index.length]);
                 const planCoursesCopy: Course[] = [
                     ...planCourses,
                     singleCourse
@@ -86,7 +82,6 @@ export function TableContentsFall({
                 //setCourse(planCoursesCopy);
                 setInput("");
                 clearSearchBar();
-                setFallCourses(addNewCourse);
             }
         }
     }
@@ -149,10 +144,56 @@ export function TableContentsFall({
         );
         setSelectedCourses(selectedCopy);
     }
-    function saveFall() {
+    /**function saveFall() {
         //setCourse(planCourses);
         localStorage.setItem(fallDataKey, JSON.stringify(fallCourses));
+    }*/
+
+    const [checked, setChecked] = useState<boolean>(false);
+    const [checkedData, setCheckedData] = useState<Course[]>(loadedData);
+    const [courseCodes, setCourseCodes] = useState<string[]>([]);
+    //let courseCodes: string[] = [];
+
+    function checkBox(code: string, e: React.ChangeEvent<HTMLInputElement>) {
+        const checkedOrNot = e.target.checked;
+        if (checkedOrNot == true) {
+            setChecked(true);
+            setCourseCodes(
+                courseCodes.includes(code)
+                    ? [...courseCodes]
+                    : [...courseCodes, code]
+            );
+        } else {
+            setChecked(false);
+            setCourseCodes(
+                courseCodes.filter(
+                    (courseCode: string): boolean => courseCode !== code
+                )
+            );
+        }
+        //console.log(courseCodes);
     }
+
+    let newSelectedCourses: Course[] = [];
+
+    function moveCourse() {
+        let codesArray = [...courseCodes];
+        console.log(codesArray);
+        codesArray.map((code: string) => {
+            checkedCourses = selectedCourses.filter(
+                (course: Course) => course.code == code
+            );
+            newSelectedCourses = selectedCourses.filter(
+                (course: Course) => course.code !== code
+            );
+        });
+        setSelectedCourses(newSelectedCourses);
+        codesArray = [];
+        setCourseCodes([]);
+        setCheckedData(checkedCourses);
+        localStorage.setItem(fallDataKey, JSON.stringify(checkedData));
+    }
+
     return (
         <div>
             <div style={{ marginBottom: "1ch" }}>
@@ -210,6 +251,19 @@ export function TableContentsFall({
                                                     Reset
                                                 </Button>
                                             </td>
+                                            <td>
+                                                <Form.Check
+                                                    type="checkbox"
+                                                    id={course.code}
+                                                    className="checkBox"
+                                                    onChange={(e) => {
+                                                        checkBox(
+                                                            course.code,
+                                                            e
+                                                        );
+                                                    }}
+                                                ></Form.Check>
+                                            </td>
                                         </td>
                                     )}
                                 </tr>
@@ -265,12 +319,17 @@ export function TableContentsFall({
                         >
                             Clear Fall
                         </Button>
-                        <Button
-                            style={{ backgroundColor: "green" }}
-                            onClick={saveFall}
-                        >
+                        <Button style={{ backgroundColor: "green" }}>
                             Save Fall
                         </Button>
+                        {checked && (
+                            <Button
+                                style={{ backgroundColor: "blue" }}
+                                onClick={moveCourse}
+                            >
+                                Move to Course Pool
+                            </Button>
+                        )}
                     </span>
                 )}
             </span>
