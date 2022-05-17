@@ -105,7 +105,7 @@ describe("CourseEdit Component tests", () => {
         expect(screen.getByDisplayValue(newText)).toBeInTheDocument();
         expect(length !== newText.length);
     });
-    test("Checking the Arts and Sciences breadth", () => {
+    /**test("Checking the Arts and Sciences breadth", () => {
         const artBreadthsForm = screen.getByTestId("art-breadths-form");
         expect(artBreadthsForm).toBeInTheDocument();
         artBreadthsForm.click();
@@ -135,7 +135,7 @@ describe("CourseEdit Component tests", () => {
     test("There is a form named Mathematical, Natural Sciences and Technology", () => {
         const mathBreadthsForm = screen.getByTestId("math-breadths-form");
         expect(mathBreadthsForm).toBeInTheDocument();
-    });
+    });*/
     test("There is a form named Descr that changes the course description when edited by the user", () => {
         const descriptionForm = screen.getByTestId("description-form");
 

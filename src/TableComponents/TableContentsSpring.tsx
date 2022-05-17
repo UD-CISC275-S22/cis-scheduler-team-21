@@ -162,6 +162,7 @@ export function TableContentsSpring({
                                     {Visible && (
                                         <td>
                                             <ins
+                                                data-testid="courseId-button"
                                                 style={{
                                                     cursor: "pointer",
                                                     color: "blue"

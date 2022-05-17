@@ -162,6 +162,7 @@ export function TableContentsWinter({
                                     {Visible && (
                                         <td>
                                             <ins
+                                                data-testid="courseId-button"
                                                 style={{
                                                     cursor: "pointer",
                                                     color: "blue"

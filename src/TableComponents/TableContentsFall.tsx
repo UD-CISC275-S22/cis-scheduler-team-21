@@ -221,7 +221,7 @@ export function TableContentsFall({
                                     {Visible && (
                                         <td>
                                             <ins
-                                                data-TestId="courseId-button"
+                                                data-testid="courseId-button"
                                                 style={{
                                                     cursor: "pointer",
                                                     color: "blue"

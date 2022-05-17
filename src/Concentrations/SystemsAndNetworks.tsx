@@ -146,7 +146,7 @@ export function SystemsAndNetworks({
     ];
 
     return (
-        <div>
+        <div data-testId="systems-and-networks-requirements">
             <Row>
                 <Col sm={"auto"}>
                     <b>Core Requirement {"\n"}</b>

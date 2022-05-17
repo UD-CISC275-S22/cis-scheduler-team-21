@@ -49,7 +49,7 @@ describe("PlanContainer component test", () => {
         expect(screen.getByText("xyz")).toBeInTheDocument();
         expect(screen.getByText("New Description")).toBeInTheDocument();
     });
-    test("edit mode testing for plans", () => {
+    test("Clicking the edit mode button and not editing anything, keeps the original values for title and description", () => {
         const editButton: HTMLElement = screen.getByText("Edit");
         editButton.click();
         const titleInput: HTMLElement = screen.getByTestId("titleEdit");
@@ -58,8 +58,6 @@ describe("PlanContainer component test", () => {
         expect(titleInput).toBeInTheDocument();
         expect(descriptionInput).toBeInTheDocument();
 
-        //titleInput.click();
-        //userEvent.clear(titleInput);
         editButton.click();
         const title = screen.getByText("Test");
         const descr = screen.getByText("Hello");

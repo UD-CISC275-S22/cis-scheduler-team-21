@@ -42,7 +42,7 @@ export function DegreeRequirement({
                 >
                     <SystemsAndNetworks
                         planCourses={planCourses}
-                        data-TestId="systems-and-networks-requirements"
+                        //data-testId="systems-and-networks-requirements"
                     ></SystemsAndNetworks>
                 </div>
                 <div

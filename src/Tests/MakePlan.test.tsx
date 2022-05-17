@@ -3,6 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { MakePlan } from "../Components/MakePlan";
 import { MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
+import { Years } from "../Components/Years";
 
 describe("MakePlan Component tests", () => {
     beforeEach(() =>
@@ -106,6 +107,38 @@ describe("MakePlan Component tests", () => {
         const name = screen.getByText("Systems And Networks");
         expect(name).toBeInTheDocument();
     });
+    /**test("If concentration is systems and networks, it renders the systems and networks degree requirements", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const dropdownItem = screen.getByText("Systems And Networks");
+        dropdownItem.click();
+
+        const name = screen.getByText("Systems And Networks");
+        expect(name).toBeInTheDocument();
+
+        const createButton = screen.getByRole("button", {
+            name: /Create/i
+        });
+        createButton.click();
+
+        render(<Years></Years>);
+        const courseReqButton = screen.getByRole("button", {
+            name: /Course Requirements/i
+        });
+        courseReqButton.click();
+
+        expect(
+            screen.getByTestId("systems-and-networks-requirements")
+        ).toBeInTheDocument();
+    });*/
     test("Clicking Artificial Intelligence within the dropdown sets the degree to it", () => {
         const newPlanButton = screen.getByRole("button", {
             name: /New Plan/i

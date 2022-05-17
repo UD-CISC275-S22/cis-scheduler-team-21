@@ -9,14 +9,15 @@ const setPlanCourses = () => {
 const setYearList = () => {
     return;
 };
-const year: Year = { title: "", id: 1 };
+const year: Year = { title: "Year 1", id: 1 };
+//const year2: Year = { title: "Year 2", id: 2 };
 describe("Year Container tests", () => {
     beforeEach(() => {
         render(
             <YearContainer
                 year={year}
                 setYearList={setYearList}
-                yearList={[]}
+                yearList={[year]}
                 editVis={true}
                 planCourses={[]}
                 setPlanCourses={setPlanCourses}
@@ -52,12 +53,13 @@ describe("Year Container tests", () => {
         expect(yearName).not.toBeInTheDocument();
     });
     test("Clicking the delete button deletes a year", () => {
-        const yearContainer = screen.getByTestId("year-container");
+        const yearTitle = screen.getByText("Year 1");
+        expect(yearTitle).toBeInTheDocument();
         const deleteButton = screen.getByRole("button", {
             name: /Delete/i
         });
         deleteButton.click();
 
-        expect(yearContainer).not.toBeInTheDocument();
+        expect(yearTitle).not.toBeInTheDocument();
     });
 });
