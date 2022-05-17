@@ -2,1741 +2,289 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/AddSemester.test.tsx (33.247 s)
-FAIL src/Tests/TableContentsFall.test.tsx (18.803 s)
-  ● Fall Contents tests › Un-Clicking the check for the Arts and Sciences breadth
-
-    expect(received).toBe(expected) // Object.is equality
-
-    Expected: true
-    Received: false
-
-      194 |         doneButton.click();
-      195 |         codeButton.click();
-    > 196 |         expect(artBreadthsForm.checked).toBe(true);
-          |                                         ^
-      197 |         artBreadthsForm.click();
-      198 |         doneButton.click();
-      199 |         codeButton.click();
-
-      at Object.<anonymous> (src/Tests/TableContentsFall.test.tsx:196:41)
-
+PASS src/Tests/AddSemester.test.tsx (30.027 s)
+PASS src/Tests/TableContentsFall.test.tsx (16.713 s)
 PASS src/Tests/MakePlan.test.tsx
-PASS src/Tests/CourseEdit.test.tsx
-FAIL src/Tests/TableContentsWinter.test.tsx (9.854 s)
-  ● WinterDataToArrayTests › Clear Winter button removes all of the courses from the table
+FAIL src/Tests/CourseEdit.test.tsx
+  ● CourseEdit Component tests › There is a button named Done that removes the popup when clicked
 
-    TestingLibraryElementError: Unable to find an element by: [data-testid="CISC 220"]
+    expect(element).not.toBeInTheDocument()
 
-    Ignored nodes: comments, <script />, <style />
-    [36m<body>[39m
-      [36m<div>[39m
-        [36m<div>[39m
-          [36m<div[39m
-            [33mstyle[39m=[32m"margin-bottom: 1ch;"[39m
-          [36m>[39m
-            [36m<table[39m
-              [33mclass[39m=[32m"add-border"[39m
-            [36m>[39m
-              [36m<tbody>[39m
-                [36m<tr[39m
-                  [33mclass[39m=[32m"innerTR"[39m
-                  [33mdata-testid[39m=[32m"CISC 275"[39m
-                [36m>[39m
-                  [36m<td>[39m
-                    [36m<ins[39m
-                      [33mdata-testid[39m=[32m"CISC 275 link"[39m
-                      [33mstyle[39m=[32m"cursor: pointer; color: blue;"[39m
-                    [36m>[39m
-                      [0mCISC 275[0m
-                    [36m</ins>[39m
-                  [36m</td>[39m
-                  [36m<td>[39m
-                    [0mIntroduction to Software Engineering[0m
-                  [36m</td>[39m
-                  [36m<td>[39m
-                    [0m 3[0m
-                  [36m</td>[39m
-                  [36m<td>[39m
-                    [36m<button[39m
-                      [33mclass[39m=[32m"btn btn-primary"[39m
-                      [33mdata-testid[39m=[32m"CISC 275 delete"[39m
-                      [33mstyle[39m=[32m"background-color: darkRed;"[39m
-                      [33mtype[39m=[32m"button"[39m
-                    [36m>[39m
-                      [0mDelete[0m
-                    [36m</button>[39m
-                    [36m<button[39m
-                      [33mclass[39m=[32m"btn btn-primary"[39m
-                      [33mtype[39m=[32m"button"[39m
-                    [36m>[39m
-                      [0mReset[0m
-                    [36m</button>[39m
-                  [36m</td>[39m
-                [36m</tr>[39m
-              [36m</tbody>[39m
-            [36m</table>[39m
-          [36m</div>[39m
-          [36m<span[39m
-            [33mdata-testid[39m=[32m"winter-search-mode"[39m
-            [33mstyle[39m=[32m"margin-left: 15ch;"[39m
-          [36m>[39m
-            [36m<input[39m
-              [33mdata-testid[39m=[32m"searchIDWinter"[39m
-              [33mid[39m=[32m"searchID3"[39m
-              [33mlist[39m=[32m"searchList"[39m
-              [33mplaceholder[39m=[32m"Type a course..."[39m
-              [33mtype[39m=[32m"text"[39m
-              [33mvalue[39m=[32m""[39m
-            [36m/>[39m
-            [36m<datalist[39m
-              [33mdata-testid[39m=[32m"searchList"[39m
-              [33mid[39m=[32m"searchList"[39m
-            [36m>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 166"[39m
-              [36m>[39m
-                [0mACCT 166[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 200"[39m
-              [36m>[39m
-                [0mACCT 200[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 207"[39m
-              [36m>[39m
-                [0mACCT 207[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 208"[39m
-              [36m>[39m
-                [0mACCT 208[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 266"[39m
-              [36m>[39m
-                [0mACCT 266[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 267"[39m
-              [36m>[39m
-                [0mACCT 267[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 302"[39m
-              [36m>[39m
-                [0mACCT 302[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 305"[39m
-              [36m>[39m
-                [0mACCT 305[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 313"[39m
-              [36m>[39m
-                [0mACCT 313[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 315"[39m
-              [36m>[39m
-                [0mACCT 315[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 316"[39m
-              [36m>[39m
-                [0mACCT 316[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 320"[39m
-              [36m>[39m
-                [0mACCT 320[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 327"[39m
-              [36m>[39m
-                [0mACCT 327[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 350"[39m
-              [36m>[39m
-                [0mACCT 350[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 351"[39m
-              [36m>[39m
-                [0mACCT 351[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 352"[39m
-              [36m>[39m
-                [0mACCT 352[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 363"[39m
-              [36m>[39m
-                [0mACCT 363[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 364"[39m
-              [36m>[39m
-                [0mACCT 364[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 366"[39m
-              [36m>[39m
-                [0mACCT 366[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 367"[39m
-              [36m>[39m
-                [0mACCT 367[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 395"[39m
-              [36m>[39m
-                [0mACCT 395[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 402"[39m
-              [36m>[39m
-                [0mACCT 402[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 405"[39m
-              [36m>[39m
-                [0mACCT 405[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 410"[39m
-              [36m>[39m
-                [0mACCT 410[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 413"[39m
-              [36m>[39m
-                [0mACCT 413[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 414"[39m
-              [36m>[39m
-                [0mACCT 414[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 415"[39m
-              [36m>[39m
-                [0mACCT 415[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 416"[39m
-              [36m>[39m
-                [0mACCT 416[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 417"[39m
-              [36m>[39m
-                [0mACCT 417[0m
-              [36m</option>[39m
-              [36...
+    expected document not to contain element, found <div class="popup" data-testid="course-edit-popup" style="z-index: 3;"><div class="popup-inner" style="height: 600px; max-width: 700px;"><div style="margin-left: 58ch; top: 5ch; position: absolute;"><button class="btn btn-primary" type="button">Done</button></div><div><div class="row"><div class="col-sm-2"><label class="form-label">Code</label></div><div class="col"><input class="form-control" data-testid="code-form" id="name" name="Code" type="text" value="CISC 275" /></div></div><div class="row"><div class="col-sm-2"><label class="form-label">Name</label></div><div class="col"><input class="form-control" data-testid="name-form" name="Name" type="text" value="Introduction to Software Engineering" /></div></div><div class="row"><div class="col-sm-2"><label class="form-label">Credits</label></div><div class="col"><input class="form-control" data-testid="credits-form" name="Credits" type="text" value="3" /></div></div><div class="row"><div class="col-sm-2"><label class="form-label">PreReq</label></div><div class="col"><input class="form-control" data-testid="preReq-form" name="PreReq" type="text" value="Minimum grade of C- in CISC 181 and CISC 220." /></div></div><div class="row"><div class="col-sm-2"><label class="form-label">Restriction</label></div><div class="col"><input class="form-control" data-testid="restriction-form" name="Restriction" type="text" value="" /></div></div><div class="row"><label class="form-label">Breadths:</label><div class="form-check" style="margin-left: 11.5ch;"><input class="form-check-input" data-testid="art-breadths-form" type="checkbox" value="Arts and Sciences" /><label class="form-check-label" title="">Arts and Sciences</label></div></div><div class="row"><div class="form-check" style="margin-left: 11.5ch;"><input class="form-check-input" data-testid="history-breadths-form" type="checkbox" value="History Cultural Change" /><label class="form-check-label" title="">History Cultural Change</label></div></div><div class="row"><div class="form-check" style="margin-left: 11.5ch;"><input class="form-check-input" data-testid="science-breadths-form" type="checkbox" value="Social and Behavioral Sciences" /><label class="form-check-label" title="">Social and Behavioral Sciences</label></div></div><div class="row"><div class="form-check" style="margin-left: 11.5ch;"><input class="form-check-input" data-testid="math-breadths-form" type="checkbox" value="Mathematics, Natural Sciences and Technology" /><label class="form-check-label" title="">Mathematics, Natural Sciences and Technology</label></div></div><div class="row"><div class="col-sm-2"><label class="form-label">Descr</label></div><div class="col"><textarea class="form-control" data-testid="description-form" name="Descr" rows="5">Object oriented software design and development through use of an object oriented programming language. Topics include team programming, design patterns, graphical user interfaces, software engineering tools (e.g., integrated development environments, version control, build management, bug tracking, automated testing).</textarea></div></div></div></div></div> instead
 
-      120 |         searchBar.blur();
-      121 |         AddButton.click();
-    > 122 |         const course220: HTMLElement = screen.getByTestId("CISC 220");
-          |                                               ^
-      123 |         const clearButton = screen.getByText("Clear Winter");
-      124 |         clearButton.click();
-      125 |
+      48 |         expect(doneButton).toBeInTheDocument();
+      49 |         doneButton.click();
+    > 50 |         expect(screen.getByTestId("course-edit-popup")).not.toBeInTheDocument();
+         |                                                             ^
+      51 |     });
+      52 |     test("There is a form named Code that changes the course code when edited by the user", () => {
+      53 |         /**const codeForm = screen.getByTestId("code-form");
 
-      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
-      at allQuery (node_modules/@testing-library/dom/dist/query-helpers.js:90:38)
-      at query (node_modules/@testing-library/dom/dist/query-helpers.js:62:17)
-      at getByTestId (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
-      at Object.<anonymous> (src/Tests/TableContentsWinter.test.tsx:122:47)
+      at Object.<anonymous> (src/Tests/CourseEdit.test.tsx:50:61)
 
-FAIL src/Tests/TableContentsSpring.test.tsx (10.274 s)
-  ● Spring Contents T]tests › Clear Spring button removes all the courses in the table
-
-    TestingLibraryElementError: Unable to find an element by: [data-testid="CISC 220"]
-
-    Ignored nodes: comments, <script />, <style />
-    [36m<body>[39m
-      [36m<div>[39m
-        [36m<div>[39m
-          [36m<div[39m
-            [33mstyle[39m=[32m"margin-bottom: 1ch;"[39m
-          [36m>[39m
-            [36m<table[39m
-              [33mclass[39m=[32m"add-border"[39m
-            [36m>[39m
-              [36m<tbody>[39m
-                [36m<tr[39m
-                  [33mclass[39m=[32m"innerTR"[39m
-                  [33mdata-testid[39m=[32m"CISC 275"[39m
-                [36m>[39m
-                  [36m<td>[39m
-                    [36m<ins[39m
-                      [33mdata-testid[39m=[32m"CISC 275 link"[39m
-                      [33mstyle[39m=[32m"cursor: pointer; color: blue;"[39m
-                    [36m>[39m
-                      [0mCISC 275[0m
-                    [36m</ins>[39m
-                  [36m</td>[39m
-                  [36m<td>[39m
-                    [0mIntroduction to Software Engineering[0m
-                  [36m</td>[39m
-                  [36m<td>[39m
-                    [0m 3[0m
-                  [36m</td>[39m
-                  [36m<td>[39m
-                    [36m<button[39m
-                      [33mclass[39m=[32m"btn btn-primary"[39m
-                      [33mdata-testid[39m=[32m"CISC 275 delete"[39m
-                      [33mstyle[39m=[32m"background-color: darkRed;"[39m
-                      [33mtype[39m=[32m"button"[39m
-                    [36m>[39m
-                      [0mDelete[0m
-                    [36m</button>[39m
-                    [36m<button[39m
-                      [33mclass[39m=[32m"btn btn-primary"[39m
-                      [33mtype[39m=[32m"button"[39m
-                    [36m>[39m
-                      [0mReset[0m
-                    [36m</button>[39m
-                  [36m</td>[39m
-                [36m</tr>[39m
-              [36m</tbody>[39m
-            [36m</table>[39m
-          [36m</div>[39m
-          [36m<span[39m
-            [33mdata-testid[39m=[32m"spring-search-mode"[39m
-            [33mstyle[39m=[32m"margin-left: 15ch;"[39m
-          [36m>[39m
-            [36m<input[39m
-              [33mdata-testid[39m=[32m"searchIDSpring"[39m
-              [33mid[39m=[32m"searchID2"[39m
-              [33mlist[39m=[32m"searchList"[39m
-              [33mplaceholder[39m=[32m"Type a course..."[39m
-              [33mtype[39m=[32m"text"[39m
-              [33mvalue[39m=[32m""[39m
-            [36m/>[39m
-            [36m<datalist[39m
-              [33mdata-testid[39m=[32m"searchList"[39m
-              [33mid[39m=[32m"searchList"[39m
-            [36m>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 166"[39m
-              [36m>[39m
-                [0mACCT 166[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 200"[39m
-              [36m>[39m
-                [0mACCT 200[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 207"[39m
-              [36m>[39m
-                [0mACCT 207[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 208"[39m
-              [36m>[39m
-                [0mACCT 208[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 266"[39m
-              [36m>[39m
-                [0mACCT 266[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 267"[39m
-              [36m>[39m
-                [0mACCT 267[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 302"[39m
-              [36m>[39m
-                [0mACCT 302[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 305"[39m
-              [36m>[39m
-                [0mACCT 305[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 313"[39m
-              [36m>[39m
-                [0mACCT 313[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 315"[39m
-              [36m>[39m
-                [0mACCT 315[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 316"[39m
-              [36m>[39m
-                [0mACCT 316[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 320"[39m
-              [36m>[39m
-                [0mACCT 320[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 327"[39m
-              [36m>[39m
-                [0mACCT 327[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 350"[39m
-              [36m>[39m
-                [0mACCT 350[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 351"[39m
-              [36m>[39m
-                [0mACCT 351[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 352"[39m
-              [36m>[39m
-                [0mACCT 352[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 363"[39m
-              [36m>[39m
-                [0mACCT 363[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 364"[39m
-              [36m>[39m
-                [0mACCT 364[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 366"[39m
-              [36m>[39m
-                [0mACCT 366[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 367"[39m
-              [36m>[39m
-                [0mACCT 367[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 395"[39m
-              [36m>[39m
-                [0mACCT 395[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 402"[39m
-              [36m>[39m
-                [0mACCT 402[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 405"[39m
-              [36m>[39m
-                [0mACCT 405[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 410"[39m
-              [36m>[39m
-                [0mACCT 410[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 413"[39m
-              [36m>[39m
-                [0mACCT 413[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 414"[39m
-              [36m>[39m
-                [0mACCT 414[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 415"[39m
-              [36m>[39m
-                [0mACCT 415[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 416"[39m
-              [36m>[39m
-                [0mACCT 416[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 417"[39m
-              [36m>[39m
-                [0mACCT 417[0m
-              [36m</option>[39m
-              [36...
-
-      120 |         searchBar.blur();
-      121 |         AddButton.click();
-    > 122 |         const course220: HTMLElement = screen.getByTestId("CISC 220");
-          |                                               ^
-      123 |         const clearButton = screen.getByText("Clear Spring");
-      124 |         clearButton.click();
-      125 |
-
-      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
-      at allQuery (node_modules/@testing-library/dom/dist/query-helpers.js:90:38)
-      at query (node_modules/@testing-library/dom/dist/query-helpers.js:62:17)
-      at getByTestId (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
-      at Object.<anonymous> (src/Tests/TableContentsSpring.test.tsx:122:47)
-
-FAIL src/Tests/TableContentsSummer.test.tsx (9.949 s)
-  ● SummerDataToArrayTests › Clear button removes all the courses from the table
-
-    TestingLibraryElementError: Unable to find an element by: [data-testid="CISC 220"]
-
-    Ignored nodes: comments, <script />, <style />
-    [36m<body>[39m
-      [36m<div>[39m
-        [36m<div>[39m
-          [36m<div[39m
-            [33mstyle[39m=[32m"margin-bottom: 1ch;"[39m
-          [36m>[39m
-            [36m<table[39m
-              [33mclass[39m=[32m"add-border"[39m
-            [36m>[39m
-              [36m<tbody>[39m
-                [36m<tr[39m
-                  [33mclass[39m=[32m"innerTR"[39m
-                  [33mdata-testid[39m=[32m"CISC 275"[39m
-                [36m>[39m
-                  [36m<td>[39m
-                    [36m<ins[39m
-                      [33mdata-testid[39m=[32m"CISC 275 link"[39m
-                      [33mstyle[39m=[32m"cursor: pointer; color: blue;"[39m
-                    [36m>[39m
-                      [0mCISC 275[0m
-                    [36m</ins>[39m
-                  [36m</td>[39m
-                  [36m<td>[39m
-                    [0mIntroduction to Software Engineering[0m
-                  [36m</td>[39m
-                  [36m<td>[39m
-                    [0m 3[0m
-                  [36m</td>[39m
-                  [36m<td>[39m
-                    [36m<button[39m
-                      [33mclass[39m=[32m"btn btn-primary"[39m
-                      [33mdata-testid[39m=[32m"CISC 275 delete"[39m
-                      [33mstyle[39m=[32m"background-color: darkRed;"[39m
-                      [33mtype[39m=[32m"button"[39m
-                    [36m>[39m
-                      [0mDelete[0m
-                    [36m</button>[39m
-                    [36m<button[39m
-                      [33mclass[39m=[32m"btn btn-primary"[39m
-                      [33mtype[39m=[32m"button"[39m
-                    [36m>[39m
-                      [0mReset[0m
-                    [36m</button>[39m
-                  [36m</td>[39m
-                [36m</tr>[39m
-              [36m</tbody>[39m
-            [36m</table>[39m
-          [36m</div>[39m
-          [36m<span[39m
-            [33mdata-testid[39m=[32m"summer-search-mode"[39m
-            [33mstyle[39m=[32m"margin-left: 15ch;"[39m
-          [36m>[39m
-            [36m<input[39m
-              [33mdata-testid[39m=[32m"searchIDSummer"[39m
-              [33mid[39m=[32m"searchID4"[39m
-              [33mlist[39m=[32m"searchList"[39m
-              [33mplaceholder[39m=[32m"Type a course..."[39m
-              [33mtype[39m=[32m"text"[39m
-              [33mvalue[39m=[32m""[39m
-            [36m/>[39m
-            [36m<datalist[39m
-              [33mdata-testid[39m=[32m"searchList"[39m
-              [33mid[39m=[32m"searchList"[39m
-            [36m>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 166"[39m
-              [36m>[39m
-                [0mACCT 166[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 200"[39m
-              [36m>[39m
-                [0mACCT 200[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 207"[39m
-              [36m>[39m
-                [0mACCT 207[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 208"[39m
-              [36m>[39m
-                [0mACCT 208[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 266"[39m
-              [36m>[39m
-                [0mACCT 266[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 267"[39m
-              [36m>[39m
-                [0mACCT 267[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 302"[39m
-              [36m>[39m
-                [0mACCT 302[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 305"[39m
-              [36m>[39m
-                [0mACCT 305[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 313"[39m
-              [36m>[39m
-                [0mACCT 313[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 315"[39m
-              [36m>[39m
-                [0mACCT 315[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 316"[39m
-              [36m>[39m
-                [0mACCT 316[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 320"[39m
-              [36m>[39m
-                [0mACCT 320[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 327"[39m
-              [36m>[39m
-                [0mACCT 327[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 350"[39m
-              [36m>[39m
-                [0mACCT 350[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 351"[39m
-              [36m>[39m
-                [0mACCT 351[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 352"[39m
-              [36m>[39m
-                [0mACCT 352[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 363"[39m
-              [36m>[39m
-                [0mACCT 363[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 364"[39m
-              [36m>[39m
-                [0mACCT 364[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 366"[39m
-              [36m>[39m
-                [0mACCT 366[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 367"[39m
-              [36m>[39m
-                [0mACCT 367[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 395"[39m
-              [36m>[39m
-                [0mACCT 395[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 402"[39m
-              [36m>[39m
-                [0mACCT 402[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 405"[39m
-              [36m>[39m
-                [0mACCT 405[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 410"[39m
-              [36m>[39m
-                [0mACCT 410[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 413"[39m
-              [36m>[39m
-                [0mACCT 413[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 414"[39m
-              [36m>[39m
-                [0mACCT 414[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 415"[39m
-              [36m>[39m
-                [0mACCT 415[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 416"[39m
-              [36m>[39m
-                [0mACCT 416[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ACCT 417"[39m
-              [36m>[39m
-                [0mACCT 417[0m
-              [36m</option>[39m
-              [36...
-
-      120 |         searchBar.blur();
-      121 |         AddButton.click();
-    > 122 |         const course220: HTMLElement = screen.getByTestId("CISC 220");
-          |                                               ^
-      123 |         const clearButton = screen.getByText("Clear Summer");
-      124 |         clearButton.click();
-      125 |
-
-      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
-      at allQuery (node_modules/@testing-library/dom/dist/query-helpers.js:90:38)
-      at query (node_modules/@testing-library/dom/dist/query-helpers.js:62:17)
-      at getByTestId (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
-      at Object.<anonymous> (src/Tests/TableContentsSummer.test.tsx:122:47)
-
+PASS src/Tests/TableContentsSpring.test.tsx (6.377 s)
+PASS src/Tests/TableContentsWinter.test.tsx (6.761 s)
+PASS src/Tests/TableContentsSummer.test.tsx (6.926 s)
 FAIL src/Tests/Years.test.tsx
-  ● Console
-
-    console.error
-      Error: Uncaught [TypeError: Cannot read properties of undefined (reading 'toString')]
-          at reportException (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
-          at innerInvokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
-          at invokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-          at HTMLUnknownElementImpl._dispatch (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-          at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-          at HTMLUnknownElement.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-          at Object.apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-          at invokeGuardedCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-          at beginWork$1 (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-          at performUnitOfWork (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22779:12) TypeError: Cannot read properties of undefined (reading 'toString')
-          at Component (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/Years.tsx:37:51)
-          at renderWithHooks (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:14985:18)
-          at mountIndeterminateComponent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:17811:13)
-          at apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:19049:16)
-          at HTMLUnknownElement.callCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-          at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-          at innerInvokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-          at invokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-          at HTMLUnknownElementImpl._dispatch (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-          at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-          at HTMLUnknownElement.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-          at Object.apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-          at invokeGuardedCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-          at beginWork$1 (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-          at performUnitOfWork (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-          at workLoopSync (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-          at renderRootSync (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-          at performSyncWorkOnRoot (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-          at scheduleUpdateOnFiber (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-          at updateContainer (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26021:7)
-          at unbatchedUpdates (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-          at legacyRenderSubtreeIntoContainer (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-          at Object.render (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/@testing-library/react/dist/pure.js:101:25)
-          at batchedUpdates (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-          at act (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-          at render (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/@testing-library/react/dist/pure.js:97:3)
-          at Object.<anonymous> (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Tests/Years.test.tsx:8:9)
-          at Promise.then.completed (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/utils.js:391:28)
-          at new Promise (<anonymous>)
-          at callAsyncCircusFn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/utils.js:316:10)
-          at _callCircusHook (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:181:40)
-          at _runTest (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:148:5)
-          at _runTestsForDescribeBlock (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:66:9)
-          at _runTestsForDescribeBlock (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:60:9)
-          at run (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:25:3)
-          at runAndTransformResultsToJestFormat (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
-          at jestAdapter (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:81:19)
-          at runTestInternal (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-runner/build/runTest.js:313:16)
-          at runTest (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-runner/build/runTest.js:383:7)
-
-      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
-      at reportException (node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:70:28)
-      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
-      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-
-    console.error
-      The above error occurred in the <Years> component:
-      
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/Years.tsx:15:22)
-          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:173:13)
-          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:33:3)
-      
-      Consider adding an error boundary to your tree to customize error handling behavior.
-      Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
-
-      at logCapturedError (node_modules/react-dom/cjs/react-dom.development.js:20085:7)
-      at call (node_modules/react-dom/cjs/react-dom.development.js:20118:5)
-      at callCallback (node_modules/react-dom/cjs/react-dom.development.js:12318:12)
-      at commitUpdateQueue (node_modules/react-dom/cjs/react-dom.development.js:12339:9)
-      at commitLifeCycles (node_modules/react-dom/cjs/react-dom.development.js:20736:11)
-      at apply (node_modules/react-dom/cjs/react-dom.development.js:23426:7)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-
-    console.error
-      Error: Uncaught [TypeError: Cannot read properties of undefined (reading 'toString')]
-          at reportException (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
-          at innerInvokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
-          at invokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-          at HTMLUnknownElementImpl._dispatch (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-          at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-          at HTMLUnknownElement.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-          at Object.apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-          at invokeGuardedCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-          at beginWork$1 (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-          at performUnitOfWork (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22779:12) TypeError: Cannot read properties of undefined (reading 'toString')
-          at Component (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/Years.tsx:37:51)
-          at renderWithHooks (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:14985:18)
-          at mountIndeterminateComponent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:17811:13)
-          at apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:19049:16)
-          at HTMLUnknownElement.callCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-          at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-          at innerInvokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-          at invokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-          at HTMLUnknownElementImpl._dispatch (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-          at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-          at HTMLUnknownElement.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-          at Object.apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-          at invokeGuardedCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-          at beginWork$1 (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-          at performUnitOfWork (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-          at workLoopSync (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-          at renderRootSync (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-          at performSyncWorkOnRoot (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-          at scheduleUpdateOnFiber (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-          at updateContainer (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26021:7)
-          at unbatchedUpdates (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-          at legacyRenderSubtreeIntoContainer (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-          at Object.render (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/@testing-library/react/dist/pure.js:101:25)
-          at batchedUpdates (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-          at act (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-          at render (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/@testing-library/react/dist/pure.js:97:3)
-          at Object.<anonymous> (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Tests/Years.test.tsx:8:9)
-          at Promise.then.completed (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/utils.js:391:28)
-          at new Promise (<anonymous>)
-          at callAsyncCircusFn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/utils.js:316:10)
-          at _callCircusHook (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:181:40)
-          at _runTest (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:148:5)
-          at _runTestsForDescribeBlock (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:66:9)
-          at _runTestsForDescribeBlock (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:60:9)
-          at run (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:25:3)
-          at runAndTransformResultsToJestFormat (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
-          at jestAdapter (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:81:19)
-          at runTestInternal (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-runner/build/runTest.js:313:16)
-          at runTest (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-runner/build/runTest.js:383:7)
-
-      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
-      at reportException (node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:70:28)
-      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
-      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-
-    console.error
-      The above error occurred in the <Years> component:
-      
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/Years.tsx:15:22)
-          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:173:13)
-          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:33:3)
-      
-      Consider adding an error boundary to your tree to customize error handling behavior.
-      Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
-
-      at logCapturedError (node_modules/react-dom/cjs/react-dom.development.js:20085:7)
-      at call (node_modules/react-dom/cjs/react-dom.development.js:20118:5)
-      at callCallback (node_modules/react-dom/cjs/react-dom.development.js:12318:12)
-      at commitUpdateQueue (node_modules/react-dom/cjs/react-dom.development.js:12339:9)
-      at commitLifeCycles (node_modules/react-dom/cjs/react-dom.development.js:20736:11)
-      at apply (node_modules/react-dom/cjs/react-dom.development.js:23426:7)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-
-    console.error
-      Error: Uncaught [TypeError: Cannot read properties of undefined (reading 'toString')]
-          at reportException (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
-          at innerInvokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
-          at invokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-          at HTMLUnknownElementImpl._dispatch (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-          at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-          at HTMLUnknownElement.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-          at Object.apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-          at invokeGuardedCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-          at beginWork$1 (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-          at performUnitOfWork (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22779:12) TypeError: Cannot read properties of undefined (reading 'toString')
-          at Component (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/Years.tsx:37:51)
-          at renderWithHooks (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:14985:18)
-          at mountIndeterminateComponent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:17811:13)
-          at apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:19049:16)
-          at HTMLUnknownElement.callCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-          at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-          at innerInvokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-          at invokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-          at HTMLUnknownElementImpl._dispatch (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-          at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-          at HTMLUnknownElement.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-          at Object.apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-          at invokeGuardedCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-          at beginWork$1 (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-          at performUnitOfWork (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-          at workLoopSync (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-          at renderRootSync (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-          at performSyncWorkOnRoot (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-          at scheduleUpdateOnFiber (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-          at updateContainer (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26021:7)
-          at unbatchedUpdates (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-          at legacyRenderSubtreeIntoContainer (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-          at Object.render (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/@testing-library/react/dist/pure.js:101:25)
-          at batchedUpdates (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-          at act (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-          at render (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/@testing-library/react/dist/pure.js:97:3)
-          at Object.<anonymous> (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Tests/Years.test.tsx:8:9)
-          at Promise.then.completed (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/utils.js:391:28)
-          at new Promise (<anonymous>)
-          at callAsyncCircusFn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/utils.js:316:10)
-          at _callCircusHook (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:181:40)
-          at _runTest (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:148:5)
-          at _runTestsForDescribeBlock (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:66:9)
-          at _runTestsForDescribeBlock (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:60:9)
-          at run (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:25:3)
-          at runAndTransformResultsToJestFormat (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
-          at jestAdapter (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:81:19)
-          at runTestInternal (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-runner/build/runTest.js:313:16)
-          at runTest (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-runner/build/runTest.js:383:7)
-
-      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
-      at reportException (node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:70:28)
-      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
-      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-
-    console.error
-      The above error occurred in the <Years> component:
-      
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/Years.tsx:15:22)
-          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:173:13)
-          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:33:3)
-      
-      Consider adding an error boundary to your tree to customize error handling behavior.
-      Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
-
-      at logCapturedError (node_modules/react-dom/cjs/react-dom.development.js:20085:7)
-      at call (node_modules/react-dom/cjs/react-dom.development.js:20118:5)
-      at callCallback (node_modules/react-dom/cjs/react-dom.development.js:12318:12)
-      at commitUpdateQueue (node_modules/react-dom/cjs/react-dom.development.js:12339:9)
-      at commitLifeCycles (node_modules/react-dom/cjs/react-dom.development.js:20736:11)
-      at apply (node_modules/react-dom/cjs/react-dom.development.js:23426:7)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-
-    console.error
-      Error: Uncaught [TypeError: Cannot read properties of undefined (reading 'toString')]
-          at reportException (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
-          at innerInvokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
-          at invokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-          at HTMLUnknownElementImpl._dispatch (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-          at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-          at HTMLUnknownElement.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-          at Object.apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-          at invokeGuardedCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-          at beginWork$1 (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-          at performUnitOfWork (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22779:12) TypeError: Cannot read properties of undefined (reading 'toString')
-          at Component (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/Years.tsx:37:51)
-          at renderWithHooks (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:14985:18)
-          at mountIndeterminateComponent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:17811:13)
-          at apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:19049:16)
-          at HTMLUnknownElement.callCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-          at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-          at innerInvokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-          at invokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-          at HTMLUnknownElementImpl._dispatch (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-          at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-          at HTMLUnknownElement.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-          at Object.apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-          at invokeGuardedCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-          at beginWork$1 (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-          at performUnitOfWork (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-          at workLoopSync (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-          at renderRootSync (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-          at performSyncWorkOnRoot (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-          at scheduleUpdateOnFiber (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-          at updateContainer (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26021:7)
-          at unbatchedUpdates (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-          at legacyRenderSubtreeIntoContainer (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-          at Object.render (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/@testing-library/react/dist/pure.js:101:25)
-          at batchedUpdates (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-          at act (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-          at render (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/@testing-library/react/dist/pure.js:97:3)
-          at Object.<anonymous> (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Tests/Years.test.tsx:8:9)
-          at Promise.then.completed (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/utils.js:391:28)
-          at new Promise (<anonymous>)
-          at callAsyncCircusFn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/utils.js:316:10)
-          at _callCircusHook (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:181:40)
-          at _runTest (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:148:5)
-          at _runTestsForDescribeBlock (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:66:9)
-          at _runTestsForDescribeBlock (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:60:9)
-          at run (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:25:3)
-          at runAndTransformResultsToJestFormat (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
-          at jestAdapter (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:81:19)
-          at runTestInternal (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-runner/build/runTest.js:313:16)
-          at runTest (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-runner/build/runTest.js:383:7)
-
-      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
-      at reportException (node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:70:28)
-      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
-      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-
-    console.error
-      The above error occurred in the <Years> component:
-      
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/Years.tsx:15:22)
-          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:173:13)
-          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:33:3)
-      
-      Consider adding an error boundary to your tree to customize error handling behavior.
-      Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
-
-      at logCapturedError (node_modules/react-dom/cjs/react-dom.development.js:20085:7)
-      at call (node_modules/react-dom/cjs/react-dom.development.js:20118:5)
-      at callCallback (node_modules/react-dom/cjs/react-dom.development.js:12318:12)
-      at commitUpdateQueue (node_modules/react-dom/cjs/react-dom.development.js:12339:9)
-      at commitLifeCycles (node_modules/react-dom/cjs/react-dom.development.js:20736:11)
-      at apply (node_modules/react-dom/cjs/react-dom.development.js:23426:7)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-
-    console.error
-      Error: Uncaught [TypeError: Cannot read properties of undefined (reading 'toString')]
-          at reportException (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
-          at innerInvokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
-          at invokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-          at HTMLUnknownElementImpl._dispatch (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-          at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-          at HTMLUnknownElement.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-          at Object.apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-          at invokeGuardedCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-          at beginWork$1 (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-          at performUnitOfWork (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22779:12) TypeError: Cannot read properties of undefined (reading 'toString')
-          at Component (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/Years.tsx:37:51)
-          at renderWithHooks (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:14985:18)
-          at mountIndeterminateComponent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:17811:13)
-          at apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:19049:16)
-          at HTMLUnknownElement.callCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-          at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-          at innerInvokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-          at invokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-          at HTMLUnknownElementImpl._dispatch (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-          at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-          at HTMLUnknownElement.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-          at Object.apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-          at invokeGuardedCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-          at beginWork$1 (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-          at performUnitOfWork (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-          at workLoopSync (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-          at renderRootSync (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-          at performSyncWorkOnRoot (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-          at scheduleUpdateOnFiber (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-          at updateContainer (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26021:7)
-          at unbatchedUpdates (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-          at legacyRenderSubtreeIntoContainer (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-          at Object.render (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/@testing-library/react/dist/pure.js:101:25)
-          at batchedUpdates (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-          at act (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-          at render (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/@testing-library/react/dist/pure.js:97:3)
-          at Object.<anonymous> (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Tests/Years.test.tsx:8:9)
-          at Promise.then.completed (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/utils.js:391:28)
-          at new Promise (<anonymous>)
-          at callAsyncCircusFn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/utils.js:316:10)
-          at _callCircusHook (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:181:40)
-          at _runTest (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:148:5)
-          at _runTestsForDescribeBlock (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:66:9)
-          at _runTestsForDescribeBlock (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:60:9)
-          at run (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:25:3)
-          at runAndTransformResultsToJestFormat (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
-          at jestAdapter (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:81:19)
-          at runTestInternal (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-runner/build/runTest.js:313:16)
-          at runTest (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-runner/build/runTest.js:383:7)
-
-      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
-      at reportException (node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:70:28)
-      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
-      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-
-    console.error
-      The above error occurred in the <Years> component:
-      
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/Years.tsx:15:22)
-          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:173:13)
-          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:33:3)
-      
-      Consider adding an error boundary to your tree to customize error handling behavior.
-      Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
-
-      at logCapturedError (node_modules/react-dom/cjs/react-dom.development.js:20085:7)
-      at call (node_modules/react-dom/cjs/react-dom.development.js:20118:5)
-      at callCallback (node_modules/react-dom/cjs/react-dom.development.js:12318:12)
-      at commitUpdateQueue (node_modules/react-dom/cjs/react-dom.development.js:12339:9)
-      at commitLifeCycles (node_modules/react-dom/cjs/react-dom.development.js:20736:11)
-      at apply (node_modules/react-dom/cjs/react-dom.development.js:23426:7)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-
-    console.error
-      Error: Uncaught [TypeError: Cannot read properties of undefined (reading 'toString')]
-          at reportException (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
-          at innerInvokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
-          at invokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-          at HTMLUnknownElementImpl._dispatch (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-          at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-          at HTMLUnknownElement.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-          at Object.apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-          at invokeGuardedCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-          at beginWork$1 (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-          at performUnitOfWork (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22779:12) TypeError: Cannot read properties of undefined (reading 'toString')
-          at Component (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/Years.tsx:37:51)
-          at renderWithHooks (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:14985:18)
-          at mountIndeterminateComponent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:17811:13)
-          at apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:19049:16)
-          at HTMLUnknownElement.callCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-          at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-          at innerInvokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-          at invokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-          at HTMLUnknownElementImpl._dispatch (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-          at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-          at HTMLUnknownElement.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-          at Object.apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-          at invokeGuardedCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-          at beginWork$1 (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-          at performUnitOfWork (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-          at workLoopSync (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-          at renderRootSync (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-          at performSyncWorkOnRoot (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-          at scheduleUpdateOnFiber (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-          at updateContainer (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26021:7)
-          at unbatchedUpdates (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-          at legacyRenderSubtreeIntoContainer (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-          at Object.render (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/@testing-library/react/dist/pure.js:101:25)
-          at batchedUpdates (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-          at act (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-          at render (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/@testing-library/react/dist/pure.js:97:3)
-          at Object.<anonymous> (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Tests/Years.test.tsx:8:9)
-          at Promise.then.completed (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/utils.js:391:28)
-          at new Promise (<anonymous>)
-          at callAsyncCircusFn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/utils.js:316:10)
-          at _callCircusHook (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:181:40)
-          at _runTest (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:148:5)
-          at _runTestsForDescribeBlock (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:66:9)
-          at _runTestsForDescribeBlock (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:60:9)
-          at run (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:25:3)
-          at runAndTransformResultsToJestFormat (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
-          at jestAdapter (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:81:19)
-          at runTestInternal (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-runner/build/runTest.js:313:16)
-          at runTest (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-runner/build/runTest.js:383:7)
-
-      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
-      at reportException (node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:70:28)
-      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
-      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-
-    console.error
-      The above error occurred in the <Years> component:
-      
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/Years.tsx:15:22)
-          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:173:13)
-          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:33:3)
-      
-      Consider adding an error boundary to your tree to customize error handling behavior.
-      Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
-
-      at logCapturedError (node_modules/react-dom/cjs/react-dom.development.js:20085:7)
-      at call (node_modules/react-dom/cjs/react-dom.development.js:20118:5)
-      at callCallback (node_modules/react-dom/cjs/react-dom.development.js:12318:12)
-      at commitUpdateQueue (node_modules/react-dom/cjs/react-dom.development.js:12339:9)
-      at commitLifeCycles (node_modules/react-dom/cjs/react-dom.development.js:20736:11)
-      at apply (node_modules/react-dom/cjs/react-dom.development.js:23426:7)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-
-    console.error
-      Error: Uncaught [TypeError: Cannot read properties of undefined (reading 'toString')]
-          at reportException (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
-          at innerInvokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
-          at invokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-          at HTMLUnknownElementImpl._dispatch (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-          at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-          at HTMLUnknownElement.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-          at Object.apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-          at invokeGuardedCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-          at beginWork$1 (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-          at performUnitOfWork (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22779:12) TypeError: Cannot read properties of undefined (reading 'toString')
-          at Component (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/Years.tsx:37:51)
-          at renderWithHooks (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:14985:18)
-          at mountIndeterminateComponent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:17811:13)
-          at apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:19049:16)
-          at HTMLUnknownElement.callCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-          at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-          at innerInvokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-          at invokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-          at HTMLUnknownElementImpl._dispatch (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-          at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-          at HTMLUnknownElement.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-          at Object.apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-          at invokeGuardedCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-          at beginWork$1 (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-          at performUnitOfWork (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-          at workLoopSync (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-          at renderRootSync (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-          at performSyncWorkOnRoot (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-          at scheduleUpdateOnFiber (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-          at updateContainer (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26021:7)
-          at unbatchedUpdates (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-          at legacyRenderSubtreeIntoContainer (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-          at Object.render (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/@testing-library/react/dist/pure.js:101:25)
-          at batchedUpdates (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-          at act (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-          at render (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/@testing-library/react/dist/pure.js:97:3)
-          at Object.<anonymous> (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Tests/Years.test.tsx:8:9)
-          at Promise.then.completed (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/utils.js:391:28)
-          at new Promise (<anonymous>)
-          at callAsyncCircusFn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/utils.js:316:10)
-          at _callCircusHook (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:181:40)
-          at _runTest (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:148:5)
-          at _runTestsForDescribeBlock (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:66:9)
-          at _runTestsForDescribeBlock (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:60:9)
-          at run (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:25:3)
-          at runAndTransformResultsToJestFormat (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
-          at jestAdapter (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:81:19)
-          at runTestInternal (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-runner/build/runTest.js:313:16)
-          at runTest (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-runner/build/runTest.js:383:7)
-
-      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
-      at reportException (node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:70:28)
-      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
-      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-
-    console.error
-      The above error occurred in the <Years> component:
-      
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/Years.tsx:15:22)
-          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:173:13)
-          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:33:3)
-      
-      Consider adding an error boundary to your tree to customize error handling behavior.
-      Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
-
-      at logCapturedError (node_modules/react-dom/cjs/react-dom.development.js:20085:7)
-      at call (node_modules/react-dom/cjs/react-dom.development.js:20118:5)
-      at callCallback (node_modules/react-dom/cjs/react-dom.development.js:12318:12)
-      at commitUpdateQueue (node_modules/react-dom/cjs/react-dom.development.js:12339:9)
-      at commitLifeCycles (node_modules/react-dom/cjs/react-dom.development.js:20736:11)
-      at apply (node_modules/react-dom/cjs/react-dom.development.js:23426:7)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-
-    console.error
-      Error: Uncaught [TypeError: Cannot read properties of undefined (reading 'toString')]
-          at reportException (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
-          at innerInvokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
-          at invokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-          at HTMLUnknownElementImpl._dispatch (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-          at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-          at HTMLUnknownElement.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-          at Object.apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-          at invokeGuardedCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-          at beginWork$1 (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-          at performUnitOfWork (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22779:12) TypeError: Cannot read properties of undefined (reading 'toString')
-          at Component (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/Years.tsx:37:51)
-          at renderWithHooks (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:14985:18)
-          at mountIndeterminateComponent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:17811:13)
-          at apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:19049:16)
-          at HTMLUnknownElement.callCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-          at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-          at innerInvokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-          at invokeEventListeners (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-          at HTMLUnknownElementImpl._dispatch (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-          at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-          at HTMLUnknownElement.dispatchEvent (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-          at Object.apply (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-          at invokeGuardedCallback (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-          at beginWork$1 (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-          at performUnitOfWork (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-          at workLoopSync (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-          at renderRootSync (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-          at performSyncWorkOnRoot (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-          at scheduleUpdateOnFiber (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-          at updateContainer (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26021:7)
-          at unbatchedUpdates (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-          at legacyRenderSubtreeIntoContainer (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-          at Object.render (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/@testing-library/react/dist/pure.js:101:25)
-          at batchedUpdates (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-          at act (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-          at render (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/@testing-library/react/dist/pure.js:97:3)
-          at Object.<anonymous> (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Tests/Years.test.tsx:8:9)
-          at Promise.then.completed (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/utils.js:391:28)
-          at new Promise (<anonymous>)
-          at callAsyncCircusFn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/utils.js:316:10)
-          at _callCircusHook (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:181:40)
-          at _runTest (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:148:5)
-          at _runTestsForDescribeBlock (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:66:9)
-          at _runTestsForDescribeBlock (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:60:9)
-          at run (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/run.js:25:3)
-          at runAndTransformResultsToJestFormat (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
-          at jestAdapter (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:81:19)
-          at runTestInternal (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-runner/build/runTest.js:313:16)
-          at runTest (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/jest-runner/build/runTest.js:383:7)
-
-      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
-      at reportException (node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:70:28)
-      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
-      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-
-    console.error
-      The above error occurred in the <Years> component:
-      
-          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/Years.tsx:15:22)
-          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:173:13)
-          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:33:3)
-      
-      Consider adding an error boundary to your tree to customize error handling behavior.
-      Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
-
-      at logCapturedError (node_modules/react-dom/cjs/react-dom.development.js:20085:7)
-      at call (node_modules/react-dom/cjs/react-dom.development.js:20118:5)
-      at callCallback (node_modules/react-dom/cjs/react-dom.development.js:12318:12)
-      at commitUpdateQueue (node_modules/react-dom/cjs/react-dom.development.js:12339:9)
-      at commitLifeCycles (node_modules/react-dom/cjs/react-dom.development.js:20736:11)
-      at apply (node_modules/react-dom/cjs/react-dom.development.js:23426:7)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-
-  ● Year Component tests › There is a Rename/Delete Years Button
-
-    TypeError: Cannot read properties of undefined (reading 'toString')
-
-      35 |         id: 4
-      36 |     };
-    > 37 |     const saveDataKey = "yearsList-Data" + planID.toString();
-         |                                                   ^
-      38 |     let loadedData: year[] = [Freshman, Sophomore, Junior, Senior];
-      39 |     const previousData: string | null = localStorage.getItem(saveDataKey);
-      40 |     let mostRecentID = 5;
-
-      at Component (src/Components/Years.tsx:37:51)
-      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
-      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:17811:13)
-      at apply (node_modules/react-dom/cjs/react-dom.development.js:19049:16)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-      at Object.apply (node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-      at invokeGuardedCallback (node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-      at performSyncWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-      at updateContainer (node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-      at fn (node_modules/react-dom/cjs/react-dom.development.js:26021:7)
-      at unbatchedUpdates (node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-      at legacyRenderSubtreeIntoContainer (node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-      at Object.render (node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-      at fn (node_modules/@testing-library/react/dist/pure.js:101:25)
-      at batchedUpdates (node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-      at act (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-      at render (node_modules/@testing-library/react/dist/pure.js:97:3)
-      at Object.<anonymous> (src/Tests/Years.test.tsx:8:9)
-
-  ● Year Component tests › There is a button named Course Requirements
-
-    TypeError: Cannot read properties of undefined (reading 'toString')
-
-      35 |         id: 4
-      36 |     };
-    > 37 |     const saveDataKey = "yearsList-Data" + planID.toString();
-         |                                                   ^
-      38 |     let loadedData: year[] = [Freshman, Sophomore, Junior, Senior];
-      39 |     const previousData: string | null = localStorage.getItem(saveDataKey);
-      40 |     let mostRecentID = 5;
-
-      at Component (src/Components/Years.tsx:37:51)
-      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
-      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:17811:13)
-      at apply (node_modules/react-dom/cjs/react-dom.development.js:19049:16)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-      at Object.apply (node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-      at invokeGuardedCallback (node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-      at performSyncWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-      at updateContainer (node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-      at fn (node_modules/react-dom/cjs/react-dom.development.js:26021:7)
-      at unbatchedUpdates (node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-      at legacyRenderSubtreeIntoContainer (node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-      at Object.render (node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-      at fn (node_modules/@testing-library/react/dist/pure.js:101:25)
-      at batchedUpdates (node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-      at act (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-      at render (node_modules/@testing-library/react/dist/pure.js:97:3)
-      at Object.<anonymous> (src/Tests/Years.test.tsx:8:9)
-
-  ● Year Component tests › There is a button named Save
-
-    TypeError: Cannot read properties of undefined (reading 'toString')
-
-      35 |         id: 4
-      36 |     };
-    > 37 |     const saveDataKey = "yearsList-Data" + planID.toString();
-         |                                                   ^
-      38 |     let loadedData: year[] = [Freshman, Sophomore, Junior, Senior];
-      39 |     const previousData: string | null = localStorage.getItem(saveDataKey);
-      40 |     let mostRecentID = 5;
-
-      at Component (src/Components/Years.tsx:37:51)
-      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
-      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:17811:13)
-      at apply (node_modules/react-dom/cjs/react-dom.development.js:19049:16)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-      at Object.apply (node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-      at invokeGuardedCallback (node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-      at performSyncWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-      at updateContainer (node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-      at fn (node_modules/react-dom/cjs/react-dom.development.js:26021:7)
-      at unbatchedUpdates (node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-      at legacyRenderSubtreeIntoContainer (node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-      at Object.render (node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-      at fn (node_modules/@testing-library/react/dist/pure.js:101:25)
-      at batchedUpdates (node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-      at act (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-      at render (node_modules/@testing-library/react/dist/pure.js:97:3)
-      at Object.<anonymous> (src/Tests/Years.test.tsx:8:9)
-
-  ● Year Component tests › There is a button named Add Year
-
-    TypeError: Cannot read properties of undefined (reading 'toString')
-
-      35 |         id: 4
-      36 |     };
-    > 37 |     const saveDataKey = "yearsList-Data" + planID.toString();
-         |                                                   ^
-      38 |     let loadedData: year[] = [Freshman, Sophomore, Junior, Senior];
-      39 |     const previousData: string | null = localStorage.getItem(saveDataKey);
-      40 |     let mostRecentID = 5;
-
-      at Component (src/Components/Years.tsx:37:51)
-      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
-      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:17811:13)
-      at apply (node_modules/react-dom/cjs/react-dom.development.js:19049:16)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-      at Object.apply (node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-      at invokeGuardedCallback (node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-      at performSyncWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-      at updateContainer (node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-      at fn (node_modules/react-dom/cjs/react-dom.development.js:26021:7)
-      at unbatchedUpdates (node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-      at legacyRenderSubtreeIntoContainer (node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-      at Object.render (node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-      at fn (node_modules/@testing-library/react/dist/pure.js:101:25)
-      at batchedUpdates (node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-      at act (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-      at render (node_modules/@testing-library/react/dist/pure.js:97:3)
-      at Object.<anonymous> (src/Tests/Years.test.tsx:8:9)
-
-  ● Year Component tests › The Add Year button adds a yearContainer component when clicked
-
-    TypeError: Cannot read properties of undefined (reading 'toString')
-
-      35 |         id: 4
-      36 |     };
-    > 37 |     const saveDataKey = "yearsList-Data" + planID.toString();
-         |                                                   ^
-      38 |     let loadedData: year[] = [Freshman, Sophomore, Junior, Senior];
-      39 |     const previousData: string | null = localStorage.getItem(saveDataKey);
-      40 |     let mostRecentID = 5;
-
-      at Component (src/Components/Years.tsx:37:51)
-      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
-      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:17811:13)
-      at apply (node_modules/react-dom/cjs/react-dom.development.js:19049:16)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-      at Object.apply (node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-      at invokeGuardedCallback (node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-      at performSyncWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-      at updateContainer (node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-      at fn (node_modules/react-dom/cjs/react-dom.development.js:26021:7)
-      at unbatchedUpdates (node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-      at legacyRenderSubtreeIntoContainer (node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-      at Object.render (node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-      at fn (node_modules/@testing-library/react/dist/pure.js:101:25)
-      at batchedUpdates (node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-      at act (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-      at render (node_modules/@testing-library/react/dist/pure.js:97:3)
-      at Object.<anonymous> (src/Tests/Years.test.tsx:8:9)
-
-  ● Year Component tests › Clicking the save button saves the list of years
-
-    TypeError: Cannot read properties of undefined (reading 'toString')
-
-      35 |         id: 4
-      36 |     };
-    > 37 |     const saveDataKey = "yearsList-Data" + planID.toString();
-         |                                                   ^
-      38 |     let loadedData: year[] = [Freshman, Sophomore, Junior, Senior];
-      39 |     const previousData: string | null = localStorage.getItem(saveDataKey);
-      40 |     let mostRecentID = 5;
-
-      at Component (src/Components/Years.tsx:37:51)
-      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
-      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:17811:13)
-      at apply (node_modules/react-dom/cjs/react-dom.development.js:19049:16)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-      at Object.apply (node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-      at invokeGuardedCallback (node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-      at performSyncWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-      at updateContainer (node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-      at fn (node_modules/react-dom/cjs/react-dom.development.js:26021:7)
-      at unbatchedUpdates (node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-      at legacyRenderSubtreeIntoContainer (node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-      at Object.render (node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-      at fn (node_modules/@testing-library/react/dist/pure.js:101:25)
-      at batchedUpdates (node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-      at act (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-      at render (node_modules/@testing-library/react/dist/pure.js:97:3)
-      at Object.<anonymous> (src/Tests/Years.test.tsx:8:9)
-
-  ● Year Component tests › Clicking the course requirements button reveals a popup with all the requirements
-
-    TypeError: Cannot read properties of undefined (reading 'toString')
-
-      35 |         id: 4
-      36 |     };
-    > 37 |     const saveDataKey = "yearsList-Data" + planID.toString();
-         |                                                   ^
-      38 |     let loadedData: year[] = [Freshman, Sophomore, Junior, Senior];
-      39 |     const previousData: string | null = localStorage.getItem(saveDataKey);
-      40 |     let mostRecentID = 5;
-
-      at Component (src/Components/Years.tsx:37:51)
-      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
-      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:17811:13)
-      at apply (node_modules/react-dom/cjs/react-dom.development.js:19049:16)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-      at Object.apply (node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-      at invokeGuardedCallback (node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-      at performSyncWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-      at updateContainer (node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-      at fn (node_modules/react-dom/cjs/react-dom.development.js:26021:7)
-      at unbatchedUpdates (node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-      at legacyRenderSubtreeIntoContainer (node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-      at Object.render (node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-      at fn (node_modules/@testing-library/react/dist/pure.js:101:25)
-      at batchedUpdates (node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-      at act (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-      at render (node_modules/@testing-library/react/dist/pure.js:97:3)
-      at Object.<anonymous> (src/Tests/Years.test.tsx:8:9)
-
-  ● Year Component tests › Clicking the Rename/Delete Year button reveals the edit mode for the years
-
-    TypeError: Cannot read properties of undefined (reading 'toString')
-
-      35 |         id: 4
-      36 |     };
-    > 37 |     const saveDataKey = "yearsList-Data" + planID.toString();
-         |                                                   ^
-      38 |     let loadedData: year[] = [Freshman, Sophomore, Junior, Senior];
-      39 |     const previousData: string | null = localStorage.getItem(saveDataKey);
-      40 |     let mostRecentID = 5;
-
-      at Component (src/Components/Years.tsx:37:51)
-      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
-      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:17811:13)
-      at apply (node_modules/react-dom/cjs/react-dom.development.js:19049:16)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-      at Object.apply (node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-      at invokeGuardedCallback (node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-      at performSyncWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-      at updateContainer (node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-      at fn (node_modules/react-dom/cjs/react-dom.development.js:26021:7)
-      at unbatchedUpdates (node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-      at legacyRenderSubtreeIntoContainer (node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-      at Object.render (node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-      at fn (node_modules/@testing-library/react/dist/pure.js:101:25)
-      at batchedUpdates (node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-      at act (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-      at render (node_modules/@testing-library/react/dist/pure.js:97:3)
-      at Object.<anonymous> (src/Tests/Years.test.tsx:8:9)
+  ● Year Component tests › Testing for localStorage items being rendered into previousData
+
+    expect(jest.fn()).toHaveBeenCalledTimes(expected)
+
+    Expected number of calls: 2
+    Received number of calls: 0
+
+      114 |             });
+      115 |         }
+    > 116 |         expect(window.localStorage.getItem).toHaveBeenCalledTimes(2);
+          |                                             ^
+      117 |     });
+      118 |     test("Clicking the delete button deletes a year", () => {
+      119 |         const yearContainer = screen.getByTestId("year-container-1");
+
+      at Object.<anonymous> (src/Tests/Years.test.tsx:116:45)
+
+  ● Year Component tests › Clicking the delete button deletes a year
+
+    TestingLibraryElementError: Unable to find an element by: [data-testid="year-container-1"]
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mstyle[39m=[32m"padding-bottom: 8ch;"[39m
+        [36m>[39m
+          [36m<header[39m
+            [33mclass[39m=[32m"App-header-year"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mstyle[39m=[32m"width: 100%; text-align: center;"[39m
+            [36m>[39m
+              [0myear View[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mstyle[39m=[32m"text-align: center;"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mdata-testid[39m=[32m"rename-delete-button"[39m
+                [33mstyle[39m=[32m"margin-left: 4ch; margin-right: .75ch; background-color: rgba(19, 221, 204, 0.88); color: black;"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mEdit Years[0m
+              [36m</button>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mstyle[39m=[32m"background-color: rgba(19, 221, 204, 0.88); color: black;"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mcourse Requirements[0m
+              [36m</button>[39m
+            [36m</div>[39m
+            [36m<div>[39m
+              [36m<a[39m
+                [33mhref[39m=[32m"/"[39m
+              [36m>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"btn btn-primary"[39m
+                  [33mstyle[39m=[32m"position: absolute; top: 6ch; left: 2ch; background-color: rgba(19, 221, 204, 0.88); color: black;"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0m&lt;-[0m
+                  [0mBack[0m
+                [36m</button>[39m
+              [36m</a>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mstyle[39m=[32m"position: absolute; top: 6ch; left: 14ch; background-color: green; color: white;"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0msave[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</header>[39m
+          [36m<div />[39m
+          [36m<div[39m
+            [33mstyle[39m=[32m"text-align: center; z-index: 0; position: absolute;"[39m
+          [36m>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"orangeButton btn btn-primary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mAdd year[0m
+            [36m</button>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+      117 |     });
+      118 |     test("Clicking the delete button deletes a year", () => {
+    > 119 |         const yearContainer = screen.getByTestId("year-container-1");
+          |                                      ^
+      120 |         const editYearsButton = screen.getByRole("button", {
+      121 |             name: /Edit Years/i
+      122 |         });
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at allQuery (node_modules/@testing-library/dom/dist/query-helpers.js:90:38)
+      at query (node_modules/@testing-library/dom/dist/query-helpers.js:62:17)
+      at getByTestId (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/Tests/Years.test.tsx:119:38)
 
 PASS src/Tests/PlanContainer.test.tsx
 PASS src/Tests/CommonPlan.test.tsx
 FAIL src/Tests/YearContainer.test.tsx
-  ● year Container tests › Typing in the input changes the year's name
-
-    expect(element).not.toBeInTheDocument()
-
-    expected document not to contain element, found <input class="form-control" data-testid="year-name-edit" name="yearTxt" placeholder="Enter new Year name..." style="width: 20%; margin-left: 3.5ch;" value="new value" /> instead
-
-      52 |             target: { value: "new value" }
-      53 |         });
-    > 54 |         expect(yearName).not.toBeInTheDocument();
-         |                              ^
-      55 |     });
-      56 |     test("Clicking the delete button deletes a year", () => {
-      57 |         const yearTitle = screen.getByText("year 1");
-
-      at Object.<anonymous> (src/Tests/YearContainer.test.tsx:54:30)
-
   ● year Container tests › Clicking the delete button deletes a year
 
-    expect(element).not.toBeInTheDocument()
+    TestingLibraryElementError: Unable to find an element by: [data-testid="year-container"]
 
-    expected document not to contain element, found <span class="yearDisplay">year 1</span> instead
+    Ignored nodes: comments, <script />, <style />
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mdata-testid[39m=[32m"year-container-1"[39m
+          [33mstyle[39m=[32m"z-index: 0; display: relative;"[39m
+        [36m>[39m
+          [36m<br />[39m
+          [36m<span>[39m
+            [36m<div>[39m
+              [36m<input[39m
+                [33mclass[39m=[32m"form-control"[39m
+                [33mdata-testid[39m=[32m"year-name-edit"[39m
+                [33mname[39m=[32m"yearTxt"[39m
+                [33mplaceholder[39m=[32m"Enter new Year name..."[39m
+                [33mstyle[39m=[32m"width: 20%; margin-left: 3.5ch;"[39m
+                [33mvalue[39m=[32m"year 1"[39m
+              [36m/>[39m
+            [36m</div>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"yearDisplay"[39m
+            [36m>[39m
+              [0myear 1[0m
+            [36m</span>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"orangeButton btn btn-primary"[39m
+              [33mdata-testid[39m=[32m"show-hide-button"[39m
+              [33mstyle[39m=[32m"margin-bottom: 4ch; font-size: 80%;"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mShow/Hide[0m
+            [36m</button>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"btn btn-primary"[39m
+              [33mdata-testid[39m=[32m"delete-year-1"[39m
+              [33mstyle[39m=[32m"background-color: darkRed; margin-left: 2ch; font-size: 1ch; margin-bottom: 5ch;"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mDelete[0m
+            [36m</button>[39m
+          [36m</span>[39m
+          [36m<div[39m
+            [33mstyle[39m=[32m"display: none;"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"showPlan-background"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mdata-testid[39m=[32m"add-semester-buttons"[39m
+                [33mstyle[39m=[32m"text-align: center;"[39m
+              [36m>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"customButton btn btn-primary"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mAdd Fall Semester[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"customButton btn btn-primary"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mAdd Winter Session[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"customButton btn btn-primary"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mAdd Spring Semester[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"customButton btn btn-primary"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mAdd Summer Session[0m
+                [36m</button>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"float: right; margin-right: 3ch; margin-top: 2ch;"[39m
+              [36m>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"btn btn-primary"[39m
+                  [33mstyle[39m=[32m"margin-left: .5ch;"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mEdit Mode[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"btn btn-primary"[39m
+                  [33mstyle[39m=[32m"margin-left: .5ch;"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mToggle Search[0m
+                [36m</button>[39m
+              [36m</div>[39m
+              [36m<div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"row"[39m
+                  [33mstyle[39m=[32m"width: 100%;"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
+                    [33mstyle[39m=[32m"margin-left: 1ch;"[39m
+                  [36m>[39m
+                    [36m<br />[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
+                  [36m>[39m
+                    [36m<br />[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"row"[39m
+                  [33mstyle[39m=[32m"width: 100%;"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
+                    [33mstyle[39m=[32m"margin-left: 1ch;"[39m
+                  [36m>[39m
+                    [36m<br />[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
+                  [36m>[39m
+                    [36m<br />[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
 
-      62 |         deleteButton.click();
-      63 |
-    > 64 |         expect(yearTitle).not.toBeInTheDocument();
-         |                               ^
-      65 |     });
-      66 | });
-      67 |
+      53 |     });
+      54 |     test("Clicking the delete button deletes a year", () => {
+    > 55 |         const yearContainer: HTMLElement = screen.getByTestId("year-container");
+         |                                                   ^
+      56 |         //const yearTitle: HTMLElement = screen.getByText("year 1");
+      57 |         //expect(yearTitle).toBeInTheDocument();
+      58 |         const deleteButton = screen.getByRole("button", {
 
-      at Object.<anonymous> (src/Tests/YearContainer.test.tsx:64:31)
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at allQuery (node_modules/@testing-library/dom/dist/query-helpers.js:90:38)
+      at query (node_modules/@testing-library/dom/dist/query-helpers.js:62:17)
+      at getByTestId (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/Tests/YearContainer.test.tsx:55:51)
 
 FAIL src/Tests/DegreeRequirement.test.tsx
   ● Degree Requirement Component tests › If concentration is systems and networks, it renders the systems and networks degree requirements
@@ -2025,19 +573,19 @@ PASS src/Tests/App.test.tsx
 ---------------------------|---------|----------|---------|---------|---------------------------------------------------------------------------------------------------
 File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                                                 
 ---------------------------|---------|----------|---------|---------|---------------------------------------------------------------------------------------------------
-All files                  |   75.06 |    63.99 |   71.92 |   75.06 |                                                                                                   
+All files                  |   76.15 |    63.51 |    72.8 |   76.15 |                                                                                                   
  src                       |     100 |      100 |     100 |     100 |                                                                                                   
   App.tsx                  |     100 |      100 |     100 |     100 |                                                                                                   
- src/Components            |   83.48 |    72.97 |   92.75 |   83.48 |                                                                                                   
+ src/Components            |   88.73 |    69.23 |    97.1 |   88.73 |                                                                                                   
   AddSemester.tsx          |     100 |      100 |     100 |     100 |                                                                                                   
   CommonPlan.tsx           |     100 |      100 |     100 |     100 |                                                                                                   
-  CourseEdit.tsx           |   89.83 |    58.33 |     100 |   89.83 | 117,141,170,214,221-222                                                                           
+  CourseEdit.tsx           |   88.13 |       50 |     100 |   88.13 | 92,117,141,170,214,221-222                                                                        
   DegreeRequirement.tsx    |     100 |       50 |     100 |     100 | 38-98                                                                                             
   Homepage.tsx             |     100 |      100 |     100 |     100 |                                                                                                   
   MakePlan.tsx             |     100 |      100 |     100 |     100 |                                                                                                   
   PlanContainer.tsx        |   91.66 |    66.66 |     100 |   91.66 | 47,65                                                                                             
-  YearContainer.tsx        |   93.75 |     87.5 |     100 |   93.75 | 36                                                                                                
-  Years.tsx                |   27.02 |    33.33 |   16.66 |   27.02 | 38-145                                                                                            
+  YearContainer.tsx        |   68.75 |     87.5 |   66.66 |   68.75 | 18-22,36                                                                                          
+  Years.tsx                |   73.17 |       30 |     100 |   73.17 | 42-55                                                                                             
  src/Concentrations        |   62.69 |    57.14 |      50 |   62.69 |                                                                                                   
   AI.tsx                   |    62.5 |    56.81 |      50 |    62.5 | 8,28,33,43,48,58,128-131,148-151,165-168,182-185,198-201,214-217,230-233,245-248,264-267          
   Bioinformatics.tsx       |   63.63 |    58.69 |      50 |   63.63 | 8,28,33,43,48,58,126-129,141-144,158-161,176-179,191-194,207-210,223-226,241-244,257-260          
@@ -2064,8 +612,8 @@ All files                  |   75.06 |    63.99 |   71.92 |   75.06 |
   TableContentsWinter.tsx  |   84.04 |    76.92 |   85.71 |   84.04 | 112,115,144-156,201,208-209,334                                                                   
 ---------------------------|---------|----------|---------|---------|---------------------------------------------------------------------------------------------------
 
-Test Suites: 7 failed, 8 passed, 15 total
-Tests:       15 failed, 92 passed, 107 total
+Test Suites: 4 failed, 11 passed, 15 total
+Tests:       5 failed, 105 passed, 110 total
 Snapshots:   0 total
-Time:        95.376 s
+Time:        77.331 s
 Ran all test suites.
