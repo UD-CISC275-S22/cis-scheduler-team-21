@@ -49,18 +49,27 @@ describe("Year Component tests", () => {
         expect(addYearButton).toBeInTheDocument();
     });
     test("The Add Year button adds a yearContainer component when clicked", () => {
+        {
+            Object.defineProperty(window, "localStorage", {
+                value: {
+                    getItem: jest.fn(() => null),
+                    setItem: jest.fn(() => null)
+                },
+                writable: true
+            });
+        }
         const addYearButton = screen.getByRole("button", {
             name: /Add Year/i
         });
         addYearButton.click();
-
-        expect(screen.getByText("New School Year")).toBeInTheDocument();
+        expect(window.localStorage.setItem).toHaveBeenCalledTimes(1);
     });
     test("Clicking the save button saves the list of years", () => {
         const addYearButton = screen.getByRole("button", {
             name: /Add Year/i
         });
         addYearButton.click();
+        expect(screen.getByText("New School Year")).toBeInTheDocument();
 
         const saveButton = screen.getByRole("button", {
             name: /Save/i

@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { YearContainer } from "../Components/YearContainer";
 import { Year } from "../Interfaces/yearInterface";
+import userEvent from "@testing-library/user-event";
 
 const setPlanCourses = () => {
     return;
@@ -41,25 +42,23 @@ describe("Year Container tests", () => {
         expect(deleteButton).toBeInTheDocument();
     });
     test("Typing in the input changes the year's name", () => {
-        /**const yearName = (
-            document.getElementById("nameTxt") as HTMLInputElement
-        ).value;*/
+        expect(screen.getByText("Year 1")).toBeInTheDocument();
         const yearName = screen.getByTestId(
             "year-name-edit"
         ) as HTMLInputElement;
-        fireEvent.change(yearName, {
-            target: { value: "new value" }
-        });
-        expect(yearName).not.toBeInTheDocument();
+        expect(yearName).toBeInTheDocument();
+
+        userEvent.type(yearName, "new value");
+        expect(yearName.value !== "Year 1");
     });
     test("Clicking the delete button deletes a year", () => {
-        const yearTitle = screen.getByText("Year 1");
-        expect(yearTitle).toBeInTheDocument();
+        const yearContainer = screen.getByTestId("year-container");
+        expect(yearContainer).toBeInTheDocument();
         const deleteButton = screen.getByRole("button", {
             name: /Delete/i
         });
         deleteButton.click();
 
-        expect(yearTitle).not.toBeInTheDocument();
+        expect(yearContainer).not.toBeInTheDocument();
     });
 });

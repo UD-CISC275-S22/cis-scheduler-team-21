@@ -35,7 +35,7 @@ export function Years(): JSX.Element {
     let loadedData: Year[] = [Freshman, Sophomore, Junior, Senior];
     const previousData: string | null = localStorage.getItem(saveDataKey);
     let mostRecentID = 5;
-    if (previousData !== null) {
+    if (previousData !== null && previousData !== undefined) {
         loadedData = Object.values(JSON.parse(previousData));
         mostRecentID = loadedData[loadedData.length - 1].id + 1;
     }
