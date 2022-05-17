@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Data from "../Data/catalog.json";
-import { Course, CourseJSON, Section } from "../Interfaces/Courses";
+import { course, courseJSON, section } from "../Interfaces/Courses";
 import { setSpringProp } from "../Interfaces/semesterInterfaces";
 import { Button } from "react-bootstrap";
 import { CourseEdit } from "../Components/CourseEdit";
@@ -8,27 +8,39 @@ import { ShowSpringTable } from "./ShowSpringTable";
 
 export function TableContentsSpring({
     setSpring,
-    Visible,
-    SearchVisible,
+    visible,
+    searchVisible,
     planCourses,
-    setPlanCourses
+    setPlanCourses,
+    yearID,
+    planID
 }: setSpringProp): JSX.Element {
-    const [input, setInput] = useState<string>("");
-    const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
-    const [classPopup, setClassPopup] = useState<JSX.Element | null>(null);
-    const courseObjects: Course[] = [];
-    //const [course, setCourse] = useState<Course[]>(loadedData);
-    const StringData: string = JSON.stringify(Data);
-    const DataObjects: Section[] = Object.values(JSON.parse(StringData));
+    const saveDataKey =
+        "PlanYearSem-Data-Spring" + planID.toString() + yearID.toString();
+    const saveKeyPlanCourses = "Plan-Data" + planID.toString();
+    let loadedData: course[] = [];
+    const previousData: string | null = localStorage.getItem(saveDataKey);
+    if (previousData !== null) {
+        loadedData = Object.values(JSON.parse(previousData));
+    }
 
-    DataObjects.map((section: Section) => {
+    const [input, setInput] = useState<string>("");
+    const [selectedCourses, setSelectedCourses] =
+        useState<course[]>(loadedData);
+    const [classPopup, setClassPopup] = useState<JSX.Element | null>(null);
+    const courseObjects: course[] = [];
+    //const [course, setCourse] = useState<course[]>(loadedData);
+    const StringData: string = JSON.stringify(Data);
+    const DataObjects: section[] = Object.values(JSON.parse(StringData));
+
+    DataObjects.map((section: section) => {
         const courseString: string = JSON.stringify(section);
-        const courseList: CourseJSON[] = Object.values(
+        const courseList: courseJSON[] = Object.values(
             JSON.parse(courseString)
         );
-        courseList.map((course: CourseJSON) => {
-            const courseTemp: Course = {
-                ID: course.code,
+        courseList.map((course: courseJSON) => {
+            const courseTemp: course = {
+                id: course.code,
                 code: course.code,
                 name: course.name,
                 descr: course.descr,
@@ -41,46 +53,53 @@ export function TableContentsSpring({
             courseObjects.push(courseTemp);
         });
     });
-    let originalCourse: Course;
+    let originalCourse: course;
     function addTable(): JSX.Element | void {
         if (
             courseObjects.some(
-                (course: Course): boolean => course.code === input
+                (course: course): boolean => course.code === input
             )
         ) {
             /* if (
                 !planCourses.some(
-                    (course: Course): boolean => course.code === input
+                    (course: course): boolean => course.code === input
                 )
             ) { */
-            const AddCourse: Course[] = courseObjects.filter(
-                (course: Course): boolean => course.code === input
+            const AddCourse: course[] = courseObjects.filter(
+                (course: course): boolean => course.code === input
             );
-            const singleCourse: Course = AddCourse[0];
+            const singleCourse: course = AddCourse[0];
             if (
                 selectedCourses.some(
-                    (course: Course): boolean => course.ID === singleCourse.ID
+                    (course: course): boolean => course.id === singleCourse.id
                 )
             ) {
                 return; //needs error message>
             } else {
-                const addNewCourse: Course[] = [
+                const addNewCourse: course[] = [
                     ...selectedCourses,
                     singleCourse
                 ];
-                const planCoursesCopy: Course[] = [
+                const planCoursesCopy: course[] = [
                     ...planCourses,
                     singleCourse
                 ];
                 setSelectedCourses(addNewCourse);
                 setPlanCourses(planCoursesCopy);
+                localStorage.setItem(saveDataKey, JSON.stringify(addNewCourse));
+                localStorage.setItem(
+                    saveKeyPlanCourses,
+                    JSON.stringify(planCoursesCopy)
+                );
                 setSpring(
                     <ShowSpringTable
                         setSpring={setSpring}
-                        Visible={Visible}
-                        SearchVisible={SearchVisible}
+                        visible={visible}
+                        searchVisible={searchVisible}
                         planCourses={planCoursesCopy}
                         setPlanCourses={setPlanCourses}
+                        yearID={yearID}
+                        planID={planID}
                     ></ShowSpringTable>
                 );
                 setInput("");
@@ -89,21 +108,55 @@ export function TableContentsSpring({
         }
     }
     function deleteTable(): void {
+        const planCoursesCopy = planCourses.filter(
+            (course: course): boolean => !selectedCourses.includes(course)
+        );
+        if (planCoursesCopy === null) {
+            setPlanCourses([]);
+        } else {
+            setPlanCourses(planCoursesCopy);
+        }
+        const selectedCoursesCopy: course[] = [];
+        setSelectedCourses(selectedCoursesCopy);
+        localStorage.setItem(
+            saveKeyPlanCourses,
+            JSON.stringify(planCoursesCopy)
+        );
+        localStorage.setItem(saveDataKey, JSON.stringify([]));
         setSpring(null);
     }
-    function deleteCourse(course: Course) {
-        const courseCopy: Course[] = selectedCourses.filter(
-            (x: Course): boolean => x !== course
+    function deleteCourse(course: course) {
+        const courseCopy: course[] = selectedCourses.filter(
+            (x: course): boolean => x !== course
         );
-        const planCoursesCopy: Course[] = planCourses.filter(
-            (course2: Course) => course2.code !== course.code
+        const planCoursesCopy: course[] = planCourses.filter(
+            (course2: course) => course2.code !== course.code
         );
         setPlanCourses(planCoursesCopy);
         setSelectedCourses(courseCopy);
+        localStorage.setItem(saveDataKey, JSON.stringify(courseCopy));
+        localStorage.setItem(
+            saveKeyPlanCourses,
+            JSON.stringify(planCoursesCopy)
+        );
     }
-    function clearCourses(course: Course[]) {
+    function clearCourses(course: course[]) {
+        const planCoursesCopy = planCourses.filter(
+            (courseInPlan: course): boolean =>
+                !selectedCourses.includes(courseInPlan)
+        );
+        if (planCoursesCopy === null) {
+            setPlanCourses([]);
+        } else {
+            setPlanCourses(planCoursesCopy);
+        }
         course = [];
         setSelectedCourses(course);
+        localStorage.setItem(saveDataKey, JSON.stringify(course));
+        localStorage.setItem(
+            saveKeyPlanCourses,
+            JSON.stringify(planCoursesCopy)
+        );
     }
     function updateInput(event: React.ChangeEvent<HTMLInputElement>): void {
         setInput(event.target.value);
@@ -116,28 +169,32 @@ export function TableContentsSpring({
             (input: HTMLInputElement): string => (input.value = "")
         );
     }
-    function coursePopup(courseArg: Course): void {
+    function coursePopup(courseArg: course): void {
         return setClassPopup(
             <CourseEdit
                 setPopup={setClassPopup}
                 setSelectedCourses={setSelectedCourses}
-                SelectedCourses={selectedCourses}
+                selectedCourses={selectedCourses}
+                planCourses={planCourses}
+                setPlanCourses={setPlanCourses}
                 course={courseArg}
+                planKey={saveKeyPlanCourses}
+                yearKey={saveDataKey}
             />
         );
     }
-    function reset(course: Course): void {
-        courseObjects.map((course1: Course): Course => {
-            if (course1.ID === course.ID) {
+    function reset(course: course): void {
+        courseObjects.map((course1: course): course => {
+            if (course1.id === course.id) {
                 originalCourse = course1;
                 return course1;
             } else {
                 return course1;
             }
         });
-        const selectedCopy: Course[] = selectedCourses.map(
-            (course1: Course): Course => {
-                if (course1.ID === course.ID) {
+        const selectedCopy: course[] = selectedCourses.map(
+            (course1: course): course => {
+                if (course1.id === course.id) {
                     course1 = originalCourse;
                     return course1;
                 } else {
@@ -145,7 +202,23 @@ export function TableContentsSpring({
                 }
             }
         );
+        const planCoursesCopy: course[] = planCourses.map(
+            (course1: course): course => {
+                if (course1.id === course.id) {
+                    course1 = originalCourse;
+                    return course1;
+                } else {
+                    return course1;
+                }
+            }
+        );
+        setPlanCourses(planCoursesCopy);
         setSelectedCourses(selectedCopy);
+        localStorage.setItem(saveDataKey, JSON.stringify(selectedCopy));
+        localStorage.setItem(
+            saveKeyPlanCourses,
+            JSON.stringify(planCoursesCopy)
+        );
     }
     return (
         <div>
@@ -153,20 +226,22 @@ export function TableContentsSpring({
                 <table className="add-border">
                     <tbody>
                         {selectedCourses.map(
-                            (course: Course): JSX.Element => (
+                            (course: course): JSX.Element => (
                                 <tr
                                     key={course.code}
                                     data-testid={course.code}
                                     className="innerTR"
                                 >
-                                    {Visible && (
+                                    {visible && (
                                         <td>
                                             <ins
-                                                data-testid="courseId-button"
                                                 style={{
                                                     cursor: "pointer",
                                                     color: "blue"
                                                 }}
+                                                data-testid={
+                                                    course.code + " link"
+                                                }
                                                 onClick={() =>
                                                     coursePopup(course)
                                                 }
@@ -175,10 +250,10 @@ export function TableContentsSpring({
                                             </ins>
                                         </td>
                                     )}
-                                    {!Visible && <td>{course.code}</td>}
+                                    {!visible && <td>{course.code}</td>}
                                     <td>{course.name}</td>
                                     <td>{course.credits}</td>
-                                    {Visible && (
+                                    {visible && (
                                         <td>
                                             <Button
                                                 style={{
@@ -207,7 +282,7 @@ export function TableContentsSpring({
                     </tbody>
                 </table>
             </div>
-            {SearchVisible && (
+            {searchVisible && (
                 <span
                     data-testid="spring-search-mode"
                     style={{ marginLeft: "15ch" }}
@@ -222,7 +297,7 @@ export function TableContentsSpring({
                         defaultValue={""}
                     ></input>
                     <datalist id="searchList" data-testid="searchList">
-                        {courseObjects.map((course: Course) => (
+                        {courseObjects.map((course: course) => (
                             <option key={course.code} value={course.code}>
                                 {course.code}
                             </option>
@@ -239,23 +314,26 @@ export function TableContentsSpring({
                     marginRight: "31ch"
                 }}
             >
-                {Visible && (
+                {visible && (
                     <span data-testid="spring-edit-mode">
                         <Button
-                            style={{ backgroundColor: "darkRed" }}
+                            style={{
+                                backgroundColor: "rgba(221, 19, 19, 0.97)",
+                                color: "black"
+                            }}
                             onClick={deleteTable}
                         >
                             Delete Spring
                         </Button>
                         <Button
                             data-testid="clearSpring"
-                            style={{ backgroundColor: "gold" }}
+                            style={{
+                                backgroundColor: "rgba(238, 200, 63, 0.89)",
+                                color: "black"
+                            }}
                             onClick={() => clearCourses(selectedCourses)}
                         >
                             Clear Spring
-                        </Button>
-                        <Button style={{ backgroundColor: "green" }}>
-                            Save Spring
                         </Button>
                     </span>
                 )}

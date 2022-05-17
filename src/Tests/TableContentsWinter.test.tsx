@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { TableContentsWinter } from "../TableComponents/TableContentsWinter";
 import userEvent from "@testing-library/user-event";
-import { Course } from "../Interfaces/Courses";
+import { course } from "../Interfaces/Courses";
 
 const setWinterElement = () => {
     return;
@@ -11,8 +11,8 @@ const setPlanCourses = () => {
     return;
 };
 
-const course: Course = {
-    ID: "",
+const courseTest: course = {
+    id: "",
     code: "CISC 275",
     name: "Introduction to Software Engineering",
     descr: "Object oriented software design and development through use of an object oriented programming language. Topics include team programming, design patterns, graphical user interfaces, software engineering tools (e.g., integrated development environments, version control, build management, bug tracking, automated testing).",
@@ -28,10 +28,12 @@ describe("WinterDataToArrayTests", () => {
         render(
             <TableContentsWinter
                 setWinter={setWinterElement}
-                Visible={true}
-                SearchVisible={true}
-                planCourses={[course]}
+                visible={true}
+                searchVisible={true}
+                planCourses={[courseTest]}
                 setPlanCourses={setPlanCourses}
+                yearID={0}
+                planID={0}
             />
         );
     });
@@ -76,7 +78,7 @@ describe("WinterDataToArrayTests", () => {
         const AddButton: HTMLElement = screen.getByText("+");
         searchBar.blur();
         AddButton.click();
-        const codeButton = screen.getByTestId("courseId-button");
+        const codeButton = screen.getByTestId("CISC 275 link");
         expect(codeButton).toBeInTheDocument();
         codeButton.click();
 

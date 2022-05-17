@@ -1,11 +1,11 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import { Course } from "../Interfaces/Courses";
+import { course } from "../Interfaces/Courses";
 import { planCoursesProp } from "../Interfaces/degreeInterface";
 
 export function Traditional({ planCourses }: planCoursesProp): JSX.Element {
     const planCoursesString: string[] = planCourses.map(
-        (course: Course): string => course.code
+        (course: course): string => course.code
     );
     const coreClasses: string[] = [
         "CISC 108",
@@ -93,7 +93,7 @@ export function Traditional({ planCourses }: planCoursesProp): JSX.Element {
                     {coreClasses.map((course: string): JSX.Element => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
@@ -108,7 +108,7 @@ export function Traditional({ planCourses }: planCoursesProp): JSX.Element {
                     {additionalReq.map((course: string) => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
@@ -125,7 +125,7 @@ export function Traditional({ planCourses }: planCoursesProp): JSX.Element {
                     {capstoneClasses.map((course: string) => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
@@ -138,12 +138,12 @@ export function Traditional({ planCourses }: planCoursesProp): JSX.Element {
                     })}
                 </Col>
                 <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
-                    <b>Prob/Stat Course {"\n"}</b>
+                    <b>Prob/Stat course {"\n"}</b>
                     <i>-One of the following- {"\n"}</i>
                     {extraMath.map((course: string) => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
@@ -162,7 +162,7 @@ export function Traditional({ planCourses }: planCoursesProp): JSX.Element {
                     {labScience.map((course: string) => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {

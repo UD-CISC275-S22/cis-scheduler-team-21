@@ -1,20 +1,24 @@
 import React, { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { coursePopupProps } from "../Interfaces/coursePopupInterface";
-import { Course } from "../Interfaces/Courses";
+import { course } from "../Interfaces/Courses";
 
 export function CourseEdit({
     setPopup,
     setSelectedCourses,
-    SelectedCourses,
-    course
+    selectedCourses,
+    planCourses,
+    setPlanCourses,
+    course,
+    planKey,
+    yearKey
 }: coursePopupProps): JSX.Element {
-    const courseCopy: Course = course;
-    const [course2, setCourse2] = useState<Course>(courseCopy);
+    const courseCopy: course = course;
+    const [course2, setCourse2] = useState<course>(courseCopy);
     const [breadthList, setBreadthList] = useState<string>(courseCopy.breadth);
     function changeCode(event: React.ChangeEvent<HTMLInputElement>) {
-        const course2Clone: Course = {
-            ID: course2.ID,
+        const course2Clone: course = {
+            id: course2.id,
             code: event.target.value,
             name: course2.name,
             descr: course2.descr,
@@ -27,8 +31,8 @@ export function CourseEdit({
         setCourse2(course2Clone);
     }
     function changeName(event: React.ChangeEvent<HTMLInputElement>) {
-        const course2Clone: Course = {
-            ID: course2.ID,
+        const course2Clone: course = {
+            id: course2.id,
             code: course2.code,
             name: event.target.value,
             descr: course2.descr,
@@ -41,8 +45,8 @@ export function CourseEdit({
         setCourse2(course2Clone);
     }
     function changeCreds(event: React.ChangeEvent<HTMLInputElement>) {
-        const course2Clone: Course = {
-            ID: course2.ID,
+        const course2Clone: course = {
+            id: course2.id,
             code: course2.code,
             name: course2.name,
             descr: course2.descr,
@@ -55,8 +59,8 @@ export function CourseEdit({
         setCourse2(course2Clone);
     }
     function changePreReq(event: React.ChangeEvent<HTMLInputElement>) {
-        const course2Clone: Course = {
-            ID: course2.ID,
+        const course2Clone: course = {
+            id: course2.id,
             code: course2.code,
             name: course2.name,
             descr: course2.descr,
@@ -69,8 +73,8 @@ export function CourseEdit({
         setCourse2(course2Clone);
     }
     function changeRestrict(event: React.ChangeEvent<HTMLInputElement>) {
-        const course2Clone: Course = {
-            ID: course2.ID,
+        const course2Clone: course = {
+            id: course2.id,
             code: course2.code,
             name: course2.name,
             descr: course2.descr,
@@ -93,8 +97,8 @@ export function CourseEdit({
             breadthListClone =
                 breadthListClone + " Creative Arts and Humanities";
         }
-        const course2Clone: Course = {
-            ID: course2.ID,
+        const course2Clone: course = {
+            id: course2.id,
             code: course2.code,
             name: course2.name,
             descr: course2.descr,
@@ -117,8 +121,8 @@ export function CourseEdit({
         } else {
             breadthListClone = breadthListClone + " History & Cultural Change";
         }
-        const course2Clone: Course = {
-            ID: course2.ID,
+        const course2Clone: course = {
+            id: course2.id,
             code: course2.code,
             name: course2.name,
             descr: course2.descr,
@@ -142,8 +146,8 @@ export function CourseEdit({
             breadthListClone =
                 breadthListClone + " Social and Behavioral Sciences";
         }
-        const course2Clone: Course = {
-            ID: course2.ID,
+        const course2Clone: course = {
+            id: course2.id,
             code: course2.code,
             name: course2.name,
             descr: course2.descr,
@@ -172,8 +176,8 @@ export function CourseEdit({
                 breadthListClone +
                 " Mathematics, Natural Sciences and Technology";
         }
-        const course2Clone: Course = {
-            ID: course2.ID,
+        const course2Clone: course = {
+            id: course2.id,
             code: course2.code,
             name: course2.name,
             descr: course2.descr,
@@ -187,8 +191,8 @@ export function CourseEdit({
         setCourse2(course2Clone);
     }
     function changeDescr(event: React.ChangeEvent<HTMLInputElement>) {
-        const course2Clone: Course = {
-            ID: course2.ID,
+        const course2Clone: course = {
+            id: course2.id,
             code: course2.code,
             name: course2.name,
             descr: event.target.value,
@@ -201,9 +205,19 @@ export function CourseEdit({
         setCourse2(course2Clone);
     }
     function done(): void {
-        const SelectedCoursesCopy: Course[] = SelectedCourses.map(
-            (course1: Course): Course => {
-                if (course1.ID === course.ID) {
+        const SelectedCoursesCopy: course[] = selectedCourses.map(
+            (course1: course): course => {
+                if (course1.id === course.id) {
+                    course1 = course2;
+                    return course1;
+                } else {
+                    return course1;
+                }
+            }
+        );
+        const planCoursesCopy: course[] = planCourses.map(
+            (course1: course): course => {
+                if (course1.id === course.id) {
                     course1 = course2;
                     return course1;
                 } else {
@@ -212,6 +226,9 @@ export function CourseEdit({
             }
         );
         setSelectedCourses(SelectedCoursesCopy);
+        setPlanCourses(planCoursesCopy);
+        localStorage.setItem(yearKey, JSON.stringify(SelectedCoursesCopy));
+        localStorage.setItem(planKey, JSON.stringify(planCoursesCopy));
         setPopup(null);
     }
     return (
@@ -239,7 +256,7 @@ export function CourseEdit({
                         </Col>
                         <Col>
                             <Form.Control
-                                data-TestId="code-form"
+                                data-testid="code-form"
                                 name="Code"
                                 id="name"
                                 value={course2.code}
@@ -254,7 +271,7 @@ export function CourseEdit({
                         </Col>
                         <Col>
                             <Form.Control
-                                data-TestId="name-form"
+                                data-testid="name-form"
                                 name="Name"
                                 value={course2.name}
                                 type="text"
@@ -268,7 +285,7 @@ export function CourseEdit({
                         </Col>
                         <Col>
                             <Form.Control
-                                data-TestId="credits-form"
+                                data-testid="credits-form"
                                 name="Credits"
                                 value={course2.credits}
                                 type="text"
@@ -282,7 +299,7 @@ export function CourseEdit({
                         </Col>
                         <Col>
                             <Form.Control
-                                data-TestId="preReq-form"
+                                data-testid="preReq-form"
                                 name="PreReq"
                                 value={course2.preReq}
                                 type="text"
@@ -296,7 +313,7 @@ export function CourseEdit({
                         </Col>
                         <Col>
                             <Form.Control
-                                data-TestId="restriction-form"
+                                data-testid="restriction-form"
                                 name="Restriction"
                                 value={course2.restrict}
                                 type="text"
@@ -307,7 +324,7 @@ export function CourseEdit({
                     <Row>
                         <Form.Label>Breadths:</Form.Label>
                         <Form.Check
-                            data-TestId="art-breadths-form"
+                            data-testid="art-breadths-form"
                             style={{ marginLeft: "11.5ch" }}
                             type="checkbox"
                             label="Arts and Sciences"
@@ -320,7 +337,7 @@ export function CourseEdit({
                     </Row>
                     <Row>
                         <Form.Check
-                            data-TestId="history-breadths-form"
+                            data-testid="history-breadths-form"
                             style={{ marginLeft: "11.5ch" }}
                             type="checkbox"
                             label="History Cultural Change"
@@ -333,7 +350,7 @@ export function CourseEdit({
                     </Row>
                     <Row>
                         <Form.Check
-                            data-TestId="science-breadths-form"
+                            data-testid="science-breadths-form"
                             style={{ marginLeft: "11.5ch" }}
                             type="checkbox"
                             label="Social and Behavioral Sciences"
@@ -346,7 +363,7 @@ export function CourseEdit({
                     </Row>
                     <Row>
                         <Form.Check
-                            data-TestId="math-breadths-form"
+                            data-testid="math-breadths-form"
                             style={{ marginLeft: "11.5ch" }}
                             type="checkbox"
                             label="Mathematics, Natural Sciences and Technology"
@@ -363,7 +380,7 @@ export function CourseEdit({
                         </Col>
                         <Col>
                             <Form.Control
-                                data-TestId="description-form"
+                                data-testid="description-form"
                                 name="Descr"
                                 value={course2.descr}
                                 as="textarea"

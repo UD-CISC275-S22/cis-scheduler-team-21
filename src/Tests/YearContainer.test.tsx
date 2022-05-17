@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { YearContainer } from "../Components/YearContainer";
-import { Year } from "../Interfaces/yearInterface";
+import { year } from "../Interfaces/yearInterface";
 
 const setPlanCourses = () => {
     return;
@@ -9,9 +9,9 @@ const setPlanCourses = () => {
 const setYearList = () => {
     return;
 };
-const year: Year = { title: "Year 1", id: 1 };
-//const year2: Year = { title: "Year 2", id: 2 };
-describe("Year Container tests", () => {
+const year: year = { title: "year 1", id: 1 };
+//const year2: year = { title: "year 2", id: 2 };
+describe("year Container tests", () => {
     beforeEach(() => {
         render(
             <YearContainer
@@ -21,6 +21,7 @@ describe("Year Container tests", () => {
                 editVis={true}
                 planCourses={[]}
                 setPlanCourses={setPlanCourses}
+                planID={0}
             ></YearContainer>
         );
     });
@@ -53,7 +54,7 @@ describe("Year Container tests", () => {
         expect(yearName).not.toBeInTheDocument();
     });
     test("Clicking the delete button deletes a year", () => {
-        const yearTitle = screen.getByText("Year 1");
+        const yearTitle = screen.getByText("year 1");
         expect(yearTitle).toBeInTheDocument();
         const deleteButton = screen.getByRole("button", {
             name: /Delete/i

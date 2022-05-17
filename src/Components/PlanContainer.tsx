@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import "../App.css";
-import { Plan } from "../Interfaces/Courses";
+import { plan } from "../Interfaces/Courses";
 import { Link } from "react-router-dom";
 //import { Years } from "./Years";
 
 export interface PlanProps {
-    plan: Plan;
-    plans: Plan[];
-    setPlans: (plans: Plan[]) => void;
+    plan: plan;
+    plans: plan[];
+    setPlans: (plans: plan[]) => void;
 }
 
 export function PlanContainer({
@@ -17,26 +17,29 @@ export function PlanContainer({
     setPlans
 }: PlanProps): JSX.Element {
     const [editVis, setEditVis] = useState<boolean>(false);
-    const [planTitle, setPlanTitle] = useState<Plan>(plan);
-    const [planDescription, setPlanDescription] = useState<Plan>(plan);
-    //const [data, setData] = useState<Plan[]>(PlansArray);
+    const [planTitle, setPlanTitle] = useState<plan>(plan);
+    const [planDescription, setPlanDescription] = useState<plan>(plan);
+    //const [data, setData] = useState<plan[]>(PlansArray);
 
     function deletePlan(): void {
-        setPlans(plans.filter((x: Plan): boolean => x.id !== plan.id));
+        const plansCopy: plan[] = plans.filter(
+            (x: plan): boolean => x.id !== plan.id
+        );
+        setPlans(plansCopy);
     }
     function updateEdit(): void {
         setEditVis(!editVis);
     }
 
     function updatePlan(event: React.ChangeEvent<HTMLInputElement>) {
-        const updatedPlan: Plan = {
-            Title: event.target.value,
+        const updatedPlan: plan = {
+            title: event.target.value,
             id: plan.id,
             description: plan.description,
             degree: plan.degree
         };
         setPlanTitle(updatedPlan);
-        const planListCopy: Plan[] = plans.map((planElement: Plan): Plan => {
+        const planListCopy: plan[] = plans.map((planElement: plan): plan => {
             if (planElement.id === plan.id) {
                 planElement = updatedPlan;
                 return planElement;
@@ -47,14 +50,14 @@ export function PlanContainer({
         setPlans(planListCopy);
     }
     function updateDescription(event: React.ChangeEvent<HTMLInputElement>) {
-        const updatedPlan: Plan = {
-            Title: plan.Title,
+        const updatedPlan: plan = {
+            title: plan.title,
             id: plan.id,
             description: event.target.value,
             degree: plan.degree
         };
         setPlanDescription(updatedPlan);
-        const planListCopy: Plan[] = plans.map((planElement: Plan): Plan => {
+        const planListCopy: plan[] = plans.map((planElement: plan): plan => {
             if (planElement.id === plan.id) {
                 planElement = updatedPlan;
                 return planElement;
@@ -66,14 +69,14 @@ export function PlanContainer({
     }
     return (
         <div>
-            <div className="Plan">
+            <div className="plan">
                 {editVis && (
                     <Form.Group>
-                        <Form.Label>Plan Name:</Form.Label>
+                        <Form.Label>plan Name:</Form.Label>
                         <Form.Control
                             data-testid="titleEdit"
                             placeholder="Enter new plan name..."
-                            value={planTitle.Title}
+                            value={planTitle.title}
                             style={{ width: "20%" }}
                             onChange={updatePlan}
                         />
@@ -101,7 +104,7 @@ export function PlanContainer({
                                 fontSize: "4ch"
                             }}
                         >
-                            {planTitle.Title}
+                            {planTitle.title}
                         </b>
                     </Col>
                     <Col
@@ -128,7 +131,10 @@ export function PlanContainer({
                 >
                     <Link
                         to="/showplan"
-                        state={{ concentrationValue: plan.degree }}
+                        state={{
+                            concentrationValue: plan.degree,
+                            planID: plan.id
+                        }}
                     >
                         <Button className="orangeButton">Show</Button>
                     </Link>
