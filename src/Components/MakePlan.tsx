@@ -5,21 +5,18 @@ import DropdownMenu from "react-bootstrap/DropdownMenu";
 import { plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
 
-const saveDataKey = "PlanList-Data";
-let loadedData: plan[] = [];
-const previousData: string | null = localStorage.getItem(saveDataKey);
-if (previousData !== null) {
-    loadedData = Object.values(JSON.parse(previousData));
-    console.log(loadedData);
-}
-
 export function MakePlan(): JSX.Element {
+    const planDataKey = "PlanList-Data";
+    let loadedData: plan[] = [];
+    const previousData: string | null = localStorage.getItem(planDataKey);
+    if (previousData !== null) {
+        loadedData = Object.values(JSON.parse(previousData));
+    }
     let mostRecentID = 1;
     if (loadedData.length !== 0) {
         mostRecentID = loadedData[loadedData.length - 1].id + 1;
     }
-    const [Plans, setPlans] = useState<plan[]>(loadedData);
-    //const [countList, setCountList] = useState<number[]>([]);
+    const [plans, setPlans] = useState<plan[]>(loadedData);
     const [Counter, setCounter] = useState<number>(mostRecentID);
     const [Visible, setVisible] = useState<boolean>(false);
     const [Degree, setDegree] = useState<string>("Select Degree");
@@ -33,17 +30,15 @@ export function MakePlan(): JSX.Element {
             description: "",
             degree: Degree
         };
-        //const planList: plan[] = [...PlansArray, newPlan];
-        const planList: plan[] = [...Plans, newPlan];
+        const planList: plan[] = [...plans, newPlan];
         const counterCopy: number = Counter + 1;
         setPlans(planList);
         setCounter(counterCopy);
-        localStorage.setItem(saveDataKey, JSON.stringify(planList));
-        //const URL: string = document.URL;
+        localStorage.setItem(planDataKey, JSON.stringify(planList));
         window.location.reload();
     }
-    function saveData() {
-        localStorage.setItem(saveDataKey, JSON.stringify(Plans));
+    function savePlans() {
+        localStorage.setItem(planDataKey, JSON.stringify(plans));
         window.location.reload();
     }
 
@@ -100,7 +95,7 @@ export function MakePlan(): JSX.Element {
                                     Systems And Networks
                                 </DropdownItem>
                                 <DropdownItem onClick={() => setDegree("AI")}>
-                                    Artifical Intelligence
+                                    Artificial Intelligence
                                 </DropdownItem>
                                 <DropdownItem
                                     onClick={() => setDegree("Cybersecurity")}
@@ -123,7 +118,7 @@ export function MakePlan(): JSX.Element {
                                 <DropdownItem
                                     onClick={() => setDegree("Theory")}
                                 >
-                                    Theory And Computaton
+                                    Theory And Computation
                                 </DropdownItem>
                                 <DropdownItem
                                     onClick={() => setDegree("Traditional")}
@@ -153,16 +148,16 @@ export function MakePlan(): JSX.Element {
                         position: "relative",
                         backgroundColor: "green"
                     }}
-                    onClick={saveData}
+                    onClick={savePlans}
                 >
-                    Save Plans
+                    Save plans
                 </Button>
 
-                {Plans.map((plan: plan) => (
+                {plans.map((plan: plan) => (
                     <div key={plan.id}>
                         <PlanContainer
                             plan={plan}
-                            plans={Plans}
+                            plans={plans}
                             setPlans={setPlans}
                         ></PlanContainer>
                         <hr></hr>

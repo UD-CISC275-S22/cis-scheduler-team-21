@@ -220,6 +220,7 @@ export function TableContentsFall({
             JSON.stringify(planCoursesCopy)
         );
     }
+
     return (
         <div>
             <div style={{ marginBottom: "1ch" }}>

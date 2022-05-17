@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { TableContentsFall } from "../TableComponents/TableContentsFall";
 import userEvent from "@testing-library/user-event";
+import { course } from "../Interfaces/Courses";
 
 const setFallElement = () => {
     return;
@@ -10,14 +11,26 @@ const setPlanCourses = () => {
     return;
 };
 
-describe("FallDataToArrayTests", () => {
+const courseTest: course = {
+    id: "",
+    code: "CISC 275",
+    name: "Introduction to Software Engineering",
+    descr: "Object oriented software design and development through use of an object oriented programming language. Topics include team programming, design patterns, graphical user interfaces, software engineering tools (e.g., integrated development environments, version control, build management, bug tracking, automated testing).",
+    credits: "3",
+    preReq: "Minimum grade of C- in CISC 181 and CISC 220.",
+    restrict: "",
+    breadth: "University: ; A&S: ",
+    typ: "Fall and Spring"
+};
+
+describe("Fall Contents tests", () => {
     beforeEach(() => {
         render(
             <TableContentsFall
                 setFall={setFallElement}
                 visible={true}
                 searchVisible={true}
-                planCourses={[]}
+                planCourses={[courseTest]}
                 setPlanCourses={setPlanCourses}
                 yearID={1}
                 planID={2}
@@ -42,7 +55,7 @@ describe("FallDataToArrayTests", () => {
         const courseInTable: HTMLElement = screen.getByTestId("CISC 275");
         expect(courseInTable).toBeInTheDocument();
     });
-    test("Delete course works", () => {
+    test("Delete button removes the course from the table", () => {
         const searchBar: HTMLElement = screen.getByTestId("searchIDFall");
         searchBar.click();
         userEvent.type(searchBar, "CISC 275");
@@ -52,13 +65,46 @@ describe("FallDataToArrayTests", () => {
         searchBar.blur();
         AddButton.click();
         const courseInTable: HTMLElement = screen.getByTestId("CISC 275");
-
+        expect(courseInTable).toBeInTheDocument();
         const deleteCourse: HTMLElement = screen.getByTestId("CISC 275 delete");
         expect(deleteCourse).toBeInTheDocument();
         deleteCourse.click();
         expect(courseInTable).not.toBeInTheDocument();
     });
-    test("Clear Courses to work", () => {
+    test("Reset button resets the courses values to their default values after the user edits them", () => {
+        const searchBar: HTMLElement = screen.getByTestId("searchIDFall");
+        searchBar.click();
+        userEvent.type(searchBar, "CISC 275");
+        const AddButton: HTMLElement = screen.getByText("+");
+        searchBar.blur();
+        AddButton.click();
+        const codeButton = screen.getByTestId("CISC 275 link");
+        expect(codeButton).toBeInTheDocument();
+        codeButton.click();
+
+        const nameForm = screen.getByTestId("name-form");
+        userEvent.clear(nameForm);
+        nameForm.click();
+        userEvent.type(nameForm, "new value");
+        expect(screen.getByDisplayValue("new value")).toBeInTheDocument();
+
+        const doneButton = screen.getByRole("button", {
+            name: /Done/i
+        });
+        doneButton.click();
+
+        expect(
+            screen.queryByText("Introduction to Software Engineering")
+        ).not.toBeInTheDocument();
+        const resetButton = screen.getByRole("button", {
+            name: /Reset/i
+        });
+        resetButton.click();
+        expect(
+            screen.queryByText("Introduction to Software Engineering")
+        ).toBeInTheDocument();
+    });
+    test("Clear Courses button removes the courses within the table", () => {
         const searchBar: HTMLElement = screen.getByTestId("searchIDFall");
         searchBar.click();
         userEvent.type(searchBar, "CISC 275");
@@ -108,7 +154,7 @@ describe("FallDataToArrayTests", () => {
         const nodes = screen.queryAllByText("jaskdfhlakjdfsh");
         expect(nodes.length).toEqual(0);
     });
-    test("Checking the Arts and Sciences breadth", () => {
+    test("Clicking the check for the Arts and Sciences breadth", () => {
         const searchBar: HTMLElement = screen.getByTestId("searchIDFall");
         searchBar.click();
         userEvent.type(searchBar, "CISC 275");
@@ -117,16 +163,111 @@ describe("FallDataToArrayTests", () => {
         AddButton.click();
         const codeButton = screen.getByTestId("CISC 275 link");
         codeButton.click();
-        const artBreadthsForm: HTMLElement =
+        const artBreadthsForm: HTMLInputElement =
             screen.getByTestId("art-breadths-form");
         expect(artBreadthsForm).toBeInTheDocument();
-        expect(artBreadthsForm).not.toBeChecked();
         artBreadthsForm.click();
-        const doneButton = screen.getByText("Done");
+        const doneButton = screen.getByRole("button", {
+            name: /Done/i
+        });
         doneButton.click();
         codeButton.click();
-        expect(artBreadthsForm).toBeChecked();
-        artBreadthsForm.click();
-        expect(artBreadthsForm).not.toBeChecked();
+        expect(artBreadthsForm.checked).toBe(true);
     });
+    test("Un-Clicking the check for the Arts and Sciences breadth", () => {
+        const searchBar: HTMLElement = screen.getByTestId("searchIDFall");
+        searchBar.click();
+        userEvent.type(searchBar, "CISC 275");
+        const AddButton: HTMLElement = screen.getByText("+");
+        searchBar.blur();
+        AddButton.click();
+        const codeButton = screen.getByTestId("CISC 275 link");
+        codeButton.click();
+        const artBreadthsForm: HTMLInputElement =
+            screen.getByTestId("art-breadths-form");
+        expect(artBreadthsForm).toBeInTheDocument();
+        artBreadthsForm.click();
+        const doneButton = screen.getByRole("button", {
+            name: /Done/i
+        });
+        doneButton.click();
+        codeButton.click();
+        expect(artBreadthsForm.checked).toBe(true);
+        artBreadthsForm.click();
+        doneButton.click();
+        codeButton.click();
+        expect(artBreadthsForm.checked).toBe(false);
+    });
+    test("Clicking the check for the History Cultural Change breadth", () => {
+        const searchBar: HTMLElement = screen.getByTestId("searchIDFall");
+        searchBar.click();
+        userEvent.type(searchBar, "CISC 275");
+        const AddButton: HTMLElement = screen.getByText("+");
+        searchBar.blur();
+        AddButton.click();
+        const codeButton = screen.getByTestId("CISC 275 link");
+        codeButton.click();
+        const historyBreadthsForm: HTMLInputElement = screen.getByTestId(
+            "history-breadths-form"
+        );
+        expect(historyBreadthsForm).toBeInTheDocument();
+        historyBreadthsForm.click();
+        const doneButton = screen.getByRole("button", {
+            name: /Done/i
+        });
+        doneButton.click();
+        codeButton.click();
+        expect(historyBreadthsForm.checked).toBe(true);
+    });
+    test("Clicking the check for the Social and Behavorial Sciences breadth", () => {
+        const searchBar: HTMLElement = screen.getByTestId("searchIDFall");
+        searchBar.click();
+        userEvent.type(searchBar, "CISC 275");
+        const AddButton: HTMLElement = screen.getByText("+");
+        searchBar.blur();
+        AddButton.click();
+        const codeButton = screen.getByTestId("CISC 275 link");
+        codeButton.click();
+        const scienceBreadthsForm: HTMLInputElement = screen.getByTestId(
+            "science-breadths-form"
+        );
+        expect(scienceBreadthsForm).toBeInTheDocument();
+        scienceBreadthsForm.click();
+        const doneButton = screen.getByRole("button", {
+            name: /Done/i
+        });
+        doneButton.click();
+        codeButton.click();
+        expect(scienceBreadthsForm.checked).toBe(true);
+    });
+    test("Clicking the check for the Mathematical, Natural Sciences and Technology breadth", () => {
+        const searchBar: HTMLElement = screen.getByTestId("searchIDFall");
+        searchBar.click();
+        userEvent.type(searchBar, "CISC 275");
+        const AddButton: HTMLElement = screen.getByText("+");
+        searchBar.blur();
+        AddButton.click();
+        const codeButton = screen.getByTestId("CISC 275 link");
+        codeButton.click();
+        const mathBreadthsForm: HTMLInputElement =
+            screen.getByTestId("math-breadths-form");
+        expect(mathBreadthsForm).toBeInTheDocument();
+        mathBreadthsForm.click();
+        const doneButton = screen.getByRole("button", {
+            name: /Done/i
+        });
+        doneButton.click();
+        codeButton.click();
+        expect(mathBreadthsForm.checked).toBe(true);
+    });
+    /**test("Testing if a course satisfies a degree requirement for AI concentration", () => {
+        const searchBar: HTMLElement = screen.getByTestId("searchIDFall");
+        searchBar.click();
+        userEvent.type(searchBar, "CISC 484");
+        const AddButton: HTMLElement = screen.getByText("+");
+        searchBar.blur();
+        AddButton.click();
+        render(<AI planCourses={[]}></AI>);
+        expect(screen.getByText("CISC 484✅")).toBeInTheDocument;
+    });*/
 });

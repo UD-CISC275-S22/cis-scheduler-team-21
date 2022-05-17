@@ -8,13 +8,14 @@ import { course } from "../Interfaces/Courses";
 import { DegreeRequirement } from "./DegreeRequirement";
 import { useLocation, Link } from "react-router-dom";
 
-type locationStateString = { concentrationValue: string; planID: number };
+type locationState = { concentrationValue: string; planID: number };
 
 export function Years(): JSX.Element {
-    //const [data, setData] = useState<JSX.Element>(loadedData);
+    //type locationStateString = { concentrationValue: string };
     const location = useLocation();
-    const { concentrationValue } = location.state as locationStateString;
-    const { planID } = location.state as locationStateString;
+    const passedProps = location.state as locationState;
+    const concentrationValue: string = passedProps.concentrationValue;
+    const planID: number = passedProps.planID;
 
     const Freshman: year = {
         title: "Freshman",
@@ -65,6 +66,7 @@ export function Years(): JSX.Element {
     function showReq(): void {
         return setDegreeReq(
             <DegreeRequirement
+                data-TestId="degree-requirements-popup"
                 planCourses={planCourses}
                 concentration={concentrationValue}
                 setDegreeReq={setDegreeReq}
@@ -87,6 +89,7 @@ export function Years(): JSX.Element {
                 >
                     <Button
                         onClick={() => setEditVis(!editVis)}
+                        data-TestId="rename-delete-button"
                         style={{
                             marginLeft: "4ch",
                             marginRight: ".75ch",
