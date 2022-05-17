@@ -10,59 +10,63 @@ import { addSemesterProps } from "../Interfaces/semesterInterfaces";
 
 export function AddSemester({
     planCourses,
-    setPlanCourses
+    setPlanCourses,
+    yearID,
+    planID
 }: addSemesterProps): JSX.Element {
-    const [FallElement, setFallElement] = useState<JSX.Element | null>(null);
-    const [SpringElement, setSpringElement] = useState<JSX.Element | null>(
+    const [fallElement, setFallElement] = useState<JSX.Element | null>(null);
+    const [springElement, setSpringElement] = useState<JSX.Element | null>(
         null
     );
-    const [SummerElement, setSummerElement] = useState<JSX.Element | null>(
+    const [summerElement, setSummerElement] = useState<JSX.Element | null>(
         null
     );
-    const [WinterElement, setWinterElement] = useState<JSX.Element | null>(
+    const [winterElement, setWinterElement] = useState<JSX.Element | null>(
         null
     );
-    const [Visible, setVisible] = useState<boolean>(false);
-    const [SearchVisible, setSearchVisible] = useState<boolean>(false);
+    const [visible, setVisible] = useState<boolean>(false);
+    const [searchVisible, setSearchVisible] = useState<boolean>(true);
 
     function setVisEdit(): void {
-        setVisible(!Visible);
-        if (FallElement !== null) {
-            addFall(!Visible, SearchVisible);
+        setVisible(!visible);
+        if (fallElement !== null) {
+            addFall(!visible, searchVisible);
         }
-        if (SpringElement !== null) {
-            addSpring(!Visible, SearchVisible);
+        if (springElement !== null) {
+            addSpring(!visible, searchVisible);
         }
-        if (WinterElement !== null) {
-            addWinter(!Visible, SearchVisible);
+        if (winterElement !== null) {
+            addWinter(!visible, searchVisible);
         }
-        if (SummerElement !== null) {
-            addSummer(!Visible, SearchVisible);
+        if (summerElement !== null) {
+            addSummer(!visible, searchVisible);
         }
     }
     function setVisSearch(): void {
-        setSearchVisible(!SearchVisible);
-        if (FallElement !== null) {
-            addFall(Visible, !SearchVisible);
+        setSearchVisible(!searchVisible);
+        if (fallElement !== null) {
+            addFall(visible, !searchVisible);
         }
-        if (SpringElement !== null) {
-            addSpring(Visible, !SearchVisible);
+        if (springElement !== null) {
+            addSpring(visible, !searchVisible);
         }
-        if (WinterElement !== null) {
-            addWinter(Visible, !SearchVisible);
+        if (winterElement !== null) {
+            addWinter(visible, !searchVisible);
         }
-        if (SummerElement !== null) {
-            addSummer(Visible, !SearchVisible);
+        if (summerElement !== null) {
+            addSummer(visible, !searchVisible);
         }
     }
     function addFall(visibleState: boolean, visibleSearchState: boolean): void {
         setFallElement(
             <ShowFallTable
                 setFall={setFallElement}
-                Visible={visibleState}
-                SearchVisible={visibleSearchState}
+                visible={visibleState}
+                searchVisible={visibleSearchState}
                 planCourses={planCourses}
                 setPlanCourses={setPlanCourses}
+                yearID={yearID}
+                planID={planID}
             ></ShowFallTable>
         );
     }
@@ -73,10 +77,12 @@ export function AddSemester({
         setSpringElement(
             <ShowSpringTable
                 setSpring={setSpringElement}
-                Visible={visibleState}
-                SearchVisible={visibleSearchState}
+                visible={visibleState}
+                searchVisible={visibleSearchState}
                 planCourses={planCourses}
                 setPlanCourses={setPlanCourses}
+                yearID={yearID}
+                planID={planID}
             ></ShowSpringTable>
         );
     }
@@ -87,10 +93,12 @@ export function AddSemester({
         setSummerElement(
             <ShowSummerTable
                 setSummer={setSummerElement}
-                Visible={visibleState}
-                SearchVisible={visibleSearchState}
+                visible={visibleState}
+                searchVisible={visibleSearchState}
                 planCourses={planCourses}
                 setPlanCourses={setPlanCourses}
+                yearID={yearID}
+                planID={planID}
             ></ShowSummerTable>
         );
     }
@@ -101,10 +109,12 @@ export function AddSemester({
         setWinterElement(
             <ShowWinterTable
                 setWinter={setWinterElement}
-                Visible={visibleState}
-                SearchVisible={visibleSearchState}
+                visible={visibleState}
+                searchVisible={visibleSearchState}
                 planCourses={planCourses}
                 setPlanCourses={setPlanCourses}
+                yearID={yearID}
+                planID={planID}
             ></ShowWinterTable>
         );
     }
@@ -123,25 +133,25 @@ export function AddSemester({
             >
                 <Button
                     className="customButton"
-                    onClick={() => addFall(Visible, SearchVisible)}
+                    onClick={() => addFall(visible, searchVisible)}
                 >
                     Add Fall Semester
                 </Button>
                 <Button
                     className="customButton"
-                    onClick={() => addWinter(Visible, SearchVisible)}
+                    onClick={() => addWinter(visible, searchVisible)}
                 >
                     Add Winter Session
                 </Button>
                 <Button
                     className="customButton"
-                    onClick={() => addSpring(Visible, SearchVisible)}
+                    onClick={() => addSpring(visible, searchVisible)}
                 >
                     Add Spring Semester
                 </Button>
                 <Button
                     className="customButton"
-                    onClick={() => addSummer(Visible, SearchVisible)}
+                    onClick={() => addSummer(visible, searchVisible)}
                 >
                     Add Summer Session
                 </Button>
@@ -149,10 +159,10 @@ export function AddSemester({
             <div
                 style={{ float: "right", marginRight: "3ch", marginTop: "2ch" }}
             >
-                {Visible && (
+                {visible && (
                     <Button
                         onClick={fullClear}
-                        style={{ backgroundColor: "red" }}
+                        style={{ backgroundColor: "rgba(221, 19, 19, 0.97)" }}
                     >
                         Remove ALL
                     </Button>
@@ -161,28 +171,28 @@ export function AddSemester({
                     Edit Mode
                 </Button>
                 <Button onClick={setVisSearch} style={{ marginLeft: ".5ch" }}>
-                    Search for a Course
+                    Toggle Search
                 </Button>
             </div>
             <div>
                 <Row style={{ width: "100%" }}>
                     <Col style={{ marginLeft: "1ch" }}>
                         <br></br>
-                        {FallElement}
+                        {fallElement}
                     </Col>
                     <Col>
                         <br></br>
-                        {SpringElement}
+                        {springElement}
                     </Col>
                 </Row>
                 <Row style={{ width: "100%" }}>
                     <Col style={{ marginLeft: "1ch" }}>
                         <br></br>
-                        {WinterElement}
+                        {winterElement}
                     </Col>
                     <Col>
                         <br></br>
-                        {SummerElement}
+                        {summerElement}
                     </Col>
                 </Row>
             </div>

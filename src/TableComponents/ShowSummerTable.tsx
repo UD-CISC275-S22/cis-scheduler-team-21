@@ -1,15 +1,16 @@
 import React from "react";
 import { TableContentsSummer } from "./TableContentsSummer";
-import { SetSummerProp } from "../Interfaces/semesterInterfaces";
+import { setSummerProp } from "../Interfaces/semesterInterfaces";
 
 export function ShowSummerTable({
     setSummer,
-    Visible,
-    SearchVisible,
+    visible,
+    searchVisible,
     planCourses,
-    setPlanCourses
-}: //DataKey
-SetSummerProp): JSX.Element {
+    setPlanCourses,
+    yearID,
+    planID
+}: setSummerProp): JSX.Element {
     return (
         <div>
             <table
@@ -44,16 +45,18 @@ SetSummerProp): JSX.Element {
                         <td>
                             <h5>Course Credit</h5>
                         </td>
-                        {Visible && <td></td>}
+                        {visible && <td></td>}
                     </tr>
                 </tbody>
             </table>
             <TableContentsSummer
                 setSummer={setSummer}
-                Visible={Visible}
-                SearchVisible={SearchVisible}
+                visible={visible}
+                searchVisible={searchVisible}
                 planCourses={planCourses}
                 setPlanCourses={setPlanCourses}
+                yearID={yearID}
+                planID={planID}
             ></TableContentsSummer>
         </div>
     );

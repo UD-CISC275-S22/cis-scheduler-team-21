@@ -15,10 +15,12 @@ describe("FallDataToArrayTests", () => {
         render(
             <TableContentsFall
                 setFall={setFallElement}
-                Visible={true}
-                SearchVisible={true}
+                visible={true}
+                searchVisible={true}
                 planCourses={[]}
                 setPlanCourses={setPlanCourses}
+                yearID={1}
+                planID={2}
             />
         );
     });
@@ -40,7 +42,7 @@ describe("FallDataToArrayTests", () => {
         const courseInTable: HTMLElement = screen.getByTestId("CISC 275");
         expect(courseInTable).toBeInTheDocument();
     });
-    test("Delete Course works", () => {
+    test("Delete course works", () => {
         const searchBar: HTMLElement = screen.getByTestId("searchIDFall");
         searchBar.click();
         userEvent.type(searchBar, "CISC 275");
@@ -105,5 +107,26 @@ describe("FallDataToArrayTests", () => {
         AddButton.click();
         const nodes = screen.queryAllByText("jaskdfhlakjdfsh");
         expect(nodes.length).toEqual(0);
+    });
+    test("Checking the Arts and Sciences breadth", () => {
+        const searchBar: HTMLElement = screen.getByTestId("searchIDFall");
+        searchBar.click();
+        userEvent.type(searchBar, "CISC 275");
+        const AddButton: HTMLElement = screen.getByText("+");
+        searchBar.blur();
+        AddButton.click();
+        const codeButton = screen.getByTestId("CISC 275 link");
+        codeButton.click();
+        const artBreadthsForm: HTMLElement =
+            screen.getByTestId("art-breadths-form");
+        expect(artBreadthsForm).toBeInTheDocument();
+        expect(artBreadthsForm).not.toBeChecked();
+        artBreadthsForm.click();
+        const doneButton = screen.getByText("Done");
+        doneButton.click();
+        codeButton.click();
+        expect(artBreadthsForm).toBeChecked();
+        artBreadthsForm.click();
+        expect(artBreadthsForm).not.toBeChecked();
     });
 });

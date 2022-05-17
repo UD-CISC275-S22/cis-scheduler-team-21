@@ -1,15 +1,17 @@
 import React from "react";
 import { TableContentsWinter } from "./TableContentsWinter";
-import { SetWinterProp } from "../Interfaces/semesterInterfaces";
+import { setWinterProp } from "../Interfaces/semesterInterfaces";
 
 export function ShowWinterTable({
     setWinter,
-    Visible,
-    SearchVisible,
+    visible,
+    searchVisible,
     planCourses,
-    setPlanCourses
+    setPlanCourses,
+    yearID,
+    planID
 }: //DataKey
-SetWinterProp): JSX.Element {
+setWinterProp): JSX.Element {
     return (
         <div>
             <table
@@ -44,16 +46,18 @@ SetWinterProp): JSX.Element {
                         <td>
                             <h5>Course Credit</h5>
                         </td>
-                        {Visible && <td></td>}
+                        {visible && <td></td>}
                     </tr>
                 </tbody>
             </table>
             <TableContentsWinter
                 setWinter={setWinter}
-                Visible={Visible}
-                SearchVisible={SearchVisible}
+                visible={visible}
+                searchVisible={searchVisible}
                 planCourses={planCourses}
                 setPlanCourses={setPlanCourses}
+                yearID={yearID}
+                planID={planID}
             ></TableContentsWinter>
         </div>
     );

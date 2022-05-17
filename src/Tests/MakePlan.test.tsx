@@ -127,9 +127,12 @@ describe("MakePlan Component tests", () => {
         dropMenu.click();
         const option: HTMLElement = screen.getByText("Systems And Networks");
         option.click();
-        const createButton: HTMLElement = screen.getByText("Create Plan");
+        //const createButton: HTMLElement = screen.getByText("Create Plan");
+        const createButton = screen.getByRole("button", {
+            name: /Create Plan/i
+        });
         createButton.click();
-        const plan: HTMLElement = screen.getByText("Plan 1");
+        const plan: HTMLElement = screen.getByText("plan 1");
         const deleteButton: HTMLElement = screen.getByText("Delete");
         deleteButton.click();
         expect(plan).not.toBeInTheDocument();

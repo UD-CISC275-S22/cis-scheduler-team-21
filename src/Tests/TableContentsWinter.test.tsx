@@ -15,10 +15,12 @@ describe("WinterDataToArrayTests", () => {
         render(
             <TableContentsWinter
                 setWinter={setWinterElement}
-                Visible={true}
-                SearchVisible={true}
+                visible={true}
+                searchVisible={true}
                 planCourses={[]}
                 setPlanCourses={setPlanCourses}
+                yearID={0}
+                planID={0}
             />
         );
     });

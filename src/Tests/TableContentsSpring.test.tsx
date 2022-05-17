@@ -15,10 +15,12 @@ describe("SpringDataToArrayTests", () => {
         render(
             <TableContentsSpring
                 setSpring={setSpringElement}
-                Visible={true}
-                SearchVisible={true}
+                visible={true}
+                searchVisible={true}
                 planCourses={[]}
                 setPlanCourses={setPlanCourses}
+                yearID={0}
+                planID={0}
             />
         );
     });

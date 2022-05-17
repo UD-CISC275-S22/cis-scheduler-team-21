@@ -1,14 +1,16 @@
 import React from "react";
-import { SetFallProp } from "../Interfaces/semesterInterfaces";
+import { setFallProp } from "../Interfaces/semesterInterfaces";
 import { TableContentsFall } from "./TableContentsFall";
 
 export function ShowFallTable({
     setFall,
-    Visible,
-    SearchVisible,
+    visible,
+    searchVisible,
     planCourses,
-    setPlanCourses
-}: SetFallProp): JSX.Element {
+    setPlanCourses,
+    yearID,
+    planID
+}: setFallProp): JSX.Element {
     return (
         <div>
             <table
@@ -47,16 +49,18 @@ export function ShowFallTable({
                         <td>
                             <h5>Course Credit</h5>
                         </td>
-                        {Visible && <td></td>}
+                        {visible && <td></td>}
                     </tr>
                 </tbody>
             </table>
             <TableContentsFall
                 setFall={setFall}
-                Visible={Visible}
-                SearchVisible={SearchVisible}
+                visible={visible}
+                searchVisible={searchVisible}
                 planCourses={planCourses}
                 setPlanCourses={setPlanCourses}
+                yearID={yearID}
+                planID={planID}
             ></TableContentsFall>
         </div>
     );

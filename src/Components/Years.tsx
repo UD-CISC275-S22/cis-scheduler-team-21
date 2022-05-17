@@ -2,62 +2,65 @@ import React, { useState } from "react";
 //import { useLocation } from "react-router-dom";
 import "../App.css";
 import { YearContainer } from "./YearContainer";
-import { Year } from "../Interfaces/yearInterface";
+import { year } from "../Interfaces/yearInterface";
 import { Button } from "react-bootstrap";
-import { Course } from "../Interfaces/Courses";
+import { course } from "../Interfaces/Courses";
 import { DegreeRequirement } from "./DegreeRequirement";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
-type locationStateString = { concentrationValue: string };
+type locationStateString = { concentrationValue: string; planID: number };
 
 export function Years(): JSX.Element {
     //const [data, setData] = useState<JSX.Element>(loadedData);
     const location = useLocation();
     const { concentrationValue } = location.state as locationStateString;
+    const { planID } = location.state as locationStateString;
 
-    const Freshman: Year = {
+    const Freshman: year = {
         title: "Freshman",
         id: 1
     };
-    const Sophomore: Year = {
+    const Sophomore: year = {
         title: "Sophomore",
         id: 2
     };
-    const Junior: Year = {
+    const Junior: year = {
         title: "Junior",
         id: 3
     };
-    const Senior: Year = {
+    const Senior: year = {
         title: "Senior",
         id: 4
     };
-    const saveDataKey = "yearsList-Data";
-    let loadedData: Year[] = [Freshman, Sophomore, Junior, Senior];
+    const saveDataKey = "yearsList-Data" + planID.toString();
+    let loadedData: year[] = [Freshman, Sophomore, Junior, Senior];
     const previousData: string | null = localStorage.getItem(saveDataKey);
     let mostRecentID = 5;
     if (previousData !== null) {
         loadedData = Object.values(JSON.parse(previousData));
         mostRecentID = loadedData[loadedData.length - 1].id + 1;
     }
-    console.log(loadedData);
-    const [yearList, setYearList] = useState<Year[]>(loadedData);
+    const savePlanKey = "Plan-Data" + planID.toString();
+    let loadedPlanData: course[] = [];
+    const previousPlanData: string | null = localStorage.getItem(savePlanKey);
+    if (previousPlanData !== null) {
+        loadedPlanData = Object.values(JSON.parse(previousPlanData));
+    }
+    const [yearList, setYearList] = useState<year[]>(loadedData);
     const [editVis, setEditVis] = useState<boolean>(false);
     const [counter, setCounter] = useState<number>(mostRecentID);
-    const [planCourses, setPlanCourses] = useState<Course[]>([]);
+    const [planCourses, setPlanCourses] = useState<course[]>(loadedPlanData);
     const [degreeReq, setDegreeReq] = useState<JSX.Element | null>(null);
     function addYear(): void {
         const nextCount: number = counter + 1;
-        const newYear: Year = {
-            title: "New School Year",
+        const newYear: year = {
+            title: "New School year",
             id: nextCount
         };
         setCounter(nextCount);
-        const yearListCopy: Year[] = [...yearList, newYear];
+        const yearListCopy: year[] = [...yearList, newYear];
         setYearList(yearListCopy);
         localStorage.setItem(saveDataKey, JSON.stringify(yearListCopy));
-    }
-    function saveButton(): void {
-        localStorage.setItem(saveDataKey, JSON.stringify(yearList));
     }
     function showReq(): void {
         return setDegreeReq(
@@ -68,27 +71,73 @@ export function Years(): JSX.Element {
             ></DegreeRequirement>
         );
     }
+    function save(): void {
+        window.location.reload();
+    }
     return (
         <div style={{ paddingBottom: "8ch" }}>
-            <header className="App-header-Year">
+            <header className="App-header-year">
                 <div style={{ width: "100%", textAlign: "center" }}>
-                    Year View
+                    year View
                 </div>
                 <div
                     style={{
                         textAlign: "center"
                     }}
                 >
-                    <Button onClick={() => setEditVis(!editVis)}>
-                        Rename/Delete Years
+                    <Button
+                        onClick={() => setEditVis(!editVis)}
+                        style={{
+                            marginLeft: "4ch",
+                            marginRight: ".75ch",
+                            backgroundColor: "rgba(19, 221, 204, 0.88)",
+                            color: "black"
+                        }}
+                    >
+                        Edit Years
                     </Button>
-                    <Button onClick={saveButton}>Save</Button>
-                    <Button onClick={showReq}>Course Requirements</Button>
+                    <Button
+                        onClick={showReq}
+                        style={{
+                            backgroundColor: "rgba(19, 221, 204, 0.88)",
+                            color: "black"
+                        }}
+                    >
+                        course Requirements
+                    </Button>
+                </div>
+                <div>
+                    <Link to="/">
+                        <Button
+                            style={{
+                                position: "absolute",
+                                top: "6ch",
+                                left: "2ch",
+                                backgroundColor: "rgba(19, 221, 204, 0.88)",
+                                color: "black"
+                            }}
+                        >
+                            {"<-"}Back
+                        </Button>
+                    </Link>
+                    <Button
+                        style={{
+                            position: "absolute",
+                            top: "6ch",
+                            left: "14ch",
+                            backgroundColor: "green",
+                            borderColor: "none",
+                            color: "white"
+                        }}
+                        onClick={save}
+                    >
+                        save
+                    </Button>
                 </div>
             </header>
             <div>{degreeReq}</div>
             {yearList.map(
-                (year: Year): JSX.Element => (
+                (year: year): JSX.Element => (
                     <span key={year.id}>
                         <YearContainer
                             year={year}
@@ -97,6 +146,7 @@ export function Years(): JSX.Element {
                             editVis={editVis}
                             planCourses={planCourses}
                             setPlanCourses={setPlanCourses}
+                            planID={planID}
                         ></YearContainer>
                         <hr style={{ zIndex: "-1", position: "relative" }}></hr>
                     </span>
@@ -110,7 +160,7 @@ export function Years(): JSX.Element {
                 }}
             >
                 <Button onClick={addYear} className="orangeButton">
-                    Add Year
+                    Add year
                 </Button>
             </div>
         </div>

@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Button, Dropdown, Form } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/DropdownItem";
 import DropdownMenu from "react-bootstrap/DropdownMenu";
-import { Plan } from "../Interfaces/Courses";
+import { plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
 
 const saveDataKey = "PlanList-Data";
-let loadedData: Plan[] = [];
+let loadedData: plan[] = [];
 const previousData: string | null = localStorage.getItem(saveDataKey);
 if (previousData !== null) {
     loadedData = Object.values(JSON.parse(previousData));
@@ -18,7 +18,7 @@ export function MakePlan(): JSX.Element {
     if (loadedData.length !== 0) {
         mostRecentID = loadedData[loadedData.length - 1].id + 1;
     }
-    const [Plans, setPlans] = useState<Plan[]>(loadedData);
+    const [Plans, setPlans] = useState<plan[]>(loadedData);
     //const [countList, setCountList] = useState<number[]>([]);
     const [Counter, setCounter] = useState<number>(mostRecentID);
     const [Visible, setVisible] = useState<boolean>(false);
@@ -27,14 +27,14 @@ export function MakePlan(): JSX.Element {
 
     function newPlan(): void {
         setVisible(false);
-        const newPlan: Plan = {
-            Title: "Plan " + Counter,
+        const newPlan: plan = {
+            title: "plan " + Counter,
             id: Counter,
             description: "",
             degree: Degree
         };
-        //const planList: Plan[] = [...PlansArray, newPlan];
-        const planList: Plan[] = [...Plans, newPlan];
+        //const planList: plan[] = [...PlansArray, newPlan];
+        const planList: plan[] = [...Plans, newPlan];
         const counterCopy: number = Counter + 1;
         setPlans(planList);
         setCounter(counterCopy);
@@ -44,12 +44,16 @@ export function MakePlan(): JSX.Element {
     }
     function saveData() {
         localStorage.setItem(saveDataKey, JSON.stringify(Plans));
+        window.location.reload();
     }
 
     function Popup() {
         return (
             <div className="popup">
-                <div className="popup-inner">
+                <div
+                    className="popup-inner"
+                    style={{ maxWidth: "400px", height: "250px" }}
+                >
                     <button
                         className="close-btn"
                         onClick={() => setVisible(false)}
@@ -134,24 +138,12 @@ export function MakePlan(): JSX.Element {
                         onClick={newPlan}
                         disabled={Degree === "Select Degree"}
                     >
-                        Create Plan
+                        Create plan
                     </button>
                 </div>
             </div>
         );
     }
-    /**const [pageContent, setPageContent] = React.useState(null);
-    const { planContents } = useParams();
-    React.useEffect(() => {
-        fetch(
-            `https://ud-cisc275-s22.github.io/cis-scheduler-team-21/${planContents}`
-        )
-            .then((res) => res.json())
-            .then((data) => setPageContent(data));
-    }, [planContents]);*/
-
-    //if (!pageContent) return null;
-    /***/
     return (
         <div className="makePlan-background">
             <div>
@@ -165,9 +157,8 @@ export function MakePlan(): JSX.Element {
                 >
                     Save Plans
                 </Button>
-                {/* {visible && <div></div>} */}
 
-                {Plans.map((plan: Plan) => (
+                {Plans.map((plan: plan) => (
                     <div key={plan.id}>
                         <PlanContainer
                             plan={plan}
@@ -178,7 +169,7 @@ export function MakePlan(): JSX.Element {
                     </div>
                 ))}
                 <div>
-                    <Button onClick={() => setVisible(true)}>New Plan</Button>
+                    <Button onClick={() => setVisible(true)}>New plan</Button>
                 </div>
                 <div className="main">
                     {Visible && <Popup data-testid="popup-window"></Popup>}
