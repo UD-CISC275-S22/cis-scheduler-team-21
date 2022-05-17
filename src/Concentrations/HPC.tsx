@@ -1,11 +1,11 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import { Course } from "../Interfaces/Courses";
+import { course } from "../Interfaces/Courses";
 import { planCoursesProp } from "../Interfaces/degreeInterface";
 
 export function HPC({ planCourses }: planCoursesProp): JSX.Element {
     const planCoursesString: string[] = planCourses.map(
-        (course: Course): string => course.code
+        (course: course): string => course.code
     );
     const coreClasses: string[] = [
         "CISC 108",
@@ -121,7 +121,7 @@ export function HPC({ planCourses }: planCoursesProp): JSX.Element {
                     {coreClasses.map((course: string): JSX.Element => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
@@ -136,7 +136,7 @@ export function HPC({ planCourses }: planCoursesProp): JSX.Element {
                     {additionalReq.map((course: string) => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
@@ -153,7 +153,7 @@ export function HPC({ planCourses }: planCoursesProp): JSX.Element {
                     {capstoneClasses.map((course: string) => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
@@ -170,7 +170,7 @@ export function HPC({ planCourses }: planCoursesProp): JSX.Element {
                     {concentrationReq.map((course: string) => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
@@ -184,7 +184,7 @@ export function HPC({ planCourses }: planCoursesProp): JSX.Element {
                     <b>Data Track Requirements {"\n"}</b>
                     {dataTrack.map((course: string) => {
                         if (
-                            planCourses.some((courseObj: Course): boolean =>
+                            planCourses.some((courseObj: course): boolean =>
                                 course.includes(courseObj.code)
                             )
                         ) {
@@ -200,7 +200,7 @@ export function HPC({ planCourses }: planCoursesProp): JSX.Element {
                     {dataElective.map((course: string) => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
@@ -214,7 +214,7 @@ export function HPC({ planCourses }: planCoursesProp): JSX.Element {
                     <b>Math Track Requirements {"\n"}</b>
                     {mathTrack.map((course: string) => {
                         if (
-                            planCourses.some((courseObj: Course): boolean =>
+                            planCourses.some((courseObj: course): boolean =>
                                 course.includes(courseObj.code)
                             )
                         ) {
@@ -230,7 +230,7 @@ export function HPC({ planCourses }: planCoursesProp): JSX.Element {
                     {mathElective.map((course: string) => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
@@ -249,7 +249,7 @@ export function HPC({ planCourses }: planCoursesProp): JSX.Element {
                     {labScience.map((course: string) => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
