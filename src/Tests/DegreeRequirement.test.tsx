@@ -1,14 +1,12 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { DegreeRequirement } from "../Components/DegreeRequirement";
-import { MakePlan } from "../Components/MakePlan";
-import { MemoryRouter } from "react-router-dom";
 
 const setDegreeRequirement = () => {
     return;
 };
 
-describe("AI Component tests", () => {
+describe("Degree Requirement Component tests", () => {
     beforeEach(() =>
         render(
             <DegreeRequirement

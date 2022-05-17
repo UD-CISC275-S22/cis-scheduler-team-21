@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import Data from "../Data/catalog.json";
 import { Course, CourseJSON, Section } from "../Interfaces/Courses";
 import { SetFallProp } from "../Interfaces/semesterInterfaces";
-import { Button, Form } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { CourseEdit } from "../Components/CourseEdit";
 import { ShowFallTable } from "./ShowFallTable";
 
-export const fallDataKey = "FallSem-Data";
+//export const fallDataKey = "FallSem-Data";
 //localStorage.clear();
-const loadedData: Course[] = [];
+//const loadedData: Course[] = [];
 
-export let checkedCourses: Course[] = [];
+//export let checkedCourses: Course[] = [];
 export function TableContentsFall({
     setFall,
     Visible,
@@ -158,7 +158,7 @@ export function TableContentsFall({
         localStorage.setItem(fallDataKey, JSON.stringify(fallCourses));
     }*/
 
-    const [checked, setChecked] = useState<boolean>(false);
+    /**const [checked, setChecked] = useState<boolean>(false);
     const [checkedData, setCheckedData] = useState<Course[]>(loadedData);
     const [courseCodes, setCourseCodes] = useState<string[]>([]);
     //let courseCodes: string[] = [];
@@ -180,10 +180,10 @@ export function TableContentsFall({
                 )
             );
         }
-        //console.log(courseCodes);
+        console.log(courseCodes);
     }
 
-    //let newSelectedCourses: Course[] = [];
+    let newSelectedCourses: Course[] = [];
 
     function moveCourse() {
         let codesArray = [...courseCodes];
@@ -194,17 +194,26 @@ export function TableContentsFall({
             checkedCourses = [...checkedCourses, newCheckedCourse[0]];
             deleteCourse(newCheckedCourse[0]);
         });
-        /**const newUncheckedCourse = selectedCourses.filter(
+        const newUncheckedCourse = selectedCourses.filter(
                 (course: Course) => course.code !== code
             );
             newSelectedCourses = [...newSelectedCourses, newUncheckedCourse[0]];
         });
-        setSelectedCourses(newSelectedCourses);*/
+        setSelectedCourses(newSelectedCourses);
         codesArray = [];
         setCourseCodes([]);
         setCheckedData(checkedCourses);
         localStorage.setItem(fallDataKey, JSON.stringify(checkedCourses));
     }
+    
+    {checked && (
+                            <Button
+                                style={{ backgroundColor: "blue" }}
+                                onClick={moveCourse}
+                            >
+                                Move to Course Pool
+                            </Button>
+                        )}*/
 
     return (
         <div>
@@ -239,44 +248,25 @@ export function TableContentsFall({
                                     <td>{course.credits}</td>
                                     {Visible && (
                                         <td>
-                                            <td>
-                                                <Button
-                                                    style={{
-                                                        backgroundColor:
-                                                            "darkRed"
-                                                    }}
-                                                    onClick={() =>
-                                                        deleteCourse(course)
-                                                    }
-                                                    data-testid={
-                                                        course.code + " delete"
-                                                    }
-                                                >
-                                                    Delete
-                                                </Button>
-                                            </td>
-                                            <td>
-                                                <Button
-                                                    onClick={() =>
-                                                        reset(course)
-                                                    }
-                                                >
-                                                    Reset
-                                                </Button>
-                                            </td>
-                                            <td>
-                                                <Form.Check
-                                                    type="checkbox"
-                                                    id={course.code}
-                                                    className="checkBox"
-                                                    onChange={(e) => {
-                                                        checkBox(
-                                                            course.code,
-                                                            e
-                                                        );
-                                                    }}
-                                                ></Form.Check>
-                                            </td>
+                                            <Button
+                                                style={{
+                                                    backgroundColor: "darkRed"
+                                                }}
+                                                onClick={() =>
+                                                    deleteCourse(course)
+                                                }
+                                                data-testid={
+                                                    course.code + " delete"
+                                                }
+                                            >
+                                                Delete
+                                            </Button>
+
+                                            <Button
+                                                onClick={() => reset(course)}
+                                            >
+                                                Reset
+                                            </Button>
                                         </td>
                                     )}
                                 </tr>
@@ -335,14 +325,6 @@ export function TableContentsFall({
                         <Button style={{ backgroundColor: "green" }}>
                             Save Fall
                         </Button>
-                        {checked && (
-                            <Button
-                                style={{ backgroundColor: "blue" }}
-                                onClick={moveCourse}
-                            >
-                                Move to Course Pool
-                            </Button>
-                        )}
                     </span>
                 )}
             </span>

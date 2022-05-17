@@ -1,8 +1,7 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { CourseEdit } from "../Components/CourseEdit";
 import { Course } from "../Interfaces/Courses";
-import { Years } from "../Components/Years";
 import userEvent from "@testing-library/user-event";
 
 const setPopup = () => {

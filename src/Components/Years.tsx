@@ -3,33 +3,17 @@ import React, { useState } from "react";
 import "../App.css";
 import { YearContainer } from "./YearContainer";
 import { Year } from "../Interfaces/yearInterface";
-import { Button, Form } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { Course } from "../Interfaces/Courses";
 import { DegreeRequirement } from "./DegreeRequirement";
 import { useLocation } from "react-router-dom";
-import { fallDataKey } from "../TableComponents/TableContentsFall";
-
-/**const original = window.location;
-
-beforeAll(() => {
-    Object.defineProperty(window, "location", {
-        configurable: true,
-        value: { reload: jest.fn() }
-    });
-});
-
-afterAll(() => {
-    Object.defineProperty(window, "location", {
-        configurable: true,
-        value: original
-    });
-});*/
+//import { fallDataKey } from "../TableComponents/TableContentsFall";
 
 export function Years(): JSX.Element {
     type locationStateString = { concentrationValue: string };
     const location = useLocation();
-    const { concentrationValue } =
-        (location.state as locationStateString) || {};
+    const l = location.state as locationStateString;
+    const { concentrationValue } = l || {};
 
     const Freshman: Year = {
         title: "Freshman",
@@ -85,7 +69,7 @@ export function Years(): JSX.Element {
         );
     }
 
-    function deleteCourse(course: Course) {
+    /**function deleteCourse(course: Course) {
         const courseCopy: Course[] = loadedFallData.filter(
             (x: Course): boolean => x !== course
         );
@@ -120,55 +104,8 @@ export function Years(): JSX.Element {
         //localStorage.removeItem(fallDataKey);
         console.log(loadedFallData);
     }
-    return (
-        <div style={{ paddingBottom: "8ch" }}>
-            <header className="App-header-Year">
-                <div style={{ width: "100%", textAlign: "center" }}>
-                    Year View
-                </div>
-                <div
-                    style={{
-                        textAlign: "center"
-                    }}
-                >
-                    <Button
-                        onClick={() => setEditVis(!editVis)}
-                        data-TestId="rename-delete-button"
-                    >
-                        Rename/Delete Years
-                    </Button>
-                    <Button onClick={saveButton}>Save</Button>
-                    <Button onClick={showReq}>Course Requirements</Button>
-                </div>
-            </header>
-            <div>{degreeReq}</div>
-            {yearList.map(
-                (year: Year): JSX.Element => (
-                    <span key={year.id}>
-                        <YearContainer
-                            year={year}
-                            setYearList={setYearList}
-                            yearList={yearList}
-                            editVis={editVis}
-                            planCourses={planCourses}
-                            setPlanCourses={setPlanCourses}
-                        ></YearContainer>
-                        <hr style={{ zIndex: "-1", position: "relative" }}></hr>
-                    </span>
-                )
-            )}
-            <div
-                style={{
-                    textAlign: "center",
-                    zIndex: "0",
-                    position: "absolute"
-                }}
-            >
-                <Button onClick={addYear} className="orangeButton">
-                    Add Year
-                </Button>
-            </div>
-            <div>
+    
+    <div>
                 <br></br>
                 <br></br>
                 <br></br>
@@ -227,6 +164,55 @@ export function Years(): JSX.Element {
                         </tbody>
                     </table>
                 </div>
+            </div>
+    */
+    return (
+        <div style={{ paddingBottom: "8ch" }}>
+            <header className="App-header-Year">
+                <div style={{ width: "100%", textAlign: "center" }}>
+                    Year View
+                </div>
+                <div
+                    style={{
+                        textAlign: "center"
+                    }}
+                >
+                    <Button
+                        onClick={() => setEditVis(!editVis)}
+                        data-TestId="rename-delete-button"
+                    >
+                        Rename/Delete Years
+                    </Button>
+                    <Button onClick={saveButton}>Save</Button>
+                    <Button onClick={showReq}>Course Requirements</Button>
+                </div>
+            </header>
+            <div>{degreeReq}</div>
+            {yearList.map(
+                (year: Year): JSX.Element => (
+                    <span key={year.id}>
+                        <YearContainer
+                            year={year}
+                            setYearList={setYearList}
+                            yearList={yearList}
+                            editVis={editVis}
+                            planCourses={planCourses}
+                            setPlanCourses={setPlanCourses}
+                        ></YearContainer>
+                        <hr style={{ zIndex: "-1", position: "relative" }}></hr>
+                    </span>
+                )
+            )}
+            <div
+                style={{
+                    textAlign: "center",
+                    zIndex: "0",
+                    position: "absolute"
+                }}
+            >
+                <Button onClick={addYear} className="orangeButton">
+                    Add Year
+                </Button>
             </div>
         </div>
     );

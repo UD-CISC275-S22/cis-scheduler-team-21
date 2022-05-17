@@ -3,7 +3,6 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { MakePlan } from "../Components/MakePlan";
 import { MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
-import { Years } from "../Components/Years";
 
 describe("MakePlan Component tests", () => {
     beforeEach(() =>

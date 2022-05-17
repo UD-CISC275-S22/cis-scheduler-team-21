@@ -3,7 +3,6 @@ import { render, screen } from "@testing-library/react";
 import { TableContentsFall } from "../TableComponents/TableContentsFall";
 import userEvent from "@testing-library/user-event";
 import { Course } from "../Interfaces/Courses";
-import { AI } from "../Concentrations/AI";
 
 const setFallElement = () => {
     return;
