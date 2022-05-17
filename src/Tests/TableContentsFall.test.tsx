@@ -115,6 +115,7 @@ describe("Fall Contents tests", () => {
         AddButton.click();
         const course275: HTMLElement = screen.getByTestId("CISC 275");
         searchBar.click();
+        userEvent.clear(searchBar);
         userEvent.type(searchBar, "CISC 220");
         DataList.click();
         searchBar.blur();

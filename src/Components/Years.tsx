@@ -13,7 +13,8 @@ type locationState = { concentrationValue: string; planID: number };
 export function Years(): JSX.Element {
     //type locationStateString = { concentrationValue: string };
     const location = useLocation();
-    const passedProps = location.state as locationState;
+    const passedState = location.state as locationState;
+    const passedProps = passedState || {};
     const concentrationValue: string = passedProps.concentrationValue;
     const planID: number = passedProps.planID;
 
@@ -66,7 +67,7 @@ export function Years(): JSX.Element {
     function showReq(): void {
         return setDegreeReq(
             <DegreeRequirement
-                data-TestId="degree-requirements-popup"
+                data-testid="degree-requirements-popup"
                 planCourses={planCourses}
                 concentration={concentrationValue}
                 setDegreeReq={setDegreeReq}
@@ -89,7 +90,7 @@ export function Years(): JSX.Element {
                 >
                     <Button
                         onClick={() => setEditVis(!editVis)}
-                        data-TestId="rename-delete-button"
+                        data-testid="rename-delete-button"
                         style={{
                             marginLeft: "4ch",
                             marginRight: ".75ch",

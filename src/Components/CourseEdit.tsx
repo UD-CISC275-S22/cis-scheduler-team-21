@@ -271,7 +271,7 @@ export function CourseEdit({
                         </Col>
                         <Col>
                             <Form.Control
-                                data-TestId="name-form"
+                                data-testid="name-form"
                                 name="Name"
                                 value={course2.name}
                                 type="text"
@@ -285,7 +285,7 @@ export function CourseEdit({
                         </Col>
                         <Col>
                             <Form.Control
-                                data-TestId="credits-form"
+                                data-testid="credits-form"
                                 name="Credits"
                                 value={course2.credits}
                                 type="text"
@@ -299,7 +299,7 @@ export function CourseEdit({
                         </Col>
                         <Col>
                             <Form.Control
-                                data-TestId="preReq-form"
+                                data-testid="preReq-form"
                                 name="PreReq"
                                 value={course2.preReq}
                                 type="text"
@@ -313,7 +313,7 @@ export function CourseEdit({
                         </Col>
                         <Col>
                             <Form.Control
-                                data-TestId="restriction-form"
+                                data-testid="restriction-form"
                                 name="Restriction"
                                 value={course2.restrict}
                                 type="text"
@@ -337,7 +337,7 @@ export function CourseEdit({
                     </Row>
                     <Row>
                         <Form.Check
-                            data-TestId="history-breadths-form"
+                            data-testid="history-breadths-form"
                             style={{ marginLeft: "11.5ch" }}
                             type="checkbox"
                             label="History Cultural Change"
@@ -350,7 +350,7 @@ export function CourseEdit({
                     </Row>
                     <Row>
                         <Form.Check
-                            data-TestId="science-breadths-form"
+                            data-testid="science-breadths-form"
                             style={{ marginLeft: "11.5ch" }}
                             type="checkbox"
                             label="Social and Behavioral Sciences"
@@ -363,7 +363,7 @@ export function CourseEdit({
                     </Row>
                     <Row>
                         <Form.Check
-                            data-TestId="math-breadths-form"
+                            data-testid="math-breadths-form"
                             style={{ marginLeft: "11.5ch" }}
                             type="checkbox"
                             label="Mathematics, Natural Sciences and Technology"
@@ -380,7 +380,7 @@ export function CourseEdit({
                         </Col>
                         <Col>
                             <Form.Control
-                                data-TestId="description-form"
+                                data-testid="description-form"
                                 name="Descr"
                                 value={course2.descr}
                                 as="textarea"

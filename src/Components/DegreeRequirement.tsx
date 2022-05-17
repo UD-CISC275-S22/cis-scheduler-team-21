@@ -22,7 +22,7 @@ export function DegreeRequirement({
         <div
             className="popup"
             style={{ zIndex: 3 }}
-            data-TestId="requirement-popup"
+            data-testid="requirement-popup"
         >
             <div
                 className="popup-inner"

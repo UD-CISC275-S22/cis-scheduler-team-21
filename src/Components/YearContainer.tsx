@@ -64,7 +64,7 @@ export function YearContainer({
                 )}
                 <span className="yearDisplay">{yearClone.title}</span>
                 <Button
-                    data-TestId="show-hide-button"
+                    data-testid="show-hide-button"
                     className="orangeButton"
                     style={{
                         marginBottom: "4ch",
@@ -76,7 +76,7 @@ export function YearContainer({
                 </Button>
                 {editVis && (
                     <Button
-                        data-TestId="delete-year-button"
+                        data-testid="delete-year-button"
                         onClick={deleteYear}
                         style={{
                             backgroundColor: "darkRed",

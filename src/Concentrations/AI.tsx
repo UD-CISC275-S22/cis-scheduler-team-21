@@ -119,7 +119,7 @@ export function AI({ planCourses }: planCoursesProp): JSX.Element {
     return (
         <div>
             <Row>
-                <Col sm={"auto"} data-TestId="core-requirements-AI">
+                <Col sm={"auto"} data-testid="core-requirements-AI">
                     <b>Core Requirement {"\n"}</b>
                     {coreClasses.map((course: string): JSX.Element => {
                         if (
@@ -138,7 +138,7 @@ export function AI({ planCourses }: planCoursesProp): JSX.Element {
                 <Col
                     sm={"auto"}
                     style={{ whiteSpace: "pre" }}
-                    data-TestId="additional-requirements-AI"
+                    data-testid="additional-requirements-AI"
                 >
                     <b>Additional Requirements {"\n"}</b>
                     {additionalReq.map((course: string) => {

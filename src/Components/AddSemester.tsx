@@ -127,7 +127,7 @@ export function AddSemester({
     return (
         <div className="showPlan-background">
             <div
-                data-TestId="add-semester-buttons"
+                data-testid="add-semester-buttons"
                 style={{
                     textAlign: "center"
                 }}
