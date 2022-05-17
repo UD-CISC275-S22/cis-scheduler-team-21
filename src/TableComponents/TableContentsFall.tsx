@@ -4,12 +4,13 @@ import { Course, CourseJSON, Section } from "../Interfaces/Courses";
 import { SetFallProp } from "../Interfaces/semesterInterfaces";
 import { Button, Form } from "react-bootstrap";
 import { CourseEdit } from "../Components/CourseEdit";
+import { ShowFallTable } from "./ShowFallTable";
 
-const fallDataKey = "FallSem-Data";
+export const fallDataKey = "FallSem-Data";
+//localStorage.clear();
 const loadedData: Course[] = [];
 
 export let checkedCourses: Course[] = [];
-
 export function TableContentsFall({
     setFall,
     Visible,
@@ -79,7 +80,15 @@ export function TableContentsFall({
                 ];
                 setSelectedCourses(addNewCourse);
                 setPlanCourses(planCoursesCopy);
-                //setCourse(planCoursesCopy);
+                setFall(
+                    <ShowFallTable
+                        setFall={setFall}
+                        Visible={Visible}
+                        SearchVisible={SearchVisible}
+                        planCourses={planCoursesCopy}
+                        setPlanCourses={setPlanCourses}
+                    ></ShowFallTable>
+                );
                 setInput("");
                 clearSearchBar();
             }
@@ -174,24 +183,27 @@ export function TableContentsFall({
         //console.log(courseCodes);
     }
 
-    let newSelectedCourses: Course[] = [];
+    //let newSelectedCourses: Course[] = [];
 
     function moveCourse() {
         let codesArray = [...courseCodes];
-        console.log(codesArray);
         codesArray.map((code: string) => {
-            checkedCourses = selectedCourses.filter(
-                (course: Course) => course.code == code
+            const newCheckedCourse = selectedCourses.filter(
+                (course: Course) => course.code === code
             );
-            newSelectedCourses = selectedCourses.filter(
+            checkedCourses = [...checkedCourses, newCheckedCourse[0]];
+            deleteCourse(newCheckedCourse[0]);
+        });
+        /**const newUncheckedCourse = selectedCourses.filter(
                 (course: Course) => course.code !== code
             );
+            newSelectedCourses = [...newSelectedCourses, newUncheckedCourse[0]];
         });
-        setSelectedCourses(newSelectedCourses);
+        setSelectedCourses(newSelectedCourses);*/
         codesArray = [];
         setCourseCodes([]);
         setCheckedData(checkedCourses);
-        localStorage.setItem(fallDataKey, JSON.stringify(checkedData));
+        localStorage.setItem(fallDataKey, JSON.stringify(checkedCourses));
     }
 
     return (
@@ -209,6 +221,7 @@ export function TableContentsFall({
                                     {Visible && (
                                         <td>
                                             <ins
+                                                data-TestId="courseId-button"
                                                 style={{
                                                     cursor: "pointer",
                                                     color: "blue"

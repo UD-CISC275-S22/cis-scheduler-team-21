@@ -2,6 +2,8 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { TableContentsFall } from "../TableComponents/TableContentsFall";
 import userEvent from "@testing-library/user-event";
+import { Course } from "../Interfaces/Courses";
+import { AI } from "../Concentrations/AI";
 
 const setFallElement = () => {
     return;
@@ -9,6 +11,18 @@ const setFallElement = () => {
 const setPlanCourses = () => {
     return;
 };
+
+/**const course: Course = {
+    ID: "",
+    code: "CISC 275",
+    name: "Introduction to Software Engineering",
+    descr: "Object oriented software design and development through use of an object oriented programming language. Topics include team programming, design patterns, graphical user interfaces, software engineering tools (e.g., integrated development environments, version control, build management, bug tracking, automated testing).",
+    credits: "3",
+    preReq: "Minimum grade of C- in CISC 181 and CISC 220.",
+    restrict: "",
+    breadth: "University: ; A&S: ",
+    typ: "Fall and Spring"
+};*/
 
 describe("FallDataToArrayTests", () => {
     beforeEach(() => {
@@ -106,4 +120,58 @@ describe("FallDataToArrayTests", () => {
         const nodes = screen.queryAllByText("jaskdfhlakjdfsh");
         expect(nodes.length).toEqual(0);
     });
+    test("Clicking the check for the Arts and Sciences breadth", () => {
+        const searchBar: HTMLElement = screen.getByTestId("searchIDFall");
+        searchBar.click();
+        userEvent.type(searchBar, "CISC 275");
+        const AddButton: HTMLElement = screen.getByText("+");
+        searchBar.blur();
+        AddButton.click();
+        const codeButton = screen.getByTestId("courseId-button");
+        codeButton.click();
+        const artBreadthsForm: HTMLInputElement =
+            screen.getByTestId("art-breadths-form");
+        expect(artBreadthsForm).toBeInTheDocument();
+        artBreadthsForm.click();
+        const doneButton = screen.getByRole("button", {
+            name: /Done/i
+        });
+        doneButton.click();
+        codeButton.click();
+        expect(artBreadthsForm.checked).toBe(true);
+    });
+    test("Un-Clicking the check for the Arts and Sciences breadth", () => {
+        const searchBar: HTMLElement = screen.getByTestId("searchIDFall");
+        searchBar.click();
+        userEvent.type(searchBar, "CISC 275");
+        const AddButton: HTMLElement = screen.getByText("+");
+        searchBar.blur();
+        AddButton.click();
+        const codeButton = screen.getByTestId("courseId-button");
+        codeButton.click();
+        const artBreadthsForm: HTMLInputElement =
+            screen.getByTestId("art-breadths-form");
+        expect(artBreadthsForm).toBeInTheDocument();
+        artBreadthsForm.click();
+        const doneButton = screen.getByRole("button", {
+            name: /Done/i
+        });
+        doneButton.click();
+        codeButton.click();
+        expect(artBreadthsForm.checked).toBe(true);
+        artBreadthsForm.click();
+        doneButton.click();
+        codeButton.click();
+        expect(artBreadthsForm.checked).toBe(false);
+    });
+    /**test("Testing if a course satisfies a degree requirement for AI concentration", () => {
+        const searchBar: HTMLElement = screen.getByTestId("searchIDFall");
+        searchBar.click();
+        userEvent.type(searchBar, "CISC 484");
+        const AddButton: HTMLElement = screen.getByText("+");
+        searchBar.blur();
+        AddButton.click();
+        render(<AI planCourses={[]}></AI>);
+        expect(screen.getByText("CISC 484✅")).toBeInTheDocument;
+    });*/
 });

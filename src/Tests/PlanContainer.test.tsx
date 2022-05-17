@@ -12,7 +12,8 @@ const setPlans = () => {
 const newPlan: Plan = {
     Title: "Test",
     id: 1,
-    description: "Hello"
+    description: "Hello",
+    degree: "Bachelor of Art"
 };
 
 const newplanList: Plan[] = [newPlan];
@@ -25,16 +26,11 @@ describe("PlanContainer component test", () => {
                     plan={newPlan}
                     plans={newplanList}
                     setPlans={setPlans}
-                    concentration={"Bachelor of Art"}
                 />
             </MemoryRouter>
         );
     });
-    test("check if plan name and description exist", () => {
-        expect(screen.getByText("Test")).toBeInTheDocument();
-        expect(screen.getByText("Hello")).toBeInTheDocument();
-    });
-    test("edit mode testing for plans", () => {
+    test("user typing in the description and title textboxes will update those fields accordingly", () => {
         const editButton: HTMLElement = screen.getByText("Edit");
         editButton.click();
         const titleInput: HTMLElement = screen.getByTestId("titleEdit");
@@ -53,9 +49,28 @@ describe("PlanContainer component test", () => {
         expect(screen.getByText("xyz")).toBeInTheDocument();
         expect(screen.getByText("New Description")).toBeInTheDocument();
     });
-    test("temporary test for showButton click", () => {
+    test("edit mode testing for plans", () => {
+        const editButton: HTMLElement = screen.getByText("Edit");
+        editButton.click();
+        const titleInput: HTMLElement = screen.getByTestId("titleEdit");
+        const descriptionInput: HTMLElement =
+            screen.getByTestId("descriptionEdit");
+        expect(titleInput).toBeInTheDocument();
+        expect(descriptionInput).toBeInTheDocument();
+
+        //titleInput.click();
+        //userEvent.clear(titleInput);
+        editButton.click();
+        const title = screen.getByText("Test");
+        const descr = screen.getByText("Hello");
+        expect(title).toBeInTheDocument();
+        expect(descr).toBeInTheDocument();
+    });
+    test("Clicking Show button links to a new page", () => {
         const showButton: HTMLElement = screen.getByText("Show");
         expect(showButton).toBeInTheDocument();
+        const currentURL = window.location.href;
         showButton.click();
+        expect(window.location.href !== currentURL);
     });
 });

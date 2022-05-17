@@ -12,6 +12,21 @@ describe("MakePlan Component tests", () => {
             </MemoryRouter>
         )
     );
+    const original = window.location;
+
+    beforeAll(() => {
+        Object.defineProperty(window, "location", {
+            configurable: true,
+            value: { reload: jest.fn() }
+        });
+    });
+
+    afterAll(() => {
+        Object.defineProperty(window, "location", {
+            configurable: true,
+            value: original
+        });
+    });
     test("There is a button named New Plan", () => {
         const newPlanButton = screen.getByRole("button", {
             name: /New Plan/i
@@ -74,7 +89,7 @@ describe("MakePlan Component tests", () => {
 
         expect(closeButton.click()).not.toBeTruthy();
     });
-    test("Clicking the Bachelor of Science within the dropdown sets the degree to bachelor of science", () => {
+    test("Clicking Systems and Networks within the dropdown sets the degree to it", () => {
         const newPlanButton = screen.getByRole("button", {
             name: /New Plan/i
         });
@@ -85,15 +100,13 @@ describe("MakePlan Component tests", () => {
         });
         dropdownToggle.click();
 
-        const dropdownItem = screen.getByTestId(
-            "bachelor-science-dropdownItem"
-        );
+        const dropdownItem = screen.getByText("Systems And Networks");
         dropdownItem.click();
 
-        const name = screen.getByText("Bachelor of Science");
+        const name = screen.getByText("Systems And Networks");
         expect(name).toBeInTheDocument();
     });
-    test("Clicking the Bachelor of Art within the dropdown sets the degree to bachelor of art", () => {
+    test("Clicking Artificial Intelligence within the dropdown sets the degree to it", () => {
         const newPlanButton = screen.getByRole("button", {
             name: /New Plan/i
         });
@@ -104,10 +117,112 @@ describe("MakePlan Component tests", () => {
         });
         dropdownToggle.click();
 
-        const dropdownItem = screen.getByTestId("bachelor-art-dropdownItem");
+        const dropdownItem = screen.getByText("Artificial Intelligence");
         dropdownItem.click();
 
-        const name = screen.getByText("Bachelor of Art");
+        const name = screen.getByText("AI");
+        expect(name).toBeInTheDocument();
+    });
+    test("Clicking Cybersecurity within the dropdown sets the degree to it", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const dropdownItem = screen.getByText("Cybersecurity");
+        dropdownItem.click();
+
+        const name = screen.getByText("Cybersecurity");
+        expect(name).toBeInTheDocument();
+    });
+    test("Clicking Bioinformatics within the dropdown sets the degree to it", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const dropdownItem = screen.getByText("Bioinformatics");
+        dropdownItem.click();
+
+        const name = screen.getByText("Bioinformatics");
+        expect(name).toBeInTheDocument();
+    });
+    test("Clicking DataScience within the dropdown sets the degree to it", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const dropdownItem = screen.getByText("DataScience");
+        dropdownItem.click();
+
+        const name = screen.getByText("DataScience");
+        expect(name).toBeInTheDocument();
+    });
+    test("Clicking HPC within the dropdown sets the degree to it", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const dropdownItem = screen.getByText("High Performance Computing");
+        dropdownItem.click();
+
+        const name = screen.getByText("HPC");
+        expect(name).toBeInTheDocument();
+    });
+    test("Clicking Theory within the dropdown sets the degree to it", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const dropdownItem = screen.getByText("Theory And Computation");
+        dropdownItem.click();
+
+        const name = screen.getByText("Theory");
+        expect(name).toBeInTheDocument();
+    });
+    test("Clicking Traditional within the dropdown sets the degree to it", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const dropdownItem = screen.getByText("Traditional/Custom");
+        dropdownItem.click();
+
+        const name = screen.getByText("Traditional");
         expect(name).toBeInTheDocument();
     });
     test("Changing the year sets the year", () => {
@@ -129,9 +244,7 @@ describe("MakePlan Component tests", () => {
         userEvent.click(newPlanButton);
         const dropMenu: HTMLElement = screen.getByTestId("degree-dropdown2");
         dropMenu.click();
-        const option: HTMLElement = screen.getByTestId(
-            "bachelor-science-dropdownItem"
-        );
+        const option: HTMLElement = screen.getByText("Systems And Networks");
         option.click();
         const createButton: HTMLElement = screen.getByText("Create Plan");
         createButton.click();
@@ -139,5 +252,22 @@ describe("MakePlan Component tests", () => {
         const deleteButton: HTMLElement = screen.getByText("Delete");
         deleteButton.click();
         expect(plan).not.toBeInTheDocument();
+    });
+    test("Clicking the Save Plans button places an array of the plans within localStorage", () => {
+        {
+            Object.defineProperty(window, "localStorage", {
+                value: {
+                    getItem: jest.fn(() => null),
+                    setItem: jest.fn(() => null)
+                },
+                writable: true
+            });
+        }
+        //expect(window.localStorage.getItem).toHaveBeenCalledTimes(1);
+        const savePlansButton = screen.getByRole("button", {
+            name: /Save Plans/i
+        });
+        savePlansButton.click();
+        expect(window.localStorage.setItem).toHaveBeenCalledTimes(1);
     });
 });

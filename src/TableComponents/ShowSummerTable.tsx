@@ -5,7 +5,9 @@ import { SetSummerProp } from "../Interfaces/semesterInterfaces";
 export function ShowSummerTable({
     setSummer,
     Visible,
-    SearchVisible
+    SearchVisible,
+    planCourses,
+    setPlanCourses
 }: //DataKey
 SetSummerProp): JSX.Element {
     return (
@@ -50,7 +52,8 @@ SetSummerProp): JSX.Element {
                 setSummer={setSummer}
                 Visible={Visible}
                 SearchVisible={SearchVisible}
-                //DataKey={DataKey}
+                planCourses={planCourses}
+                setPlanCourses={setPlanCourses}
             ></TableContentsSummer>
         </div>
     );

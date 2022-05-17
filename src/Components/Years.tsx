@@ -7,22 +7,29 @@ import { Button, Form } from "react-bootstrap";
 import { Course } from "../Interfaces/Courses";
 import { DegreeRequirement } from "./DegreeRequirement";
 import { useLocation } from "react-router-dom";
-import { CoursePool } from "./CoursePool";
+import { fallDataKey } from "../TableComponents/TableContentsFall";
 
-type locationStateString = { concentrationValue: string };
+/**const original = window.location;
 
-const FallCheckedCourseData: string | null =
-    localStorage.getItem("FallSem-Data");
-let loadedData: Course[] = [];
+beforeAll(() => {
+    Object.defineProperty(window, "location", {
+        configurable: true,
+        value: { reload: jest.fn() }
+    });
+});
 
-if (FallCheckedCourseData !== null) {
-    loadedData = JSON.parse(FallCheckedCourseData);
-    console.log(loadedData);
-}
+afterAll(() => {
+    Object.defineProperty(window, "location", {
+        configurable: true,
+        value: original
+    });
+});*/
 
 export function Years(): JSX.Element {
+    type locationStateString = { concentrationValue: string };
     const location = useLocation();
-    const { concentrationValue } = location.state as locationStateString;
+    const { concentrationValue } =
+        (location.state as locationStateString) || {};
 
     const Freshman: Year = {
         title: "Freshman",
@@ -40,38 +47,49 @@ export function Years(): JSX.Element {
         title: "Senior",
         id: 4
     };
-
-    const [yearList, setYearList] = useState<Year[]>([
-        Freshman,
-        Sophomore,
-        Junior,
-        Senior
-    ]);
-    //const [yearsData, setYearsData] = useState<Year[]>(loadedData);
+    const saveDataKey = "yearsList-Data";
+    let loadedData: Year[] = [Freshman, Sophomore, Junior, Senior];
+    const previousData: string | null = localStorage.getItem(saveDataKey);
+    let mostRecentID = 5;
+    if (previousData !== null) {
+        loadedData = Object.values(JSON.parse(previousData));
+        mostRecentID = loadedData[loadedData.length - 1].id + 1;
+    }
+    const [yearList, setYearList] = useState<Year[]>(loadedData);
     const [editVis, setEditVis] = useState<boolean>(false);
-    const [counter, setCounter] = useState<number>(5);
+    const [counter, setCounter] = useState<number>(mostRecentID);
     const [planCourses, setPlanCourses] = useState<Course[]>([]);
+    const [degreeReq, setDegreeReq] = useState<JSX.Element | null>(null);
     function addYear(): void {
-        setCounter(counter + 1);
         const nextCount: number = counter + 1;
         const newYear: Year = {
             title: "New School Year",
             id: nextCount
         };
+        setCounter(nextCount);
         const yearListCopy: Year[] = [...yearList, newYear];
         setYearList(yearListCopy);
-        //setYearsData([...loadedData, newYear]);
-        //localStorage.setItem(yearDataKey, JSON.stringify(yearListCopy));
+        localStorage.setItem(saveDataKey, JSON.stringify(yearListCopy));
     }
-    /**function saveYears() {
-        localStorage.setItem(yearDataKey, JSON.stringify(yearsData));
-    }*/
+    function saveButton(): void {
+        localStorage.setItem(saveDataKey, JSON.stringify(yearList));
+    }
+    function showReq(): void {
+        return setDegreeReq(
+            <DegreeRequirement
+                data-TestId="degree-requirements-popup"
+                planCourses={planCourses}
+                concentration={concentrationValue}
+                setDegreeReq={setDegreeReq}
+            ></DegreeRequirement>
+        );
+    }
 
     function deleteCourse(course: Course) {
-        const courseCopy: Course[] = loadedData.filter(
+        const courseCopy: Course[] = loadedFallData.filter(
             (x: Course): boolean => x !== course
         );
-        loadedData = [...courseCopy];
+        loadedFallData = [...courseCopy];
     }
 
     const [checked, setChecked] = useState<boolean>(false);
@@ -93,30 +111,37 @@ export function Years(): JSX.Element {
         //console.log(courseCodes);
     }
 
+    const FallCheckedCourseData: string | null =
+        localStorage.getItem("FallSem-Data");
+    let loadedFallData: Course[] = [];
+
+    if (FallCheckedCourseData !== null) {
+        loadedFallData = Object.values(JSON.parse(FallCheckedCourseData));
+        //localStorage.removeItem(fallDataKey);
+        console.log(loadedFallData);
+    }
     return (
         <div style={{ paddingBottom: "8ch" }}>
             <header className="App-header-Year">
-                <span style={{ width: "100%", textAlign: "center" }}>
-                    <span style={{ marginLeft: "8ch" }}>Year View</span>
+                <div style={{ width: "100%", textAlign: "center" }}>
+                    Year View
+                </div>
+                <div
+                    style={{
+                        textAlign: "center"
+                    }}
+                >
                     <Button
-                        style={{
-                            float: "right",
-                            marginRight: "1ch",
-                            marginTop: "2ch"
-                        }}
                         onClick={() => setEditVis(!editVis)}
+                        data-TestId="rename-delete-button"
                     >
-                        Rename Years
+                        Rename/Delete Years
                     </Button>
-                </span>
+                    <Button onClick={saveButton}>Save</Button>
+                    <Button onClick={showReq}>Course Requirements</Button>
+                </div>
             </header>
-            <div>
-                <DegreeRequirement
-                    //key={course.id}
-                    planCourses={planCourses}
-                    concentration={concentrationValue}
-                ></DegreeRequirement>
-            </div>
+            <div>{degreeReq}</div>
             {yearList.map(
                 (year: Year): JSX.Element => (
                     <span key={year.id}>
@@ -155,11 +180,11 @@ export function Years(): JSX.Element {
                 <div style={{ marginBottom: "1ch" }}>
                     <table className="add-border">
                         <tbody>
-                            {loadedData.map(
+                            {loadedFallData.map(
                                 (course: Course): JSX.Element => (
                                     <tr
                                         key={course.code}
-                                        data-testid={course.code}
+                                        //data-testid={course.code}
                                         className="innerTR"
                                     >
                                         <td>{course.code}</td>

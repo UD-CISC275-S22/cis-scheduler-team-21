@@ -5,7 +5,9 @@ import { TableContentsSpring } from "./TableContentsSpring";
 export function ShowSpringTable({
     setSpring,
     Visible,
-    SearchVisible
+    SearchVisible,
+    planCourses,
+    setPlanCourses
 }: // DataKey
 setSpringProp): JSX.Element {
     return (
@@ -50,7 +52,8 @@ setSpringProp): JSX.Element {
                 setSpring={setSpring}
                 Visible={Visible}
                 SearchVisible={SearchVisible}
-                //DataKey={DataKey}
+                planCourses={planCourses}
+                setPlanCourses={setPlanCourses}
             ></TableContentsSpring>
         </div>
     );

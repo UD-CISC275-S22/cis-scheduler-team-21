@@ -9,19 +9,16 @@ export interface PlanProps {
     plan: Plan;
     plans: Plan[];
     setPlans: (plans: Plan[]) => void;
-    concentration: string;
 }
 
 export function PlanContainer({
     plan,
     plans,
-    setPlans,
-    concentration
+    setPlans
 }: PlanProps): JSX.Element {
-    const [visible, setVisible] = useState<boolean>(false);
     const [editVis, setEditVis] = useState<boolean>(false);
-    const [Plan, setPlan] = useState<Plan>(plan);
-    const [Plan2, setPlan2] = useState<Plan>(plan);
+    const [planTitle, setPlanTitle] = useState<Plan>(plan);
+    const [planDescription, setPlanDescription] = useState<Plan>(plan);
     //const [data, setData] = useState<Plan[]>(PlansArray);
 
     function deletePlan(): void {
@@ -35,9 +32,10 @@ export function PlanContainer({
         const updatedPlan: Plan = {
             Title: event.target.value,
             id: plan.id,
-            description: plan.description
+            description: plan.description,
+            degree: plan.degree
         };
-        setPlan(updatedPlan);
+        setPlanTitle(updatedPlan);
         const planListCopy: Plan[] = plans.map((planElement: Plan): Plan => {
             if (planElement.id === plan.id) {
                 planElement = updatedPlan;
@@ -52,9 +50,10 @@ export function PlanContainer({
         const updatedPlan: Plan = {
             Title: plan.Title,
             id: plan.id,
-            description: event.target.value
+            description: event.target.value,
+            degree: plan.degree
         };
-        setPlan2(updatedPlan);
+        setPlanDescription(updatedPlan);
         const planListCopy: Plan[] = plans.map((planElement: Plan): Plan => {
             if (planElement.id === plan.id) {
                 planElement = updatedPlan;
@@ -74,7 +73,7 @@ export function PlanContainer({
                         <Form.Control
                             data-testid="titleEdit"
                             placeholder="Enter new plan name..."
-                            value={Plan.Title}
+                            value={planTitle.Title}
                             style={{ width: "20%" }}
                             onChange={updatePlan}
                         />
@@ -85,7 +84,7 @@ export function PlanContainer({
                             as="textarea"
                             rows={2}
                             placeholder="Enter new description..."
-                            value={Plan2.description}
+                            value={planDescription.description}
                             onChange={updateDescription}
                         />
                     </Form.Group>
@@ -102,7 +101,7 @@ export function PlanContainer({
                                 fontSize: "4ch"
                             }}
                         >
-                            {Plan.Title}
+                            {planTitle.Title}
                         </b>
                     </Col>
                     <Col
@@ -116,7 +115,7 @@ export function PlanContainer({
                                 marginTop: "2ch"
                             }}
                         >
-                            {Plan2.description}
+                            {planDescription.description}
                         </p>
                     </Col>
                     <Col></Col>
@@ -129,14 +128,9 @@ export function PlanContainer({
                 >
                     <Link
                         to="/showplan"
-                        state={{ concentrationValue: concentration }}
+                        state={{ concentrationValue: plan.degree }}
                     >
-                        <Button
-                            className="orangeButton"
-                            onClick={() => setVisible(!visible)}
-                        >
-                            Show
-                        </Button>
+                        <Button className="orangeButton">Show</Button>
                     </Link>
                     <Button className="orangeButton" onClick={updateEdit}>
                         Edit

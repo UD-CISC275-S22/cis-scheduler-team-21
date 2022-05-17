@@ -5,19 +5,20 @@ import DropdownMenu from "react-bootstrap/DropdownMenu";
 import { Plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
 
-const planDataKey = "PlanList-Data";
-let loadedData: Plan[] = [];
-const previousData: string | null = localStorage.getItem(planDataKey);
-if (previousData !== null) {
-    loadedData = JSON.parse(previousData);
-}
-
 export function MakePlan(): JSX.Element {
-    let mostRecentID = 0;
+    const planDataKey = "PlanList-Data";
+    let loadedData: Plan[] = [];
+    const previousData: string | null = localStorage.getItem(planDataKey);
+    if (previousData !== null) {
+        loadedData = Object.values(JSON.parse(previousData));
+        //console.log(loadedData);
+    }
+    let mostRecentID = 1;
     if (loadedData.length !== 0) {
-        mostRecentID = loadedData[loadedData.length - 1].id;
+        mostRecentID = loadedData[loadedData.length - 1].id + 1;
     }
     const [Plans, setPlans] = useState<Plan[]>(loadedData);
+    //const [countList, setCountList] = useState<number[]>([]);
     const [Counter, setCounter] = useState<number>(mostRecentID);
     const [Visible, setVisible] = useState<boolean>(false);
     const [Degree, setDegree] = useState<string>("Select Degree");
@@ -28,13 +29,17 @@ export function MakePlan(): JSX.Element {
         const newPlan: Plan = {
             Title: "Plan " + Counter,
             id: Counter,
-            description: ""
+            description: "",
+            degree: Degree
         };
         //const planList: Plan[] = [...PlansArray, newPlan];
         const planList: Plan[] = [...Plans, newPlan];
         const counterCopy: number = Counter + 1;
         setPlans(planList);
         setCounter(counterCopy);
+        localStorage.setItem(planDataKey, JSON.stringify(planList));
+        //const URL: string = document.URL;
+        window.location.reload();
     }
     function savePlans() {
         localStorage.setItem(planDataKey, JSON.stringify(Plans));
@@ -82,18 +87,43 @@ export function MakePlan(): JSX.Element {
                                 variant="dark"
                             >
                                 <DropdownItem
-                                    data-testid="bachelor-art-dropdownItem"
-                                    onClick={() => setDegree("Bachelor of Art")}
-                                >
-                                    Bachelor of Art
-                                </DropdownItem>
-                                <DropdownItem
-                                    data-testid="bachelor-science-dropdownItem"
+                                    data-testid="Systems And Networks"
                                     onClick={() =>
-                                        setDegree("Bachelor of Science")
+                                        setDegree("Systems And Networks")
                                     }
                                 >
-                                    Bachelor of Science
+                                    Systems And Networks
+                                </DropdownItem>
+                                <DropdownItem onClick={() => setDegree("AI")}>
+                                    Artificial Intelligence
+                                </DropdownItem>
+                                <DropdownItem
+                                    onClick={() => setDegree("Cybersecurity")}
+                                >
+                                    Cybersecurity
+                                </DropdownItem>
+                                <DropdownItem
+                                    onClick={() => setDegree("Bioinformatics")}
+                                >
+                                    Bioinformatics
+                                </DropdownItem>
+                                <DropdownItem
+                                    onClick={() => setDegree("DataScience")}
+                                >
+                                    DataScience
+                                </DropdownItem>
+                                <DropdownItem onClick={() => setDegree("HPC")}>
+                                    High Performance Computing
+                                </DropdownItem>
+                                <DropdownItem
+                                    onClick={() => setDegree("Theory")}
+                                >
+                                    Theory And Computation
+                                </DropdownItem>
+                                <DropdownItem
+                                    onClick={() => setDegree("Traditional")}
+                                >
+                                    Traditional/Custom
                                 </DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
@@ -101,7 +131,7 @@ export function MakePlan(): JSX.Element {
                     <button
                         className="create-btn"
                         onClick={newPlan}
-                        disabled={Degree == "Select Degree"}
+                        disabled={Degree === "Select Degree"}
                     >
                         Create Plan
                     </button>
@@ -142,12 +172,13 @@ export function MakePlan(): JSX.Element {
                             plan={plan}
                             plans={Plans}
                             setPlans={setPlans}
-                            concentration={Degree}
                         ></PlanContainer>
                         <hr></hr>
                     </div>
                 ))}
-                <Button onClick={() => setVisible(true)}>New Plan</Button>
+                <div>
+                    <Button onClick={() => setVisible(true)}>New Plan</Button>
+                </div>
                 <div className="main">
                     {Visible && <Popup data-testid="popup-window"></Popup>}
                 </div>

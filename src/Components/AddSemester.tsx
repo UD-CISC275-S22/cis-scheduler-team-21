@@ -75,7 +75,8 @@ export function AddSemester({
                 setSpring={setSpringElement}
                 Visible={visibleState}
                 SearchVisible={visibleSearchState}
-                //DataKey={DataKey}
+                planCourses={planCourses}
+                setPlanCourses={setPlanCourses}
             ></ShowSpringTable>
         );
     }
@@ -88,7 +89,8 @@ export function AddSemester({
                 setSummer={setSummerElement}
                 Visible={visibleState}
                 SearchVisible={visibleSearchState}
-                //DataKey={DataKey}
+                planCourses={planCourses}
+                setPlanCourses={setPlanCourses}
             ></ShowSummerTable>
         );
     }
@@ -101,7 +103,8 @@ export function AddSemester({
                 setWinter={setWinterElement}
                 Visible={visibleState}
                 SearchVisible={visibleSearchState}
-                //DataKey={DataKey}
+                planCourses={planCourses}
+                setPlanCourses={setPlanCourses}
             ></ShowWinterTable>
         );
     }
@@ -114,6 +117,7 @@ export function AddSemester({
     return (
         <div className="showPlan-background">
             <div
+                data-TestId="add-semester-buttons"
                 style={{
                     textAlign: "center"
                 }}
