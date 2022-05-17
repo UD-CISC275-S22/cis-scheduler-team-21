@@ -253,4 +253,50 @@ describe("AddSemester Component tests", () => {
         const summerSearch = screen.getByTestId("summer-search-mode");
         expect(summerSearch).toBeInTheDocument();
     });
+    test("There is a button named Remove All Semester", () => {
+        const editButton = screen.getByRole("button", {
+            name: /Edit Mode/i
+        });
+        editButton.click();
+        const removeAllButton = screen.getByRole("button", {
+            name: /Remove All/i
+        });
+        expect(removeAllButton).toBeInTheDocument();
+    });
+    test("Clicking the remove all button removes all the semester tables", () => {
+        const fallButton = screen.getByRole("button", {
+            name: /Add Fall Semester/i
+        });
+        const springButton = screen.getByRole("button", {
+            name: /Add Spring Semester/i
+        });
+        const winterButton = screen.getByRole("button", {
+            name: /Add Winter Session/i
+        });
+        const summerButton = screen.getByRole("button", {
+            name: /Add Summer Session/i
+        });
+        fallButton.click();
+        springButton.click();
+        winterButton.click();
+        summerButton.click();
+        const editButton = screen.getByRole("button", {
+            name: /Edit Mode/i
+        });
+        editButton.click();
+        const fallTable = screen.getByTestId("fall-table");
+        const springTable = screen.getByTestId("spring-table");
+        const winterTable = screen.getByTestId("winter-table");
+        const summerTable = screen.getByTestId("summer-table");
+
+        const removeAllButton = screen.getByRole("button", {
+            name: /Remove All/i
+        });
+        removeAllButton.click();
+
+        expect(fallTable).not.toBeInTheDocument();
+        expect(springTable).not.toBeInTheDocument();
+        expect(winterTable).not.toBeInTheDocument();
+        expect(summerTable).not.toBeInTheDocument();
+    });
 });

@@ -106,6 +106,157 @@ describe("MakePlan Component tests", () => {
         const name = screen.getByText("Systems And Networks");
         expect(name).toBeInTheDocument();
     });
+    /**test("If concentration is systems and networks, it renders the systems and networks degree requirements", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const dropdownItem = screen.getByText("Systems And Networks");
+        dropdownItem.click();
+
+        const name = screen.getByText("Systems And Networks");
+        expect(name).toBeInTheDocument();
+
+        const createButton = screen.getByRole("button", {
+            name: /Create/i
+        });
+        createButton.click();
+
+        render(<Years></Years>);
+        const courseReqButton = screen.getByRole("button", {
+            name: /Course Requirements/i
+        });
+        courseReqButton.click();
+
+        expect(
+            screen.getByTestId("systems-and-networks-requirements")
+        ).toBeInTheDocument();
+    });*/
+    test("Clicking Artificial Intelligence within the dropdown sets the degree to it", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const dropdownItem = screen.getByText("Artificial Intelligence");
+        dropdownItem.click();
+
+        const name = screen.getByText("AI");
+        expect(name).toBeInTheDocument();
+    });
+    test("Clicking Cybersecurity within the dropdown sets the degree to it", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const dropdownItem = screen.getByText("Cybersecurity");
+        dropdownItem.click();
+
+        const name = screen.getByText("Cybersecurity");
+        expect(name).toBeInTheDocument();
+    });
+    test("Clicking Bioinformatics within the dropdown sets the degree to it", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const dropdownItem = screen.getByText("Bioinformatics");
+        dropdownItem.click();
+
+        const name = screen.getByText("Bioinformatics");
+        expect(name).toBeInTheDocument();
+    });
+    test("Clicking DataScience within the dropdown sets the degree to it", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const dropdownItem = screen.getByText("DataScience");
+        dropdownItem.click();
+
+        const name = screen.getByText("DataScience");
+        expect(name).toBeInTheDocument();
+    });
+    test("Clicking HPC within the dropdown sets the degree to it", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const dropdownItem = screen.getByText("High Performance Computing");
+        dropdownItem.click();
+
+        const name = screen.getByText("HPC");
+        expect(name).toBeInTheDocument();
+    });
+    test("Clicking Theory within the dropdown sets the degree to it", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const dropdownItem = screen.getByText("Theory And Computation");
+        dropdownItem.click();
+
+        const name = screen.getByText("Theory");
+        expect(name).toBeInTheDocument();
+    });
+    test("Clicking Traditional within the dropdown sets the degree to it", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const dropdownItem = screen.getByText("Traditional/Custom");
+        dropdownItem.click();
+
+        const name = screen.getByText("Traditional");
+        expect(name).toBeInTheDocument();
+    });
     test("Changing the year sets the year", () => {
         const newPlanButton = screen.getByRole("button", {
             name: /New Plan/i
@@ -133,5 +284,22 @@ describe("MakePlan Component tests", () => {
         const deleteButton: HTMLElement = screen.getByText("Delete");
         deleteButton.click();
         expect(plan).not.toBeInTheDocument();
+    });
+    test("Clicking the Save Plans button places an array of the plans within localStorage", () => {
+        {
+            Object.defineProperty(window, "localStorage", {
+                value: {
+                    getItem: jest.fn(() => null),
+                    setItem: jest.fn(() => null)
+                },
+                writable: true
+            });
+        }
+        //expect(window.localStorage.getItem).toHaveBeenCalledTimes(1);
+        const savePlansButton = screen.getByRole("button", {
+            name: /Save Plans/i
+        });
+        savePlansButton.click();
+        expect(window.localStorage.setItem).toHaveBeenCalledTimes(1);
     });
 });

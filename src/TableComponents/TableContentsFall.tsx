@@ -6,6 +6,11 @@ import { Button } from "react-bootstrap";
 import { CourseEdit } from "../Components/CourseEdit";
 import { ShowFallTable } from "./ShowFallTable";
 
+//export const fallDataKey = "FallSem-Data";
+//localStorage.clear();
+//const loadedData: Course[] = [];
+
+//export let checkedCourses: Course[] = [];
 export function TableContentsFall({
     setFall,
     Visible,
@@ -17,7 +22,6 @@ export function TableContentsFall({
     const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
     const [classPopup, setClassPopup] = useState<JSX.Element | null>(null);
     const courseObjects: Course[] = [];
-    //const [course, setCourse] = useState<Course[]>(loadedData);
     const StringData: string = JSON.stringify(Data);
     const DataObjects: Section[] = Object.values(JSON.parse(StringData));
 
@@ -42,6 +46,7 @@ export function TableContentsFall({
         });
     });
     let originalCourse: Course;
+
     function addTable(): JSX.Element | void {
         if (
             courseObjects.some(
@@ -68,6 +73,7 @@ export function TableContentsFall({
                     ...selectedCourses,
                     singleCourse
                 ];
+                //setIndex([...index, index.length]);
                 const planCoursesCopy: Course[] = [
                     ...planCourses,
                     singleCourse
@@ -147,6 +153,68 @@ export function TableContentsFall({
         );
         setSelectedCourses(selectedCopy);
     }
+    /**function saveFall() {
+        //setCourse(planCourses);
+        localStorage.setItem(fallDataKey, JSON.stringify(fallCourses));
+    }*/
+
+    /**const [checked, setChecked] = useState<boolean>(false);
+    const [checkedData, setCheckedData] = useState<Course[]>(loadedData);
+    const [courseCodes, setCourseCodes] = useState<string[]>([]);
+    //let courseCodes: string[] = [];
+
+    function checkBox(code: string, e: React.ChangeEvent<HTMLInputElement>) {
+        const checkedOrNot = e.target.checked;
+        if (checkedOrNot == true) {
+            setChecked(true);
+            setCourseCodes(
+                courseCodes.includes(code)
+                    ? [...courseCodes]
+                    : [...courseCodes, code]
+            );
+        } else {
+            setChecked(false);
+            setCourseCodes(
+                courseCodes.filter(
+                    (courseCode: string): boolean => courseCode !== code
+                )
+            );
+        }
+        console.log(courseCodes);
+    }
+
+    let newSelectedCourses: Course[] = [];
+
+    function moveCourse() {
+        let codesArray = [...courseCodes];
+        codesArray.map((code: string) => {
+            const newCheckedCourse = selectedCourses.filter(
+                (course: Course) => course.code === code
+            );
+            checkedCourses = [...checkedCourses, newCheckedCourse[0]];
+            deleteCourse(newCheckedCourse[0]);
+        });
+        const newUncheckedCourse = selectedCourses.filter(
+                (course: Course) => course.code !== code
+            );
+            newSelectedCourses = [...newSelectedCourses, newUncheckedCourse[0]];
+        });
+        setSelectedCourses(newSelectedCourses);
+        codesArray = [];
+        setCourseCodes([]);
+        setCheckedData(checkedCourses);
+        localStorage.setItem(fallDataKey, JSON.stringify(checkedCourses));
+    }
+    
+    {checked && (
+                            <Button
+                                style={{ backgroundColor: "blue" }}
+                                onClick={moveCourse}
+                            >
+                                Move to Course Pool
+                            </Button>
+                        )}*/
+
     return (
         <div>
             <div style={{ marginBottom: "1ch" }}>
@@ -162,6 +230,7 @@ export function TableContentsFall({
                                     {Visible && (
                                         <td>
                                             <ins
+                                                data-testid="courseId-button"
                                                 style={{
                                                     cursor: "pointer",
                                                     color: "blue"

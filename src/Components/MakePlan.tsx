@@ -5,15 +5,14 @@ import DropdownMenu from "react-bootstrap/DropdownMenu";
 import { Plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
 
-const saveDataKey = "PlanList-Data";
-let loadedData: Plan[] = [];
-const previousData: string | null = localStorage.getItem(saveDataKey);
-if (previousData !== null) {
-    loadedData = Object.values(JSON.parse(previousData));
-    console.log(loadedData);
-}
-
 export function MakePlan(): JSX.Element {
+    const planDataKey = "PlanList-Data";
+    let loadedData: Plan[] = [];
+    const previousData: string | null = localStorage.getItem(planDataKey);
+    if (previousData !== null) {
+        loadedData = Object.values(JSON.parse(previousData));
+        //console.log(loadedData);
+    }
     let mostRecentID = 1;
     if (loadedData.length !== 0) {
         mostRecentID = loadedData[loadedData.length - 1].id + 1;
@@ -38,12 +37,12 @@ export function MakePlan(): JSX.Element {
         const counterCopy: number = Counter + 1;
         setPlans(planList);
         setCounter(counterCopy);
-        localStorage.setItem(saveDataKey, JSON.stringify(planList));
+        localStorage.setItem(planDataKey, JSON.stringify(planList));
         //const URL: string = document.URL;
         window.location.reload();
     }
-    function saveData() {
-        localStorage.setItem(saveDataKey, JSON.stringify(Plans));
+    function savePlans() {
+        localStorage.setItem(planDataKey, JSON.stringify(Plans));
     }
 
     function Popup() {
@@ -96,7 +95,7 @@ export function MakePlan(): JSX.Element {
                                     Systems And Networks
                                 </DropdownItem>
                                 <DropdownItem onClick={() => setDegree("AI")}>
-                                    Artifical Intelligence
+                                    Artificial Intelligence
                                 </DropdownItem>
                                 <DropdownItem
                                     onClick={() => setDegree("Cybersecurity")}
@@ -119,7 +118,7 @@ export function MakePlan(): JSX.Element {
                                 <DropdownItem
                                     onClick={() => setDegree("Theory")}
                                 >
-                                    Theory And Computaton
+                                    Theory And Computation
                                 </DropdownItem>
                                 <DropdownItem
                                     onClick={() => setDegree("Traditional")}
@@ -161,7 +160,7 @@ export function MakePlan(): JSX.Element {
                         position: "relative",
                         backgroundColor: "green"
                     }}
-                    onClick={saveData}
+                    onClick={savePlans}
                 >
                     Save Plans
                 </Button>

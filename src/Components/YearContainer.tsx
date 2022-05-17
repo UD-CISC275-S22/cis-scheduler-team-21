@@ -27,13 +27,17 @@ export function YearContainer({
         setYear(updatedYear);
     }
     return (
-        <div style={{ zIndex: "0", display: "relative" }}>
+        <div
+            style={{ zIndex: "0", display: "relative" }}
+            data-testId="year-container"
+        >
             <br></br>
             <span>
                 {editVis && (
                     <Form.Group>
                         <Form.Control
-                            data-testid="YearEdit"
+                            name="yearTxt"
+                            data-testid="year-name-edit"
                             placeholder="Enter new Year name..."
                             value={yearClone.title}
                             style={{ width: "20%", marginLeft: "3.5ch" }}
@@ -43,6 +47,7 @@ export function YearContainer({
                 )}
                 <span className="yearDisplay">{yearClone.title}</span>
                 <Button
+                    data-TestId="show-hide-button"
                     className="orangeButton"
                     style={{
                         marginBottom: "4ch",
@@ -54,6 +59,7 @@ export function YearContainer({
                 </Button>
                 {editVis && (
                     <Button
+                        data-TestId="delete-year-button"
                         onClick={deleteYear}
                         style={{
                             backgroundColor: "darkRed",

@@ -2,12 +2,25 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { TableContentsSummer } from "../TableComponents/TableContentsSummer";
 import userEvent from "@testing-library/user-event";
+import { Course } from "../Interfaces/Courses";
 
 const setSummerElement = () => {
     return;
 };
 const setPlanCourses = () => {
     return;
+};
+
+const course: Course = {
+    ID: "",
+    code: "CISC 275",
+    name: "Introduction to Software Engineering",
+    descr: "Object oriented software design and development through use of an object oriented programming language. Topics include team programming, design patterns, graphical user interfaces, software engineering tools (e.g., integrated development environments, version control, build management, bug tracking, automated testing).",
+    credits: "3",
+    preReq: "Minimum grade of C- in CISC 181 and CISC 220.",
+    restrict: "",
+    breadth: "University: ; A&S: ",
+    typ: "Fall and Spring"
 };
 
 describe("SummerDataToArrayTests", () => {
@@ -17,7 +30,7 @@ describe("SummerDataToArrayTests", () => {
                 setSummer={setSummerElement}
                 Visible={true}
                 SearchVisible={true}
-                planCourses={[]}
+                planCourses={[course]}
                 setPlanCourses={setPlanCourses}
             />
         );
@@ -40,7 +53,7 @@ describe("SummerDataToArrayTests", () => {
         const courseInTable: HTMLElement = screen.getByTestId("CISC 275");
         expect(courseInTable).toBeInTheDocument();
     });
-    test("Delete Course works", () => {
+    test("Delete button removes the course from the table", () => {
         const searchBar: HTMLElement = screen.getByTestId("searchIDSummer");
         searchBar.click();
         userEvent.type(searchBar, "CISC 275");
@@ -50,13 +63,46 @@ describe("SummerDataToArrayTests", () => {
         searchBar.blur();
         AddButton.click();
         const courseInTable: HTMLElement = screen.getByTestId("CISC 275");
-
+        expect(courseInTable).toBeInTheDocument();
         const deleteCourse: HTMLElement = screen.getByTestId("CISC 275 delete");
         expect(deleteCourse).toBeInTheDocument();
         deleteCourse.click();
         expect(courseInTable).not.toBeInTheDocument();
     });
-    test("Clear Courses to work", () => {
+    test("Reset button resets the courses values to their default values after the user edits them", () => {
+        const searchBar: HTMLElement = screen.getByTestId("searchIDSummer");
+        searchBar.click();
+        userEvent.type(searchBar, "CISC 275");
+        const AddButton: HTMLElement = screen.getByText("+");
+        searchBar.blur();
+        AddButton.click();
+        const codeButton = screen.getByTestId("courseId-button");
+        expect(codeButton).toBeInTheDocument();
+        codeButton.click();
+
+        const nameForm = screen.getByTestId("name-form");
+        userEvent.clear(nameForm);
+        nameForm.click();
+        userEvent.type(nameForm, "new value");
+        expect(screen.getByDisplayValue("new value")).toBeInTheDocument();
+
+        const doneButton = screen.getByRole("button", {
+            name: /Done/i
+        });
+        doneButton.click();
+
+        expect(
+            screen.queryByText("Introduction to Software Engineering")
+        ).not.toBeInTheDocument();
+        const resetButton = screen.getByRole("button", {
+            name: /Reset/i
+        });
+        resetButton.click();
+        expect(
+            screen.queryByText("Introduction to Software Engineering")
+        ).toBeInTheDocument();
+    });
+    test("Clear button removes all the courses from the table", () => {
         const searchBar: HTMLElement = screen.getByTestId("searchIDSummer");
         searchBar.click();
         userEvent.type(searchBar, "CISC 275");

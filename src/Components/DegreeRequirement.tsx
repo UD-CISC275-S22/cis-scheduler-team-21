@@ -19,7 +19,11 @@ export function DegreeRequirement({
         setDegreeReq(null);
     }
     return (
-        <div className="popup" style={{ zIndex: 3 }}>
+        <div
+            className="popup"
+            style={{ zIndex: 3 }}
+            data-TestId="requirement-popup"
+        >
             <div
                 className="popup-inner"
                 style={{ height: "600px", maxWidth: "1200px" }}
@@ -37,7 +41,9 @@ export function DegreeRequirement({
                     }}
                 >
                     <SystemsAndNetworks
+                        data-testId="systems-and-networks-requirements"
                         planCourses={planCourses}
+                        //data-testId="systems-and-networks-requirements"
                     ></SystemsAndNetworks>
                 </div>
                 <div

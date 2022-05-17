@@ -7,13 +7,13 @@ import { Button } from "react-bootstrap";
 import { Course } from "../Interfaces/Courses";
 import { DegreeRequirement } from "./DegreeRequirement";
 import { useLocation } from "react-router-dom";
-
-type locationStateString = { concentrationValue: string };
+//import { fallDataKey } from "../TableComponents/TableContentsFall";
 
 export function Years(): JSX.Element {
-    //const [data, setData] = useState<JSX.Element>(loadedData);
+    type locationStateString = { concentrationValue: string };
     const location = useLocation();
-    const { concentrationValue } = location.state as locationStateString;
+    const l = location.state as locationStateString;
+    const { concentrationValue } = l || {};
 
     const Freshman: Year = {
         title: "Freshman",
@@ -39,7 +39,6 @@ export function Years(): JSX.Element {
         loadedData = Object.values(JSON.parse(previousData));
         mostRecentID = loadedData[loadedData.length - 1].id + 1;
     }
-    console.log(loadedData);
     const [yearList, setYearList] = useState<Year[]>(loadedData);
     const [editVis, setEditVis] = useState<boolean>(false);
     const [counter, setCounter] = useState<number>(mostRecentID);
@@ -62,12 +61,111 @@ export function Years(): JSX.Element {
     function showReq(): void {
         return setDegreeReq(
             <DegreeRequirement
+                data-TestId="degree-requirements-popup"
                 planCourses={planCourses}
                 concentration={concentrationValue}
                 setDegreeReq={setDegreeReq}
             ></DegreeRequirement>
         );
     }
+
+    /**function deleteCourse(course: Course) {
+        const courseCopy: Course[] = loadedFallData.filter(
+            (x: Course): boolean => x !== course
+        );
+        loadedFallData = [...courseCopy];
+    }
+
+    const [checked, setChecked] = useState<boolean>(false);
+    let courseCodes: string[] = [];
+
+    function checkBox(code: string, e: React.ChangeEvent<HTMLInputElement>) {
+        const checkedOrNot = e.target.checked;
+        if (checkedOrNot == true) {
+            setChecked(true);
+            courseCodes = courseCodes.includes(code)
+                ? [...courseCodes]
+                : [...courseCodes, code];
+        } else {
+            setChecked(false);
+            courseCodes = courseCodes.filter(
+                (courseCode: string): boolean => courseCode == code
+            );
+        }
+        //console.log(courseCodes);
+    }
+
+    const FallCheckedCourseData: string | null =
+        localStorage.getItem("FallSem-Data");
+    let loadedFallData: Course[] = [];
+
+    if (FallCheckedCourseData !== null) {
+        loadedFallData = Object.values(JSON.parse(FallCheckedCourseData));
+        //localStorage.removeItem(fallDataKey);
+        console.log(loadedFallData);
+    }
+    
+    <div>
+                <br></br>
+                <br></br>
+                <br></br>
+                <header className="App-header-Pool">
+                    <span style={{ width: "100%", textAlign: "center" }}>
+                        <span>Course Pool</span>
+                    </span>
+                </header>
+                <div style={{ marginBottom: "1ch" }}>
+                    <table className="add-border">
+                        <tbody>
+                            {loadedFallData.map(
+                                (course: Course): JSX.Element => (
+                                    <tr
+                                        key={course.code}
+                                        //data-testid={course.code}
+                                        className="innerTR"
+                                    >
+                                        <td>{course.code}</td>
+                                        <td>{course.name}</td>
+                                        <td>{course.credits}</td>
+                                        <td>
+                                            <td>
+                                                <Button
+                                                    style={{
+                                                        backgroundColor:
+                                                            "darkRed"
+                                                    }}
+                                                    onClick={() =>
+                                                        deleteCourse(course)
+                                                    }
+                                                    data-testid={
+                                                        course.code + " delete"
+                                                    }
+                                                >
+                                                    Delete
+                                                </Button>
+                                            </td>
+                                            <td>
+                                                <Form.Check
+                                                    type="checkbox"
+                                                    id={course.code}
+                                                    className="checkBox"
+                                                    onChange={(e) => {
+                                                        checkBox(
+                                                            course.code,
+                                                            e
+                                                        );
+                                                    }}
+                                                ></Form.Check>
+                                            </td>
+                                        </td>
+                                    </tr>
+                                )
+                            )}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    */
     return (
         <div style={{ paddingBottom: "8ch" }}>
             <header className="App-header-Year">
@@ -79,7 +177,10 @@ export function Years(): JSX.Element {
                         textAlign: "center"
                     }}
                 >
-                    <Button onClick={() => setEditVis(!editVis)}>
+                    <Button
+                        onClick={() => setEditVis(!editVis)}
+                        data-TestId="rename-delete-button"
+                    >
                         Rename/Delete Years
                     </Button>
                     <Button onClick={saveButton}>Save</Button>
