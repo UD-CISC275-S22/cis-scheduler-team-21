@@ -248,6 +248,7 @@ export function TableContentsSpring({
                                             >
                                                 {course.code}
                                             </ins>
+                                            <b>{"<-- edit"}</b>
                                         </td>
                                     )}
                                     {!visible && <td>{course.code}</td>}

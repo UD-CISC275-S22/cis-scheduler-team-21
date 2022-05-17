@@ -76,7 +76,7 @@ export function YearContainer({
                 </Button>
                 {editVis && (
                     <Button
-                        data-testid="delete-year-button"
+                        data-testid={year.id.toString() + " delete"}
                         onClick={deleteYear}
                         style={{
                             backgroundColor: "darkRed",

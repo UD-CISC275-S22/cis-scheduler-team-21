@@ -83,8 +83,8 @@ export function Theory({ planCourses }: planCoursesProp): JSX.Element {
     const concentrationReq: string[] = [
         "CISC 304",
         "CISC 401",
-        "Math 242",
-        "Math 349"
+        "MATH 242",
+        "MATH 349"
     ];
     const discreteTrack: string[] = [
         "CISC 404",
@@ -188,18 +188,20 @@ export function Theory({ planCourses }: planCoursesProp): JSX.Element {
                 </Col>
                 <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
                     <b>Concentration Core {"\n"}</b>
-                    {concentrationReq.map((course: string) => {
-                        if (
-                            planCourses.some(
-                                (courseObj: course): boolean =>
-                                    courseObj.code === course
-                            )
-                        ) {
-                            return course + "✅\n";
-                        } else {
-                            return course + " \n";
-                        }
-                    })}
+                    <div data-testid="THEORY-core">
+                        {concentrationReq.map((course: string) => {
+                            if (
+                                planCourses.some(
+                                    (courseObj: course): boolean =>
+                                        courseObj.code === course
+                                )
+                            ) {
+                                return course + "✅\n";
+                            } else {
+                                return course + " \n";
+                            }
+                        })}
+                    </div>
                 </Col>
                 <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
                     <b>Discrete Track {"\n"}</b>

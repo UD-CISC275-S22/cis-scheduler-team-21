@@ -3,6 +3,24 @@ import { render, screen } from "@testing-library/react";
 import { Years } from "../Components/Years";
 import { MemoryRouter } from "react-router-dom";
 
+function mockFunction() {
+    const original = jest.requireActual("react-router-dom");
+    return {
+        ...original,
+        useLocation: jest.fn().mockReturnValue({
+            state: { concentrationValue: "Systems And Networks", planID: 1 }
+        })
+    };
+}
+
+jest.mock("react-router-dom", () => mockFunction());
+
+/* jest.mock("react-router-dom", () => ({
+    Link: jest.fn().mockImplementation(({ children }) => {
+        return children;
+    })
+})); */
+
 describe("Year Component tests", () => {
     beforeEach(() => {
         render(
@@ -18,6 +36,20 @@ describe("Year Component tests", () => {
             configurable: true,
             value: { reload: jest.fn() }
         });
+        function mockFunction() {
+            const original = jest.requireActual("react-router-dom");
+            return {
+                ...original,
+                useLocation: jest.fn().mockReturnValue({
+                    state: {
+                        concentrationValue: "Systems And Networks",
+                        planID: 1
+                    }
+                })
+            };
+        }
+
+        jest.mock("react-router-dom", () => mockFunction());
     });
 
     afterAll(() => {
@@ -71,14 +103,14 @@ describe("Year Component tests", () => {
 
         expect(screen.getByText("New School Year")).toBeInTheDocument();
     });
-    test("Clicking the course requirements button reveals a popup with all the requirements", () => {
+    /*  test("Clicking the course requirements button reveals a popup with all the requirements", () => {
         const courseRequirementsButton = screen.getByRole("button", {
             name: /Course Requirements/i
         });
         courseRequirementsButton.click();
 
         expect(screen.getByTestId("requirement-popup")).toBeInTheDocument();
-    });
+    }); */
     test("Clicking the Rename/Delete Year button reveals the edit mode for the years", () => {
         const renameDeleteButton = screen.getByTestId("rename-delete-button");
 

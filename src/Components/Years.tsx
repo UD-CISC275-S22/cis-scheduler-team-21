@@ -13,8 +13,7 @@ type locationState = { concentrationValue: string; planID: number };
 export function Years(): JSX.Element {
     //type locationStateString = { concentrationValue: string };
     const location = useLocation();
-    const passedState = location.state as locationState;
-    const passedProps = passedState || {};
+    const passedProps = location.state as locationState;
     const concentrationValue: string = passedProps.concentrationValue;
     const planID: number = passedProps.planID;
 
