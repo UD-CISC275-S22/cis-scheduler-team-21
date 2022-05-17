@@ -2,61 +2,849 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/AddSemester.test.tsx (8.384 s)
+PASS src/Tests/AddSemester.test.tsx (16.946 s)
+  ● Console
+
+    console.error
+      Warning: React does not recognize the `data-TestId` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `data-testid` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+          at div
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/AddSemester.tsx:12:5)
+          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:173:13)
+          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:33:3)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateProperty$1 (node_modules/react-dom/cjs/react-dom.development.js:3513:7)
+      at warnUnknownProperties (node_modules/react-dom/cjs/react-dom.development.js:3559:21)
+      at validateProperties$2 (node_modules/react-dom/cjs/react-dom.development.js:3583:3)
+      at validatePropertiesInDevelopment (node_modules/react-dom/cjs/react-dom.development.js:8765:5)
+      at setInitialProperties (node_modules/react-dom/cjs/react-dom.development.js:9041:5)
+      at finalizeInitialChildren (node_modules/react-dom/cjs/react-dom.development.js:10201:3)
+
+PASS src/Tests/TableContentsFall.test.tsx (17.631 s)
+  ● Console
+
+    console.error
+      Warning: React does not recognize the `data-TestId` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `data-testid` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+          at input
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/FormControl.js:27:3)
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/Col.js:71:8)
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/Row.js:21:3)
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/FormGroup.js:19:3)
+          at div
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/CourseEdit.tsx:7:5)
+          at div
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/TableComponents/TableContentsFall.tsx:15:5)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateProperty$1 (node_modules/react-dom/cjs/react-dom.development.js:3513:7)
+      at warnUnknownProperties (node_modules/react-dom/cjs/react-dom.development.js:3559:21)
+      at validateProperties$2 (node_modules/react-dom/cjs/react-dom.development.js:3583:3)
+      at validatePropertiesInDevelopment (node_modules/react-dom/cjs/react-dom.development.js:8765:5)
+      at setInitialProperties (node_modules/react-dom/cjs/react-dom.development.js:9041:5)
+      at finalizeInitialChildren (node_modules/react-dom/cjs/react-dom.development.js:10201:3)
+
 PASS src/Tests/MakePlan.test.tsx
-PASS src/Tests/TableContentsFall.test.tsx (7.86 s)
-PASS src/Tests/TableContentsSummer.test.tsx (7.418 s)
-PASS src/Tests/TableContentsWinter.test.tsx (7.912 s)
-PASS src/Tests/TableContentsSpring.test.tsx (7.906 s)
-PASS src/Tests/CommonPlan.test.tsx
+PASS src/Tests/CourseEdit.test.tsx
+  ● Console
+
+    console.error
+      Warning: React does not recognize the `data-TestId` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `data-testid` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+          at input
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/FormControl.js:27:3)
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/Col.js:71:8)
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/Row.js:21:3)
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/FormGroup.js:19:3)
+          at div
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/CourseEdit.tsx:7:5)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateProperty$1 (node_modules/react-dom/cjs/react-dom.development.js:3513:7)
+      at warnUnknownProperties (node_modules/react-dom/cjs/react-dom.development.js:3559:21)
+      at validateProperties$2 (node_modules/react-dom/cjs/react-dom.development.js:3583:3)
+      at validatePropertiesInDevelopment (node_modules/react-dom/cjs/react-dom.development.js:8765:5)
+      at setInitialProperties (node_modules/react-dom/cjs/react-dom.development.js:9041:5)
+      at finalizeInitialChildren (node_modules/react-dom/cjs/react-dom.development.js:10201:3)
+
+PASS src/Tests/TableContentsWinter.test.tsx (9.087 s)
+  ● Console
+
+    console.error
+      Warning: React does not recognize the `data-TestId` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `data-testid` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+          at input
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/FormControl.js:27:3)
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/Col.js:71:8)
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/Row.js:21:3)
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/FormGroup.js:19:3)
+          at div
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/CourseEdit.tsx:7:5)
+          at div
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/TableComponents/TableContentsWinter.tsx:10:5)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateProperty$1 (node_modules/react-dom/cjs/react-dom.development.js:3513:7)
+      at warnUnknownProperties (node_modules/react-dom/cjs/react-dom.development.js:3559:21)
+      at validateProperties$2 (node_modules/react-dom/cjs/react-dom.development.js:3583:3)
+      at validatePropertiesInDevelopment (node_modules/react-dom/cjs/react-dom.development.js:8765:5)
+      at setInitialProperties (node_modules/react-dom/cjs/react-dom.development.js:9041:5)
+      at finalizeInitialChildren (node_modules/react-dom/cjs/react-dom.development.js:10201:3)
+
+PASS src/Tests/TableContentsSpring.test.tsx (9.238 s)
+  ● Console
+
+    console.error
+      Warning: React does not recognize the `data-TestId` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `data-testid` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+          at input
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/FormControl.js:27:3)
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/Col.js:71:8)
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/Row.js:21:3)
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/FormGroup.js:19:3)
+          at div
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/CourseEdit.tsx:7:5)
+          at div
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/TableComponents/TableContentsSpring.tsx:10:5)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateProperty$1 (node_modules/react-dom/cjs/react-dom.development.js:3513:7)
+      at warnUnknownProperties (node_modules/react-dom/cjs/react-dom.development.js:3559:21)
+      at validateProperties$2 (node_modules/react-dom/cjs/react-dom.development.js:3583:3)
+      at validatePropertiesInDevelopment (node_modules/react-dom/cjs/react-dom.development.js:8765:5)
+      at setInitialProperties (node_modules/react-dom/cjs/react-dom.development.js:9041:5)
+      at finalizeInitialChildren (node_modules/react-dom/cjs/react-dom.development.js:10201:3)
+
+PASS src/Tests/TableContentsSummer.test.tsx (10.059 s)
+  ● Console
+
+    console.error
+      Warning: React does not recognize the `data-TestId` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `data-testid` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+          at input
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/FormControl.js:27:3)
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/Col.js:71:8)
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/Row.js:21:3)
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/FormGroup.js:19:3)
+          at div
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/CourseEdit.tsx:7:5)
+          at div
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/TableComponents/TableContentsSummer.tsx:10:5)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateProperty$1 (node_modules/react-dom/cjs/react-dom.development.js:3513:7)
+      at warnUnknownProperties (node_modules/react-dom/cjs/react-dom.development.js:3559:21)
+      at validateProperties$2 (node_modules/react-dom/cjs/react-dom.development.js:3583:3)
+      at validatePropertiesInDevelopment (node_modules/react-dom/cjs/react-dom.development.js:8765:5)
+      at setInitialProperties (node_modules/react-dom/cjs/react-dom.development.js:9041:5)
+      at finalizeInitialChildren (node_modules/react-dom/cjs/react-dom.development.js:10201:3)
+
+FAIL src/Tests/Years.test.tsx
+  ● Console
+
+    console.error
+      Warning: React does not recognize the `data-TestId` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `data-testid` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+          at button
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/Button.js:28:3)
+          at div
+          at header
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/Years.tsx:14:22)
+          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:173:13)
+          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:33:3)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateProperty$1 (node_modules/react-dom/cjs/react-dom.development.js:3513:7)
+      at warnUnknownProperties (node_modules/react-dom/cjs/react-dom.development.js:3559:21)
+      at validateProperties$2 (node_modules/react-dom/cjs/react-dom.development.js:3583:3)
+      at validatePropertiesInDevelopment (node_modules/react-dom/cjs/react-dom.development.js:8765:5)
+      at setInitialProperties (node_modules/react-dom/cjs/react-dom.development.js:9041:5)
+      at finalizeInitialChildren (node_modules/react-dom/cjs/react-dom.development.js:10201:3)
+
+    console.error
+      Warning: React does not recognize the `data-testId` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `data-testid` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/YearContainer.tsx:7:5)
+          at span
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/Years.tsx:14:22)
+          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:173:13)
+          at fn (/home/runner/work/cis-scheduler-team-21/packages/react-router/lib/components.tsx:33:3)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateProperty$1 (node_modules/react-dom/cjs/react-dom.development.js:3513:7)
+      at warnUnknownProperties (node_modules/react-dom/cjs/react-dom.development.js:3559:21)
+      at validateProperties$2 (node_modules/react-dom/cjs/react-dom.development.js:3583:3)
+      at validatePropertiesInDevelopment (node_modules/react-dom/cjs/react-dom.development.js:8765:5)
+      at setInitialProperties (node_modules/react-dom/cjs/react-dom.development.js:9041:5)
+      at finalizeInitialChildren (node_modules/react-dom/cjs/react-dom.development.js:10201:3)
+
+  ● Year Component tests › Clicking the save button saves the list of years
+
+    TestingLibraryElementError: Found multiple elements with the text: New School Year
+
+    Here are the matching elements:
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<span[39m
+      [33mclass[39m=[32m"yearDisplay"[39m
+    [36m>[39m
+      [0mNew School Year[0m
+    [36m</span>[39m
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<span[39m
+      [33mclass[39m=[32m"yearDisplay"[39m
+    [36m>[39m
+      [0mNew School Year[0m
+    [36m</span>[39m
+
+    (If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mstyle[39m=[32m"padding-bottom: 8ch;"[39m
+        [36m>[39m
+          [36m<header[39m
+            [33mclass[39m=[32m"App-header-Year"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mstyle[39m=[32m"width: 100%; text-align: center;"[39m
+            [36m>[39m
+              [0mYear View[0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mstyle[39m=[32m"text-align: center;"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mdata-testid[39m=[32m"rename-delete-button"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mRename/Delete Years[0m
+              [36m</button>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mSave[0m
+              [36m</button>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mCourse Requirements[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</header>[39m
+          [36m<div />[39m
+          [36m<span>[39m
+            [36m<div[39m
+              [33mdata-testid[39m=[32m"year-container"[39m
+              [33mstyle[39m=[32m"z-index: 0; display: relative;"[39m
+            [36m>[39m
+              [36m<br />[39m
+              [36m<span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"yearDisplay"[39m
+                [36m>[39m
+                  [0mFreshman[0m
+                [36m</span>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"orangeButton btn btn-primary"[39m
+                  [33mdata-testid[39m=[32m"show-hide-button"[39m
+                  [33mstyle[39m=[32m"margin-bottom: 4ch; font-size: 80%;"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mShow/Hide[0m
+                [36m</button>[39m
+              [36m</span>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: none;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"showPlan-background"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mdata-testid[39m=[32m"add-semester-buttons"[39m
+                    [33mstyle[39m=[32m"text-align: center;"[39m
+                  [36m>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"customButton btn btn-primary"[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mAdd Fall Semester[0m
+                    [36m</button>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"customButton btn btn-primary"[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mAdd Winter Session[0m
+                    [36m</button>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"customButton btn btn-primary"[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mAdd Spring Semester[0m
+                    [36m</button>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"customButton btn btn-primary"[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mAdd Summer Session[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mstyle[39m=[32m"float: right; margin-right: 3ch; margin-top: 2ch;"[39m
+                  [36m>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"btn btn-primary"[39m
+                      [33mstyle[39m=[32m"margin-left: .5ch;"[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mEdit Mode[0m
+                    [36m</button>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"btn btn-primary"[39m
+                      [33mstyle[39m=[32m"margin-left: .5ch;"[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mSearch for a Course[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"row"[39m
+                      [33mstyle[39m=[32m"width: 100%;"[39m
+                    [36m>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"col"[39m
+                        [33mstyle[39m=[32m"margin-left: 1ch;"[39m
+                      [36m>[39m
+                        [36m<br />[39m
+                      [36m</div>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"col"[39m
+                      [36m>[39m
+                        [36m<br />[39m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"row"[39m
+                      [33mstyle[39m=[32m"width: 100%;"[39m
+                    [36m>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"col"[39m
+                        [33mstyle[39m=[32m"margin-left: 1ch;"[39m
+                      [36m>[39m
+                        [36m<br />[39m
+                      [36m</div>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"col"[39m
+                      [36m>[39m
+                        [36m<br />[39m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<hr[39m
+              [33mstyle[39m=[32m"z-index: -1; position: relative;"[39m
+            [36m/>[39m
+          [36m</span>[39m
+          [36m<span>[39m
+            [36m<div[39m
+              [33mdata-testid[39m=[32m"year-container"[39m
+              [33mstyle[39m=[32m"z-index: 0; display: relative;"[39m
+            [36m>[39m
+              [36m<br />[39m
+              [36m<span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"yearDisplay"[39m
+                [36m>[39m
+                  [0mSophomore[0m
+                [36m</span>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"orangeButton btn btn-primary"[39m
+                  [33mdata-testid[39m=[32m"show-hide-button"[39m
+                  [33mstyle[39m=[32m"margin-bottom: 4ch; font-size: 80%;"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mShow/Hide[0m
+                [36m</button>[39m
+              [36m</span>[39m
+              [36m<div[39m
+                [33mstyle[39m=[32m"display: none;"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"showPlan-backg...
+
+      70 |         window.location.reload();
+      71 |
+    > 72 |         expect(screen.getByText("New School Year")).toBeInTheDocument();
+         |                       ^
+      73 |     });
+      74 |     test("Clicking the course requirements button reveals a popup with all the requirements", () => {
+      75 |         const courseRequirementsButton = screen.getByRole("button", {
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at getElementError (node_modules/@testing-library/dom/dist/query-helpers.js:25:35)
+      at getMultipleElementsFoundError (node_modules/@testing-library/dom/dist/query-helpers.js:29:10)
+      at query (node_modules/@testing-library/dom/dist/query-helpers.js:66:13)
+      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/Tests/Years.test.tsx:72:23)
+
 PASS src/Tests/PlanContainer.test.tsx
+PASS src/Tests/CommonPlan.test.tsx
+FAIL src/Tests/YearContainer.test.tsx
+  ● Console
+
+    console.error
+      Warning: React does not recognize the `data-TestId` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `data-testid` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+          at button
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/Button.js:28:3)
+          at span
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/YearContainer.tsx:7:5)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateProperty$1 (node_modules/react-dom/cjs/react-dom.development.js:3513:7)
+      at warnUnknownProperties (node_modules/react-dom/cjs/react-dom.development.js:3559:21)
+      at validateProperties$2 (node_modules/react-dom/cjs/react-dom.development.js:3583:3)
+      at validatePropertiesInDevelopment (node_modules/react-dom/cjs/react-dom.development.js:8765:5)
+      at setInitialProperties (node_modules/react-dom/cjs/react-dom.development.js:9041:5)
+      at finalizeInitialChildren (node_modules/react-dom/cjs/react-dom.development.js:10201:3)
+
+    console.error
+      Warning: React does not recognize the `data-testId` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `data-testid` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/YearContainer.tsx:7:5)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateProperty$1 (node_modules/react-dom/cjs/react-dom.development.js:3513:7)
+      at warnUnknownProperties (node_modules/react-dom/cjs/react-dom.development.js:3559:21)
+      at validateProperties$2 (node_modules/react-dom/cjs/react-dom.development.js:3583:3)
+      at validatePropertiesInDevelopment (node_modules/react-dom/cjs/react-dom.development.js:8765:5)
+      at setInitialProperties (node_modules/react-dom/cjs/react-dom.development.js:9041:5)
+      at finalizeInitialChildren (node_modules/react-dom/cjs/react-dom.development.js:10201:3)
+
+  ● Year Container tests › Typing in the input changes the year's name
+
+    expect(element).not.toBeInTheDocument()
+
+    expected document not to contain element, found <input class="form-control" data-testid="year-name-edit" name="yearTxt" placeholder="Enter new Year name..." style="width: 20%; margin-left: 3.5ch;" value="new value" /> instead
+
+      51 |             target: { value: "new value" }
+      52 |         });
+    > 53 |         expect(yearName).not.toBeInTheDocument();
+         |                              ^
+      54 |     });
+      55 |     test("Clicking the delete button deletes a year", () => {
+      56 |         const yearTitle = screen.getByText("Year 1");
+
+      at Object.<anonymous> (src/Tests/YearContainer.test.tsx:53:30)
+
+  ● Year Container tests › Clicking the delete button deletes a year
+
+    expect(element).not.toBeInTheDocument()
+
+    expected document not to contain element, found <span class="yearDisplay">Year 1</span> instead
+
+      61 |         deleteButton.click();
+      62 |
+    > 63 |         expect(yearTitle).not.toBeInTheDocument();
+         |                               ^
+      64 |     });
+      65 | });
+      66 |
+
+      at Object.<anonymous> (src/Tests/YearContainer.test.tsx:63:31)
+
+FAIL src/Tests/DegreeRequirement.test.tsx
+  ● Console
+
+    console.error
+      Warning: React does not recognize the `data-TestId` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `data-testid` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/Col.js:71:8)
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/node_modules/react-bootstrap/cjs/Row.js:21:3)
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Concentrations/AI.tsx:6:22)
+          at div
+          at div
+          at div
+          at fn (/home/runner/work/cis-scheduler-team-21/cis-scheduler-team-21/src/Components/DegreeRequirement.tsx:14:5)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateProperty$1 (node_modules/react-dom/cjs/react-dom.development.js:3513:7)
+      at warnUnknownProperties (node_modules/react-dom/cjs/react-dom.development.js:3559:21)
+      at validateProperties$2 (node_modules/react-dom/cjs/react-dom.development.js:3583:3)
+      at validatePropertiesInDevelopment (node_modules/react-dom/cjs/react-dom.development.js:8765:5)
+      at setInitialProperties (node_modules/react-dom/cjs/react-dom.development.js:9041:5)
+      at finalizeInitialChildren (node_modules/react-dom/cjs/react-dom.development.js:10201:3)
+
+  ● Degree Requirement Component tests › If concentration is systems and networks, it renders the systems and networks degree requirements
+
+    TestingLibraryElementError: Unable to find an element by: [data-testid="systems-and-networks-requirements"]
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"popup"[39m
+          [33mdata-testid[39m=[32m"requirement-popup"[39m
+          [33mstyle[39m=[32m"z-index: 3;"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"popup-inner"[39m
+            [33mstyle[39m=[32m"height: 600px; max-width: 1200px;"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mBack[0m
+              [36m</button>[39m
+            [36m</div>[39m
+            [36m<b[39m
+              [33mstyle[39m=[32m"margin-left: 40ch;"[39m
+            [36m>[39m
+              [0mConcentration Requirements[0m
+            [36m</b>[39m
+            [36m<div[39m
+              [33mstyle[39m=[32m"display: none;"[39m
+            [36m>[39m
+              [36m<div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"row"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col-sm-auto"[39m
+                  [36m>[39m
+                    [36m<b>[39m
+                      [0mCore Requirement [0m
+                      [0m
+    [0m
+                    [36m</b>[39m
+                    [36m<div>[39m
+                      [0mCISC 108[0m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [0mCISC 181[0m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [0mCISC 210[0m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [0mCISC 220[0m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [0mCISC 260[0m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [0mCISC 275[0m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [0mCISC 303[0m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [0mCISC 320[0m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [0mMATH 210[0m
+                    [36m</div>[39m
+                    [36m<div>[39m
+                      [0mMATH 241[0m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col-sm-auto"[39m
+                    [33mstyle[39m=[32m"white-space: pre;"[39m
+                  [36m>[39m
+                    [36m<b>[39m
+                      [0mAdditional Requirements [0m
+                      [0m
+    [0m
+                    [36m</b>[39m
+                    [0mCISC 355 
+    [0m
+                    [0mENGL 312 
+    [0m
+                    [0mor 
+    [0m
+                    [0mCISC 355 
+    [0m
+                    [0mENGL410 
+    [0m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col-sm-auto"[39m
+                    [33mstyle[39m=[32m"white-space: pre;"[39m
+                  [36m>[39m
+                    [36m<b>[39m
+                      [0mCapstone Requirement [0m
+                      [0m
+    [0m
+                    [36m</b>[39m
+                    [0mCISC 498 
+    [0m
+                    [0mCISC 499 
+    [0m
+                    [0mor 
+    [0m
+                    [0mUNIV 401 
+    [0m
+                    [0mUNIV 402 
+    [0m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col-sm-auto"[39m
+                    [33mstyle[39m=[32m"white-space: pre;"[39m
+                  [36m>[39m
+                    [36m<b>[39m
+                      [0mProb/Stat Course [0m
+                      [0m
+    [0m
+                    [36m</b>[39m
+                    [36m<i>[39m
+                      [0m-One of the following- [0m
+                      [0m
+    [0m
+                    [36m</i>[39m
+                    [0mMATH 205
+    [0m
+                    [0mMATH 350
+    [0m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col-sm-auto"[39m
+                    [33mstyle[39m=[32m"white-space: pre;"[39m
+                  [36m>[39m
+                    [36m<b>[39m
+                      [0mConcentration Core [0m
+                      [0m
+    [0m
+                    [36m</b>[39m
+                    [0mCISC 360 
+    [0m
+                    [0mCISC 361 
+    [0m
+                    [0mCISC 372 
+    [0m
+                    [0mCISC 450 
+    [0m
+                    [0mCISC 471 
+    [0m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col-sm-auto"[39m
+                    [33mstyle[39m=[32m"white-space: pre;"[39m
+                  [36m>[39m
+                    [36m<b>[39m
+                      [0mSecurity Requirement [0m
+                      [0m
+    [0m
+                    [36m</b>[39m
+                    [36m<i>[39m
+                      [0m-One of the following- [0m
+                      [0m
+    [0m
+                    [36m</i>[39m
+                    [0mCISC 464
+    [0m
+                    [0mCPEG 465
+    [0m
+                    [0mCPEG 470
+    [0m
+                    [0mCPEG 476
+    [0m
+                    [0mCPEG 473
+    [0m
+                    [0mCPEG 475
+    [0m
+                    [0mCPEG 497
+    [0m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col-sm-auto"[39m
+                    [33mstyle[39m=[32m"white-space: pre;"[39m
+                  [36m>[39m
+                    [36m<b>[39m
+                      [0mAdvanced Systems Requirement [0m
+                      [0m
+    [0m
+                    [36m</b>[39m
+                    [36m<i>[39m
+                      [0m-Two of the following- [0m
+                      [0m
+    [0m
+                    [36m</i>[39m
+                    [0mCISC 437
+    [0m
+                    [0mCISC 453
+    [0m
+                    [0mCISC 459
+    [0m
+                    [0mCISC 464
+    [0m
+                    [0mCISC 474
+    [0m
+                    [0mCISC 475
+    [0m
+                    [0mCISC 479
+    [0m
+                    [0mCPEG 473
+    [0m
+                    [0mCPEG 497
+    [0m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col-sm-1"[39m
+                    [33mstyle[39m=[32m"white-space: pre; margin-right: 3ch;"[39m
+                  [36m>[39m
+                    [36m<b>[39m
+                      [0mRestricted Electives [0m
+                      [0m
+    [0m
+                    [36m</b>[39m
+                    [36m<i>[39m
+                      [0m-Six credits of the following- [0m
+                      [0m
+    [0m
+                    [36m</i>[39m
+                    [0mCISC 304
+    [0m
+                    [0mCISC 436
+    [0m
+                    [0mCISC 437
+    [0m
+                    [0mCISC 440
+    [0m
+                    [0mCISC 442
+    [0m
+                    [0mCISC 449
+    [0m
+                    [0mCISC 453
+    [0m
+                    [0mCISC 459
+    [0m
+                    [0mCISC 464
+    [0m
+                    [0mCISC 474
+    [0m
+                    [0mCISC 475
+    [0m
+                    [0mCISC 479
+    [0m
+                    [0mCISC 481
+    [0m
+                    [0mCISC 483
+    [0m
+                    [0mCISC 484
+    [0m
+                    [0mCISC 489
+    [0m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col-sm...
+
+      36 |             screen.getByDisplayValue("Systems and Networks Requirements")
+      37 |         ).toBeInTheDocument();*/
+    > 38 |         const s = screen.getByTestId("systems-and-networks-requirements");
+         |                          ^
+      39 |         expect(s).toHaveStyle("block");
+      40 |     });
+      41 | });
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at allQuery (node_modules/@testing-library/dom/dist/query-helpers.js:90:38)
+      at query (node_modules/@testing-library/dom/dist/query-helpers.js:62:17)
+      at getByTestId (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/Tests/DegreeRequirement.test.tsx:38:26)
+
 PASS src/Tests/ShowFallTable.test.tsx
 PASS src/Tests/Homepage.test.tsx
 PASS src/Tests/App.test.tsx
----------------------------|---------|----------|---------|---------|--------------------
-File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s  
----------------------------|---------|----------|---------|---------|--------------------
-All files                  |    28.7 |    17.74 |   33.23 |   28.63 |                    
- src                       |     100 |      100 |     100 |     100 |                    
-  App.tsx                  |     100 |      100 |     100 |     100 |                    
- src/Components            |    44.1 |    42.42 |   47.76 |   43.81 |                    
-  AddSemester.tsx          |   89.18 |      100 |   91.66 |   89.18 | 112-115            
-  CommonPlan.tsx           |     100 |      100 |     100 |     100 |                    
-  CourseEdit.tsx           |       0 |        0 |       0 |       0 | 12-217             
-  DegreeRequirement.tsx    |       0 |        0 |       0 |       0 | 19-21              
-  Homepage.tsx             |     100 |      100 |     100 |     100 |                    
-  MakePlan.tsx             |   70.27 |    66.66 |      50 |   70.27 | 12-13,19,46,98-125 
-  PlanContainer.tsx        |    91.3 |    66.66 |     100 |    90.9 | 44,62              
-  YearContainer.tsx        |       0 |        0 |       0 |       0 | 14-51              
-  Years.tsx                |       0 |        0 |       0 |       0 | 15-92              
- src/Concentrations        |       0 |        0 |       0 |       0 |                    
-  AI.tsx                   |       0 |        0 |       0 |       0 | 7-267              
-  Bioinformatics.tsx       |       0 |        0 |       0 |       0 | 7-264              
-  Cybersecurity.tsx        |       0 |        0 |       0 |       0 | 7-276              
-  DataScience.tsx          |       0 |        0 |       0 |       0 | 7-282              
-  HPC.tsx                  |       0 |        0 |       0 |       0 | 7-260              
-  SystemsAndNetworks.tsx   |       0 |        0 |       0 |       0 | 9-311              
-  Theory.tsx               |       0 |        0 |       0 |       0 | 7-264              
-  Traditional.tsx          |       0 |        0 |       0 |       0 | 7-173              
- src/Interfaces            |       0 |        0 |       0 |       0 |                    
-  Courses.ts               |       0 |        0 |       0 |       0 |                    
-  coursePopupInterface.tsx |       0 |        0 |       0 |       0 |                    
-  degreeInterface.tsx      |       0 |        0 |       0 |       0 |                    
-  semesterInterfaces.tsx   |       0 |        0 |       0 |       0 |                    
-  yearInterface.tsx        |       0 |        0 |       0 |       0 |                    
- src/TableComponents       |    75.4 |       75 |   73.07 |    75.4 |                    
-  ShowFallTable.tsx        |     100 |      100 |     100 |     100 |                    
-  ShowSpringTable.tsx      |     100 |      100 |     100 |     100 |                    
-  ShowSummerTable.tsx      |     100 |      100 |     100 |     100 |                    
-  ShowWinterTable.tsx      |     100 |      100 |     100 |     100 |                    
-  TableContentsFall.tsx    |      75 |    72.22 |      72 |      75 | 99,120-148,170,197 
-  TableContentsSpring.tsx  |      75 |    72.22 |      72 |      75 | 99,120-148,170,197 
-  TableContentsSummer.tsx  |      75 |    72.22 |      72 |      75 | 99,120-148,170,197 
-  TableContentsWinter.tsx  |      75 |    72.22 |      72 |      75 | 99,120-148,170,197 
----------------------------|---------|----------|---------|---------|--------------------
+---------------------------|---------|----------|---------|---------|---------------------------------------------------------------------------------------------------
+File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                                                 
+---------------------------|---------|----------|---------|---------|---------------------------------------------------------------------------------------------------
+All files                  |   78.89 |    65.26 |   76.21 |   78.87 |                                                                                                   
+ src                       |     100 |      100 |     100 |     100 |                                                                                                   
+  App.tsx                  |     100 |      100 |     100 |     100 |                                                                                                   
+ src/Components            |   96.39 |    77.94 |     100 |   96.37 |                                                                                                   
+  AddSemester.tsx          |     100 |      100 |     100 |     100 |                                                                                                   
+  CommonPlan.tsx           |     100 |      100 |     100 |     100 |                                                                                                   
+  CourseEdit.tsx           |   90.19 |       50 |     100 |   90.19 | 88,113,137,166,210                                                                                
+  DegreeRequirement.tsx    |     100 |       50 |     100 |     100 | 38-99                                                                                             
+  Homepage.tsx             |     100 |      100 |     100 |     100 |                                                                                                   
+  MakePlan.tsx             |     100 |      100 |     100 |     100 |                                                                                                   
+  PlanContainer.tsx        |    91.3 |    66.66 |     100 |    90.9 | 44,62                                                                                             
+  YearContainer.tsx        |     100 |      100 |     100 |     100 |                                                                                                   
+  Years.tsx                |     100 |      100 |     100 |     100 |                                                                                                   
+ src/Concentrations        |   62.69 |    57.14 |      50 |   62.69 |                                                                                                   
+  AI.tsx                   |    62.5 |    56.81 |      50 |    62.5 | 8,28,33,43,48,58,128-131,148-151,165-168,182-185,198-201,214-217,230-233,245-248,264-267          
+  Bioinformatics.tsx       |   63.63 |    58.69 |      50 |   63.63 | 8,28,33,43,48,58,126-129,141-144,158-161,176-179,191-194,207-210,223-226,241-244,257-260          
+  Cybersecurity.tsx        |    62.5 |    56.81 |      50 |    62.5 | 8,28,33,43,48,58,137-140,153-156,170-173,188-191,203-206,219-222,235-238,250-253,269-272          
+  DataScience.tsx          |   62.31 |    56.52 |      50 |   62.31 | 8,28,33,43,48,58,128-131,143-146,160-163,178-181,193-196,209-212,225-228,241-244,256-259,275-278  
+  HPC.tsx                  |    62.5 |    56.81 |      50 |    62.5 | 8,27,32,42,47,57,125-128,140-143,157-160,174-177,188-191,204-207,218-221,234-237,253-256          
+  SystemsAndNetworks.tsx   |   62.31 |    56.52 |      50 |   62.31 | 10,30,35,45,50,60,157-160,172-175,189-192,207-210,222-225,238-241,254-257,270-273,285-288,304-307 
+  Theory.tsx               |    62.5 |    56.81 |      50 |    62.5 | 8,28,33,43,48,58,130-133,145-148,162-165,180-183,195-198,210-213,225-228,241-244,257-260          
+  Traditional.tsx          |   63.63 |    58.33 |      50 |   63.63 | 8,33,38,48,53,63,97-100,112-115,129-132,147-150,166-169                                           
+ src/Interfaces            |       0 |        0 |       0 |       0 |                                                                                                   
+  Courses.ts               |       0 |        0 |       0 |       0 |                                                                                                   
+  coursePopupInterface.tsx |       0 |        0 |       0 |       0 |                                                                                                   
+  degreeInterface.tsx      |       0 |        0 |       0 |       0 |                                                                                                   
+  semesterInterfaces.tsx   |       0 |        0 |       0 |       0 |                                                                                                   
+  yearInterface.tsx        |       0 |        0 |       0 |       0 |                                                                                                   
+ src/TableComponents       |   98.36 |       90 |     100 |   98.36 |                                                                                                   
+  ShowFallTable.tsx        |     100 |      100 |     100 |     100 |                                                                                                   
+  ShowSpringTable.tsx      |     100 |      100 |     100 |     100 |                                                                                                   
+  ShowSummerTable.tsx      |     100 |      100 |     100 |     100 |                                                                                                   
+  ShowWinterTable.tsx      |     100 |      100 |     100 |     100 |                                                                                                   
+  TableContentsFall.tsx    |   98.33 |    88.88 |     100 |   98.33 | 150                                                                                               
+  TableContentsSpring.tsx  |   98.33 |    88.88 |     100 |   98.33 | 144                                                                                               
+  TableContentsSummer.tsx  |   98.33 |    88.88 |     100 |   98.33 | 144                                                                                               
+  TableContentsWinter.tsx  |   98.33 |    88.88 |     100 |   98.33 | 144                                                                                               
+---------------------------|---------|----------|---------|---------|---------------------------------------------------------------------------------------------------
 
-Test Suites: 11 passed, 11 total
-Tests:       65 passed, 65 total
+Test Suites: 3 failed, 12 passed, 15 total
+Tests:       4 failed, 103 passed, 107 total
 Snapshots:   0 total
-Time:        45.729 s
+Time:        75.368 s
 Ran all test suites.
