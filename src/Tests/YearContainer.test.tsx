@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { YearContainer } from "../Components/YearContainer";
 import { year } from "../Interfaces/yearInterface";
+import userEvent from "@testing-library/user-event";
 
 const setPlanCourses = () => {
     return;
@@ -10,7 +11,6 @@ const setYearList = () => {
     return;
 };
 const yearTest: year = { title: "year 1", id: 1 };
-//const year2: year = { title: "year 2", id: 2 };
 describe("year Container tests", () => {
     beforeEach(() => {
         render(
@@ -42,25 +42,24 @@ describe("year Container tests", () => {
         expect(deleteButton).toBeInTheDocument();
     });
     test("Typing in the input changes the year's name", () => {
-        /**const yearName = (
-            document.getElementById("nameTxt") as HTMLInputElement
-        ).value;*/
+        expect(screen.getByText("year 1")).toBeInTheDocument();
         const yearName = screen.getByTestId(
             "year-name-edit"
         ) as HTMLInputElement;
-        fireEvent.change(yearName, {
-            target: { value: "new value" }
-        });
-        expect(yearName).not.toBeInTheDocument();
+        expect(yearName).toBeInTheDocument();
+
+        userEvent.type(yearName, "new value");
+        expect(yearName.value !== "year 1");
     });
     test("Clicking the delete button deletes a year", () => {
-        const yearTitle = screen.getByText("year 1");
-        expect(yearTitle).toBeInTheDocument();
+        const yearContainer: HTMLElement = screen.getByTestId("year-container");
+        //const yearTitle: HTMLElement = screen.getByText("year 1");
+        //expect(yearTitle).toBeInTheDocument();
         const deleteButton = screen.getByRole("button", {
             name: /Delete/i
         });
         deleteButton.click();
 
-        expect(yearTitle).not.toBeInTheDocument();
+        expect(yearContainer).not.toBeInTheDocument();
     });
 });

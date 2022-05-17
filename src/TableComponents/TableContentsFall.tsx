@@ -223,7 +223,10 @@ export function TableContentsFall({
 
     return (
         <div>
-            <div style={{ marginBottom: "1ch" }}>
+            <div
+                style={{ marginBottom: "1ch" }}
+                data-testid="fall-table-contents"
+            >
                 <table className="add-border">
                     <tbody>
                         {selectedCourses.map(

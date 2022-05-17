@@ -46,7 +46,7 @@ export function YearContainer({
     return (
         <div
             style={{ zIndex: "0", display: "relative" }}
-            data-testid="year-container"
+            data-testid={"year-container-" + year.id}
         >
             <br></br>
             <span>
@@ -76,7 +76,7 @@ export function YearContainer({
                 </Button>
                 {editVis && (
                     <Button
-                        data-testid="delete-year-button"
+                        data-testid={"delete-year-" + year.id}
                         onClick={deleteYear}
                         style={{
                             backgroundColor: "darkRed",

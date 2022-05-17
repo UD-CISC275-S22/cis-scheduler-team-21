@@ -232,7 +232,11 @@ export function CourseEdit({
         setPopup(null);
     }
     return (
-        <div className="popup" style={{ zIndex: "3" }}>
+        <div
+            data-testid="course-edit-popup"
+            className="popup"
+            style={{ zIndex: "3" }}
+        >
             <div
                 className="popup-inner"
                 style={{

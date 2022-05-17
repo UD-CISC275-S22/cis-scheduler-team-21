@@ -40,11 +40,14 @@ describe("CourseEdit Component tests", () => {
             ></CourseEdit>
         );
     });
-    test("There is a button named Done", () => {
+    test("There is a button named Done that removes the popup when clicked", () => {
+        expect(screen.getByTestId("course-edit-popup")).toBeInTheDocument();
         const doneButton = screen.getByRole("button", {
             name: /Done/i
         });
         expect(doneButton).toBeInTheDocument();
+        doneButton.click();
+        expect(screen.getByTestId("course-edit-popup")).not.toBeInTheDocument();
     });
     test("There is a form named Code that changes the course code when edited by the user", () => {
         /**const codeForm = screen.getByTestId("code-form");

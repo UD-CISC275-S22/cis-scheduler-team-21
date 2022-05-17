@@ -34,20 +34,28 @@ export function Years(): JSX.Element {
         title: "Senior",
         id: 4
     };
-    const saveDataKey = "yearsList-Data" + planID.toString();
-    let loadedData: year[] = [Freshman, Sophomore, Junior, Senior];
-    const previousData: string | null = localStorage.getItem(saveDataKey);
-    let mostRecentID = 5;
-    if (previousData !== null) {
-        loadedData = Object.values(JSON.parse(previousData));
-        mostRecentID = loadedData[loadedData.length - 1].id + 1;
-    }
-    const savePlanKey = "Plan-Data" + planID.toString();
+    let loadedData: year[] = [];
+    let mostRecentID = 0;
     let loadedPlanData: course[] = [];
-    const previousPlanData: string | null = localStorage.getItem(savePlanKey);
-    if (previousPlanData !== null) {
-        loadedPlanData = Object.values(JSON.parse(previousPlanData));
+    let saveDataKey = "";
+    if (planID !== undefined) {
+        saveDataKey = "yearsList-Data" + planID.toString();
+        loadedData = [Freshman, Sophomore, Junior, Senior];
+        const previousData: string | null = localStorage.getItem(saveDataKey);
+        mostRecentID = 5;
+        if (previousData !== null && previousData !== undefined) {
+            loadedData = Object.values(JSON.parse(previousData));
+            mostRecentID = loadedData[loadedData.length - 1].id + 1;
+        }
+
+        const savePlanKey = "Plan-Data" + planID.toString();
+        const previousPlanData: string | null =
+            localStorage.getItem(savePlanKey);
+        if (previousPlanData !== null) {
+            loadedPlanData = Object.values(JSON.parse(previousPlanData));
+        }
     }
+
     const [yearList, setYearList] = useState<year[]>(loadedData);
     const [editVis, setEditVis] = useState<boolean>(false);
     const [counter, setCounter] = useState<number>(mostRecentID);
