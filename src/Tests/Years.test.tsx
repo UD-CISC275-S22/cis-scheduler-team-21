@@ -27,8 +27,10 @@ describe("Year Component tests", () => {
         });
     });
     test("There is a Rename/Delete Years Button", () => {
-        const renameDeleteButton = screen.getByTestId("rename-delete-button");
-        expect(renameDeleteButton).toBeInTheDocument();
+        const editYearsButton = screen.getByRole("button", {
+            name: /Edit Years/i
+        });
+        expect(editYearsButton).toBeInTheDocument();
     });
     test("There is a button named Course Requirements", () => {
         const courseRequirementsButton = screen.getByRole("button", {
@@ -84,7 +86,7 @@ describe("Year Component tests", () => {
         });
         saveButton.click();
 
-        expect(window.localStorage.setItem).toHaveBeenCalled(1);
+        expect(window.localStorage.setItem).toHaveBeenCalledTimes(1);
     });
     test("Clicking the course requirements button reveals a popup with all the requirements", () => {
         const courseRequirementsButton = screen.getByRole("button", {
@@ -114,10 +116,12 @@ describe("Year Component tests", () => {
         expect(window.localStorage.getItem).toHaveBeenCalledTimes(2);
     });
     test("Clicking the delete button deletes a year", () => {
-        const renameDeleteButton = screen.getByTestId("rename-delete-button");
-        renameDeleteButton.click();
         const yearContainer = screen.getByTestId("year-container-1");
-        //const yearTitle: HTMLElement = screen.getByText("Freshman");
+        const editYearsButton = screen.getByRole("button", {
+            name: /Edit Years/i
+        });
+        editYearsButton.click();
+
         expect(yearContainer).toBeInTheDocument();
         const deleteButton = screen.getByTestId("delete-year-1");
         deleteButton.click();
