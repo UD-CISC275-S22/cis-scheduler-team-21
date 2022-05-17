@@ -9,15 +9,15 @@ const setPlanCourses = () => {
 const setYearList = () => {
     return;
 };
-const year: year = { title: "year 1", id: 1 };
+const yearTest: year = { title: "year 1", id: 1 };
 //const year2: year = { title: "year 2", id: 2 };
 describe("year Container tests", () => {
     beforeEach(() => {
         render(
             <YearContainer
-                year={year}
+                year={yearTest}
                 setYearList={setYearList}
-                yearList={[year]}
+                yearList={[yearTest]}
                 editVis={true}
                 planCourses={[]}
                 setPlanCourses={setPlanCourses}

@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { CourseEdit } from "../Components/CourseEdit";
-import { Course } from "../Interfaces/Courses";
+import { course } from "../Interfaces/Courses";
 import userEvent from "@testing-library/user-event";
 
 const setPopup = () => {
@@ -10,9 +10,12 @@ const setPopup = () => {
 const setSelectedCourses = () => {
     return;
 };
+const setPlanCourses = () => {
+    return;
+};
 
-const course: Course = {
-    ID: "",
+const courseTest: course = {
+    id: "",
     code: "CISC 275",
     name: "Introduction to Software Engineering",
     descr: "Object oriented software design and development through use of an object oriented programming language. Topics include team programming, design patterns, graphical user interfaces, software engineering tools (e.g., integrated development environments, version control, build management, bug tracking, automated testing).",
@@ -28,8 +31,12 @@ describe("CourseEdit Component tests", () => {
             <CourseEdit
                 setPopup={setPopup}
                 setSelectedCourses={setSelectedCourses}
-                SelectedCourses={[]}
-                course={course}
+                selectedCourses={[]}
+                course={courseTest}
+                planCourses={[]}
+                setPlanCourses={setPlanCourses}
+                planKey={""}
+                yearKey={""}
             ></CourseEdit>
         );
     });
@@ -50,7 +57,7 @@ describe("CourseEdit Component tests", () => {
         //expect(screen.queryByText(course.code)).not.toBeInTheDocument();
         const codeForm = screen.getByTestId("code-form");
         //const previousCode = screen.getByDisplayValue("CISC 275");
-        expect(screen.getByDisplayValue(course.code)).toBeInTheDocument();
+        expect(screen.getByDisplayValue(courseTest.code)).toBeInTheDocument();
         codeForm.click();
         userEvent.clear(codeForm);
         userEvent.type(codeForm, "new value");
@@ -60,7 +67,7 @@ describe("CourseEdit Component tests", () => {
     test("There is a form named Name that changes the course name when edited by the user", () => {
         const nameForm = screen.getByTestId("name-form");
 
-        expect(screen.getByDisplayValue(course.name)).toBeInTheDocument();
+        expect(screen.getByDisplayValue(courseTest.name)).toBeInTheDocument();
         nameForm.click();
         userEvent.clear(nameForm);
         userEvent.type(nameForm, "new value");
@@ -72,7 +79,9 @@ describe("CourseEdit Component tests", () => {
     test("There is a form named Credits that changes the course credits when edited by the user", () => {
         const creditsForm = screen.getByTestId("credits-form");
 
-        expect(screen.getByDisplayValue(course.credits)).toBeInTheDocument();
+        expect(
+            screen.getByDisplayValue(courseTest.credits)
+        ).toBeInTheDocument();
         creditsForm.click();
         userEvent.clear(creditsForm);
         userEvent.type(creditsForm, "new value");
@@ -82,7 +91,7 @@ describe("CourseEdit Component tests", () => {
     test("There is a form named PreReq that changes the course preRequisites when edited by the user", () => {
         const preReqForm = screen.getByTestId("preReq-form");
 
-        expect(screen.getByDisplayValue(course.preReq)).toBeInTheDocument();
+        expect(screen.getByDisplayValue(courseTest.preReq)).toBeInTheDocument();
         preReqForm.click();
         userEvent.clear(preReqForm);
         userEvent.type(preReqForm, "new value");
@@ -94,8 +103,10 @@ describe("CourseEdit Component tests", () => {
     test("There is a form named Restriction that changes the course restrictions when edited by the user", () => {
         const restrictionForm = screen.getByTestId("restriction-form");
 
-        expect(screen.getByDisplayValue(course.restrict)).toBeInTheDocument();
-        const length = course.restrict.length;
+        expect(
+            screen.getByDisplayValue(courseTest.restrict)
+        ).toBeInTheDocument();
+        const length = courseTest.restrict.length;
         restrictionForm.click();
         userEvent.clear(restrictionForm);
         const newText = "new value";
@@ -138,7 +149,7 @@ describe("CourseEdit Component tests", () => {
     test("There is a form named Descr that changes the course description when edited by the user", () => {
         const descriptionForm = screen.getByTestId("description-form");
 
-        expect(screen.getByDisplayValue(course.descr)).toBeInTheDocument();
+        expect(screen.getByDisplayValue(courseTest.descr)).toBeInTheDocument();
         descriptionForm.click();
         userEvent.clear(descriptionForm);
         userEvent.type(descriptionForm, "new value");
