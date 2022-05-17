@@ -1,11 +1,11 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import { Course } from "../Interfaces/Courses";
+import { course } from "../Interfaces/Courses";
 import { planCoursesProp } from "../Interfaces/degreeInterface";
 
 export function AI({ planCourses }: planCoursesProp): JSX.Element {
     const planCoursesString: string[] = planCourses.map(
-        (course: Course): string => course.code
+        (course: course): string => course.code
     );
     const coreClasses: string[] = [
         "CISC 108",
@@ -119,12 +119,12 @@ export function AI({ planCourses }: planCoursesProp): JSX.Element {
     return (
         <div>
             <Row>
-                <Col sm={"auto"} data-TestId="core-requirements-AI">
+                <Col sm={"auto"} data-testid="core-requirements-AI">
                     <b>Core Requirement {"\n"}</b>
                     {coreClasses.map((course: string): JSX.Element => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
@@ -138,13 +138,13 @@ export function AI({ planCourses }: planCoursesProp): JSX.Element {
                 <Col
                     sm={"auto"}
                     style={{ whiteSpace: "pre" }}
-                    data-TestId="additional-requirements-AI"
+                    data-testid="additional-requirements-AI"
                 >
                     <b>Additional Requirements {"\n"}</b>
                     {additionalReq.map((course: string) => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
@@ -161,7 +161,7 @@ export function AI({ planCourses }: planCoursesProp): JSX.Element {
                     {capstoneClasses.map((course: string) => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
@@ -178,7 +178,7 @@ export function AI({ planCourses }: planCoursesProp): JSX.Element {
                     {concentrationReq.map((course: string) => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
@@ -189,12 +189,12 @@ export function AI({ planCourses }: planCoursesProp): JSX.Element {
                     })}
                 </Col>
                 <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
-                    <b>Prob/Stat Course {"\n"}</b>
+                    <b>Prob/Stat course {"\n"}</b>
                     <i>-One of the following- {"\n"}</i>
                     {extraMath.map((course: string) => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
@@ -210,7 +210,7 @@ export function AI({ planCourses }: planCoursesProp): JSX.Element {
                     {systemsReq.map((course: string) => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
@@ -226,7 +226,7 @@ export function AI({ planCourses }: planCoursesProp): JSX.Element {
                     {restrictedElectives1.map((course: string) => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
@@ -241,7 +241,7 @@ export function AI({ planCourses }: planCoursesProp): JSX.Element {
                     {restrictedElectives2.map((course: string) => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {
@@ -260,7 +260,7 @@ export function AI({ planCourses }: planCoursesProp): JSX.Element {
                     {labScience.map((course: string) => {
                         if (
                             planCourses.some(
-                                (courseObj: Course): boolean =>
+                                (courseObj: course): boolean =>
                                     courseObj.code === course
                             )
                         ) {

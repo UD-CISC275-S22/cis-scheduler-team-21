@@ -1,14 +1,15 @@
-import { Course } from "./Courses";
+import { course } from "./Courses";
 
 export interface setYearProp {
-    year: Year;
-    setYearList: (years: Year[]) => void;
-    yearList: Year[];
+    year: year;
+    setYearList: (years: year[]) => void;
+    yearList: year[];
     editVis: boolean;
-    planCourses: Course[];
-    setPlanCourses: (courses: Course[]) => void;
+    planCourses: course[];
+    setPlanCourses: (courses: course[]) => void;
+    planID: number;
 }
-export interface Year {
+export interface year {
     title: string;
     id: number;
 }

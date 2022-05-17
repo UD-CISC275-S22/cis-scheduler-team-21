@@ -65,20 +65,26 @@ describe("Year Component tests", () => {
         expect(window.localStorage.setItem).toHaveBeenCalledTimes(1);
     });
     test("Clicking the save button saves the list of years", () => {
+        {
+            Object.defineProperty(window, "localStorage", {
+                value: {
+                    getItem: jest.fn(() => null),
+                    setItem: jest.fn(() => null)
+                },
+                writable: true
+            });
+        }
         const addYearButton = screen.getByRole("button", {
             name: /Add Year/i
         });
         addYearButton.click();
-        expect(screen.getByText("New School Year")).toBeInTheDocument();
 
         const saveButton = screen.getByRole("button", {
             name: /Save/i
         });
         saveButton.click();
 
-        window.location.reload();
-
-        expect(screen.getByText("New School Year")).toBeInTheDocument();
+        expect(window.localStorage.setItem).toHaveBeenCalled(1);
     });
     test("Clicking the course requirements button reveals a popup with all the requirements", () => {
         const courseRequirementsButton = screen.getByRole("button", {
@@ -94,5 +100,28 @@ describe("Year Component tests", () => {
         renameDeleteButton.click();
         //expect(screen.getByTestId("year-name-edit")).toBeInTheDocument();
         expect(screen.getByTestId("rename-delete-button")).toBeInTheDocument();
+    });
+    test("Testing for localStorage items being rendered into previousData", () => {
+        {
+            Object.defineProperty(window, "localStorage", {
+                value: {
+                    getItem: jest.fn(() => null),
+                    setItem: jest.fn(() => null)
+                },
+                writable: true
+            });
+        }
+        expect(window.localStorage.getItem).toHaveBeenCalledTimes(2);
+    });
+    test("Clicking the delete button deletes a year", () => {
+        const renameDeleteButton = screen.getByTestId("rename-delete-button");
+        renameDeleteButton.click();
+        const yearContainer = screen.getByTestId("year-container-1");
+        //const yearTitle: HTMLElement = screen.getByText("Freshman");
+        expect(yearContainer).toBeInTheDocument();
+        const deleteButton = screen.getByTestId("delete-year-1");
+        deleteButton.click();
+
+        expect(yearContainer).not.toBeInTheDocument();
     });
 });

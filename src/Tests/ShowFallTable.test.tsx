@@ -16,10 +16,12 @@ describe("ShowFallTable Component tests", () => {
         render(
             <ShowFallTable
                 setFall={setFallElement}
-                Visible={false}
-                SearchVisible={false}
+                visible={false}
+                searchVisible={false}
                 planCourses={[]}
                 setPlanCourses={setPlanCourses}
+                yearID={0}
+                planID={0}
             />
         )
     );

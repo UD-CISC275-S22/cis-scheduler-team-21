@@ -1,38 +1,48 @@
-import { Course } from "./Courses";
+import { course } from "./Courses";
 
-export interface SetFallProp {
+export interface setFallProp {
     setFall: (fallSemester: JSX.Element | null) => void;
-    Visible: boolean;
-    SearchVisible: boolean;
-    planCourses: Course[];
-    setPlanCourses: (courses: Course[]) => void;
+    visible: boolean;
+    searchVisible: boolean;
+    planCourses: course[];
+    setPlanCourses: (courses: course[]) => void;
+    yearID: number;
+    planID: number;
 }
 
 export interface setSpringProp {
     setSpring: (springSemester: JSX.Element | null) => void;
-    Visible: boolean;
-    SearchVisible: boolean;
-    planCourses: Course[];
-    setPlanCourses: (courses: Course[]) => void;
+    visible: boolean;
+    searchVisible: boolean;
+    planCourses: course[];
+    setPlanCourses: (courses: course[]) => void;
+    yearID: number;
+    planID: number;
 }
 
-export interface SetWinterProp {
+export interface setWinterProp {
     setWinter: (winterSession: JSX.Element | null) => void;
-    Visible: boolean;
-    SearchVisible: boolean;
-    planCourses: Course[];
-    setPlanCourses: (courses: Course[]) => void;
+    visible: boolean;
+    searchVisible: boolean;
+    planCourses: course[];
+    setPlanCourses: (courses: course[]) => void;
+    yearID: number;
+    planID: number;
 }
 
-export interface SetSummerProp {
+export interface setSummerProp {
     setSummer: (summerSession: JSX.Element | null) => void;
-    Visible: boolean;
-    SearchVisible: boolean;
-    planCourses: Course[];
-    setPlanCourses: (courses: Course[]) => void;
+    visible: boolean;
+    searchVisible: boolean;
+    planCourses: course[];
+    setPlanCourses: (courses: course[]) => void;
+    yearID: number;
+    planID: number;
 }
 
 export interface addSemesterProps {
-    planCourses: Course[];
-    setPlanCourses: (courses: Course[]) => void;
+    planCourses: course[];
+    setPlanCourses: (courses: course[]) => void;
+    yearID: number;
+    planID: number;
 }

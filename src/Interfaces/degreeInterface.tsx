@@ -1,11 +1,11 @@
-import { Course } from "./Courses";
+import { course } from "./Courses";
 
 export interface degreeProps {
-    planCourses: Course[];
+    planCourses: course[];
     concentration: string;
     setDegreeReq: (degree: JSX.Element | null) => void;
 }
 
 export interface planCoursesProp {
-    planCourses: Course[];
+    planCourses: course[];
 }

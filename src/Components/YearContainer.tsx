@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { setYearProp, Year } from "../Interfaces/yearInterface";
+import { setYearProp, year } from "../Interfaces/yearInterface";
 import { AddSemester } from "./AddSemester";
 
 export function YearContainer({
@@ -9,27 +9,44 @@ export function YearContainer({
     yearList,
     editVis,
     planCourses,
-    setPlanCourses
+    setPlanCourses,
+    planID
 }: setYearProp): JSX.Element {
-    const [yearClone, setYear] = useState<Year>(year);
+    const [yearClone, setYear] = useState<year>(year);
     const [Visible, setVisible] = useState<boolean>(false);
     function deleteYear(): void {
-        const newYearList: Year[] = yearList.filter(
-            (year1: Year): boolean => year1.id !== year.id
+        const newYearList: year[] = yearList.filter(
+            (year1: year): boolean => year1.id !== year.id
         );
         setYearList(newYearList);
+        localStorage.setItem(
+            "yearsList-Data" + planID.toString(),
+            JSON.stringify(newYearList)
+        );
     }
     function updateYearTitle(event: React.ChangeEvent<HTMLInputElement>) {
-        const updatedYear: Year = {
+        const updatedYear: year = {
             title: event.target.value,
             id: year.id
         };
+        const yearListClone: year[] = yearList.map((yearInList: year) => {
+            if (yearInList.id === year.id) {
+                return updatedYear;
+            } else {
+                return yearInList;
+            }
+        });
+        setYearList(yearListClone);
         setYear(updatedYear);
+        localStorage.setItem(
+            "yearsList-Data" + planID.toString(),
+            JSON.stringify(yearListClone)
+        );
     }
     return (
         <div
             style={{ zIndex: "0", display: "relative" }}
-            data-testId="year-container"
+            data-testid={"year-container-" + year.id}
         >
             <br></br>
             <span>
@@ -59,7 +76,7 @@ export function YearContainer({
                 </Button>
                 {editVis && (
                     <Button
-                        data-testid="delete-year-button"
+                        data-testid={"delete-year-" + year.id}
                         onClick={deleteYear}
                         style={{
                             backgroundColor: "darkRed",
@@ -76,6 +93,8 @@ export function YearContainer({
                 <AddSemester
                     planCourses={planCourses}
                     setPlanCourses={setPlanCourses}
+                    yearID={year.id}
+                    planID={planID}
                 />
             </div>
         </div>

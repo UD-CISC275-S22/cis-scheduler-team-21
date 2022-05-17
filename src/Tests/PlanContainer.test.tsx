@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { PlanContainer } from "../Components/PlanContainer";
-import { Plan } from "../Interfaces/Courses";
+import { plan } from "../Interfaces/Courses";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 
@@ -9,14 +9,14 @@ const setPlans = () => {
     return;
 };
 
-const newPlan: Plan = {
-    Title: "Test",
+const newPlan: plan = {
+    title: "Test",
     id: 1,
     description: "Hello",
     degree: "Bachelor of Art"
 };
 
-const newplanList: Plan[] = [newPlan];
+const newplanList: plan[] = [newPlan];
 
 describe("PlanContainer component test", () => {
     beforeEach(() => {

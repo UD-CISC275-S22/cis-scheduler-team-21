@@ -1,5 +1,5 @@
-export interface Course {
-    ID: string;
+export interface course {
+    id: string;
     code: string;
     name: string;
     descr: string;
@@ -10,7 +10,7 @@ export interface Course {
     typ: string;
 }
 
-export interface CourseJSON {
+export interface courseJSON {
     code: string;
     name: string;
     descr: string;
@@ -21,13 +21,13 @@ export interface CourseJSON {
     typ: string;
 }
 
-export interface Section {
-    course: Course[];
+export interface section {
+    course: course[];
 }
 
-export interface Plan {
+export interface plan {
     //Defines what a plan is
-    Title: string;
+    title: string;
     id: number;
     description: string;
     degree: string;

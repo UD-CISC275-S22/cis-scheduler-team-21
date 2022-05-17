@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { YearContainer } from "../Components/YearContainer";
-import { Year } from "../Interfaces/yearInterface";
+import { year } from "../Interfaces/yearInterface";
 import userEvent from "@testing-library/user-event";
 
 const setPlanCourses = () => {
@@ -10,18 +10,18 @@ const setPlanCourses = () => {
 const setYearList = () => {
     return;
 };
-const year: Year = { title: "Year 1", id: 1 };
-//const year2: Year = { title: "Year 2", id: 2 };
-describe("Year Container tests", () => {
+const yearTest: year = { title: "year 1", id: 1 };
+describe("year Container tests", () => {
     beforeEach(() => {
         render(
             <YearContainer
-                year={year}
+                year={yearTest}
                 setYearList={setYearList}
-                yearList={[year]}
+                yearList={[yearTest]}
                 editVis={true}
                 planCourses={[]}
                 setPlanCourses={setPlanCourses}
+                planID={0}
             ></YearContainer>
         );
     });
@@ -42,18 +42,19 @@ describe("Year Container tests", () => {
         expect(deleteButton).toBeInTheDocument();
     });
     test("Typing in the input changes the year's name", () => {
-        expect(screen.getByText("Year 1")).toBeInTheDocument();
+        expect(screen.getByText("year 1")).toBeInTheDocument();
         const yearName = screen.getByTestId(
             "year-name-edit"
         ) as HTMLInputElement;
         expect(yearName).toBeInTheDocument();
 
         userEvent.type(yearName, "new value");
-        expect(yearName.value !== "Year 1");
+        expect(yearName.value !== "year 1");
     });
     test("Clicking the delete button deletes a year", () => {
-        const yearContainer = screen.getByTestId("year-container");
-        expect(yearContainer).toBeInTheDocument();
+        const yearContainer: HTMLElement = screen.getByTestId("year-container");
+        //const yearTitle: HTMLElement = screen.getByText("year 1");
+        //expect(yearTitle).toBeInTheDocument();
         const deleteButton = screen.getByRole("button", {
             name: /Delete/i
         });

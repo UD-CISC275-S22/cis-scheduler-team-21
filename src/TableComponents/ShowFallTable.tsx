@@ -1,16 +1,16 @@
 import React from "react";
-import { SetFallProp } from "../Interfaces/semesterInterfaces";
+import { setFallProp } from "../Interfaces/semesterInterfaces";
 import { TableContentsFall } from "./TableContentsFall";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 
 export function ShowFallTable({
     setFall,
-    Visible,
-    SearchVisible,
+    visible,
+    searchVisible,
     planCourses,
-    setPlanCourses
-}: SetFallProp): JSX.Element {
+    setPlanCourses,
+    yearID,
+    planID
+}: setFallProp): JSX.Element {
     return (
         <div>
             <table
@@ -49,19 +49,19 @@ export function ShowFallTable({
                         <td>
                             <h5>Course Credit</h5>
                         </td>
-                        {Visible && <td></td>}
+                        {visible && <td></td>}
                     </tr>
                 </tbody>
             </table>
-            <DndProvider backend={HTML5Backend}>
-                <TableContentsFall
-                    setFall={setFall}
-                    Visible={Visible}
-                    SearchVisible={SearchVisible}
-                    planCourses={planCourses}
-                    setPlanCourses={setPlanCourses}
-                ></TableContentsFall>
-            </DndProvider>
+            <TableContentsFall
+                setFall={setFall}
+                visible={visible}
+                searchVisible={searchVisible}
+                planCourses={planCourses}
+                setPlanCourses={setPlanCourses}
+                yearID={yearID}
+                planID={planID}
+            ></TableContentsFall>
         </div>
     );
 }

@@ -2,23 +2,21 @@ import React, { useState } from "react";
 import { Button, Dropdown, Form } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/DropdownItem";
 import DropdownMenu from "react-bootstrap/DropdownMenu";
-import { Plan } from "../Interfaces/Courses";
+import { plan } from "../Interfaces/Courses";
 import { PlanContainer } from "./PlanContainer";
 
 export function MakePlan(): JSX.Element {
     const planDataKey = "PlanList-Data";
-    let loadedData: Plan[] = [];
+    let loadedData: plan[] = [];
     const previousData: string | null = localStorage.getItem(planDataKey);
     if (previousData !== null) {
         loadedData = Object.values(JSON.parse(previousData));
-        //console.log(loadedData);
     }
     let mostRecentID = 1;
     if (loadedData.length !== 0) {
         mostRecentID = loadedData[loadedData.length - 1].id + 1;
     }
-    const [Plans, setPlans] = useState<Plan[]>(loadedData);
-    //const [countList, setCountList] = useState<number[]>([]);
+    const [plans, setPlans] = useState<plan[]>(loadedData);
     const [Counter, setCounter] = useState<number>(mostRecentID);
     const [Visible, setVisible] = useState<boolean>(false);
     const [Degree, setDegree] = useState<string>("Select Degree");
@@ -26,29 +24,31 @@ export function MakePlan(): JSX.Element {
 
     function newPlan(): void {
         setVisible(false);
-        const newPlan: Plan = {
-            Title: "Plan " + Counter,
+        const newPlan: plan = {
+            title: "plan " + Counter,
             id: Counter,
             description: "",
             degree: Degree
         };
-        //const planList: Plan[] = [...PlansArray, newPlan];
-        const planList: Plan[] = [...Plans, newPlan];
+        const planList: plan[] = [...plans, newPlan];
         const counterCopy: number = Counter + 1;
         setPlans(planList);
         setCounter(counterCopy);
         localStorage.setItem(planDataKey, JSON.stringify(planList));
-        //const URL: string = document.URL;
         window.location.reload();
     }
     function savePlans() {
-        localStorage.setItem(planDataKey, JSON.stringify(Plans));
+        localStorage.setItem(planDataKey, JSON.stringify(plans));
+        window.location.reload();
     }
 
     function Popup() {
         return (
             <div className="popup">
-                <div className="popup-inner">
+                <div
+                    className="popup-inner"
+                    style={{ maxWidth: "400px", height: "250px" }}
+                >
                     <button
                         className="close-btn"
                         onClick={() => setVisible(false)}
@@ -133,24 +133,12 @@ export function MakePlan(): JSX.Element {
                         onClick={newPlan}
                         disabled={Degree === "Select Degree"}
                     >
-                        Create Plan
+                        Create plan
                     </button>
                 </div>
             </div>
         );
     }
-    /**const [pageContent, setPageContent] = React.useState(null);
-    const { planContents } = useParams();
-    React.useEffect(() => {
-        fetch(
-            `https://ud-cisc275-s22.github.io/cis-scheduler-team-21/${planContents}`
-        )
-            .then((res) => res.json())
-            .then((data) => setPageContent(data));
-    }, [planContents]);*/
-
-    //if (!pageContent) return null;
-    /***/
     return (
         <div className="makePlan-background">
             <div>
@@ -162,22 +150,21 @@ export function MakePlan(): JSX.Element {
                     }}
                     onClick={savePlans}
                 >
-                    Save Plans
+                    Save plans
                 </Button>
-                {/* {visible && <div></div>} */}
 
-                {Plans.map((plan: Plan) => (
+                {plans.map((plan: plan) => (
                     <div key={plan.id}>
                         <PlanContainer
                             plan={plan}
-                            plans={Plans}
+                            plans={plans}
                             setPlans={setPlans}
                         ></PlanContainer>
                         <hr></hr>
                     </div>
                 ))}
                 <div>
-                    <Button onClick={() => setVisible(true)}>New Plan</Button>
+                    <Button onClick={() => setVisible(true)}>New plan</Button>
                 </div>
                 <div className="main">
                     {Visible && <Popup data-testid="popup-window"></Popup>}

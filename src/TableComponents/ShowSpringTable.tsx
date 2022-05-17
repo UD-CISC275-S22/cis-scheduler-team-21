@@ -4,10 +4,12 @@ import { TableContentsSpring } from "./TableContentsSpring";
 
 export function ShowSpringTable({
     setSpring,
-    Visible,
-    SearchVisible,
+    visible,
+    searchVisible,
     planCourses,
-    setPlanCourses
+    setPlanCourses,
+    yearID,
+    planID
 }: // DataKey
 setSpringProp): JSX.Element {
     return (
@@ -44,16 +46,18 @@ setSpringProp): JSX.Element {
                         <td>
                             <h5>Course Credit</h5>
                         </td>
-                        {Visible && <td></td>}
+                        {visible && <td></td>}
                     </tr>
                 </tbody>
             </table>
             <TableContentsSpring
                 setSpring={setSpring}
-                Visible={Visible}
-                SearchVisible={SearchVisible}
+                visible={visible}
+                searchVisible={searchVisible}
                 planCourses={planCourses}
                 setPlanCourses={setPlanCourses}
+                yearID={yearID}
+                planID={planID}
             ></TableContentsSpring>
         </div>
     );
