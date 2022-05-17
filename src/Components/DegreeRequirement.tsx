@@ -31,7 +31,9 @@ export function DegreeRequirement({
                 <div>
                     <Button onClick={removePopup}>Back</Button>
                 </div>
-                <b style={{ marginLeft: "40ch" }}>Concentration Requirements</b>
+                <b style={{ marginLeft: "40ch" }}>
+                    {concentration} Requirements
+                </b>
                 <div
                     style={{
                         display:
@@ -41,6 +43,7 @@ export function DegreeRequirement({
                     }}
                 >
                     <SystemsAndNetworks
+                        data-testId="systems-and-networks-requirements"
                         planCourses={planCourses}
                         //data-testId="systems-and-networks-requirements"
                     ></SystemsAndNetworks>

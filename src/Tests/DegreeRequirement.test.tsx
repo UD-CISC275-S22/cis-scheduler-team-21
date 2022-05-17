@@ -34,8 +34,10 @@ describe("AI Component tests", () => {
     });
 
     test("If concentration is systems and networks, it renders the systems and networks degree requirements", () => {
-        expect(
-            screen.getByTestId("systems-and-networks-requirements")
-        ).toBeInTheDocument();
+        /**expect(
+            screen.getByDisplayValue("Systems and Networks Requirements")
+        ).toBeInTheDocument();*/
+        const s = screen.getByTestId("systems-and-networks-requirements");
+        expect(s).toHaveStyle("block");
     });
 });
