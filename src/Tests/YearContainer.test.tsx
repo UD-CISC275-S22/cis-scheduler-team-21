@@ -52,14 +52,19 @@ describe("year Container tests", () => {
         expect(yearName.value !== "year 1");
     });
     test("Clicking the delete button deletes a year", () => {
-        const yearContainer: HTMLElement = screen.getByTestId("year-container");
-        //const yearTitle: HTMLElement = screen.getByText("year 1");
-        //expect(yearTitle).toBeInTheDocument();
+        {
+            Object.defineProperty(window, "localStorage", {
+                value: {
+                    getItem: jest.fn(() => null),
+                    setItem: jest.fn(() => null)
+                },
+                writable: true
+            });
+        }
         const deleteButton = screen.getByRole("button", {
             name: /Delete/i
         });
         deleteButton.click();
-
-        expect(yearContainer).not.toBeInTheDocument();
+        expect(window.localStorage.setItem).toHaveBeenCalledTimes(1);
     });
 });

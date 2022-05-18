@@ -26,7 +26,7 @@ describe("Year Component tests", () => {
             value: original
         });
     });
-    test("There is a Rename/Delete Years Button", () => {
+    test("There is a Edit Years Button", () => {
         const editYearsButton = screen.getByRole("button", {
             name: /Edit Years/i
         });
@@ -96,12 +96,12 @@ describe("Year Component tests", () => {
 
         expect(screen.getByTestId("requirement-popup")).toBeInTheDocument();
     });
-    test("Clicking the Rename/Delete Year button reveals the edit mode for the years", () => {
-        const renameDeleteButton = screen.getByTestId("rename-delete-button");
+    test("Clicking the Edit Years button reveals the edit mode for the years", () => {
+        const editYearsButton = screen.getByTestId("edit-years-button");
 
-        renameDeleteButton.click();
+        editYearsButton.click();
         //expect(screen.getByTestId("year-name-edit")).toBeInTheDocument();
-        expect(screen.getByTestId("rename-delete-button")).toBeInTheDocument();
+        expect(screen.getByTestId("year-name-edit")).toBeInTheDocument();
     });
     test("Testing for localStorage items being rendered into previousData", () => {
         {
@@ -114,18 +114,5 @@ describe("Year Component tests", () => {
             });
         }
         expect(window.localStorage.getItem).toHaveBeenCalledTimes(2);
-    });
-    test("Clicking the delete button deletes a year", () => {
-        const yearContainer = screen.getByTestId("year-container-1");
-        const editYearsButton = screen.getByRole("button", {
-            name: /Edit Years/i
-        });
-        editYearsButton.click();
-
-        expect(yearContainer).toBeInTheDocument();
-        const deleteButton = screen.getByTestId("delete-year-1");
-        deleteButton.click();
-
-        expect(yearContainer).not.toBeInTheDocument();
     });
 });

@@ -98,7 +98,7 @@ export function Years(): JSX.Element {
                 >
                     <Button
                         onClick={() => setEditVis(!editVis)}
-                        data-testid="rename-delete-button"
+                        data-testid="edit-years-button"
                         style={{
                             marginLeft: "4ch",
                             marginRight: ".75ch",

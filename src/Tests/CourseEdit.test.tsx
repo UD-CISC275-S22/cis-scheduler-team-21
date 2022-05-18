@@ -50,16 +50,7 @@ describe("CourseEdit Component tests", () => {
         expect(screen.getByTestId("course-edit-popup")).not.toBeInTheDocument();
     });
     test("There is a form named Code that changes the course code when edited by the user", () => {
-        /**const codeForm = screen.getByTestId("code-form");
-        const code = screen.getByDisplayValue(course.code);
-        expect(code).toBeInTheDocument();
-        userEvent.type(codeForm, "{selectall}new value");
-        /**fireEvent.change(code, {
-            target: { value: "{selectall}new value" }
-        });*/
-        //expect(screen.queryByText(course.code)).not.toBeInTheDocument();
         const codeForm = screen.getByTestId("code-form");
-        //const previousCode = screen.getByDisplayValue("CISC 275");
         expect(screen.getByDisplayValue(courseTest.code)).toBeInTheDocument();
         codeForm.click();
         userEvent.clear(codeForm);
