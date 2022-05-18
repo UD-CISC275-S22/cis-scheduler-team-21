@@ -104,17 +104,18 @@ describe("WinterDataToArrayTests", () => {
             screen.queryByText("Introduction to Software Engineering")
         ).toBeInTheDocument();
     });
-    /**test("Clear Winter button removes all of the courses from the table", () => {
+    test("Clear Winter button removes all of the courses from the table", () => {
         const searchBar: HTMLElement = screen.getByTestId("searchIDWinter");
         searchBar.click();
         userEvent.type(searchBar, "CISC 275");
         const DataList: HTMLElement = screen.getByTestId("searchList");
         DataList.click();
-        const AddButton: HTMLElement = screen.getByText("+");
         searchBar.blur();
+        const AddButton: HTMLElement = screen.getByText("+");
         AddButton.click();
         const course275: HTMLElement = screen.getByTestId("CISC 275");
         searchBar.click();
+        userEvent.clear(searchBar);
         userEvent.type(searchBar, "CISC 220");
         DataList.click();
         searchBar.blur();
@@ -125,7 +126,7 @@ describe("WinterDataToArrayTests", () => {
 
         expect(course275).not.toBeInTheDocument();
         expect(course220).not.toBeInTheDocument();
-    });*/
+    });
     test("Courses cannot be duplicated in table", () => {
         const searchBar: HTMLElement = screen.getByTestId("searchIDWinter");
         searchBar.click();

@@ -119,7 +119,9 @@ export function Theory({ planCourses }: planCoursesProp): JSX.Element {
 
     return (
         <div>
-            <b style={{ marginLeft: "42ch" }}>Choose only one track</b>
+            <b style={{ marginLeft: "42ch" }} data-testid="theory-requirements">
+                Choose only one track
+            </b>
             <Row>
                 <Col sm={"auto"}>
                     <b>Core Requirement {"\n"}</b>

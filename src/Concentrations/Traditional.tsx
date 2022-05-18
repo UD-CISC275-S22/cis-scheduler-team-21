@@ -88,7 +88,7 @@ export function Traditional({ planCourses }: planCoursesProp): JSX.Element {
     return (
         <div>
             <Row>
-                <Col sm={"auto"}>
+                <Col sm={"auto"} data-testid="traditional-requirements">
                     <b>Core Requirement {"\n"}</b>
                     <div data-testid="TRAD-core">
                         {coreClasses.map((course: string): JSX.Element => {
