@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { MakePlan } from "../Components/MakePlan";
 import { MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
@@ -46,14 +46,6 @@ describe("MakePlan Component tests", () => {
         newPlanButton.click();
 
         expect(screen.getByTestId("degree-dropdown")).toBeInTheDocument();
-    });
-    test("Clicking the New Plan button popup that contains a Form.Group that allows the user to set the year", () => {
-        const newPlanButton = screen.getByRole("button", {
-            name: /New Plan/i
-        });
-        newPlanButton.click();
-
-        expect(screen.getByTestId("change-year")).toBeInTheDocument();
     });
     test("Clicking the New Plan button popup that contains a Create Plan button", () => {
         const newPlanButton = screen.getByRole("button", {
@@ -106,38 +98,6 @@ describe("MakePlan Component tests", () => {
         const name = screen.getByText("Systems And Networks");
         expect(name).toBeInTheDocument();
     });
-    /**test("If concentration is systems and networks, it renders the systems and networks degree requirements", () => {
-        const newPlanButton = screen.getByRole("button", {
-            name: /New Plan/i
-        });
-        newPlanButton.click();
-
-        const dropdownToggle = screen.getByRole("button", {
-            name: /Select Degree/i
-        });
-        dropdownToggle.click();
-
-        const dropdownItem = screen.getByText("Systems And Networks");
-        dropdownItem.click();
-
-        const name = screen.getByText("Systems And Networks");
-        expect(name).toBeInTheDocument();
-
-        const createButton = screen.getByRole("button", {
-            name: /Create/i
-        });
-        createButton.click();
-
-        render(<Years></Years>);
-        const courseReqButton = screen.getByRole("button", {
-            name: /Course Requirements/i
-        });
-        courseReqButton.click();
-
-        expect(
-            screen.getByTestId("systems-and-networks-requirements")
-        ).toBeInTheDocument();
-    });*/
     test("Clicking Artificial Intelligence within the dropdown sets the degree to it", () => {
         const newPlanButton = screen.getByRole("button", {
             name: /New Plan/i
@@ -256,18 +216,6 @@ describe("MakePlan Component tests", () => {
 
         const name = screen.getByText("Traditional");
         expect(name).toBeInTheDocument();
-    });
-    test("Changing the year sets the year", () => {
-        const newPlanButton = screen.getByRole("button", {
-            name: /New Plan/i
-        });
-        newPlanButton.click();
-
-        const year = screen.getByDisplayValue("2022");
-        fireEvent.change(year, {
-            target: { value: "new value" }
-        });
-        expect(year).not.toBeInTheDocument();
     });
     test("Delete plan works when its created", () => {
         const newPlanButton = screen.getByRole("button", {

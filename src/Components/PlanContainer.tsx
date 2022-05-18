@@ -23,7 +23,7 @@ export function PlanContainer({
 
     function deletePlan(): void {
         const plansCopy: plan[] = plans.filter(
-            (x: plan): boolean => x.id !== plan.id
+            (origianlPlan: plan): boolean => origianlPlan.id !== plan.id
         );
         setPlans(plansCopy);
     }
