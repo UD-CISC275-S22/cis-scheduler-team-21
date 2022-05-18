@@ -2,14 +2,14 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/MakePlan.test.tsx (16.568 s)
-PASS src/Tests/AddSemester.test.tsx (29.876 s)
-PASS src/Tests/TableContentsFall.test.tsx (21.969 s)
+PASS src/Tests/MakePlan.test.tsx (18.776 s)
+PASS src/Tests/AddSemester.test.tsx (31.997 s)
+PASS src/Tests/TableContentsFall.test.tsx (24.508 s)
 PASS src/Tests/DegreeRequirement.test.tsx
 PASS src/Tests/CourseEdit.test.tsx
-PASS src/Tests/TableContentsSpring.test.tsx (11.27 s)
-PASS src/Tests/TableContentsWinter.test.tsx (11.242 s)
-PASS src/Tests/TableContentsSummer.test.tsx (11.214 s)
+PASS src/Tests/TableContentsSpring.test.tsx (12.614 s)
+PASS src/Tests/TableContentsWinter.test.tsx (12.682 s)
+PASS src/Tests/TableContentsSummer.test.tsx (12.192 s)
 PASS src/Tests/Years.test.tsx
 PASS src/Tests/PlanContainer.test.tsx
 PASS src/Tests/YearContainer.test.tsx
@@ -60,5 +60,5 @@ All files                  |   93.63 |    85.92 |   98.51 |   93.63 |
 Test Suites: 14 passed, 14 total
 Tests:       124 passed, 124 total
 Snapshots:   0 total
-Time:        110.741 s
+Time:        122.713 s
 Ran all test suites.
