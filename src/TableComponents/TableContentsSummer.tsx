@@ -60,11 +60,6 @@ export function TableContentsSummer({
                 (course: course): boolean => course.code === input
             )
         ) {
-            /* if (
-                !planCourses.some(
-                    (course: course): boolean => course.code === input
-                )
-            ) { */
             const AddCourse: course[] = courseObjects.filter(
                 (course: course): boolean => course.code === input
             );
@@ -74,7 +69,7 @@ export function TableContentsSummer({
                     (course: course): boolean => course.id === singleCourse.id
                 )
             ) {
-                return; //needs error message>
+                return;
             } else {
                 const addNewCourse: course[] = [
                     ...selectedCourses,
@@ -127,7 +122,7 @@ export function TableContentsSummer({
     }
     function deleteCourse(course: course) {
         const courseCopy: course[] = selectedCourses.filter(
-            (x: course): boolean => x !== course
+            (selectedCourse: course): boolean => selectedCourse !== course
         );
         const planCoursesCopy: course[] = planCourses.filter(
             (course2: course) => course2.code !== course.code
