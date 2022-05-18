@@ -104,29 +104,34 @@ describe("Spring Contents T]tests", () => {
             screen.queryByText("Introduction to Software Engineering")
         ).toBeInTheDocument();
     });
-    /**test("Clear Spring button removes all the courses in the table", () => {
+    test("Clear Spring button removes all the courses in the table", () => {
         const searchBar: HTMLElement = screen.getByTestId("searchIDSpring");
         searchBar.click();
         userEvent.type(searchBar, "CISC 275");
         const DataList: HTMLElement = screen.getByTestId("searchList");
         DataList.click();
-        const AddButton: HTMLElement = screen.getByText("+");
         searchBar.blur();
+        const AddButton: HTMLElement = screen.getByText("+");
         AddButton.click();
+        expect(
+            screen.getByText("Introduction to Software Engineering")
+        ).toBeInTheDocument();
         const course275: HTMLElement = screen.getByTestId("CISC 275");
         expect(course275).toBeInTheDocument();
         searchBar.click();
+        userEvent.clear(searchBar);
         userEvent.type(searchBar, "CISC 220");
         DataList.click();
         searchBar.blur();
         AddButton.click();
+        expect(screen.getByText("Data Structures")).toBeInTheDocument();
         const course220: HTMLElement = screen.getByTestId("CISC 220");
         const clearButton = screen.getByText("Clear Spring");
         clearButton.click();
 
         expect(course275).not.toBeInTheDocument();
         expect(course220).not.toBeInTheDocument();
-    });*/
+    });
     test("Courses cannot be duplicated in table", () => {
         const searchBar: HTMLElement = screen.getByTestId("searchIDSpring");
         searchBar.click();

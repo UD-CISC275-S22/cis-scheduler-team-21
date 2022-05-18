@@ -114,7 +114,9 @@ export function HPC({ planCourses }: planCoursesProp): JSX.Element {
 
     return (
         <div>
-            <b style={{ marginLeft: "44ch" }}>Choose One Track</b>
+            <b style={{ marginLeft: "44ch" }} data-testid="hpc-requirements">
+                Choose One Track
+            </b>
             <Row>
                 <Col sm={"auto"}>
                     <b>Core Requirement {"\n"}</b>

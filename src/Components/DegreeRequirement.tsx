@@ -41,7 +41,6 @@ export function DegreeRequirement({
                     }}
                 >
                     <SystemsAndNetworks
-                        data-testid="systems-and-networks-requirements"
                         planCourses={planCourses}
                     ></SystemsAndNetworks>
                 </div>

@@ -121,6 +121,7 @@ describe("Fall Contents tests", () => {
         DataList.click();
         searchBar.blur();
         AddButton.click();
+        expect(screen.getByText("Data Structures")).toBeInTheDocument();
         const course220: HTMLElement = screen.getByTestId("CISC 220");
         const clearButton = screen.getByTestId("clearFall");
         clearButton.click();

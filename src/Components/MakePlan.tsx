@@ -9,7 +9,7 @@ export function MakePlan(): JSX.Element {
     const planDataKey = "PlanList-Data";
     let loadedData: plan[] = [];
     const previousData: string | null = localStorage.getItem(planDataKey);
-    if (previousData !== null) {
+    if (previousData !== null && previousData !== undefined) {
         loadedData = Object.values(JSON.parse(previousData));
     }
     let mostRecentID = 1;

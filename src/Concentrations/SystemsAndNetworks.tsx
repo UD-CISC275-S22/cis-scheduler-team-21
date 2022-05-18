@@ -148,7 +148,10 @@ export function SystemsAndNetworks({
     return (
         <div>
             <Row>
-                <Col sm={"auto"}>
+                <Col
+                    sm={"auto"}
+                    data-testid="systems-and-networks-requirements"
+                >
                     <b>Core Requirement {"\n"}</b>
                     <div data-testid="SAN-core">
                         {coreClasses.map((course: string): JSX.Element => {

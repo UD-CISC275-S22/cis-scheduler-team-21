@@ -119,7 +119,7 @@ export function DataScience({ planCourses }: planCoursesProp): JSX.Element {
     return (
         <div>
             <Row>
-                <Col sm={"auto"}>
+                <Col sm={"auto"} data-testid="data-science-requirements">
                     <b>Core Requirement {"\n"}</b>
                     {coreClasses.map((course: string): JSX.Element => {
                         if (

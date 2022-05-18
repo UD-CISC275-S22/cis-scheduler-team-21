@@ -117,7 +117,7 @@ export function Bioinformatics({ planCourses }: planCoursesProp): JSX.Element {
     return (
         <div>
             <Row>
-                <Col sm={"auto"}>
+                <Col sm={"auto"} data-testid="bioinformatics-requirements">
                     <b>Core Requirement {"\n"}</b>
                     {coreClasses.map((course: string): JSX.Element => {
                         if (

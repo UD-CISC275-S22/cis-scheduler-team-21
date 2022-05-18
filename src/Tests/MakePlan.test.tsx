@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { MakePlan } from "../Components/MakePlan";
 import { MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
+import { Years } from "../Components/Years";
 
 describe("MakePlan Component tests", () => {
     beforeEach(() =>
@@ -252,5 +253,287 @@ describe("MakePlan Component tests", () => {
         });
         savePlansButton.click();
         expect(window.localStorage.setItem).toHaveBeenCalledTimes(1);
+    });
+    test("Clicking Systems and Networks within the dropdown renders the systems and networks requirements when you click the course Requirements button on the Years page", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+        expect(screen.getByText("close")).toBeInTheDocument();
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const concentration = screen.getByText("Systems And Networks");
+        expect(concentration).toBeInTheDocument();
+        concentration.click();
+
+        expect(screen.getByText("Systems And Networks")).toBeInTheDocument();
+        const createButton = screen.getByRole("button", {
+            name: /Create plan/i
+        });
+        expect(createButton).toBeInTheDocument();
+        createButton.click();
+
+        render(
+            <MemoryRouter>
+                <Years></Years>
+            </MemoryRouter>
+        );
+        const courseReqButton = screen.getByRole("button", {
+            name: /course Requirements/i
+        });
+        expect(courseReqButton).toBeInTheDocument();
+        courseReqButton.click();
+        expect(
+            screen.getByTestId("systems-and-networks-requirements")
+        ).toBeInTheDocument();
+    });
+    test("Clicking Artificial Intelligence within the dropdown renders the AI requirements when you click the course Requirements button on the Years page", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+        expect(screen.getByText("close")).toBeInTheDocument();
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const concentration = screen.getByText("Artificial Intelligence");
+        expect(concentration).toBeInTheDocument();
+        concentration.click();
+
+        expect(screen.getByText("AI")).toBeInTheDocument();
+        const createButton = screen.getByRole("button", {
+            name: /Create plan/i
+        });
+        expect(createButton).toBeInTheDocument();
+        createButton.click();
+
+        render(
+            <MemoryRouter>
+                <Years></Years>
+            </MemoryRouter>
+        );
+        const courseReqButton = screen.getByRole("button", {
+            name: /course Requirements/i
+        });
+        expect(courseReqButton).toBeInTheDocument();
+        courseReqButton.click();
+        expect(screen.getByTestId("core-requirements-AI")).toBeInTheDocument();
+    });
+    test("Clicking Cybersecurity within the dropdown renders the cybersecurity requirements when you click the course Requirements button on the Years page", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+        expect(screen.getByText("close")).toBeInTheDocument();
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const concentration = screen.getByText("Cybersecurity");
+        expect(concentration).toBeInTheDocument();
+        concentration.click();
+
+        expect(screen.getByText("Cybersecurity")).toBeInTheDocument();
+        const createButton = screen.getByRole("button", {
+            name: /Create plan/i
+        });
+        expect(createButton).toBeInTheDocument();
+        createButton.click();
+
+        render(
+            <MemoryRouter>
+                <Years></Years>
+            </MemoryRouter>
+        );
+        const courseReqButton = screen.getByRole("button", {
+            name: /course Requirements/i
+        });
+        expect(courseReqButton).toBeInTheDocument();
+        courseReqButton.click();
+        expect(
+            screen.getByTestId("cybersecurity-requirements")
+        ).toBeInTheDocument();
+    });
+    test("Clicking Bioinformatics within the dropdown renders the bioinformatics requirements when you click the course Requirements button on the Years page", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+        expect(screen.getByText("close")).toBeInTheDocument();
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const concentration = screen.getByText("Bioinformatics");
+        expect(concentration).toBeInTheDocument();
+        concentration.click();
+
+        expect(screen.getByText("Bioinformatics")).toBeInTheDocument();
+        const createButton = screen.getByRole("button", {
+            name: /Create plan/i
+        });
+        expect(createButton).toBeInTheDocument();
+        createButton.click();
+
+        render(
+            <MemoryRouter>
+                <Years></Years>
+            </MemoryRouter>
+        );
+        const courseReqButton = screen.getByRole("button", {
+            name: /course Requirements/i
+        });
+        expect(courseReqButton).toBeInTheDocument();
+        courseReqButton.click();
+        expect(
+            screen.getByTestId("bioinformatics-requirements")
+        ).toBeInTheDocument();
+    });
+    test("Clicking Data Science within the dropdown renders the data science requirements when you click the course Requirements button on the Years page", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+        expect(screen.getByText("close")).toBeInTheDocument();
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const concentration = screen.getByText("DataScience");
+        expect(concentration).toBeInTheDocument();
+        concentration.click();
+
+        expect(screen.getByText("DataScience")).toBeInTheDocument();
+        const createButton = screen.getByRole("button", {
+            name: /Create plan/i
+        });
+        expect(createButton).toBeInTheDocument();
+        createButton.click();
+
+        render(
+            <MemoryRouter>
+                <Years></Years>
+            </MemoryRouter>
+        );
+        const courseReqButton = screen.getByRole("button", {
+            name: /course Requirements/i
+        });
+        expect(courseReqButton).toBeInTheDocument();
+        courseReqButton.click();
+        expect(
+            screen.getByTestId("data-science-requirements")
+        ).toBeInTheDocument();
+    });
+    test("Clicking High Performance Computing within the dropdown renders the HPC requirements when you click the course Requirements button on the Years page", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+        expect(screen.getByText("close")).toBeInTheDocument();
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const concentration = screen.getByText("High Performance Computing");
+        expect(concentration).toBeInTheDocument();
+        concentration.click();
+
+        expect(screen.getByText("HPC")).toBeInTheDocument();
+        const createButton = screen.getByRole("button", {
+            name: /Create plan/i
+        });
+        expect(createButton).toBeInTheDocument();
+        createButton.click();
+
+        render(
+            <MemoryRouter>
+                <Years></Years>
+            </MemoryRouter>
+        );
+        const courseReqButton = screen.getByRole("button", {
+            name: /course Requirements/i
+        });
+        expect(courseReqButton).toBeInTheDocument();
+        courseReqButton.click();
+        expect(screen.getByTestId("hpc-requirements")).toBeInTheDocument();
+    });
+    test("Clicking Theory and Computation within the dropdown renders the theory and computation requirements when you click the course Requirements button on the Years page", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+        expect(screen.getByText("close")).toBeInTheDocument();
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const concentration = screen.getByText("Theory And Computation");
+        expect(concentration).toBeInTheDocument();
+        concentration.click();
+
+        expect(screen.getByText("Theory")).toBeInTheDocument();
+        const createButton = screen.getByRole("button", {
+            name: /Create plan/i
+        });
+        expect(createButton).toBeInTheDocument();
+        createButton.click();
+
+        render(
+            <MemoryRouter>
+                <Years></Years>
+            </MemoryRouter>
+        );
+        const courseReqButton = screen.getByRole("button", {
+            name: /course Requirements/i
+        });
+        expect(courseReqButton).toBeInTheDocument();
+        courseReqButton.click();
+        expect(screen.getByTestId("theory-requirements")).toBeInTheDocument();
+    });
+    test("Clicking Traditional/Custom within the dropdown renders the traditional requirements when you click the course Requirements button on the Years page", () => {
+        const newPlanButton = screen.getByRole("button", {
+            name: /New Plan/i
+        });
+        newPlanButton.click();
+        expect(screen.getByText("close")).toBeInTheDocument();
+        const dropdownToggle = screen.getByRole("button", {
+            name: /Select Degree/i
+        });
+        dropdownToggle.click();
+
+        const concentration = screen.getByText("Traditional/Custom");
+        expect(concentration).toBeInTheDocument();
+        concentration.click();
+
+        expect(screen.getByText("Traditional")).toBeInTheDocument();
+        const createButton = screen.getByRole("button", {
+            name: /Create plan/i
+        });
+        expect(createButton).toBeInTheDocument();
+        createButton.click();
+
+        render(
+            <MemoryRouter>
+                <Years></Years>
+            </MemoryRouter>
+        );
+        const courseReqButton = screen.getByRole("button", {
+            name: /course Requirements/i
+        });
+        expect(courseReqButton).toBeInTheDocument();
+        courseReqButton.click();
+        expect(
+            screen.getByTestId("traditional-requirements")
+        ).toBeInTheDocument();
     });
 });
