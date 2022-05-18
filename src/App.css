@@ -24,7 +24,7 @@
     font-size: calc(30px + 2vmin);
     color: white;
 }
-.App-header-Year {
+.App-header-year {
     width: 100%;
     background-color: #b9524a;
     min-height: 10vh;
@@ -217,7 +217,7 @@ tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-.Plan {
+.plan {
     background-color: #c5c5c5;
     border-radius: 1ch;
     color: rgb(0, 0, 0);

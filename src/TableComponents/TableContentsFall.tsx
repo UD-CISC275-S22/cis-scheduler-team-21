@@ -252,6 +252,7 @@ export function TableContentsFall({
                                             >
                                                 {course.code}
                                             </ins>
+                                            <b>{"<-- edit"}</b>
                                         </td>
                                     )}
                                     {!visible && <td>{course.code}</td>}
