@@ -13,7 +13,7 @@ export function YearContainer({
     planID
 }: setYearProp): JSX.Element {
     const [yearClone, setYear] = useState<year>(year);
-    const [Visible, setVisible] = useState<boolean>(false);
+    const [visible, setVisible] = useState<boolean>(false);
     function deleteYear(): void {
         const newYearList: year[] = yearList.filter(
             (year1: year): boolean => year1.id !== year.id
@@ -70,7 +70,7 @@ export function YearContainer({
                         marginBottom: "4ch",
                         fontSize: "80%"
                     }}
-                    onClick={() => setVisible(!Visible)}
+                    onClick={() => setVisible(!visible)}
                 >
                     Show/Hide
                 </Button>
@@ -89,7 +89,7 @@ export function YearContainer({
                     </Button>
                 )}
             </span>
-            <div style={{ display: Visible ? "block" : "none" }}>
+            <div style={{ display: visible ? "block" : "none" }}>
                 <AddSemester
                     planCourses={planCourses}
                     setPlanCourses={setPlanCourses}

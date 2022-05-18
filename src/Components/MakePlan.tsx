@@ -18,9 +18,9 @@ export function MakePlan(): JSX.Element {
     }
     const [plans, setPlans] = useState<plan[]>(loadedData);
     const [Counter, setCounter] = useState<number>(mostRecentID);
-    const [Visible, setVisible] = useState<boolean>(false);
-    const [Degree, setDegree] = useState<string>("Select Degree");
-    const [Year, setYear] = useState<string>("2022");
+    const [visible, setVisible] = useState<boolean>(false);
+    const [degree, setDegree] = useState<string>("Select degree");
+    const [year, setYear] = useState<string>("2022");
 
     function newPlan(): void {
         setVisible(false);
@@ -28,7 +28,7 @@ export function MakePlan(): JSX.Element {
             title: "plan " + Counter,
             id: Counter,
             description: "",
-            degree: Degree
+            degree: degree
         };
         const planList: plan[] = [...plans, newPlan];
         const counterCopy: number = Counter + 1;
@@ -62,7 +62,7 @@ export function MakePlan(): JSX.Element {
                         >
                             <Form.Control
                                 data-testid="input-year"
-                                value={Year}
+                                value={year}
                                 type="number"
                                 onChange={(
                                     event: React.ChangeEvent<HTMLInputElement>
@@ -80,7 +80,7 @@ export function MakePlan(): JSX.Element {
                                 id="degree"
                                 variant="secondary"
                             >
-                                {Degree}
+                                {degree}
                             </Dropdown.Toggle>
                             <DropdownMenu
                                 data-testid="degree-dropdown-menu"
@@ -131,7 +131,7 @@ export function MakePlan(): JSX.Element {
                     <button
                         className="create-btn"
                         onClick={newPlan}
-                        disabled={Degree === "Select Degree"}
+                        disabled={degree === "Select degree"}
                     >
                         Create plan
                     </button>
@@ -167,7 +167,7 @@ export function MakePlan(): JSX.Element {
                     <Button onClick={() => setVisible(true)}>New plan</Button>
                 </div>
                 <div className="main">
-                    {Visible && <Popup data-testid="popup-window"></Popup>}
+                    {visible && <Popup data-testid="popup-window"></Popup>}
                 </div>
             </div>
         </div>
