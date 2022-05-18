@@ -1,6 +1,5 @@
 import React from "react";
 import "../App.css";
-import { CommonPlan } from "./CommonPlan";
 import { MakePlan } from "./MakePlan";
 
 export function Homepage(): JSX.Element {
@@ -18,7 +17,6 @@ export function Homepage(): JSX.Element {
                 start by creating a plan, then add the semesters and courses
                 from there.
             </div>
-            <CommonPlan></CommonPlan>
             <hr></hr>
             <MakePlan></MakePlan>
         </div>
