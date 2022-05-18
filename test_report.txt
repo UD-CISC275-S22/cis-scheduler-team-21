@@ -2,336 +2,63 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/AddSemester.test.tsx (31.627 s)
-PASS src/Tests/TableContentsFall.test.tsx (17.837 s)
+PASS src/Tests/MakePlan.test.tsx (14.931 s)
+PASS src/Tests/AddSemester.test.tsx (24.998 s)
+PASS src/Tests/TableContentsFall.test.tsx (19.007 s)
 PASS src/Tests/DegreeRequirement.test.tsx
-PASS src/Tests/MakePlan.test.tsx
-FAIL src/Tests/CourseEdit.test.tsx
-  ● CourseEdit Component tests › There is a button named Done that removes the popup when clicked
-
-    expect(element).not.toBeInTheDocument()
-
-    expected document not to contain element, found <div class="popup" data-testid="course-edit-popup" style="z-index: 3;"><div class="popup-inner" style="height: 600px; max-width: 700px;"><div style="margin-left: 58ch; top: 5ch; position: absolute;"><button class="btn btn-primary" type="button">Done</button></div><div><div class="row"><div class="col-sm-2"><label class="form-label">Code</label></div><div class="col"><input class="form-control" data-testid="code-form" id="name" name="Code" type="text" value="CISC 275" /></div></div><div class="row"><div class="col-sm-2"><label class="form-label">Name</label></div><div class="col"><input class="form-control" data-testid="name-form" name="Name" type="text" value="Introduction to Software Engineering" /></div></div><div class="row"><div class="col-sm-2"><label class="form-label">Credits</label></div><div class="col"><input class="form-control" data-testid="credits-form" name="Credits" type="text" value="3" /></div></div><div class="row"><div class="col-sm-2"><label class="form-label">PreReq</label></div><div class="col"><input class="form-control" data-testid="preReq-form" name="PreReq" type="text" value="Minimum grade of C- in CISC 181 and CISC 220." /></div></div><div class="row"><div class="col-sm-2"><label class="form-label">Restriction</label></div><div class="col"><input class="form-control" data-testid="restriction-form" name="Restriction" type="text" value="" /></div></div><div class="row"><label class="form-label">Breadths:</label><div class="form-check" style="margin-left: 11.5ch;"><input class="form-check-input" data-testid="art-breadths-form" type="checkbox" value="Arts and Sciences" /><label class="form-check-label" title="">Arts and Sciences</label></div></div><div class="row"><div class="form-check" style="margin-left: 11.5ch;"><input class="form-check-input" data-testid="history-breadths-form" type="checkbox" value="History Cultural Change" /><label class="form-check-label" title="">History Cultural Change</label></div></div><div class="row"><div class="form-check" style="margin-left: 11.5ch;"><input class="form-check-input" data-testid="science-breadths-form" type="checkbox" value="Social and Behavioral Sciences" /><label class="form-check-label" title="">Social and Behavioral Sciences</label></div></div><div class="row"><div class="form-check" style="margin-left: 11.5ch;"><input class="form-check-input" data-testid="math-breadths-form" type="checkbox" value="Mathematics, Natural Sciences and Technology" /><label class="form-check-label" title="">Mathematics, Natural Sciences and Technology</label></div></div><div class="row"><div class="col-sm-2"><label class="form-label">Descr</label></div><div class="col"><textarea class="form-control" data-testid="description-form" name="Descr" rows="5">Object oriented software design and development through use of an object oriented programming language. Topics include team programming, design patterns, graphical user interfaces, software engineering tools (e.g., integrated development environments, version control, build management, bug tracking, automated testing).</textarea></div></div></div></div></div> instead
-
-      48 |         expect(doneButton).toBeInTheDocument();
-      49 |         doneButton.click();
-    > 50 |         expect(screen.getByTestId("course-edit-popup")).not.toBeInTheDocument();
-         |                                                             ^
-      51 |     });
-      52 |     test("There is a form named Code that changes the course code when edited by the user", () => {
-      53 |         /**const codeForm = screen.getByTestId("code-form");
-
-      at Object.<anonymous> (src/Tests/CourseEdit.test.tsx:50:61)
-
-PASS src/Tests/TableContentsSpring.test.tsx (6.577 s)
-PASS src/Tests/TableContentsWinter.test.tsx (7.463 s)
-PASS src/Tests/TableContentsSummer.test.tsx (7.69 s)
-FAIL src/Tests/Years.test.tsx
-  ● Year Component tests › Testing for localStorage items being rendered into previousData
-
-    expect(jest.fn()).toHaveBeenCalledTimes(expected)
-
-    Expected number of calls: 2
-    Received number of calls: 0
-
-      114 |             });
-      115 |         }
-    > 116 |         expect(window.localStorage.getItem).toHaveBeenCalledTimes(2);
-          |                                             ^
-      117 |     });
-      118 |     test("Clicking the delete button deletes a year", () => {
-      119 |         const yearContainer = screen.getByTestId("year-container-1");
-
-      at Object.<anonymous> (src/Tests/Years.test.tsx:116:45)
-
-  ● Year Component tests › Clicking the delete button deletes a year
-
-    TestingLibraryElementError: Unable to find an element by: [data-testid="year-container-1"]
-
-    Ignored nodes: comments, <script />, <style />
-    [36m<body>[39m
-      [36m<div>[39m
-        [36m<div[39m
-          [33mstyle[39m=[32m"padding-bottom: 8ch;"[39m
-        [36m>[39m
-          [36m<header[39m
-            [33mclass[39m=[32m"App-header-year"[39m
-          [36m>[39m
-            [36m<div[39m
-              [33mstyle[39m=[32m"width: 100%; text-align: center;"[39m
-            [36m>[39m
-              [0myear View[0m
-            [36m</div>[39m
-            [36m<div[39m
-              [33mstyle[39m=[32m"text-align: center;"[39m
-            [36m>[39m
-              [36m<button[39m
-                [33mclass[39m=[32m"btn btn-primary"[39m
-                [33mdata-testid[39m=[32m"rename-delete-button"[39m
-                [33mstyle[39m=[32m"margin-left: 4ch; margin-right: .75ch; background-color: rgba(19, 221, 204, 0.88); color: black;"[39m
-                [33mtype[39m=[32m"button"[39m
-              [36m>[39m
-                [0mEdit Years[0m
-              [36m</button>[39m
-              [36m<button[39m
-                [33mclass[39m=[32m"btn btn-primary"[39m
-                [33mstyle[39m=[32m"background-color: rgba(19, 221, 204, 0.88); color: black;"[39m
-                [33mtype[39m=[32m"button"[39m
-              [36m>[39m
-                [0mcourse Requirements[0m
-              [36m</button>[39m
-            [36m</div>[39m
-            [36m<div>[39m
-              [36m<a[39m
-                [33mhref[39m=[32m"/"[39m
-              [36m>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"btn btn-primary"[39m
-                  [33mstyle[39m=[32m"position: absolute; top: 6ch; left: 2ch; background-color: rgba(19, 221, 204, 0.88); color: black;"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0m&lt;-[0m
-                  [0mBack[0m
-                [36m</button>[39m
-              [36m</a>[39m
-              [36m<button[39m
-                [33mclass[39m=[32m"btn btn-primary"[39m
-                [33mstyle[39m=[32m"position: absolute; top: 6ch; left: 14ch; background-color: green; color: white;"[39m
-                [33mtype[39m=[32m"button"[39m
-              [36m>[39m
-                [0msave[0m
-              [36m</button>[39m
-            [36m</div>[39m
-          [36m</header>[39m
-          [36m<div />[39m
-          [36m<div[39m
-            [33mstyle[39m=[32m"text-align: center; z-index: 0; position: absolute;"[39m
-          [36m>[39m
-            [36m<button[39m
-              [33mclass[39m=[32m"orangeButton btn btn-primary"[39m
-              [33mtype[39m=[32m"button"[39m
-            [36m>[39m
-              [0mAdd year[0m
-            [36m</button>[39m
-          [36m</div>[39m
-        [36m</div>[39m
-      [36m</div>[39m
-    [36m</body>[39m
-
-      117 |     });
-      118 |     test("Clicking the delete button deletes a year", () => {
-    > 119 |         const yearContainer = screen.getByTestId("year-container-1");
-          |                                      ^
-      120 |         const editYearsButton = screen.getByRole("button", {
-      121 |             name: /Edit Years/i
-      122 |         });
-
-      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
-      at allQuery (node_modules/@testing-library/dom/dist/query-helpers.js:90:38)
-      at query (node_modules/@testing-library/dom/dist/query-helpers.js:62:17)
-      at getByTestId (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
-      at Object.<anonymous> (src/Tests/Years.test.tsx:119:38)
-
+PASS src/Tests/CourseEdit.test.tsx
+PASS src/Tests/TableContentsSpring.test.tsx (9.512 s)
+PASS src/Tests/TableContentsWinter.test.tsx (9.568 s)
+PASS src/Tests/TableContentsSummer.test.tsx (9.796 s)
+PASS src/Tests/Years.test.tsx
 PASS src/Tests/PlanContainer.test.tsx
-FAIL src/Tests/YearContainer.test.tsx
-  ● year Container tests › Clicking the delete button deletes a year
-
-    TestingLibraryElementError: Unable to find an element by: [data-testid="year-container"]
-
-    Ignored nodes: comments, <script />, <style />
-    [36m<body>[39m
-      [36m<div>[39m
-        [36m<div[39m
-          [33mdata-testid[39m=[32m"year-container-1"[39m
-          [33mstyle[39m=[32m"z-index: 0; display: relative;"[39m
-        [36m>[39m
-          [36m<br />[39m
-          [36m<span>[39m
-            [36m<div>[39m
-              [36m<input[39m
-                [33mclass[39m=[32m"form-control"[39m
-                [33mdata-testid[39m=[32m"year-name-edit"[39m
-                [33mname[39m=[32m"yearTxt"[39m
-                [33mplaceholder[39m=[32m"Enter new Year name..."[39m
-                [33mstyle[39m=[32m"width: 20%; margin-left: 3.5ch;"[39m
-                [33mvalue[39m=[32m"year 1"[39m
-              [36m/>[39m
-            [36m</div>[39m
-            [36m<span[39m
-              [33mclass[39m=[32m"yearDisplay"[39m
-            [36m>[39m
-              [0myear 1[0m
-            [36m</span>[39m
-            [36m<button[39m
-              [33mclass[39m=[32m"orangeButton btn btn-primary"[39m
-              [33mdata-testid[39m=[32m"show-hide-button"[39m
-              [33mstyle[39m=[32m"margin-bottom: 4ch; font-size: 80%;"[39m
-              [33mtype[39m=[32m"button"[39m
-            [36m>[39m
-              [0mShow/Hide[0m
-            [36m</button>[39m
-            [36m<button[39m
-              [33mclass[39m=[32m"btn btn-primary"[39m
-              [33mdata-testid[39m=[32m"delete-year-1"[39m
-              [33mstyle[39m=[32m"background-color: darkRed; margin-left: 2ch; font-size: 1ch; margin-bottom: 5ch;"[39m
-              [33mtype[39m=[32m"button"[39m
-            [36m>[39m
-              [0mDelete[0m
-            [36m</button>[39m
-          [36m</span>[39m
-          [36m<div[39m
-            [33mstyle[39m=[32m"display: none;"[39m
-          [36m>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"showPlan-background"[39m
-            [36m>[39m
-              [36m<div[39m
-                [33mdata-testid[39m=[32m"add-semester-buttons"[39m
-                [33mstyle[39m=[32m"text-align: center;"[39m
-              [36m>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"customButton btn btn-primary"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0mAdd Fall Semester[0m
-                [36m</button>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"customButton btn btn-primary"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0mAdd Winter Session[0m
-                [36m</button>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"customButton btn btn-primary"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0mAdd Spring Semester[0m
-                [36m</button>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"customButton btn btn-primary"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0mAdd Summer Session[0m
-                [36m</button>[39m
-              [36m</div>[39m
-              [36m<div[39m
-                [33mstyle[39m=[32m"float: right; margin-right: 3ch; margin-top: 2ch;"[39m
-              [36m>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"btn btn-primary"[39m
-                  [33mstyle[39m=[32m"margin-left: .5ch;"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0mEdit Mode[0m
-                [36m</button>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"btn btn-primary"[39m
-                  [33mstyle[39m=[32m"margin-left: .5ch;"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0mToggle Search[0m
-                [36m</button>[39m
-              [36m</div>[39m
-              [36m<div>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"row"[39m
-                  [33mstyle[39m=[32m"width: 100%;"[39m
-                [36m>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"col"[39m
-                    [33mstyle[39m=[32m"margin-left: 1ch;"[39m
-                  [36m>[39m
-                    [36m<br />[39m
-                  [36m</div>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"col"[39m
-                  [36m>[39m
-                    [36m<br />[39m
-                  [36m</div>[39m
-                [36m</div>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"row"[39m
-                  [33mstyle[39m=[32m"width: 100%;"[39m
-                [36m>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"col"[39m
-                    [33mstyle[39m=[32m"margin-left: 1ch;"[39m
-                  [36m>[39m
-                    [36m<br />[39m
-                  [36m</div>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"col"[39m
-                  [36m>[39m
-                    [36m<br />[39m
-                  [36m</div>[39m
-                [36m</div>[39m
-              [36m</div>[39m
-            [36m</div>[39m
-          [36m</div>[39m
-        [36m</div>[39m
-      [36m</div>[39m
-    [36m</body>[39m
-
-      53 |     });
-      54 |     test("Clicking the delete button deletes a year", () => {
-    > 55 |         const yearContainer: HTMLElement = screen.getByTestId("year-container");
-         |                                                   ^
-      56 |         //const yearTitle: HTMLElement = screen.getByText("year 1");
-      57 |         //expect(yearTitle).toBeInTheDocument();
-      58 |         const deleteButton = screen.getByRole("button", {
-
-      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
-      at allQuery (node_modules/@testing-library/dom/dist/query-helpers.js:90:38)
-      at query (node_modules/@testing-library/dom/dist/query-helpers.js:62:17)
-      at getByTestId (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
-      at Object.<anonymous> (src/Tests/YearContainer.test.tsx:55:51)
-
+PASS src/Tests/YearContainer.test.tsx
 PASS src/Tests/ShowFallTable.test.tsx
 PASS src/Tests/Homepage.test.tsx
 PASS src/Tests/App.test.tsx
----------------------------|---------|----------|---------|---------|---------------------------------
-File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s               
----------------------------|---------|----------|---------|---------|---------------------------------
-All files                  |    90.9 |    85.31 |   95.54 |    90.9 |                                 
- src                       |     100 |      100 |     100 |     100 |                                 
-  App.tsx                  |     100 |      100 |     100 |     100 |                                 
- src/Components            |   88.37 |    68.42 |   96.87 |   88.37 |                                 
-  AddSemester.tsx          |     100 |      100 |     100 |     100 |                                 
-  CourseEdit.tsx           |   88.13 |       50 |     100 |   88.13 | 92,117,141,170,214,221-222      
-  DegreeRequirement.tsx    |     100 |       50 |     100 |     100 | 38-98                           
-  Homepage.tsx             |     100 |      100 |     100 |     100 |                                 
-  MakePlan.tsx             |     100 |      100 |     100 |     100 |                                 
-  PlanContainer.tsx        |   91.66 |    66.66 |     100 |   91.66 | 47,65                           
-  YearContainer.tsx        |   68.75 |     87.5 |   66.66 |   68.75 | 18-22,36                        
-  Years.tsx                |   73.17 |       30 |     100 |   73.17 | 42-55                           
- src/Concentrations        |   95.23 |    90.85 |     100 |   95.23 |                                 
-  AI.tsx                   |   95.31 |     90.9 |     100 |   95.31 | 28,33,48                        
-  Bioinformatics.tsx       |   95.45 |     91.3 |     100 |   95.45 | 28,33,48                        
-  Cybersecurity.tsx        |   95.31 |     90.9 |     100 |   95.31 | 28,33,48                        
-  DataScience.tsx          |   95.65 |     91.3 |     100 |   95.65 | 28,33,48                        
-  HPC.tsx                  |   95.31 |     90.9 |     100 |   95.31 | 27,32,47                        
-  SystemsAndNetworks.tsx   |   95.65 |     91.3 |     100 |   95.65 | 30,35,50                        
-  Theory.tsx               |   95.31 |     90.9 |     100 |   95.31 | 28,33,48                        
-  Traditional.tsx          |   93.18 |    88.88 |     100 |   93.18 | 33,38,53                        
- src/Interfaces            |       0 |        0 |       0 |       0 |                                 
-  Courses.ts               |       0 |        0 |       0 |       0 |                                 
-  coursePopupInterface.tsx |       0 |        0 |       0 |       0 |                                 
-  degreeInterface.tsx      |       0 |        0 |       0 |       0 |                                 
-  semesterInterfaces.tsx   |       0 |        0 |       0 |       0 |                                 
-  yearInterface.tsx        |       0 |        0 |       0 |       0 |                                 
- src/TableComponents       |   86.57 |    79.46 |   88.79 |   86.57 |                                 
-  ShowFallTable.tsx        |     100 |      100 |     100 |     100 |                                 
-  ShowSpringTable.tsx      |     100 |      100 |     100 |     100 |                                 
-  ShowSummerTable.tsx      |     100 |      100 |     100 |     100 |                                 
-  ShowWinterTable.tsx      |     100 |      100 |     100 |     100 |                                 
-  TableContentsFall.tsx    |   93.61 |    80.76 |   96.42 |   93.61 | 107,110,144,196,203-204         
-  TableContentsSpring.tsx  |   84.04 |    76.92 |   85.71 |   84.04 | 107,110,139-151,196,203-204,330 
-  TableContentsSummer.tsx  |   84.04 |    76.92 |   85.71 |   84.04 | 107,110,139-151,196,203-204,330 
-  TableContentsWinter.tsx  |   84.04 |    76.92 |   85.71 |   84.04 | 107,110,139-151,196,203-204,330 
----------------------------|---------|----------|---------|---------|---------------------------------
+---------------------------|---------|----------|---------|---------|----------------------------
+File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s          
+---------------------------|---------|----------|---------|---------|----------------------------
+All files                  |   93.63 |    85.92 |   98.51 |   93.63 |                            
+ src                       |     100 |      100 |     100 |     100 |                            
+  App.tsx                  |     100 |      100 |     100 |     100 |                            
+ src/Components            |   89.76 |    69.23 |   98.43 |   89.76 |                            
+  AddSemester.tsx          |     100 |      100 |     100 |     100 |                            
+  CourseEdit.tsx           |   88.13 |       50 |     100 |   88.13 | 92,117,141,170,214,221-222 
+  DegreeRequirement.tsx    |     100 |       50 |     100 |     100 | 38-97                      
+  Homepage.tsx             |     100 |      100 |     100 |     100 |                            
+  MakePlan.tsx             |     100 |      100 |     100 |     100 |                            
+  PlanContainer.tsx        |   91.66 |    66.66 |     100 |   91.66 | 47,65                      
+  YearContainer.tsx        |   93.75 |     87.5 |     100 |   93.75 | 36                         
+  Years.tsx                |   70.73 |       30 |   83.33 |   70.73 | 42-55,100                  
+ src/Concentrations        |   95.23 |    90.85 |     100 |   95.23 |                            
+  AI.tsx                   |   95.31 |     90.9 |     100 |   95.31 | 28,33,48                   
+  Bioinformatics.tsx       |   95.45 |     91.3 |     100 |   95.45 | 28,33,48                   
+  Cybersecurity.tsx        |   95.31 |     90.9 |     100 |   95.31 | 28,33,48                   
+  DataScience.tsx          |   95.65 |     91.3 |     100 |   95.65 | 28,33,48                   
+  HPC.tsx                  |   95.31 |     90.9 |     100 |   95.31 | 27,32,47                   
+  SystemsAndNetworks.tsx   |   95.65 |     91.3 |     100 |   95.65 | 30,35,50                   
+  Theory.tsx               |   95.31 |     90.9 |     100 |   95.31 | 28,33,48                   
+  Traditional.tsx          |   93.18 |    88.88 |     100 |   93.18 | 33,38,53                   
+ src/Interfaces            |       0 |        0 |       0 |       0 |                            
+  Courses.ts               |       0 |        0 |       0 |       0 |                            
+  coursePopupInterface.tsx |       0 |        0 |       0 |       0 |                            
+  degreeInterface.tsx      |       0 |        0 |       0 |       0 |                            
+  semesterInterfaces.tsx   |       0 |        0 |       0 |       0 |                            
+  yearInterface.tsx        |       0 |        0 |       0 |       0 |                            
+ src/TableComponents       |   93.68 |    82.14 |   96.55 |   93.68 |                            
+  ShowFallTable.tsx        |     100 |      100 |     100 |     100 |                            
+  ShowSpringTable.tsx      |     100 |      100 |     100 |     100 |                            
+  ShowSummerTable.tsx      |     100 |      100 |     100 |     100 |                            
+  ShowWinterTable.tsx      |     100 |      100 |     100 |     100 |                            
+  TableContentsFall.tsx    |   93.61 |    80.76 |   96.42 |   93.61 | 107,110,144,196,203-204    
+  TableContentsSpring.tsx  |   93.61 |    80.76 |   96.42 |   93.61 | 107,110,144,196,203-204    
+  TableContentsSummer.tsx  |   93.61 |    80.76 |   96.42 |   93.61 | 107,110,144,196,203-204    
+  TableContentsWinter.tsx  |   93.61 |    80.76 |   96.42 |   93.61 | 107,110,144,196,203-204    
+---------------------------|---------|----------|---------|---------|----------------------------
 
-Test Suites: 3 failed, 11 passed, 14 total
-Tests:       4 failed, 113 passed, 117 total
+Test Suites: 14 passed, 14 total
+Tests:       124 passed, 124 total
 Snapshots:   0 total
-Time:        82.867 s
+Time:        95.404 s
 Ran all test suites.
