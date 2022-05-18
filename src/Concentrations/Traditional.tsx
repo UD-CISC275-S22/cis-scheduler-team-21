@@ -90,18 +90,22 @@ export function Traditional({ planCourses }: planCoursesProp): JSX.Element {
             <Row>
                 <Col sm={"auto"}>
                     <b>Core Requirement {"\n"}</b>
-                    {coreClasses.map((course: string): JSX.Element => {
-                        if (
-                            planCourses.some(
-                                (courseObj: course): boolean =>
-                                    courseObj.code === course
-                            )
-                        ) {
-                            return <div key={course}>{course + "✅\n"}</div>;
-                        } else {
-                            return <div key={course}>{course + ""}</div>;
-                        }
-                    })}
+                    <div data-testid="TRAD-core">
+                        {coreClasses.map((course: string): JSX.Element => {
+                            if (
+                                planCourses.some(
+                                    (courseObj: course): boolean =>
+                                        courseObj.code === course
+                                )
+                            ) {
+                                return (
+                                    <div key={course}>{course + "✅\n"}</div>
+                                );
+                            } else {
+                                return <div key={course}>{course + ""}</div>;
+                            }
+                        })}
+                    </div>
                 </Col>
                 <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
                     <b>Additional Requirements {"\n"}</b>

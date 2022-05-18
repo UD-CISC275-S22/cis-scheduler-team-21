@@ -184,18 +184,20 @@ export function Bioinformatics({ planCourses }: planCoursesProp): JSX.Element {
                 </Col>
                 <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
                     <b>Concentration Core {"\n"}</b>
-                    {concentrationReq.map((course: string) => {
-                        if (
-                            planCourses.some(
-                                (courseObj: course): boolean =>
-                                    courseObj.code === course
-                            )
-                        ) {
-                            return course + "✅\n";
-                        } else {
-                            return course + " \n";
-                        }
-                    })}
+                    <div data-testid="BIO-core">
+                        {concentrationReq.map((course: string) => {
+                            if (
+                                planCourses.some(
+                                    (courseObj: course): boolean =>
+                                        courseObj.code === course
+                                )
+                            ) {
+                                return course + "✅\n";
+                            } else {
+                                return course + " \n";
+                            }
+                        })}
+                    </div>
                 </Col>
                 <Col sm={"auto"} style={{ whiteSpace: "pre" }}>
                     <b>Data Analysis Requirement {"\n"}</b>
