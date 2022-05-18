@@ -104,7 +104,7 @@ describe("SummerDataToArrayTests", () => {
             screen.queryByText("Introduction to Software Engineering")
         ).toBeInTheDocument();
     });
-    test("Clear button removes all the courses from the table", () => {
+    /**test("Clear button removes all the courses from the table", () => {
         const searchBar: HTMLElement = screen.getByTestId("searchIDSummer");
         searchBar.click();
         userEvent.type(searchBar, "CISC 275");
@@ -125,7 +125,7 @@ describe("SummerDataToArrayTests", () => {
 
         expect(course275).not.toBeInTheDocument();
         expect(course220).not.toBeInTheDocument();
-    });
+    });*/
     test("Courses cannot be duplicated in table", () => {
         const searchBar: HTMLElement = screen.getByTestId("searchIDSummer");
         searchBar.click();

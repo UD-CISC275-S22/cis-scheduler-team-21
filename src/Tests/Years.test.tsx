@@ -3,24 +3,6 @@ import { render, screen } from "@testing-library/react";
 import { Years } from "../Components/Years";
 import { MemoryRouter } from "react-router-dom";
 
-function mockFunction() {
-    const original = jest.requireActual("react-router-dom");
-    return {
-        ...original,
-        useLocation: jest.fn().mockReturnValue({
-            state: { concentrationValue: "Systems And Networks", planID: 1 }
-        })
-    };
-}
-
-jest.mock("react-router-dom", () => mockFunction());
-
-/* jest.mock("react-router-dom", () => ({
-    Link: jest.fn().mockImplementation(({ children }) => {
-        return children;
-    })
-})); */
-
 describe("Year Component tests", () => {
     beforeEach(() => {
         render(
@@ -36,20 +18,6 @@ describe("Year Component tests", () => {
             configurable: true,
             value: { reload: jest.fn() }
         });
-        function mockFunction() {
-            const original = jest.requireActual("react-router-dom");
-            return {
-                ...original,
-                useLocation: jest.fn().mockReturnValue({
-                    state: {
-                        concentrationValue: "Systems And Networks",
-                        planID: 1
-                    }
-                })
-            };
-        }
-
-        jest.mock("react-router-dom", () => mockFunction());
     });
 
     afterAll(() => {
@@ -59,8 +27,10 @@ describe("Year Component tests", () => {
         });
     });
     test("There is a Rename/Delete Years Button", () => {
-        const renameDeleteButton = screen.getByTestId("rename-delete-button");
-        expect(renameDeleteButton).toBeInTheDocument();
+        const editYearsButton = screen.getByRole("button", {
+            name: /Edit Years/i
+        });
+        expect(editYearsButton).toBeInTheDocument();
     });
     test("There is a button named Course Requirements", () => {
         const courseRequirementsButton = screen.getByRole("button", {
@@ -81,14 +51,31 @@ describe("Year Component tests", () => {
         expect(addYearButton).toBeInTheDocument();
     });
     test("The Add Year button adds a yearContainer component when clicked", () => {
+        {
+            Object.defineProperty(window, "localStorage", {
+                value: {
+                    getItem: jest.fn(() => null),
+                    setItem: jest.fn(() => null)
+                },
+                writable: true
+            });
+        }
         const addYearButton = screen.getByRole("button", {
             name: /Add Year/i
         });
         addYearButton.click();
-
-        expect(screen.getByText("New School Year")).toBeInTheDocument();
+        expect(window.localStorage.setItem).toHaveBeenCalledTimes(1);
     });
     test("Clicking the save button saves the list of years", () => {
+        {
+            Object.defineProperty(window, "localStorage", {
+                value: {
+                    getItem: jest.fn(() => null),
+                    setItem: jest.fn(() => null)
+                },
+                writable: true
+            });
+        }
         const addYearButton = screen.getByRole("button", {
             name: /Add Year/i
         });
@@ -99,23 +86,46 @@ describe("Year Component tests", () => {
         });
         saveButton.click();
 
-        window.location.reload();
-
-        expect(screen.getByText("New School Year")).toBeInTheDocument();
+        expect(window.localStorage.setItem).toHaveBeenCalledTimes(1);
     });
-    /*  test("Clicking the course requirements button reveals a popup with all the requirements", () => {
+    test("Clicking the course requirements button reveals a popup with all the requirements", () => {
         const courseRequirementsButton = screen.getByRole("button", {
             name: /Course Requirements/i
         });
         courseRequirementsButton.click();
 
         expect(screen.getByTestId("requirement-popup")).toBeInTheDocument();
-    }); */
+    });
     test("Clicking the Rename/Delete Year button reveals the edit mode for the years", () => {
         const renameDeleteButton = screen.getByTestId("rename-delete-button");
 
         renameDeleteButton.click();
         //expect(screen.getByTestId("year-name-edit")).toBeInTheDocument();
         expect(screen.getByTestId("rename-delete-button")).toBeInTheDocument();
+    });
+    test("Testing for localStorage items being rendered into previousData", () => {
+        {
+            Object.defineProperty(window, "localStorage", {
+                value: {
+                    getItem: jest.fn(() => null),
+                    setItem: jest.fn(() => null)
+                },
+                writable: true
+            });
+        }
+        expect(window.localStorage.getItem).toHaveBeenCalledTimes(2);
+    });
+    test("Clicking the delete button deletes a year", () => {
+        const yearContainer = screen.getByTestId("year-container-1");
+        const editYearsButton = screen.getByRole("button", {
+            name: /Edit Years/i
+        });
+        editYearsButton.click();
+
+        expect(yearContainer).toBeInTheDocument();
+        const deleteButton = screen.getByTestId("delete-year-1");
+        deleteButton.click();
+
+        expect(yearContainer).not.toBeInTheDocument();
     });
 });

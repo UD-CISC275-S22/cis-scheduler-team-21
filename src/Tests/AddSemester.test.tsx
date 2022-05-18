@@ -308,4 +308,88 @@ describe("AddSemester Component tests", () => {
         expect(winterTable).not.toBeInTheDocument();
         expect(summerTable).not.toBeInTheDocument();
     });
+    test("Clicking the Delete Fall button deletes the Fall Semester table", () => {
+        const fallButton = screen.getByRole("button", {
+            name: /Add Fall Semester/i
+        });
+        fallButton.click();
+
+        const fallTable = screen.getByTestId("fall-table");
+        expect(fallTable).toBeInTheDocument();
+
+        const editButton = screen.getByRole("button", {
+            name: /Edit Mode/i
+        });
+        editButton.click();
+
+        const deleteFallButton = screen.getByRole("button", {
+            name: /Delete Fall/i
+        });
+        deleteFallButton.click();
+
+        expect(fallTable).not.toBeInTheDocument();
+    });
+    test("Clicking the Delete Spring button deletes the Fall Semester table", () => {
+        const springButton = screen.getByRole("button", {
+            name: /Add Spring Semester/i
+        });
+        springButton.click();
+
+        const springTable = screen.getByTestId("spring-table");
+        expect(springTable).toBeInTheDocument();
+
+        const editButton = screen.getByRole("button", {
+            name: /Edit Mode/i
+        });
+        editButton.click();
+
+        const deleteSpringButton = screen.getByRole("button", {
+            name: /Delete Spring/i
+        });
+        deleteSpringButton.click();
+
+        expect(springTable).not.toBeInTheDocument();
+    });
+    test("Clicking the Delete Winter button deletes the Winter Session table", () => {
+        const winterButton = screen.getByRole("button", {
+            name: /Add Winter Session/i
+        });
+        winterButton.click();
+
+        const winterTable = screen.getByTestId("winter-table");
+        expect(winterTable).toBeInTheDocument();
+
+        const editButton = screen.getByRole("button", {
+            name: /Edit Mode/i
+        });
+        editButton.click();
+
+        const deleteWinterButton = screen.getByRole("button", {
+            name: /Delete Winter/i
+        });
+        deleteWinterButton.click();
+
+        expect(winterTable).not.toBeInTheDocument();
+    });
+    test("Clicking the Delete Summer button deletes the Summer Session table", () => {
+        const summerButton = screen.getByRole("button", {
+            name: /Add Summer Session/i
+        });
+        summerButton.click();
+
+        const summerTable = screen.getByTestId("summer-table");
+        expect(summerTable).toBeInTheDocument();
+
+        const editButton = screen.getByRole("button", {
+            name: /Edit Mode/i
+        });
+        editButton.click();
+
+        const deleteSummerButton = screen.getByRole("button", {
+            name: /Delete Summer/i
+        });
+        deleteSummerButton.click();
+
+        expect(summerTable).not.toBeInTheDocument();
+    });
 });
