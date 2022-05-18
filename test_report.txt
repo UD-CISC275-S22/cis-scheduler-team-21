@@ -2,10 +2,10 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/AddSemester.test.tsx (33.871 s)
-PASS src/Tests/TableContentsFall.test.tsx (18.099 s)
-PASS src/Tests/MakePlan.test.tsx
+PASS src/Tests/AddSemester.test.tsx (31.627 s)
+PASS src/Tests/TableContentsFall.test.tsx (17.837 s)
 PASS src/Tests/DegreeRequirement.test.tsx
+PASS src/Tests/MakePlan.test.tsx
 FAIL src/Tests/CourseEdit.test.tsx
   ● CourseEdit Component tests › There is a button named Done that removes the popup when clicked
 
@@ -23,9 +23,9 @@ FAIL src/Tests/CourseEdit.test.tsx
 
       at Object.<anonymous> (src/Tests/CourseEdit.test.tsx:50:61)
 
-PASS src/Tests/TableContentsSpring.test.tsx (7.027 s)
-PASS src/Tests/TableContentsWinter.test.tsx (7.613 s)
-PASS src/Tests/TableContentsSummer.test.tsx (7.837 s)
+PASS src/Tests/TableContentsSpring.test.tsx (6.577 s)
+PASS src/Tests/TableContentsWinter.test.tsx (7.463 s)
+PASS src/Tests/TableContentsSummer.test.tsx (7.69 s)
 FAIL src/Tests/Years.test.tsx
   ● Year Component tests › Testing for localStorage items being rendered into previousData
 
@@ -133,7 +133,6 @@ FAIL src/Tests/Years.test.tsx
       at Object.<anonymous> (src/Tests/Years.test.tsx:119:38)
 
 PASS src/Tests/PlanContainer.test.tsx
-PASS src/Tests/CommonPlan.test.tsx
 FAIL src/Tests/YearContainer.test.tsx
   ● year Container tests › Clicking the delete button deletes a year
 
@@ -293,12 +292,11 @@ PASS src/Tests/App.test.tsx
 ---------------------------|---------|----------|---------|---------|---------------------------------
 File                       | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s               
 ---------------------------|---------|----------|---------|---------|---------------------------------
-All files                  |   90.96 |    85.37 |   95.61 |   90.96 |                                 
+All files                  |    90.9 |    85.31 |   95.54 |    90.9 |                                 
  src                       |     100 |      100 |     100 |     100 |                                 
   App.tsx                  |     100 |      100 |     100 |     100 |                                 
- src/Components            |   88.73 |    69.23 |    97.1 |   88.73 |                                 
+ src/Components            |   88.37 |    68.42 |   96.87 |   88.37 |                                 
   AddSemester.tsx          |     100 |      100 |     100 |     100 |                                 
-  CommonPlan.tsx           |     100 |      100 |     100 |     100 |                                 
   CourseEdit.tsx           |   88.13 |       50 |     100 |   88.13 | 92,117,141,170,214,221-222      
   DegreeRequirement.tsx    |     100 |       50 |     100 |     100 | 38-98                           
   Homepage.tsx             |     100 |      100 |     100 |     100 |                                 
@@ -326,14 +324,14 @@ All files                  |   90.96 |    85.37 |   95.61 |   90.96 |
   ShowSpringTable.tsx      |     100 |      100 |     100 |     100 |                                 
   ShowSummerTable.tsx      |     100 |      100 |     100 |     100 |                                 
   ShowWinterTable.tsx      |     100 |      100 |     100 |     100 |                                 
-  TableContentsFall.tsx    |   93.61 |    80.76 |   96.42 |   93.61 | 112,115,149,201,208-209         
-  TableContentsSpring.tsx  |   84.04 |    76.92 |   85.71 |   84.04 | 112,115,144-156,201,208-209,335 
-  TableContentsSummer.tsx  |   84.04 |    76.92 |   85.71 |   84.04 | 112,115,144-156,201,208-209,335 
-  TableContentsWinter.tsx  |   84.04 |    76.92 |   85.71 |   84.04 | 112,115,144-156,201,208-209,335 
+  TableContentsFall.tsx    |   93.61 |    80.76 |   96.42 |   93.61 | 107,110,144,196,203-204         
+  TableContentsSpring.tsx  |   84.04 |    76.92 |   85.71 |   84.04 | 107,110,139-151,196,203-204,330 
+  TableContentsSummer.tsx  |   84.04 |    76.92 |   85.71 |   84.04 | 107,110,139-151,196,203-204,330 
+  TableContentsWinter.tsx  |   84.04 |    76.92 |   85.71 |   84.04 | 107,110,139-151,196,203-204,330 
 ---------------------------|---------|----------|---------|---------|---------------------------------
 
-Test Suites: 3 failed, 12 passed, 15 total
-Tests:       4 failed, 121 passed, 125 total
+Test Suites: 3 failed, 11 passed, 14 total
+Tests:       4 failed, 113 passed, 117 total
 Snapshots:   0 total
-Time:        86.955 s
+Time:        82.867 s
 Ran all test suites.
